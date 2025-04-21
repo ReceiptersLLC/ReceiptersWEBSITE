@@ -28,16 +28,16 @@ export default function Navigator() {
           {/* Left Side - Links */}
           <div className="flex items-center">
             <div className="hidden md:flex space-x-4">
-              <Link href="#" className="text-primary hover:text-blue-500 font-medium">
+              <Link href="/" className="text-primary hover:text-blue-500 font-medium">
                 Home
               </Link>
-              <Link href="#" className="text-primary hover:text-blue-500 font-medium">
+              <Link href="/about" className="text-primary hover:text-blue-500 font-medium">
                 About
               </Link>
               <Link href="#" className="text-primary hover:text-blue-500 font-medium">
                 Services
               </Link>
-              <Link href="#" className="text-primary hover:text-blue-500 font-medium">
+              <Link href="/contact" className="text-primary hover:text-blue-500 font-medium">
                 Contact
               </Link>
             </div>

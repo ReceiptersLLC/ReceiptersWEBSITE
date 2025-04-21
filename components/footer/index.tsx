@@ -75,7 +75,7 @@ export default function Footer() {
         </div>
 
         <div className="text-center text-base">
-          © 2024 Receipters LLC. All Rights Reserved
+          © {new Date().getFullYear()} Receipters LLC. All Rights Reserved
         </div>
       </div>
     </div>
