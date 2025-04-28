@@ -9,7 +9,7 @@ export default function Navigator() {
   return (
     <nav className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-16 border-b-slate-200 border-b">
           <div className="flex items-center">
             <Link
               href="/">
@@ -34,8 +34,8 @@ export default function Navigator() {
               <Link href="/about" className="text-primary hover:text-blue-500 font-medium">
                 About
               </Link>
-              <Link href="#" className="text-primary hover:text-blue-500 font-medium">
-                Services
+              <Link href="/product" className="text-primary hover:text-blue-500 font-medium">
+                Product
               </Link>
               <Link href="/contact" className="text-primary hover:text-blue-500 font-medium">
                 Contact
@@ -83,7 +83,7 @@ export default function Navigator() {
               About
             </a>
             <a href="#" className="block text-primary hover:text-blue-500 font-medium">
-              Services
+              Product
             </a>
             <a href="#" className="block text-primary hover:text-blue-500 font-medium">
               Contact
