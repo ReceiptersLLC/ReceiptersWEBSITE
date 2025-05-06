@@ -45,7 +45,6 @@ export default function Navigator() {
 
           {/* Right Side - Logo */}
 
-
           {/* Mobile Menu Button */}
           <div className="-mr-2 flex items-center md:hidden">
             <button
