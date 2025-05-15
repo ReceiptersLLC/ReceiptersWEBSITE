@@ -143,4 +143,14 @@ const socialMediaLinks = [
     url: "/",
   },
 
+ {
+    id: 4,
+    name: "TikTok",
+ url: "/",
+  },
+  {
+    id: 5,
+    name: "YouTube",
+    url: "/",
+  },
 ]
