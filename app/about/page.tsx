@@ -95,12 +95,25 @@ export default function page() {
           {/* Placeholder for Team Member Components */}
           <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
             <TeamMember fullName="Gordon Odira" description="CEO"/>
-            <TeamMember fullName="George Osewe" description="Head of Operations & Communications"/>
-            <TeamMember fullName="Jeffrey Dozva" description="Tech Lead"/>
-            <TeamMember fullName="Prof. Joshua O. Agola" description="Senior Advisor, Tech"/>
+            <div className="text-center">
+ <img src="/assets/team-member-image.jpg" alt="Team Member" className="w-32 h-32 rounded-full mx-auto object-cover" />
+              <h3 className="text-xl font-semibold mt-4">George Osewe</h3>
+              <p className="text-gray-600">Head of Operations & Communications</p>
+            </div>
+            <div className="text-center">
+ <img src="/assets/team-member-image.jpg" alt="Team Member" className="w-32 h-32 rounded-full mx-auto object-cover" />
+              <h3 className="text-xl font-semibold mt-4">Jeffrey Dozva</h3>
+              <p className="text-gray-600">Tech Lead</p>
+            </div>
+            <div className="text-center">
+ <img src="/assets/team-member-image.jpg" alt="Team Member" className="w-32 h-32 rounded-full mx-auto object-cover" />
+              <h3 className="text-xl font-semibold mt-4">Prof. Joshua O. Agola</h3>
+              <p className="text-gray-600">Senior Advisor, Tech</p>
+            </div>
           </div>
         </div>
       </section>
     </div>
   )
 }
+
