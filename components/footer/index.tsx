@@ -57,7 +57,7 @@ export default function Footer() {
 
           {/* Right Side */}
           <div className="w-full grid grid-cols-2 gap-x-4 sm:gap-x-8">
-            <FooterLinksSection title="Product" data={productLinks} />
+            <FooterLinksSection title="Quick Links" data={productLinks} />
             <FooterLinksSection title="Social Media" data={socialMediaLinks} />
           </div>
         </div>
@@ -137,7 +137,7 @@ const socialMediaLinks = [
   {
     id: 4,
     name: "LinkedIn",
-    url: "https://www.linkedin.com/company/receipters_llc",
+    url: "https://www.linkedin.com/in/receipters-llc",
   },
   {
     id: 5,
