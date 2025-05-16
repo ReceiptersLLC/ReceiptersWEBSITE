@@ -1,4 +1,80 @@
 import Image from 'next/image';
+import { Smartphone, MonitorSmartphone, UploadCloud, Smile } from "lucide-react";
+
+const features = [
+  {
+    title: "Digital Receipt Issuance",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      </svg>
+    ),
+    description: "Automatically generate and send digital receipts via email, SMS, or to Receipters accounts."
+  },
+  {
+    title: "Offline Functionality",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 3v18h18M8 8h8v8H8z" />
+      </svg>
+    ),
+    description: "Capture receipts even when offline and sync them once internet connection is restored."
+  },
+  {
+    title: "Multi-device Sync",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 10h16M4 14h8" />
+      </svg>
+    ),
+    description: "Access your receipt data across all your devices seamlessly."
+  },
+  {
+    title: "Budgeting Assistant",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2h0c1.1 0 2 .9 2 2s-.9 2-2 2m0-6v2m0 4v.01" />
+      </svg>
+    ),
+    description: "Set monthly spending goals and track progress using built-in budgeting tools."
+  },
+  {
+    title: "Expense Sharing",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5" />
+      </svg>
+    ),
+    description: "Split bills and share receipts with friends, family, or coworkers in a tap."
+  },
+  {
+    title: "Vendor Analytics Dashboard",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+      </svg>
+    ),
+    description: "Vendors access real-time analytics on receipts, user behavior, and product performance."
+  }
+];
+
+const aiBenefits = [
+  {
+    emoji: "🧠",
+    title: "Smart Categorization",
+    description: "Automatically classifies receipts based on merchants, dates, and purchase types."
+  },
+  {
+    emoji: "📊",
+    title: "Trend Detection",
+    description: "Analyzes your purchase patterns and highlights unusual spending."
+  },
+  {
+    emoji: "🔍",
+    title: "Instant Retrieval",
+    description: "AI search returns the right receipt even from vague descriptions or typos."
+  }
+];
 
 export default function Page() {
   return (
@@ -57,6 +133,58 @@ export default function Page() {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section className="bg-white py-20 px-6 text-center">
+        <h2 className="text-3xl font-bold text-gray-900 mb-12">How It Works</h2>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+          {/* Step 1 */}
+          <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+            <MonitorSmartphone size={40} className="text-blue-600 mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Step 1</h3>
+            <p className="text-gray-700 text-sm">
+              Vendors integrate Receipters into POS. Users install the mobile app.
+            </p>
+          </div>
+
+          {/* Arrow 1 */}
+          {/* <Arrow /> */}
+
+          {/* Step 2 */}
+          <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+            <UploadCloud size={40} className="text-green-600 mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Step 2</h3>
+            <p className="text-gray-700 text-sm">
+              At checkout, receipts are instantly sent to the user’s app and securely stored.
+            </p>
+          </div>
+
+          {/* Arrow 2 */}
+          {/* <Arrow /> */}
+
+          {/* Step 3 */}
+          <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+            <Smartphone size={40} className="text-purple-600 mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Step 3</h3>
+            <p className="text-gray-700 text-sm">
+              Users access, sort, analyze, and reference their receipts anytime.
+            </p>
+          </div>
+
+          {/* Arrow 3 */}
+          {/* <Arrow /> */}
+
+          {/* Step 4 */}
+          <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+            <Smile size={40} className="text-yellow-500 mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Step 4</h3>
+            <p className="text-gray-700 text-sm">
+              Everyone wins: fast, paperless, eco-friendly transactions.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-blue-600 text-white text-center">
         <div className="max-w-3xl mx-auto px-6">
@@ -82,86 +210,18 @@ function FeatureCard({ title, icon, description }: { title: string; icon: JSX.El
   );
 }
 
-const features = [
-  {
-    title: "Digital Receipt Issuance",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-    ),
-    description: "Automatically generate and send digital receipts via email, SMS, or to Receipters accounts."
-  },
-  {
-    title: "Smart Receipt Capture",
-    icon: (
-      <svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2m0 0h2" />
-      </svg>
-    ),
-    description: "Scan or upload images, forward receipts by email. OCR reads and logs them instantly."
-  },
-  {
-    title: "Secure Cloud Storage",
-    icon: (
-      <svg className="w-12 h-12 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-5m3 5v-5m3 5v-5M9 21V3a1 1 0 011-1h4a1 1 0 011 1v18l-2-1-2 1-2-1z" />
-      </svg>
-    ),
-    description: "All receipts safely backed up in the cloud. Access anytime, from any device."
-  },
-  {
-    title: "Powerful Search & Filtering",
-    icon: (
-      <svg className="w-12 h-12 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h6m2 0H7m0 0a2 2 0 10-4 0m4 0v11a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h10a2 2 0 012 2v11a2 2 0 01-2 2h-5m-2-11v11" />
-      </svg>
-    ),
-    description: "Filter receipts by merchant, amount, tags, date, or payment method in seconds."
-  },
-  {
-    title: "Integrations & Exports",
-    icon: (
-      <svg className="w-12 h-12 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2m0 0h2" />
-      </svg>
-    ),
-    description: "Connect to QuickBooks, Xero, Google Sheets. Export data as PDF or CSV."
-  },
-  {
-    title: "Analytics & Insights",
-    icon: (
-      <svg className="w-12 h-12 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 8h6m-5 0a3 3 0 110 6H9l3 3m0-6l3-3m6 13V8a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2z" />
-      </svg>
-    ),
-    description: "Analyze expenses, track trends, monitor returns, and generate visual reports."
-  },
-  {
-    title: "Team & Enterprise Accounts",
-    icon: (
-      <svg className="w-12 h-12 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0A5.002 5.002 0 0112 8a5.002 5.002 0 015.356 1.143m-7.712 0A5.002 5.002 0 0112 8a5.002 5.002 0 015.356 1.143m-7.712 0L9 10m3-2v4m0 0l3 3m-3-3l-3 3" />
-      </svg>
-    ),
-    description: "Manage multiple users, assign roles, and track team-wide activity with audit logs."
-  }
-];
-
-const aiBenefits = [
-  {
-    emoji: "🧠",
-    title: "Smart Categorization",
-    description: "Automatically classifies receipts based on merchants, dates, and purchase types."
-  },
-  {
-    emoji: "📊",
-    title: "Trend Detection",
-    description: "Analyzes your purchase patterns and highlights unusual spending."
-  },
-  {
-    emoji: "🔍",
-    title: "Instant Retrieval",
-    description: "AI search returns the right receipt even from vague descriptions or typos."
-  }
-];
+// function Arrow() {
+//   return (
+//     <div className="hidden md:flex justify-center items-center">
+//       <svg
+//         className="w-6 h-6 text-gray-400"
+//         fill="none"
+//         stroke="currentColor"
+//         strokeWidth={2}
+//         viewBox="0 0 24 24"
+//       >
+//         <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+//       </svg>
+//     </div>
+//   );
+// }
