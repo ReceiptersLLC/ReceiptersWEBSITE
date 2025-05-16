@@ -51,7 +51,10 @@ const PricingPage: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <Link href="/download" className="mt-auto text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block">
+            <Link
+              href={tier.price === 'Contact Us' ? '/contact' : '/download'}
+              className="mt-auto text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block"
+            >
               {tier.price === 'Contact Us' ? 'Contact Us' : 'Get Started'}
             </Link>
           </div>

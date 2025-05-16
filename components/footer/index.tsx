@@ -58,7 +58,7 @@ export default function Footer() {
           {/* Right Side */}
           <div className="w-full grid grid-cols-2 gap-x-4 sm:gap-x-8">
             <FooterLinksSection title="Quick Links" data={productLinks} />
-            <FooterLinksSection title="Social Media" data={socialMediaLinks} />
+            <FooterLinksSection title="Let's Connect" data={socialMediaLinks} />
           </div>
         </div>
 
