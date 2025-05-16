@@ -44,7 +44,7 @@ export default function Features() {
               <p className="mb-8">{featuresData[selectedIndex].description}</p>
               <Button
                 variant="custom"
-                onClick={() => router.push("/get-started")}
+                onClick={() => router.push("/download")}
                 className="!bg-gradient-to-r !from-primary !to-primaryDark px-6 !rounded-full text-white self-start">
                 <div className="flex items-center space-x-4">
                   <div className="font-semibold">

@@ -39,6 +39,7 @@ export default function Navigator() {
               <NavLink href="/about" label="About" active={isActive("/about")} />
               <NavLink href="/product" label="Product" active={isActive("/product")} />
               <NavLink href="/contact" label="Contact" active={isActive("/contact")} />
+              <NavLink href="/pricing" label="Pricing" active={isActive("/pricing")} />
             </div>
           </div>
 
@@ -80,6 +81,7 @@ export default function Navigator() {
             <NavLink href="/about" label="About" active={isActive("/about")} mobile />
             <NavLink href="/product" label="Product" active={isActive("/product")} mobile />
             <NavLink href="/contact" label="Contact" active={isActive("/contact")} mobile />
+            <NavLink href="/pricing" label="Pricing" active={isActive("/pricing")} mobile />
           </div>
         </div>
       )}

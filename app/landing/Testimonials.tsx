@@ -38,7 +38,7 @@ export default function Testimonials() {
                 ))}
               </div>
               <div className="h4">
-                “As a small business owner, I can’t imagine managing my finances without Receipters. It’s the best tool
+                “As a small business owner, I can’t imagine managing my finances without Receipters. It’s the best tool 
                 out there for seamless expense tracking.”
               </div>
               <div className="flex flex-row space-x-4 items-center mt-6">

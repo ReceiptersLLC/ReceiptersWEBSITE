@@ -26,6 +26,7 @@ export default function WhoWeAre() {
             ))
           }
         </div>
+        <div className="text-center mt-10"><a href="/download" className="btn">Get Started</a></div>
       </div>
     </div>
   )
