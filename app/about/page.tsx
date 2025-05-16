@@ -76,10 +76,10 @@ export default function page() {
             A passionate and driven group committed to redefining the way the world handles receipts.
           </p>
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            <TeamCard name="Gordon Odira" title="CEO" img="/assets/download.jpeg" />
-            <TeamCard name="George Osewe" title="Head of Operations & Communications" img="/assets/download.jpeg" />
-            <TeamCard name="Jeffrey Dozva" title="Tech Lead" img="/assets/download.jpeg" />
-            <TeamCard name="Prof. Joshua O. Agola" title="Senior Advisor, Tech" img="/assets/download.jpeg" />
+            <TeamCard name="Gordon Odira" title="CEO" img="/assets/gordon.jpg" />
+            <TeamCard name="George Osewe" title="Head of Operations & Communications" img="/assets/george.jpg" />
+            <TeamCard name="Jeffrey Dozva" title="Tech Lead" img="/assets/jeffrey.jpg" />
+            <TeamCard name="Prof. Joshua O. Agola" title="Senior Advisor, Tech" img="/assets/prof.jpg" />
           </div>
         </div>
       </section>
