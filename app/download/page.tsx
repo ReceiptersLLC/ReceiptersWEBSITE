@@ -9,14 +9,12 @@ const DownloadPage = () => {
       <div className="flex space-x-8">
         <Link href="https://apps.apple.com/gb/app/receipters/id6740431170" target="_blank" rel="noopener noreferrer">
           <div className="flex flex-col items-center cursor-pointer">
-            {/* Replace with your actual image path for Apple App Store icon */}
             <Image src="/assets/App_Store.png" alt="Apple App Store" width={100} height={100} />
             <span className="mt-2 text-lg">App Store</span>
           </div>
         </Link>
         <Link href="https://play.google.com/store/apps/details?id=com.receipters" target="_blank" rel="noopener noreferrer">
           <div className="flex flex-col items-center cursor-pointer">
-            {/* Replace with your actual image path for Google Play Store icon */}
             <Image src="/assets/playstore.png" alt="Google Play Store" width={100} height={100} />
             <span className="mt-2 text-lg">Play Store</span>
           </div>
