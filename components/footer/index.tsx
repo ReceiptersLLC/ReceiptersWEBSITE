@@ -122,7 +122,7 @@ const socialMediaLinks = [
   {
     id: 1,
     name: "Facebook",
-    url: "https://www.facebook.com/receipters_llc",
+    url: "https://www.facebook.com/profile.php?id=61576378047776",
   },
   {
     id: 2,
