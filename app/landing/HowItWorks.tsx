@@ -52,7 +52,7 @@ export default function HowItWorks() {
         <div className="flex items-center justify-center mt-10">
           <Button
             variant="custom"
-            href="/download"
+            onClick={() => console.log("")}
             className="border border-slate-300 text-slate-900 px-6 !rounded-full hover:bg-primary hover:text-white">
             Get started free
           </Button>
