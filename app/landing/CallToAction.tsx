@@ -16,7 +16,7 @@ export default function CallToAction() {
         </p>
         <Button
           variant="custom"
-          onClick={() => router.push("/get-started")}
+          onClick={() => router.push("/download")}
           className="!bg-gradient-to-r !from-primary !to-primaryDark px-6 !rounded-full text-white">
           <div className="flex items-center space-x-4">
             <div className="font-medium">

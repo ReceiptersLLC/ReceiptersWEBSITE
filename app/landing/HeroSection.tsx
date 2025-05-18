@@ -20,8 +20,8 @@ export default function HeroSection() {
           <div className="flex flex-row justify-center">
             <Button
               variant="custom"
-              onClick={() => router.push("/get-started")}
-              className="!bg-gradient-to-r !from-primary !to-primaryDark px-6 !rounded-full text-white">
+              onClick={() => router.push("/download")}
+              className="!bg-gradient-to-r !from-primary !to-primaryDark px-6 !rounded-full text-white" onClick={() => router.push("/download")}>
               <div className="flex items-center space-x-4">
                 <div className="font-medium">
                   Get Started Today

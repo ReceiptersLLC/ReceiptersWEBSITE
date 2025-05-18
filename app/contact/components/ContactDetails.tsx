@@ -37,6 +37,14 @@ export default function ContactDetails() {
             info@receipters.com
           </Link>
         </div>
+
+        <div className="w-full max-w-3xl text-left text-gray-700 mb-4">
+          <h3 className="text-xl font-semibold mb-1">Our Office</h3>
+          <p>
+            355 Ridgewood Ave, Suite 1<br />
+            Newark, NJ 07112
+          </p>
+        </div>
       </div>
     </div>
   );
