@@ -17,7 +17,7 @@ interface FooterLinksSectionProps {
   }[];
 }
 
-const iconMap: Record<string, JSX.Element> = {
+const iconMap: Record<string, React.ReactElement> = {
   Facebook: <Facebook className="hover:text-blue-500" />,
   Instagram: <Instagram className="hover:text-pink-500" />,
   X: <Twitter className="hover:text-blue-400" />,

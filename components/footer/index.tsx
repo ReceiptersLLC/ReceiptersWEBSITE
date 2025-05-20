@@ -68,7 +68,7 @@ export default function Footer() {
           <div className="w-full grid grid-cols-2 gap-x-4 sm:gap-x-8">
             <FooterLinksSection title="Quick Links" data={productLinks} />
             <div className="flex flex-col items-start">
-              <div className="h5 mb-3">Let's Connect</div>
+              <div className="h5 mb-3">Connect With Us</div>
               <div className="grid grid-cols-3 gap-6">
                 <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><Facebook className="hover:text-blue-500 mx-auto" /></Link>
                 <Link href="https://www.instagram.com/receipters_llc" target="_blank"><Instagram className="hover:text-pink-500 mx-auto" /></Link>
