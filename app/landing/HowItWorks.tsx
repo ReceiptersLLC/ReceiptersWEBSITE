@@ -2,8 +2,10 @@
 import Image from "next/image";
 import classNames from "classnames";
 import Button from "@/components/Button";
+import {useRouter} from "next/navigation";
 
 export default function HowItWorks() {
+  const router = useRouter();
   return (
     <div className="section">
       <div className="max-w-7xl">
@@ -50,12 +52,21 @@ export default function HowItWorks() {
           }
         </div>
         <div className="flex items-center justify-center mt-10">
-          <Button
-            variant="custom"
-            href="/download"
-            className="border border-slate-300 text-slate-900 px-6 !rounded-full hover:bg-primary hover:text-white">
-            Get started free
-          </Button>
+                  <Button
+                    variant="custom"
+                    onClick={() => router.push("/download")}
+                    className="!bg-gradient-to-r !from-primary !to-primaryDark px-6 !rounded-full text-white">
+                    <div className="flex items-center space-x-4">
+                      <div className="font-medium">
+                        Get Started Today
+                      </div>
+                      <div className="size-8 rounded-full bg-white flex items-center justify-center">
+                      <span className="material-symbols-rounded text-primary">
+                        arrow_forward
+                      </span>
+                      </div>
+                    </div>
+                  </Button>
         </div>
       </div>
     </div>
