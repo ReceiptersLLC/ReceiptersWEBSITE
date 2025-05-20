@@ -1,5 +1,8 @@
+
+// import Image from 'next/image';
+import React from 'react';
 import { Smartphone, MonitorSmartphone, UploadCloud, Smile } from "lucide-react";
-import {ReactNode} from "react";
+// import {ReactNode} from "react";
 
 const features = [
   {
@@ -200,7 +203,15 @@ export default function Page() {
   );
 }
 
-function FeatureCard({ title, icon, description }: { title: string; icon: ReactNode; description: string; }) {
+function FeatureCard({
+  title,
+  icon,
+  description,
+}: {
+  title: string;
+  icon: React.ReactNode;
+  description: string;
+}) {
   return (
     <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition transform hover:scale-105">
       <div className="flex justify-center mb-4">{icon}</div>

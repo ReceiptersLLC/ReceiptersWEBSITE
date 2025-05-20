@@ -4,6 +4,14 @@ import Button from "@/components/Button";
 import Image from "next/image";
 import TextInput from "@/components/TextInput";
 import { useState } from "react";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Youtube
+} from "lucide-react";
+import { FaTiktok } from "react-icons/fa";
 import FooterLinksSection from "@/components/footer/FooterLinksSection";
 
 export default function Footer() {
@@ -13,6 +21,7 @@ export default function Footer() {
     <div className="section bg-[#151516] text-white">
       <div className="w-full max-w-7xl">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 border-b border-b-white pb-12">
+          {/* Left Section */}
           <div className="grid gap-6 lg:col-span-2">
             <Link href="/">
               <div className="relative w-[138px] h-[29.117px]">
@@ -55,14 +64,25 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right Side */}
+          {/* Right Section */}
           <div className="w-full grid grid-cols-2 gap-x-4 sm:gap-x-8">
             <FooterLinksSection title="Quick Links" data={productLinks} />
-            <FooterLinksSection title="Let's Connect" data={socialMediaLinks} />
+            <div className="flex flex-col items-start">
+              <div className="h5 mb-3">Connect With Us</div>
+              <div className="grid grid-cols-3 gap-6">
+                <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><Facebook className="hover:text-blue-500 mx-auto" /></Link>
+                <Link href="https://www.instagram.com/receipters_llc" target="_blank"><Instagram className="hover:text-pink-500 mx-auto" /></Link>
+                <Link href="https://www.x.com/receipters_llc" target="_blank"><Twitter className="hover:text-blue-400 mx-auto" /></Link>
+                <Link href="https://www.linkedin.com/in/receipters-llc" target="_blank"><Linkedin className="hover:text-blue-600 mx-auto" /></Link>
+                <Link href="https://www.tiktok.com/@receipters_llc" target="_blank"><FaTiktok className="w-5 h-5 hover:text-gray-300 mx-auto" /></Link>
+                <Link href="https://www.youtube.com/@Receipters_llc" target="_blank"><Youtube className="hover:text-red-500 mx-auto" /></Link>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="w-full flex flex-row items-center space-x-5 mt-12 mb-5">
+        {/* Legal links */}
+        <div className="w-full flex flex-row flex-wrap gap-4 mt-12 mb-5">
           {legalLinks.map((link, index) => (
             <Link
               key={`legal-link-${index}`}
@@ -115,38 +135,5 @@ const productLinks = [
     id: 4,
     name: "Pricing",
     url: "/pricing",
-  },
-];
-
-const socialMediaLinks = [
-  {
-    id: 1,
-    name: "Facebook",
-    url: "https://www.facebook.com/profile.php?id=61576378047776",
-  },
-  {
-    id: 2,
-    name: "Instagram",
-    url: "https://www.instagram.com/receipters_llc",
-  },
-  {
-    id: 3,
-    name: "X",
-    url: "https://www.x.com/receipters_llc",
-  },
-  {
-    id: 4,
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/receipters-llc",
-  },
-  {
-    id: 5,
-    name: "TikTok",
-    url: "https://www.tiktok.com/@receipters_llc",
-  },
-  {
-    id: 6,
-    name: "YouTube",
-    url: "https://www.youtube.com/@Receipters_llc",
   },
 ];

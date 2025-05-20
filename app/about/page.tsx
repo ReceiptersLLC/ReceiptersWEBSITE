@@ -1,6 +1,7 @@
 // import TeamMember from "@/app/about/components/TeamMember";
+import Image from "next/image";
 import {Smile, Zap, ShieldCheck, Leaf, Globe, Users, TrendingUp} from "lucide-react";
-import {ReactNode} from "react";
+// import {ReactNode} from "react";
 
 export default function page() {
   return (
@@ -86,13 +87,33 @@ export default function page() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4">Meet the Team</h2>
           <p className="text-gray-600 text-lg text-center mb-12">
-            A passionate and driven group committed to redefining the way the world handles receipts.
+            A passionate, experienced team of engineers, strategists, and technologists shaping the future of digital receipts.
           </p>
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            <TeamCard name="Gordon Odira" title="CEO" img="/assets/gordon.jpg"/>
-            <TeamCard name="George Osewe" title="Head of Operations & Communications" img="/assets/george.jpg"/>
-            <TeamCard name="Jeffrey Dozva" title="Tech Lead" img="/assets/jeffrey.jpg"/>
-            <TeamCard name="Prof. Joshua O. Agola" title="Senior Advisor, Tech" img="/assets/prof.jpg"/>
+          <div className="grid gap-10 grid-cols-1 md:grid-cols-2">
+            <TeamBioCard
+              name="Gordon Odira"
+              title="CEO & Founder"
+              image="/assets/gordon.jpg"
+              description="A seasoned Integration Engineer with 8+ years of experience in developing and deploying digital health systems across government institutions. Gordon drives the vision and platform strategy for Receipters."
+            />
+            <TeamBioCard
+              name="Fredrick George Osewe"
+              title="Business Development Director & Co-Founder"
+              image="/assets/george.jpg"
+              description="A business developer and communications strategist with extensive experience in both public and private sectors. Fredrick leads business expansion, stakeholder relations, and investor communication."
+            />
+            <TeamBioCard
+              name="Joffrey Dozva"
+              title="Technical Lead & Co-Founder"
+              image="/assets/jeffrey.jpg"
+              description="Founder of Bytetech and a full-stack engineer experienced in building health tech systems across Africa. Joffrey leads our development and infrastructure deployment efforts."
+            />
+            <TeamBioCard
+              name="Prof. Joshua O. Agola"
+              title="CTO & Co-Founder"
+              image="/assets/prof.jpg"
+              description="Professor and Head of Software Engineering at JOOUST. A systems architect and cybersecurity expert, he ensures our platform remains scalable, secure, and globally competitive."
+            />
           </div>
         </div>
       </section>
@@ -102,12 +123,13 @@ export default function page() {
 }
 
 interface ValueCardProps {
-  icon?: ReactNode
-  title: string
-  description: string
+  icon: React.ReactNode;
+  title: string;
+  description: string;
 }
 
-function ValueCard({icon, title, description}: ValueCardProps) {
+function ValueCard({ icon, title, description }: ValueCardProps) {
+
   return (
     <div className="bg-gray-800 p-6 rounded-xl text-center shadow-lg hover:shadow-xl transition">
       <div className="mb-4 flex justify-center">{icon}</div>
@@ -117,19 +139,29 @@ function ValueCard({icon, title, description}: ValueCardProps) {
   );
 }
 
-interface TeamCardProps {
-  name: string
-  title: string
-  img: string
+interface TeamBioCardProps {
+  name: string;
+  title: string;
+  image: string;
+  description: string;
 }
 
-function TeamCard({name, title, img}: TeamCardProps) {
+function TeamBioCard({ name, title, image, description }: TeamBioCardProps) {
   return (
-    <div className="text-center">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={img} alt={name} className="w-32 h-32 rounded-full mx-auto object-cover shadow-md"/>
-      <h3 className="text-xl font-semibold mt-4">{name}</h3>
-      <p className="text-gray-600 text-sm">{title}</p>
+    <div className="flex gap-6 items-start">
+      <Image
+        src={image}
+        alt={name}
+        width={128}
+        height={128}
+        className="w-32 h-32 rounded-full object-cover shadow-md"
+      />
+      <div>
+        <h3 className="text-xl font-semibold text-gray-800">{name}</h3>
+        <p className="text-sm text-blue-600 mb-2 font-medium">{title}</p>
+        <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+      </div>
+
     </div>
   );
 }
