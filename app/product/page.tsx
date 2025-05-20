@@ -2,7 +2,7 @@
 // import Image from 'next/image';
 import React from 'react';
 import { Smartphone, MonitorSmartphone, UploadCloud, Smile } from "lucide-react";
-import {ReactNode} from "react";
+// import {ReactNode} from "react";
 
 const features = [
   {

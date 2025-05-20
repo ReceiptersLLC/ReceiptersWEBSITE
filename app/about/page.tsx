@@ -1,6 +1,7 @@
 // import TeamMember from "@/app/about/components/TeamMember";
+import Image from "next/image";
 import {Smile, Zap, ShieldCheck, Leaf, Globe, Users, TrendingUp} from "lucide-react";
-import {ReactNode} from "react";
+// import {ReactNode} from "react";
 
 export default function page() {
   return (
