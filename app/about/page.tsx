@@ -23,7 +23,7 @@ export default function page() {
           <p className="text-sm uppercase tracking-widest text-gray-400 mb-2">Our Core Values</p>
           <h3 className="text-4xl font-bold">What Drives Receipters</h3>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
-            We believe in building a digital future where every receipt is more than a record—it's a resource. Our values guide how we create, connect, and innovate for businesses and individuals alike.
+            We believe in building a digital future where every receipt is more than a record—it&rsquo;s a resource. Our values guide how we create, connect, and innovate for businesses and individuals alike.
           </p>
         </div>
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -108,7 +108,13 @@ export default function page() {
   );
 }
 
-function ValueCard({ icon, title, description }) {
+interface ValueCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+function ValueCard({ icon, title, description }: ValueCardProps) {
   return (
     <div className="bg-gray-800 p-6 rounded-xl text-center shadow-lg hover:shadow-xl transition">
       <div className="mb-4 flex justify-center">{icon}</div>
@@ -118,12 +124,21 @@ function ValueCard({ icon, title, description }) {
   );
 }
 
-function TeamBioCard({ name, title, image, description }) {
+interface TeamBioCardProps {
+  name: string;
+  title: string;
+  image: string;
+  description: string;
+}
+
+function TeamBioCard({ name, title, image, description }: TeamBioCardProps) {
   return (
     <div className="flex gap-6 items-start">
-      <img
+      <Image
         src={image}
         alt={name}
+        width={128}
+        height={128}
         className="w-32 h-32 rounded-full object-cover shadow-md"
       />
       <div>
