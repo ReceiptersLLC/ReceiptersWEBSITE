@@ -94,25 +94,25 @@ export default function page() {
               name="Gordon Odira"
               title="CEO & Founder"
               image="/assets/gordon.jpg"
-              description="A seasoned Integration Engineer with 8+ years of experience in developing and deploying digital health systems across government institutions. Gordon drives the vision and platform strategy for Receipters."
+              description="A senior Integration Engineer with over 8 years in federal, state, and private tech deployments. Holds a BSc in Electrical & Computer Engineering from Rutgers University and a Master’s in Electrical and Computer Engineering from NJIT."
             />
             <TeamBioCard
               name="Fredrick George Osewe"
-              title="Business Development Director & Co-Founder"
+              title="Senior Consultant, Business Development Director and Communications"
               image="/assets/george.jpg"
-              description="A business developer and communications strategist with extensive experience in both public and private sectors. Fredrick leads business expansion, stakeholder relations, and investor communication."
+              description="A government and policy expert who was part of Kenya's constitutional transition team in 2010. Specializes in restructuring business operations. Holds a degree in Development Communication."
             />
             <TeamBioCard
               name="Joffrey Dozva"
-              title="Technical Lead & Co-Founder"
+              title="Senior Engineer and Technical Lead"
               image="/assets/jeffrey.jpg"
-              description="Founder of Bytetech and a full-stack engineer experienced in building health tech systems across Africa. Joffrey leads our development and infrastructure deployment efforts."
+              description="Lead developer of Receipters core systems. Has built hundreds of mobile apps and led health tech deployments across Africa. Graduate of Kenya Aeronautical College in Software Engineering."
             />
             <TeamBioCard
               name="Prof. Joshua O. Agola"
-              title="CTO & Co-Founder"
+              title="CTO and Principal Architect"
               image="/assets/prof.jpg"
-              description="Professor and Head of Software Engineering at JOOUST. A systems architect and cybersecurity expert, he ensures our platform remains scalable, secure, and globally competitive."
+              description="Professor and Head of Software Engineering at JOOUST University. Expert in system architecture and cybersecurity. Leads Receipters' technical strategy and infrastructure security."
             />
           </div>
         </div>
