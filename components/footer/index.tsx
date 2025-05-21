@@ -7,11 +7,11 @@ import { useState } from "react";
 import {
   Facebook,
   Instagram,
-  Twitter,
   Linkedin,
   Youtube
 } from "lucide-react";
 import { FaTiktok } from "react-icons/fa";
+import { FaXTwitter } from 'react-icons/fa6';
 import FooterLinksSection from "@/components/footer/FooterLinksSection";
 
 export default function Footer() {
@@ -56,28 +56,29 @@ export default function Footer() {
                 By subscribing you agree to our Privacy Policy and provide consent to receive updates from our
                 company.
               </div>
-              <div className="text-sm text-gray-300 mt-4">
-                <strong>Our Office:</strong><br />
-                355 Ridgewood Ave, Suite 1<br />
-                Newark, NJ 07112
+              <div className="flex flex-col items-start">
+              <div className="h6 mt-3 mb-3">Connect With Us</div>
+              <div className="flex flex-row gap-4">
+                <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><Facebook className="hover:text-blue-500 mx-auto" /></Link>
+                <Link href="https://www.instagram.com/receipters_llc" target="_blank"><Instagram className="hover:text-pink-500 mx-auto" /></Link>
+                <Link href="https://www.x.com/receipters_llc" target="_blank"><FaXTwitter className="w-5 h-5 hover:text-blue-400 mx-auto" /></Link>
+                <Link href="https://www.linkedin.com/in/receipters-llc" target="_blank"><Linkedin className="hover:text-blue-600 mx-auto" /></Link>
+                <Link href="https://www.tiktok.com/@receipters_llc" target="_blank"><FaTiktok className="w-5 h-5 hover:text-gray-300 mx-auto" /></Link>
+                <Link href="https://www.youtube.com/@Receipters_llc" target="_blank"><Youtube className="hover:text-red-500 mx-auto" /></Link>
               </div>
+            </div>
+              
             </div>
           </div>
 
           {/* Right Section */}
           <div className="w-full grid grid-cols-2 gap-x-4 sm:gap-x-8">
             <FooterLinksSection title="Quick Links" data={productLinks} />
-            <div className="flex flex-col items-start">
-              <div className="h5 mb-3">Connect With Us</div>
-              <div className="grid grid-cols-3 gap-6">
-                <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><Facebook className="hover:text-blue-500 mx-auto" /></Link>
-                <Link href="https://www.instagram.com/receipters_llc" target="_blank"><Instagram className="hover:text-pink-500 mx-auto" /></Link>
-                <Link href="https://www.x.com/receipters_llc" target="_blank"><Twitter className="hover:text-blue-400 mx-auto" /></Link>
-                <Link href="https://www.linkedin.com/in/receipters-llc" target="_blank"><Linkedin className="hover:text-blue-600 mx-auto" /></Link>
-                <Link href="https://www.tiktok.com/@receipters_llc" target="_blank"><FaTiktok className="w-5 h-5 hover:text-gray-300 mx-auto" /></Link>
-                <Link href="https://www.youtube.com/@Receipters_llc" target="_blank"><Youtube className="hover:text-red-500 mx-auto" /></Link>
+            <div className="text-sm text-gray-300 mt-4">
+                <strong>Our Office:</strong><br />
+                355 Ridgewood Ave, Suite 1<br />
+                Newark, NJ 07112
               </div>
-            </div>
           </div>
         </div>
 
