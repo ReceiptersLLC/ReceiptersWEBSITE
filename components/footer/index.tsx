@@ -111,7 +111,7 @@ const legalLinks = [
   },
   {
     id: 2,
-    name: "Terms of Service",
+    name: "Terms and Conditions",
     url: "/terms-and-conditions",
   },
 ];
