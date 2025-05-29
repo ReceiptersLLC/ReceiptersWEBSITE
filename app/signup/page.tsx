@@ -16,14 +16,12 @@ export default function SignupPage() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [signupSuccess, setSignupSuccess] = useState(false);
   const router = useRouter();
 
   const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault();
     setLoading(true);
     setError('');
-    setSignupSuccess(false);
 
     const payload = {
       email,
@@ -34,8 +32,6 @@ export default function SignupPage() {
       password,
     };
 
-    console.log('Payload:', payload); // Optional: debug log
-
     try {
       const response = await axios.post(
         'https://engine.receipters.com/api/v1/users/signup',
@@ -43,81 +39,52 @@ export default function SignupPage() {
       );
 
       if (response.data.status === 'succeeded') {
-        // Request OTP after successful signup
-        const otpRequestPayload = {
-          identifier: email,
-          destination: 'EMAIL',
-        };
-        const otpResponse = await axios.post('https://engine.receipters.com/api/v1/auth/lotp', otpRequestPayload);
+        const otpResponse = await axios.post(
+          'https://engine.receipters.com/api/v1/auth/lotp',
+          { identifier: email, destination: 'EMAIL' }
+        );
 
-        if (otpResponse.data.verificationId) {
-          toast.success('Signup successful! An OTP has been sent to your email for verification.');
-          setSignupSuccess(true);
-          router.push(`/otp-login?verificationId=${otpResponse.data.verificationId}`);
+        const verificationId = otpResponse.data.verificationId;
+
+        if (verificationId) {
+          toast.success('Signup successful! OTP sent.');
+          router.push(`/otp-login?verificationId=${verificationId}`);
         } else {
-          toast.error('Signup successful, but failed to request OTP. Please try OTP login manually.');
-          router.push('/otp-login'); // Still redirect to OTP login page
+          toast.error('Signup succeeded but OTP failed.');
+          router.push('/otp-login');
         }
       } else {
-        toast.error(response.data.message || 'Signup failed.');
         setError(response.data.message || 'Signup failed.');
+        toast.error(response.data.message || 'Signup failed.');
       }
     } catch (err: any) {
-      console.error('Signup error:', err.response?.data);
-      toast.error(err.response?.data?.message || 'An error occurred during signup.');
-      setError(err.response?.data?.message || 'Signup failed.');
+      setError(err.response?.data?.message || 'Signup error.');
+      toast.error(err.response?.data?.message || 'Signup error.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="max-w-md mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">Sign Up</h1>
-      {error && <div className="mb-4 text-red-600">{error}</div>}
-      <form onSubmit={handleSignup} className="grid grid-cols-1 gap-4">
-        <TextInput
-          label="First Name"
-          value={firstName}
-          onTextChange={setFirstName}
-          required
-        />
-        <TextInput
-          label="Middle Name (Optional)"
-          value={middleName}
-          onTextChange={setMiddleName}
-        />
-        <TextInput
-          label="Last Name"
-          value={lastName}
-          onTextChange={setLastName}
-          required
-        />
-        <TextInput
-          label="Email"
-          type="email"
-          value={email}
-          onTextChange={setEmail}
-          required
-        />
-        <TextInput
-          label="Phone Number"
-          type="tel"
-          value={phoneNumber}
-          onTextChange={setPhoneNumber}
-          required
-        />
-        <TextInput
-          label="Password"
-          type="password"
-          value={password}
-          onTextChange={setPassword}
-          required
-        />
-        <Button type="submit" disabled={loading}>
-          {loading ? 'Signing Up...' : 'Sign Up'}
-        </Button>
-      </form>
+    <div className="flex min-h-screen flex-col justify-center py-12 px-6 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <h2 className="text-center text-3xl font-extrabold text-gray-900">Create your account</h2>
+      </div>
+
+      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="bg-white py-8 px-6 shadow rounded-lg sm:px-10">
+          <form className="space-y-6" onSubmit={handleSignup}>
+            <TextInput label="First Name" value={firstName} onTextChange={setFirstName} required />
+            <TextInput label="Middle Name" value={middleName} onTextChange={setMiddleName} />
+            <TextInput label="Last Name" value={lastName} onTextChange={setLastName} required />
+            <TextInput label="Email" type="email" value={email} onTextChange={setEmail} required />
+            <TextInput label="Phone Number" type="tel" value={phoneNumber} onTextChange={setPhoneNumber} required />
+            <TextInput label="Password" type="password" value={password} onTextChange={setPassword} required />
+            {error && <p className="text-sm text-red-500 text-center">{error}</p>}
+            <Button type="submit" disabled={loading}>{loading ? 'Signing Up...' : 'Sign Up'}</Button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
