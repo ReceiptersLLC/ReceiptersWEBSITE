@@ -1,14 +1,17 @@
 import Image from "next/image";
+import { useTranslation } from 'react-i18next';
 
 export default function Testimonials() {
+  const { t } = useTranslation('common');
+
   return (
     <div className="section">
       <div className="max-w-7xl">
         <h2 className="text-xs font-medium text-center uppercase mb-3">
-          Testimonials
+          {t('landing.testimonials.subtitle')}
         </h2>
         <h3 className="h3 text-center mb-10">
-          We believe Receipters is the best tool out there. But, listen to our happy clients.
+          {t('landing.testimonials.title')}
         </h3>
 
         <div>
@@ -18,7 +21,7 @@ export default function Testimonials() {
               <div className="h1 mb-1">
                 89.54%
               </div>
-              <div className="text-sm">
+              <div className="text-sm">{t('landing.testimonials.customerSatisfaction')}
                 Customer satisfaction
               </div>
             </div>
@@ -38,8 +41,7 @@ export default function Testimonials() {
                 ))}
               </div>
               <div className="h4">
-                “As a small business owner, I can’t imagine managing my finances without Receipters. It’s the best tool 
-                out there for seamless expense tracking.”
+                {t('landing.testimonials.quote')}
               </div>
               <div className="flex flex-row space-x-4 items-center mt-6">
                 <div className="size-12 relative bg-amber-50 rounded-full overflow-hidden">

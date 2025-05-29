@@ -2,6 +2,7 @@
 import Image from "next/image";
 import classNames from "classnames";
 import Button from "@/components/Button";
+import { useTranslation } from 'react-i18next';
 import {useRouter} from "next/navigation";
 
 export default function HowItWorks() {
@@ -10,16 +11,17 @@ export default function HowItWorks() {
     <div className="section">
       <div className="max-w-7xl">
 
-        <h2 className="text-xs font-medium  uppercase mb-3">
-          This is how it works
+        <h2 className="text-xs font-medium uppercase mb-3">
+          {t('landing.howItWorks.subtitle')}
         </h2>
         <h3 className="text-2xl font-medium mb-10">
-          Snap, scan, and relax—let Receipters do the heavy lifting!
+          {t('landing.howItWorks.title')}
         </h3>
         <div className="grid gap-10">
           {
             data.map((item, index) => {
               const reverse = index % 2 === 0
+              const { title, description, image } = item;
               return (
                 <div
                   key={`hiw-${index}`}
@@ -29,8 +31,8 @@ export default function HowItWorks() {
                       'order-2': reverse
                     }
                   )}>
-                    <h3 className="text-2xl font-medium mb-6">{item.title}</h3>
-                    <p>{item.description}</p>
+                    <h3 className="text-2xl font-medium mb-6">{t(title)}</h3>
+                    <p>{t(description)}</p>
                   </div>
                   <div className={
                     classNames(
@@ -41,7 +43,7 @@ export default function HowItWorks() {
                   }>
                     <Image
                       alt={item.title}
-                      src={item.image}
+                      src={image}
                       objectFit="contain"
                       layout="fill"/>
 
@@ -58,7 +60,7 @@ export default function HowItWorks() {
                     className="!bg-gradient-to-r !from-primary !to-primaryDark px-6 !rounded-full text-white">
                     <div className="flex items-center space-x-4">
                       <div className="font-medium">
-                        Get Started Today
+                        {t('landing.hero.button')}
                       </div>
                       <div className="size-8 rounded-full bg-white flex items-center justify-center">
                       <span className="material-symbols-rounded text-primary">
@@ -77,21 +79,21 @@ export default function HowItWorks() {
 const data = [
   {
     id: 1,
-    title: "Effortless Receipt Scanning",
-    description: "Our advanced AI technology automatically scans, reads, and categorizes your receipts with unmatched accuracy, saving you time and reducing errors. Simply snap a photo, and let Receipters handle the rest.",
+    title: "landing.howItWorks.step1.title",
+    description: "landing.howItWorks.step1.description",
     image: "https://cdn.prod.website-files.com/6723ac9d7ce2bbc831bb8146/6723ac9d7ce2bbc831bb821e_img2.webp",
   },
   {
     id: 2,
-    title: "Real-Time Financial Insights",
-    description: "Get a comprehensive view of your spending in real-time. Whether you’re tracking daily expenses or managing a company budget, our intuitive dashboard offers powerful insights to help you make better financial decisions.",
+    title: "landing.howItWorks.step2.title",
+    description: "landing.howItWorks.step2.description",
     image: "https://cdn.prod.website-files.com/6723ac9d7ce2bbc831bb8146/6723ac9d7ce2bbc831bb821e_img2.webp"
 
   },
   {
     id: 3,
-    title: "Seamless Integration with Financial Tools",
-    description: "Easily connect Receipters to your bank accounts, credit cards, and other financial tools. Keep all your financial data in one place, simplifying the way you manage and monitor your expenses.",
+    title: "landing.howItWorks.step3.title",
+    description: "landing.howItWorks.step3.description",
     image: "https://cdn.prod.website-files.com/6723ac9d7ce2bbc831bb8146/6723ac9d7ce2bbc831bb821e_img2.webp"
   }
 ]

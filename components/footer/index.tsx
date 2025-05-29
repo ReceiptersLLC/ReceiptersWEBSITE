@@ -13,9 +13,11 @@ import {
 import { FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from 'react-icons/fa6';
 import FooterLinksSection from "@/components/footer/FooterLinksSection";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const { t } = useTranslation('common');
 
   return (
     <div className="section bg-[#151516] text-white">
@@ -35,14 +37,14 @@ export default function Footer() {
               </div>
             </Link>
             <div>
-              Join our newsletter to stay up to date on features and releases.
+              {t('footer.newsletter.title')}
             </div>
             <div>
               <div className="flex mb-3">
                 <TextInput
                   required
                   type="text"
-                  name="color"
+                  name="email"
                   placeholder="Enter your email"
                   value={email}
                   onTextChange={setEmail}
@@ -50,14 +52,14 @@ export default function Footer() {
                 />
                 <Button onClick={() => console.log("")} className="!rounded-full">
                   Join now
-                </Button>
+                </Button> {/* TODO: Translate Join now button text */}
               </div>
               <div className="text-xs">
-                By subscribing you agree to our Privacy Policy and provide consent to receive updates from our
-                company.
+                {t('footer.newsletter.privacyText')}
               </div>
               <div className="flex flex-col items-start">
-              <div className="h6 mt-3 mb-3">Connect With Us</div>
+                <div className="h6 mt-3 mb-3">
+                  {t('footer.connectWithUs')}</div>
               <div className="flex flex-row gap-4">
                 <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><Facebook className="hover:text-blue-500 mx-auto" /></Link>
                 <Link href="https://www.instagram.com/receipters_llc" target="_blank"><Instagram className="hover:text-pink-500 mx-auto" /></Link>
@@ -73,10 +75,10 @@ export default function Footer() {
 
           {/* Right Section */}
           <div className="w-full grid grid-cols-2 gap-x-4 sm:gap-x-8">
-            <FooterLinksSection title="Quick Links" data={productLinks} />
+            <FooterLinksSection title={t('footer.quickLinks.title')} data={productLinks.map(link => ({...link, name: t(`footer.quickLinks.${link.name.toLowerCase().replace(/\s/g, \'\')}`)}))} />
             <div className="text-sm text-gray-300 mt-4">
-                <strong>Our Office:</strong><br />
-                355 Ridgewood Ave, Suite 1<br />
+                <strong>{t('footer.ourOffice.title')}:</strong><br />
+                {t('footer.ourOffice.address1')}<br />
                 Newark, NJ 07112
               </div>
           </div>
@@ -89,12 +91,11 @@ export default function Footer() {
               key={`legal-link-${index}`}
               href={link.url}
               className="text-sm hover:text-primary"
-            >
-              {link.name}
-            </Link>
+            >{t(`footer.legalLinks.${link.name.toLowerCase().replace(/\s/g, \'\')}`)}</Link>
           ))}
         </div>
 
+        {/* Note: The copyright notice might not need translation as it often remains in English */}
         <div className="text-center text-base">
           © {new Date().getFullYear()} Receipters LLC. All Rights Reserved
         </div>

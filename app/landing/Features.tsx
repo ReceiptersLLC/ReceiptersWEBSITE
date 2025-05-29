@@ -5,16 +5,17 @@ import classNames from "classnames";
 import {useState} from "react";
 import Button from "@/components/Button";
 import {useRouter} from "next/navigation";
+import { useTranslation } from 'react-i18next';
 
 export default function Features() {
+  const { t } = useTranslation('common');
   const router = useRouter();
   const [selectedIndex, setSelectedIndex] = useState(0);
   return (
     <div className="section">
       <div className="max-w-7xl">
-        <h2 className="text-sm uppercase font-medium mb-4 text-center">Receipters features</h2>
+        <h2 className="text-sm uppercase font-medium mb-4 text-center">{t('landing.features.subtitle')}</h2>
         <h3 className="h3 mb-10 text-center">
-          Simplify Your Expense Management
         </h3>
         <div className="flex flex-col md:flex-row space-x-4 mb-16 justify-center">
           {featuresData.map((feature, index) => (
@@ -40,10 +41,10 @@ export default function Features() {
                 className="rounded-3xl"/>
             </div>
             <div className="flex flex-col space-4">
-              <h3 className="h3 mb-4">{featuresData[selectedIndex].title}</h3>
-              <p className="mb-8">{featuresData[selectedIndex].description}</p>
+              <h3 className="h3 mb-4">{t(featuresData[selectedIndex].titleKey)}</h3>
+              <p className="mb-8">{t(featuresData[selectedIndex].descriptionKey)}</p>
               <Button
-                variant="custom"
+                variant='custom'
                 onClick={() => router.push("/download")}
                 className="!bg-gradient-to-r !from-primary !to-primaryDark px-6 !rounded-full text-white self-start">
                 <div className="flex items-center space-x-4">

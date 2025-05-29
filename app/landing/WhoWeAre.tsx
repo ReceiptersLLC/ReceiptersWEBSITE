@@ -1,13 +1,16 @@
+import { useTranslation } from 'react-i18next';
+
 export default function WhoWeAre() {
+  const { t } = useTranslation('common');
   return (
     <div className="section">
       <div className="w-full max-w-7xl">
 
         <h2 className="text-xs font-medium  uppercase mb-3">
-          We are receipters
+          {t('landing.whoWeAre.subtitle')}
         </h2>
         <h3 className="text-2xl font-medium mb-10">
-          We are results-driven, and it shows. Take a look.
+          {t('landing.whoWeAre.title')}
         </h3>
         <div className="grid md:grid-cols-3 gap-6">
           {
@@ -21,7 +24,7 @@ export default function WhoWeAre() {
                   </div>
                 </div>
                 <div className="h1 mb-6">{result.value}</div>
-                <div className="text-sm">{result.caption}</div>
+                <div className="text-sm">{t(result.captionKey)}</div>
               </div>
             ))
           }
@@ -37,7 +40,7 @@ const data = [
   {
     id: 1,
     value: "150K",
-    caption: "Receipts captured",
+    captionKey: "landing.whoWeAre.receiptsCaptured",
     svg: () => (
       <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
         <path className="fill-primary"
@@ -52,7 +55,7 @@ const data = [
   {
     id: 2,
     value: "100+",
-    caption: "Hours saved filing faxes",
+    captionKey: "landing.whoWeAre.hoursSaved",
     svg: () => (
       <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
         <path className="fill-primary"

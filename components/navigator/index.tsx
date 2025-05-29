@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { useTranslation, i18n } from 'react-i18next';
 
 export default function Navigator() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { t } = useTranslation('common');
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -36,19 +38,31 @@ export default function Navigator() {
           {/* Desktop Links */}
           <div className="flex items-center">
             <div className="hidden md:flex space-x-6">
-              <NavLink href="/" label="Home" active={isActive("/")} />
-              <NavLink href="/about" label="About" active={isActive("/about")} />
-              <NavLink href="/product" label="Product" active={isActive("/product")} />
-              <NavLink href="/contact" label="Contact" active={isActive("/contact")} />
-              <NavLink href="/pricing" label="Pricing" active={isActive("/pricing")} />
+              <NavLink href="/" label={t('navbar.link.home')} active={isActive("/")} />
+              <NavLink href="/about" label={t('navbar.link.about')} active={isActive("/about")} />
+              <NavLink href="/product" label={t('navbar.link.product')} active={isActive("/product")} />
+              <NavLink href="/contact" label={t('navbar.link.contact')} active={isActive("/contact")} />
+              <NavLink href="/pricing" label={t('navbar.link.pricing')} active={isActive("/pricing")} />
               <Link href="/signup">
-                <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                  Sign Up
-                </button>
+ <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+ {t('navbar.button.signUp')}
+ </button>
               </Link>
               <Link href="/login">
-                <button className="px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Login</button>
+ <button className="px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">{t('navbar.button.login')}</button>
               </Link>
+
+              {/* Language Switcher */}
+ <select
+ className="ml-4 px-2 py-1 border rounded-md text-sm text-gray-700"
+ onChange={(e) => i18n.changeLanguage(e.target.value)}
+ value={i18n.language}
+ >
+ <option value="en">English</option>
+ <option value="sw">Swahili</option>
+ <option value="fr">French</option>
+ <option value="de">German</option>
+ </select>
             </div>
           </div>
 
@@ -86,19 +100,31 @@ export default function Navigator() {
       {mobileMenuOpen && (
         <div className="md:hidden">
           <div className="space-y-1 px-4 pt-2 pb-3">
-            <NavLink href="/" label="Home" active={isActive("/")} mobile />
-            <NavLink href="/about" label="About" active={isActive("/about")} mobile />
-            <NavLink href="/product" label="Product" active={isActive("/product")} mobile />
-            <NavLink href="/contact" label="Contact" active={isActive("/contact")} mobile />
-            <NavLink href="/pricing" label="Pricing" active={isActive("/pricing")} mobile />
+            <NavLink href="/" label={t('navbar.link.home')} active={isActive("/")} mobile />
+            <NavLink href="/about" label={t('navbar.link.about')} active={isActive("/about")} mobile />
+            <NavLink href="/product" label={t('navbar.link.product')} active={isActive("/product")} mobile />
+            <NavLink href="/contact" label={t('navbar.link.contact')} active={isActive("/contact")} mobile />
+            <NavLink href="/pricing" label={t('navbar.link.pricing')} active={isActive("/pricing")} mobile />
             <Link href="/signup">
-              <button className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-blue-600 hover:text-blue-600 hover:bg-gray-100">
-                Sign Up
-              </button>
+ <button className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-blue-600 hover:text-blue-600 hover:bg-gray-100">
+ {t('navbar.button.signUp')}
+ </button>
             </Link>
             <Link href="/login">
-              <button className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100">Login</button>
+ <button className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100">{t('navbar.button.login')}</button>
             </Link>
+
+            {/* Language Switcher */}
+ <select
+ className="mt-2 w-full px-3 py-2 border rounded-md text-base text-gray-700"
+ onChange={(e) => i18n.changeLanguage(e.target.value)}
+ value={i18n.language}
+ >
+ <option value="en">English</option>
+ <option value="sw">Swahili</option>
+ <option value="fr">French</option>
+ <option value="de">German</option>
+ </select>
           </div>
         </div>
       )}

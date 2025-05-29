@@ -7,7 +7,10 @@ import Button from '@/components/Button';
 import TextInput from '@/components/TextInput';
 import { toast } from 'sonner';
 
+import { useTranslation } from 'react-i18next';
+
 export default function SignupPage() {
+  const { t } = useTranslation('common');
   const [firstName, setFirstName] = useState('');
   const [middleName, setMiddleName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -47,19 +50,19 @@ export default function SignupPage() {
         const verificationId = otpResponse.data.verificationId;
 
         if (verificationId) {
-          toast.success('Signup successful! OTP sent.');
+ toast.success(t('signup.successOTP'));
           router.push(`/otp-login?verificationId=${verificationId}`);
         } else {
-          toast.error('Signup succeeded but OTP failed.');
+ toast.error(t('signup.successNoOTP'));
           router.push('/otp-login');
         }
       } else {
-        setError(response.data.message || 'Signup failed.');
-        toast.error(response.data.message || 'Signup failed.');
+ setError(response.data.message || t('signup.failed'));
+ toast.error(response.data.message || t('signup.failed'));
       }
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Signup error.');
-      toast.error(err.response?.data?.message || 'Signup error.');
+ setError(err.response?.data?.message || t('signup.error'));
+ toast.error(err.response?.data?.message || t('signup.error'));
     } finally {
       setLoading(false);
     }
@@ -68,7 +71,7 @@ export default function SignupPage() {
   return (
     <div className="flex min-h-screen flex-col justify-center py-12 px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="text-center text-3xl font-extrabold text-gray-900">Create your account</h2>
+        <h2 className="text-center text-3xl font-extrabold text-gray-900">{t('signup.title')}</h2>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
