@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Button from '@/components/Button';
 import TextInput from '@/components/TextInput';
 import { toast } from 'sonner';
- 
+
 export default function SignupPage() {
   const [firstName, setFirstName] = useState('');
   const [middleName, setMiddleName] = useState('');
@@ -14,8 +14,10 @@ export default function SignupPage() {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [signupSuccess, setSignupSuccess] = useState(false);
+  const router = useRouter();
 
   const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -23,24 +25,35 @@ export default function SignupPage() {
     setError('');
     setSignupSuccess(false);
 
+    const payload = {
+      email,
+      firstName,
+      lastName,
+      middleName,
+      phoneNumber,
+      password,
+    };
+
+    console.log('Payload:', payload); // Optional: debug log
+
     try {
-      const response = await axios.post('https://engine.receipters.com/api/v1/users/signup', {
-        first_name: firstName,
-        middle_name: middleName,
-        last_name: lastName,
-        email: email,
-        phone_number: phoneNumber,
-        password: password,
-      });
+      const response = await axios.post(
+        'https://engine.receipters.com/api/v1/users/signup',
+        payload
+      );
 
       if (response.data.status === 'succeeded') {
- toast.success('Signup successful! Redirecting to OTP verification.');
+        toast.success('Signup successful! Redirecting to OTP verification.');
+        setSignupSuccess(true);
         router.push('/otp-login');
       } else {
- toast.error(response.data.message || 'Signup failed.');
+        toast.error(response.data.message || 'Signup failed.');
+        setError(response.data.message || 'Signup failed.');
       }
     } catch (err: any) {
- toast.error(err.response?.data?.message || 'An error occurred during signup.');
+      console.error('Signup error:', err.response?.data);
+      toast.error(err.response?.data?.message || 'An error occurred during signup.');
+      setError(err.response?.data?.message || 'Signup failed.');
     } finally {
       setLoading(false);
     }
@@ -49,6 +62,7 @@ export default function SignupPage() {
   return (
     <div className="max-w-md mx-auto p-6">
       <h1 className="text-3xl font-bold mb-4">Sign Up</h1>
+      {error && <div className="mb-4 text-red-600">{error}</div>}
       <form onSubmit={handleSignup} className="grid grid-cols-1 gap-4">
         <TextInput
           label="First Name"
