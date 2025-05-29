@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+
 export default function Navigator() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -40,6 +41,14 @@ export default function Navigator() {
               <NavLink href="/product" label="Product" active={isActive("/product")} />
               <NavLink href="/contact" label="Contact" active={isActive("/contact")} />
               <NavLink href="/pricing" label="Pricing" active={isActive("/pricing")} />
+              <Link href="/signup">
+                <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                  Sign Up
+                </button>
+              </Link>
+              <Link href="/login">
+                <button className="px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Login</button>
+              </Link>
             </div>
           </div>
 
@@ -82,6 +91,14 @@ export default function Navigator() {
             <NavLink href="/product" label="Product" active={isActive("/product")} mobile />
             <NavLink href="/contact" label="Contact" active={isActive("/contact")} mobile />
             <NavLink href="/pricing" label="Pricing" active={isActive("/pricing")} mobile />
+            <Link href="/signup">
+              <button className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-blue-600 hover:text-blue-600 hover:bg-gray-100">
+                Sign Up
+              </button>
+            </Link>
+            <Link href="/login">
+              <button className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100">Login</button>
+            </Link>
           </div>
         </div>
       )}
