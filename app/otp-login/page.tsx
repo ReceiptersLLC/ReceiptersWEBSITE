@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import TextInput from "@/components/TextInput";
 import Button from "@/components/Button";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 
 const API_URL = "https://engine.receipters.com/api";
@@ -15,6 +15,14 @@ export default function OtpLogin() {const router = useRouter();
   const [verificationId, setVerificationId] = useState("");
   const [code, setCode] = useState("");
   const [message, setMessage] = useState("");
+  const searchParams = useSearchParams();
+
+  React.useEffect(() => {
+    const queryVerificationId = searchParams.get('verificationId');
+    if (queryVerificationId) {
+      setVerificationId(queryVerificationId);
+    }
+  }, [searchParams]);
 
   const requestOtp = async () => {
     try {
@@ -26,7 +34,7 @@ export default function OtpLogin() {const router = useRouter();
 
       const response = await axios.post(`${API_URL}/v1/auth/lotp`, data);
       setVerificationId(response.data.verificationId);
-      toast.success("OTP requested. Please check your email or phone.");
+      toast.success("OTP requested. Please check your email.");
     } catch (error: any) {
       toast.error(`Error requesting OTP: ${error.response?.data?.message || error.message}`);
     }

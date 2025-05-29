@@ -43,9 +43,21 @@ export default function SignupPage() {
       );
 
       if (response.data.status === 'succeeded') {
-        toast.success('Signup successful! Redirecting to OTP verification.');
-        setSignupSuccess(true);
-        router.push('/otp-login');
+        // Request OTP after successful signup
+        const otpRequestPayload = {
+          identifier: email,
+          destination: 'EMAIL',
+        };
+        const otpResponse = await axios.post('https://engine.receipters.com/api/v1/auth/lotp', otpRequestPayload);
+
+        if (otpResponse.data.verificationId) {
+          toast.success('Signup successful! An OTP has been sent to your email for verification.');
+          setSignupSuccess(true);
+          router.push(`/otp-login?verificationId=${otpResponse.data.verificationId}`);
+        } else {
+          toast.error('Signup successful, but failed to request OTP. Please try OTP login manually.');
+          router.push('/otp-login'); // Still redirect to OTP login page
+        }
       } else {
         toast.error(response.data.message || 'Signup failed.');
         setError(response.data.message || 'Signup failed.');
