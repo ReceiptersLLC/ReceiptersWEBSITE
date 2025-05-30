@@ -52,8 +52,7 @@ export default function Page() {
   return (
     <div className="flex flex-col items-center min-h-screen bg-white p-6">
       <h2 className="mt-16 text-3xl max-w-3xl font-semibold text-left w-full text-gray-900 mb-2">
-        Drop us a message and we will get back to you!
- {t('contact.title')}
+       {t('contact.title')}
       </h2>
 
       <form onSubmit={handleSubmit} className="w-full max-w-3xl space-y-4 mt-8">

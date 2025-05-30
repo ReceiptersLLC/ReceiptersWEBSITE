@@ -50,11 +50,11 @@ export default function Footer() {
                   className="flex-1 mr-6"
                 />
                 <Button onClick={() => console.log("")} className="!rounded-full">
-                  {t('footer.newsletter.joinNow')}
+                  {t('footer.newsletter.button')}
                 </Button>
               </div>
               <div className="text-xs">
-                {t('footer.newsletter.privacyText')}
+                {t('footer.newsletter.privacyPolicy')}
               </div>
               <div className="flex flex-col items-start">
                 <div className="h6 mt-3 mb-3">
@@ -73,10 +73,10 @@ export default function Footer() {
 
           {/* Right Section */}
           <div className="w-full grid grid-cols-2 gap-x-4 sm:gap-x-8">
-            <FooterLinksSection title={t('footer.quickLinks.title')} data={productLinks.map(link => ({...link, name: t(`footer.quickLinks.${link.name.toLowerCase().replace(/\s/g, '')}`)}))} />
+            <FooterLinksSection title={t('footer.quickLinks.title')} data={productLinks.map(link => ({...link, name: t(`footer.productLinks.${link.name.toLowerCase().replace(/\s/g, '')}`)}))} />
             <div className="text-sm text-gray-300 mt-4">
-                <strong>{t('footer.ourOffice.title')}:</strong><br />
-                {t('footer.ourOffice.address1')}<br />
+                <strong>{t('footer.ourOffice')}:</strong><br />
+                355 Ridgewood Ave, Suite 1<br />
                 Newark, NJ 07112
               </div>
           </div>
@@ -89,7 +89,9 @@ export default function Footer() {
               key={`legal-link-${index}`}
               href={link.url}
               className="text-sm hover:text-primary"
-            >{t(`footer.legalLinks.${link.name.toLowerCase().replace(/\s/g, '')}`)}</Link>
+            >
+              {link.name}
+            </Link>
           ))}
         </div>
 

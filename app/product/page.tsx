@@ -52,13 +52,13 @@ const features = [
     description: "product.features.expenseSharing.description"
   },
   {
-    title: "product.features.vendorAnalytics.title",
+    title: "product.features.vendorAnalyticsDashboard.title",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
       </svg>
     ),
-    description: "product.features.vendorAnalytics.description"
+    description: "product.features.vendorAnalyticsDashboard.description"
   }
 ];
 
@@ -129,9 +129,9 @@ export default function Page() {
               <div
                 key={idx}
                 className="bg-gray-100 p-6 rounded-xl shadow-sm text-center transition hover:shadow-md">
-                <div className="text-3xl mb-4">{benefit.emoji}</div>
-                <h3 className="text-lg font-bold mb-2">{benefit.title}</h3>
-                <p className="text-gray-600 text-sm">{benefit.description}</p>
+                <div className="text-3xl mb-4">{t(benefit.emoji)}</div>
+                <h3 className="text-lg font-bold mb-2">{t(benefit.title)}</h3>
+                <p className="text-gray-600 text-sm">{t(benefit.description)}</p>
               </div>
             ))}
           </div>

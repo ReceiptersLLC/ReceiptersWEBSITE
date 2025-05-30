@@ -15,8 +15,7 @@ export default function HeroSection() {
         <div className=" rounded-3xl">
           <h1 className="h1 text-center mb-6" dangerouslySetInnerHTML={{ __html: t('landing.hero.title') }}></h1>
           <p className="text-center mb-10">
-            Receipters makes expense tracking and financial management simple, accurate, and hassle-free with advanced
-            AI technology and seamless integrations.”
+            {t('landing.hero.description')}
           </p>
           <div className="flex flex-row justify-center">
             <Button
@@ -25,7 +24,7 @@ export default function HeroSection() {
               className="!bg-gradient-to-r !from-primary !to-primaryDark px-6 !rounded-full text-white">
               <div className="flex items-center space-x-4">
                 <div className="font-medium">
-                  {t('landing.hero.cta')}
+                  {t('landing.hero.button')}
                 </div>
                 <div className="size-8 rounded-full bg-white flex items-center justify-center">
                   <span className="material-symbols-rounded text-primary">
