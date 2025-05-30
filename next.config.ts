@@ -1,5 +1,5 @@
 import type { NextConfig } from 'next';
-import { i18n } from './next-i18next.config';
+import i18nConfig from './next-i18next.config';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  i18n,
+  i18n: i18nConfig.i18n,
   experimental: {
   },
 };
