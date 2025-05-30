@@ -17,7 +17,7 @@ i18n
     supportedLngs: ["en", "fr", "sw", "de"], // Add your supported languages
     defaultNS: "common", // Default namespace for translations
     backend: {
-      loadPath: "/locales/{{lng}}/{common}.json", // Path to translation files
+      loadPath: "/locales/{{lng}}/{{ns}}.json", // Path to translation files
     },
     detection: {
       order: ["querystring", "cookie", "localStorage", "navigator", "htmlTag"],

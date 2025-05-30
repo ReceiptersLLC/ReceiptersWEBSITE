@@ -13,9 +13,7 @@ export default function HeroSection() {
       <div
         className="dp-x py-4 sm:py-6 md:py-8 lg:py-12 xl:py-16 max-w-7xl grid grid-cols-1 gap-16 bg-gradient-to-b from-primary/10  via-primary/5 to-background rounded-3xl">
         <div className=" rounded-3xl">
-          <h1 className="h1 text-center mb-6" dangerouslySetInnerHTML={{ __html: t('landing.hero.title') }}>
-            Effortless Expense Management <span className="text-primary">Anywhere.</span>
-          </h1>
+          <h1 className="h1 text-center mb-6" dangerouslySetInnerHTML={{ __html: t('landing.hero.title') }}></h1>
           <p className="text-center mb-10">
             Receipters makes expense tracking and financial management simple, accurate, and hassle-free with advanced
             AI technology and seamless integrations.”

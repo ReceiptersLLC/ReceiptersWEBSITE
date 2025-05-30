@@ -30,9 +30,8 @@ export default function Footer() {
                 <Image
                   src="/img/logo_full_w.svg"
                   alt="Logo"
-                  priority
-                  layout="fill"
-                  objectFit="contain"
+                  fill
+                  className="object-contain"
                 />
               </div>
             </Link>

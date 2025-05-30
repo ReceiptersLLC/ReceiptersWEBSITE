@@ -25,12 +25,11 @@ export default function Navigator() {
           <div className="flex items-center">
             <Link href="/">
               <div className="relative h-10 w-8">
-                <Image
+                <Image 
                   src="/img/logo.svg"
                   alt="Logo"
-                  priority
-                  layout="fill"
-                  objectFit="contain"
+                  fill
+                  className="object-contain"
                 />
               </div>
             </Link>
