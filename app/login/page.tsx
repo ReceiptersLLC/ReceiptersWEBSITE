@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import Button from '@/components/Button';
 import { useTranslation } from 'react-i18next';
+import { AxiosError } from 'axios';
 import TextInput from '@/components/TextInput';
 import { toast } from 'sonner';
 
@@ -26,11 +27,10 @@ export default function LoginPage() {
 
     try {
       const response = await axios.post(`${API_URL}/v1/auth`, { email, password });
-      toast.success('Login successful!');
       localStorage.setItem('token', response.data.token);
       router.push('/success');
-    } catch (err: any) {
-      const message = err.response?.data?.message || t('login.toast.failed');
+    } catch (err) {
+      const message = (err as AxiosError<{ message?: string }>).response?.data?.message || t('login.toast.failed');
       toast.error(message);
       setError(message);
     } finally {
@@ -47,14 +47,13 @@ export default function LoginPage() {
         window.google.accounts.oauth2.initTokenClient({
           client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
           scope: 'email profile',
-          callback: async (response: any) => {
+          callback: async (response: { access_token: string }) => {
             try {
               // Get user info from Google
               const userInfoResponse = await fetch(
                 `https://www.googleapis.com/oauth2/v2/userinfo?access_token=${response.access_token}`
               );
               const userInfo = await userInfoResponse.json();
-
               // Send to your backend
               const loginResponse = await axios.post(`${API_URL}/v1/auth/oauth/google`, {
                 access_token: response.access_token,
@@ -62,7 +61,6 @@ export default function LoginPage() {
               });
 
               if (loginResponse.data.status === 'succeeded' || loginResponse.data.token) {
-                toast.success('Google login successful!');
                 localStorage.setItem('token', loginResponse.data.token);
                 router.push('/success');
               }
@@ -71,7 +69,6 @@ export default function LoginPage() {
               toast.error(message);
               setError(message);
             } finally {
-              setOauthLoading({ ...oauthLoading, google: false });
             }
           }
         }).requestAccessToken();
@@ -79,11 +76,9 @@ export default function LoginPage() {
         const message = 'Google OAuth not initialized';
         toast.error(message);
         setError(message);
-        setOauthLoading({ ...oauthLoading, google: false });
       }
     } catch (error) {
       const message = 'Google login failed';
-      toast.error(message);
       setError(message);
       setOauthLoading({ ...oauthLoading, google: false });
     }
@@ -95,15 +90,14 @@ export default function LoginPage() {
     
     try {
       if (typeof window !== 'undefined' && window.FB) {
-        window.FB.login(async (response: any) => {
+        window.FB.login(async (response: { authResponse?: { accessToken: string } }) => {
           if (response.authResponse) {
             try {
               // Get user info from Facebook
-              window.FB.api('/me', { fields: 'name,email,first_name,last_name' }, async (userInfo: any) => {
+              window.FB.api('/me', { fields: 'name,email,first_name,last_name' }, async (userInfo: { [key: string]: any }) => {
                 try {
                   // Send to your backend
                   const loginResponse = await axios.post(`${API_URL}/v1/auth/oauth/facebook`, {
-                    access_token: response.authResponse.accessToken,
                     user_info: userInfo
                   });
 
@@ -122,8 +116,6 @@ export default function LoginPage() {
               const message = 'Failed to get Facebook user info';
               toast.error(message);
               setError(message);
-            } finally {
-              setOauthLoading({ ...oauthLoading, facebook: false });
             }
           } else {
             const message = 'Facebook login cancelled';
@@ -232,7 +224,7 @@ export default function LoginPage() {
 // Add these type declarations at the top of your file or in a separate types file
 declare global {
   interface Window {
-    google: any;
-    FB: any;
+    google: { accounts: { oauth2: { initTokenClient: (config: { client_id: string; scope: string; callback: (response: { access_token: string }) => void }) => { requestAccessToken: () => void } } } };
+    FB: { login: (callback: (response: { authResponse?: { accessToken: string } }) => void, options: { scope: string }) => void; api: (path: string, options: { fields: string }, callback: (response: { [key: string]: any }) => void) => void };
   }
 }

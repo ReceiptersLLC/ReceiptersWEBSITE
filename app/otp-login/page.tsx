@@ -36,7 +36,7 @@ export default function OtpLogin() {
         setVerificationId(response.data.verificationId);
         toast.success("OTP sent to your email.");
       } else {
-        toast.error("OTP request failed.");
+        toast.error("Failed to send OTP.");
       }
     } catch (error: any) {
       toast.error(error.response?.data?.message || "OTP request error.");
@@ -46,7 +46,7 @@ export default function OtpLogin() {
   const verifyOtp = async () => {
     try {
       const response = await axios.post(`${API_URL}/v1/auth/lotp/v`, {
-        verificationId,
+ verificationId,
         code,
       });
 

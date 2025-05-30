@@ -9,6 +9,24 @@ import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 
 export default function SignupPage() {
+  // Define types for OAuth responses
+  interface GoogleTokenResponse {
+    access_token: string;
+    // Add other relevant properties if needed
+  }
+
+  interface GoogleUserInfo {
+    email: string;
+    // Add other relevant properties if needed
+  }
+
+  interface FacebookLoginResponse {
+    authResponse?: {
+      accessToken: string;
+      // Add other relevant properties if needed
+    };
+  }
+
   const { t } = useTranslation('common');
   const [firstName, setFirstName] = useState('');
   const [middleName, setMiddleName] = useState('');
@@ -18,14 +36,12 @@ export default function SignupPage() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [oauthLoading, setOauthLoading] = useState({ google: false, facebook: false });
-  const [error, setError] = useState('');
   const router = useRouter();
 
   const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault();
     setLoading(true);
     setError('');
-
     const payload = {
       email,
       firstName,
@@ -57,16 +73,14 @@ export default function SignupPage() {
           router.push('/otp-login');
         }
       } else {
-        setError(response.data.message || t('signup.failed'));
         toast.error(response.data.message || t('signup.failed'));
       }
-    } catch (err: any) {
-      setError(err.response?.data?.message || t('signup.error'));
+    } catch (err: any) { // Consider refining this error type
       toast.error(err.response?.data?.message || t('signup.error'));
     } finally {
       setLoading(false);
     }
-  };
+  }
 
   const handleGoogleSignup = async () => {
     setOauthLoading({ ...oauthLoading, google: true });
@@ -76,7 +90,7 @@ export default function SignupPage() {
         window.google.accounts.oauth2.initTokenClient({
           client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
           scope: 'email profile',
-          callback: async (response: any) => {
+          callback: async (response: GoogleTokenResponse) => {
             try {
               // Get user info from Google
               const userInfoResponse = await fetch(
@@ -90,7 +104,7 @@ export default function SignupPage() {
                 {
                   access_token: response.access_token,
                   user_info: userInfo
-                }
+                },
               );
 
               if (signupResponse.data.status === 'succeeded') {
@@ -98,7 +112,7 @@ export default function SignupPage() {
                 localStorage.setItem('token', signupResponse.data.token);
                 router.push('/success');
               }
-            } catch (error: any) {
+            } catch (error: any) { // Consider refining this error type
               toast.error(error.response?.data?.message || 'Google signup failed');
             } finally {
               setOauthLoading({ ...oauthLoading, google: false });
@@ -107,7 +121,7 @@ export default function SignupPage() {
         }).requestAccessToken();
       } else {
         toast.error('Google OAuth not initialized');
-      }
+      } 
     } catch (error) {
       toast.error('Google signup failed');
       setOauthLoading({ ...oauthLoading, google: false });
@@ -118,11 +132,11 @@ export default function SignupPage() {
     setOauthLoading({ ...oauthLoading, facebook: true });
     try {
       if (typeof window !== 'undefined' && window.FB) {
-        window.FB.login(async (response: any) => {
+        window.FB.login(async (response: FacebookLoginResponse) => {
           if (response.authResponse) {
             try {
               // Get user info from Facebook
-              window.FB.api('/me', { fields: 'name,email,first_name,last_name' }, async (userInfo: any) => {
+              window.FB.api('/me', { fields: 'name,email,first_name,last_name' }, async (userInfo: any) => { // Consider refining this userInfo type
                 try {
                   // Send to your backend
                   const signupResponse = await axios.post(
@@ -138,7 +152,7 @@ export default function SignupPage() {
                     localStorage.setItem('token', signupResponse.data.token);
                     router.push('/success');
                   }
-                } catch (error: any) {
+                } catch (error: any) { // Consider refining this error type
                   toast.error(error.response?.data?.message || 'Facebook signup failed');
                 }
               });
@@ -224,7 +238,6 @@ export default function SignupPage() {
             <TextInput label="Email" type="email" value={email} onTextChange={setEmail} required />
             <TextInput label="Phone Number" type="tel" value={phoneNumber} onTextChange={setPhoneNumber} required />
             <TextInput label="Password" type="password" value={password} onTextChange={setPassword} required />
-            {error && <p className="text-sm text-red-500 text-center">{error}</p>}
             <Button type="submit" disabled={loading}>{loading ? 'Signing Up...' : 'Sign Up'}</Button>
           </form>
         </div>
