@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { useTranslation, i18n } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import i18n from 'i18next';
 
 export default function Navigator() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

@@ -7,6 +7,8 @@ import {useRouter} from "next/navigation";
 
 export default function HowItWorks() {
   const router = useRouter();
+  const { t } = useTranslation('common');
+
   return (
     <div className="section">
       <div className="max-w-7xl">

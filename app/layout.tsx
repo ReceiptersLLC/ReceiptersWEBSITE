@@ -1,40 +1,35 @@
-import type {Metadata} from "next";
-import {Poppins} from "next/font/google";
-import "./globals.css";
-import Navigator from "@/components/navigator";
+"use client";
+
 import React from "react";
+import { I18nextProvider } from "react-i18next";
+import i18nConfig from "../next-i18next.config"; // Use default import
+import { Poppins } from "next/font/google";
+import Navigator from "@/components/navigator";
 import Footer from "@/components/footer";
-import { I18nextProvider } from 'react-i18next';
-import i18n from '../next-i18next.config'; // Import your i18n configuration
+import "./globals.css";
+
+const { i18n } = i18nConfig; // Destructure i18n from default export
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"], // Adjust weights as needed
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  title: "Receipters",
-  description: "Effortless Expense Management Anywhere.",
-};
-
-import { useTranslation } from 'next-i18next'; // Import useTranslation
-
 export default function RootLayout({
-                                     children,
-                                   }: Readonly<{
+  children,
+}: {
   children: React.ReactNode;
-}>) {
-  useTranslation(); // Initialize i18next
+}) {
   return (
-    <html lang="en">
-    <body className={`${poppins.variable} antialiased`}>
-    <Navigator/>
-    {children}
-    <Footer/>
-    </body>
-
+    <html lang={i18n.defaultLocale}> {/* Use i18n.defaultLocale for dynamic language */}
+      <body className={`${poppins.variable} antialiased`}>
+        <I18nextProvider i18n={i18n}>
+          <Navigator />
+          {children}
+          <Footer />
+        </I18nextProvider>
+      </body>
     </html>
-
   );
 }

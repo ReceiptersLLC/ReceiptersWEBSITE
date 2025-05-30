@@ -51,8 +51,8 @@ export default function Footer() {
                   className="flex-1 mr-6"
                 />
                 <Button onClick={() => console.log("")} className="!rounded-full">
-                  Join now
-                </Button> {/* TODO: Translate Join now button text */}
+                  {t('footer.newsletter.joinNow')}
+                </Button>
               </div>
               <div className="text-xs">
                 {t('footer.newsletter.privacyText')}
@@ -69,13 +69,12 @@ export default function Footer() {
                 <Link href="https://www.youtube.com/@Receipters_llc" target="_blank"><Youtube className="hover:text-red-500 mx-auto" /></Link>
               </div>
             </div>
-              
             </div>
           </div>
 
           {/* Right Section */}
           <div className="w-full grid grid-cols-2 gap-x-4 sm:gap-x-8">
-            <FooterLinksSection title={t('footer.quickLinks.title')} data={productLinks.map(link => ({...link, name: t(`footer.quickLinks.${link.name.toLowerCase().replace(/\s/g, \'\')}`)}))} />
+            <FooterLinksSection title={t('footer.quickLinks.title')} data={productLinks.map(link => ({...link, name: t(`footer.quickLinks.${link.name.toLowerCase().replace(/\s/g, '')}`)}))} />
             <div className="text-sm text-gray-300 mt-4">
                 <strong>{t('footer.ourOffice.title')}:</strong><br />
                 {t('footer.ourOffice.address1')}<br />
@@ -91,11 +90,11 @@ export default function Footer() {
               key={`legal-link-${index}`}
               href={link.url}
               className="text-sm hover:text-primary"
-            >{t(`footer.legalLinks.${link.name.toLowerCase().replace(/\s/g, \'\')}`)}</Link>
+            >{t(`footer.legalLinks.${link.name.toLowerCase().replace(/\s/g, '')}`)}</Link>
           ))}
         </div>
 
-        {/* Note: The copyright notice might not need translation as it often remains in English */}
+        {/* Copyright */}
         <div className="text-center text-base">
           © {new Date().getFullYear()} Receipters LLC. All Rights Reserved
         </div>
