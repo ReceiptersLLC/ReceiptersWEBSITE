@@ -17,7 +17,6 @@ const nextConfig: NextConfig = {
   },
   i18n,
   experimental: {
-    appDir: true, // This causes the warning
   },
 };
 
