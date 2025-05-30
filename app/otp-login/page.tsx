@@ -27,13 +27,13 @@ export default function OtpLogin() {
 
   const requestOtp = async () => {
     try {
-      const response = await axios.post(`${API_URL}/v1/auth/lotp`, {
+      const { data } = await axios.post(`${API_URL}/v1/auth/lotp`, {
         identifier,
         destination,
       });
-
-      if (response.data.verificationId) {
-        setVerificationId(response.data.verificationId);
+ 
+      if (data.verificationId) {
+ setVerificationId(data.verificationId);
         toast.success("OTP sent to your email.");
       } else {
         toast.error("Failed to send OTP.");
@@ -45,14 +45,14 @@ export default function OtpLogin() {
 
   const verifyOtp = async () => {
     try {
-      const response = await axios.post(`${API_URL}/v1/auth/lotp/v`, {
+      await axios.post(`${API_URL}/v1/auth/lotp/v`, {
  verificationId,
         code,
       });
 
       toast.success("OTP verified! Redirecting...");
       router.push("/success");
-    } catch (error: any) {
+    } catch (error: any) { // TODO: Replace `any` with a more specific type
       setMessage(error.response?.data?.message || "OTP verification failed.");
     }
   };

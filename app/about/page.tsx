@@ -37,7 +37,7 @@ export default function page() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <ValueCard icon={<Smile size={36} className="text-green-400"/>} title="Simplicity"
                      description={t('about.values.simplicity.description')}
-          />
+            />
           <ValueCard icon={<Zap size={36} className="text-yellow-400"/>} title="Efficiency"
                      description={t('about.values.efficiency.description')}
           />
@@ -61,7 +61,7 @@ export default function page() {
           </p>
           <p className="text-lg text-gray-700">
             Our dual model—{t('about.problem.model')}—serves both vendors and
-            end-users, delivering security, accessibility, and efficiency across the board.
+            end-users, delivering security, accessibility, and efficiency across the board.&apos;
           </p>
         </div>
       </section>

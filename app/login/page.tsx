@@ -60,11 +60,11 @@ export default function LoginPage() {
                 user_info: userInfo
               });
 
-              if (loginResponse.data.status === 'succeeded' || loginResponse.data.token) {
+              if (loginResponse.data && (loginResponse.data.status === 'succeeded' || loginResponse.data.token)) {
                 localStorage.setItem('token', loginResponse.data.token);
                 router.push('/success');
               }
-            } catch (error: any) {
+            } catch (error) {
               const message = error.response?.data?.message || 'Google login failed';
               toast.error(message);
               setError(message);
@@ -78,7 +78,6 @@ export default function LoginPage() {
         setError(message);
       }
     } catch (error) {
-      const message = 'Google login failed';
       setError(message);
       setOauthLoading({ ...oauthLoading, google: false });
     }
@@ -94,14 +93,14 @@ export default function LoginPage() {
           if (response.authResponse) {
             try {
               // Get user info from Facebook
-              window.FB.api('/me', { fields: 'name,email,first_name,last_name' }, async (userInfo: { [key: string]: any }) => {
+              window.FB.api('/me', { fields: 'name,email,first_name,last_name' }, async (userInfo: { name?: string; email?: string; first_name?: string; last_name?: string }) => {
                 try {
                   // Send to your backend
                   const loginResponse = await axios.post(`${API_URL}/v1/auth/oauth/facebook`, {
                     user_info: userInfo
                   });
 
-                  if (loginResponse.data.status === 'succeeded' || loginResponse.data.token) {
+                  if (loginResponse.data && (loginResponse.data.status === 'succeeded' || loginResponse.data.token)) {
                     toast.success('Facebook login successful!');
                     localStorage.setItem('token', loginResponse.data.token);
                     router.push('/success');
@@ -113,7 +112,6 @@ export default function LoginPage() {
                 }
               });
             } catch (error) {
-              const message = 'Failed to get Facebook user info';
               toast.error(message);
               setError(message);
             }
@@ -131,7 +129,6 @@ export default function LoginPage() {
         setOauthLoading({ ...oauthLoading, facebook: false });
       }
     } catch (error) {
-      const message = 'Facebook login failed';
       toast.error(message);
       setError(message);
       setOauthLoading({ ...oauthLoading, facebook: false });
@@ -225,6 +222,6 @@ export default function LoginPage() {
 declare global {
   interface Window {
     google: { accounts: { oauth2: { initTokenClient: (config: { client_id: string; scope: string; callback: (response: { access_token: string }) => void }) => { requestAccessToken: () => void } } } };
-    FB: { login: (callback: (response: { authResponse?: { accessToken: string } }) => void, options: { scope: string }) => void; api: (path: string, options: { fields: string }, callback: (response: { [key: string]: any }) => void) => void };
+    FB: { login: (callback: (response: { authResponse?: { accessToken: string } }) => void, options: { scope: string }) => void; api: (path: string, options: { fields: string }, callback: (response: { name?: string; email?: string; first_name?: string; last_name?: string }) => void) => void };
   }
 }

@@ -15,11 +15,6 @@ export default function SignupPage() {
     // Add other relevant properties if needed
   }
 
-  interface GoogleUserInfo {
-    email: string;
-    // Add other relevant properties if needed
-  }
-
   interface FacebookLoginResponse {
     authResponse?: {
       accessToken: string;
@@ -34,7 +29,6 @@ export default function SignupPage() {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
   const [oauthLoading, setOauthLoading] = useState({ google: false, facebook: false });
   const router = useRouter();
 
@@ -57,7 +51,6 @@ export default function SignupPage() {
         payload
       );
 
-      if (response.data.status === 'succeeded') {
         const otpResponse = await axios.post(
           'https://engine.receipters.com/api/v1/auth/lotp',
           { identifier: email, destination: 'EMAIL' }
@@ -72,12 +65,9 @@ export default function SignupPage() {
           toast.success(t('signup.successNoOTP'));
           router.push('/otp-login');
         }
-      } else {
-        toast.error(response.data.message || t('signup.failed'));
-      }
-    } catch (err: any) { // Consider refining this error type
+    } catch (err: any) {
       toast.error(err.response?.data?.message || t('signup.error'));
-    } finally {
+    } finally { // The finally block ensures loading is set to false even if there's an error
       setLoading(false);
     }
   }
@@ -96,7 +86,7 @@ export default function SignupPage() {
               const userInfoResponse = await fetch(
                 `https://www.googleapis.com/oauth2/v2/userinfo?access_token=${response.access_token}`
               );
-              const userInfo = await userInfoResponse.json();
+              const userInfo: any = await userInfoResponse.json(); // Consider a more specific type for userInfo
 
               // Send to your backend
               const signupResponse = await axios.post(
@@ -111,7 +101,7 @@ export default function SignupPage() {
                 toast.success('Google signup successful!');
                 localStorage.setItem('token', signupResponse.data.token);
                 router.push('/success');
-              }
+              } // You might want to add an else block here to handle failed signup
             } catch (error: any) { // Consider refining this error type
               toast.error(error.response?.data?.message || 'Google signup failed');
             } finally {
@@ -136,7 +126,7 @@ export default function SignupPage() {
           if (response.authResponse) {
             try {
               // Get user info from Facebook
-              window.FB.api('/me', { fields: 'name,email,first_name,last_name' }, async (userInfo: any) => { // Consider refining this userInfo type
+              window.FB.api('/me', { fields: 'name,email,first_name,last_name' }, async (userInfo: any) => { // Consider refining this userInfo type further
                 try {
                   // Send to your backend
                   const signupResponse = await axios.post(
@@ -151,7 +141,7 @@ export default function SignupPage() {
                     toast.success('Facebook signup successful!');
                     localStorage.setItem('token', signupResponse.data.token);
                     router.push('/success');
-                  }
+                  } // Again, consider an else block for failed signup
                 } catch (error: any) { // Consider refining this error type
                   toast.error(error.response?.data?.message || 'Facebook signup failed');
                 }
