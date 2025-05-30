@@ -1,3 +1,4 @@
+'use client'
 // import TeamMember from "@/app/about/components/TeamMember";
 import Image from "next/image";
 import {Smile, Zap, ShieldCheck, Leaf, Globe, Users, TrendingUp} from "lucide-react";
@@ -59,7 +60,7 @@ export default function page() {
             alternatives—cutting costs, reducing environmental waste, and improving customer experience.
           </p>
           <p className="text-lg text-gray-700">
-            Our dual model—{t('about.problem.model')}}—serves both vendors and
+            Our dual model—{t('about.problem.model')}—serves both vendors and
             end-users, delivering security, accessibility, and efficiency across the board.
           </p>
         </div>
@@ -71,18 +72,20 @@ export default function page() {
           <div className="mb-12">
             <TrendingUp className="text-indigo-600 mb-4" size={36}/>
             <h3 className="text-3xl font-bold mb-4">{t('about.vision.title')}</h3>
-            <p className="text-gray-700 text-lg">{t('about.vision.description')}
-              To become the global standard for digital receipting—where receipts aren’t just stored, but transformed
+            <p className="text-gray-700 text-lg">
+              {t('about.vision.description')}
+              To become the global standard for digital receipting—where receipts aren't just stored, but transformed
               into smart tools for tracking, analyzing, and improving financial well-being.
             </p>
           </div>
           <div>
             <Users className="text-purple-600 mb-4" size={36}/>
             <h3 className="text-3xl font-bold mb-4">Our Story</h3>
-            <p className="text-gray-700 text-lg">{t('about.story.description')}
-              {{/* Receipters was born out of necessity: a modern solution to outdated, wasteful practices. From simplifying */}}
+            <p className="text-gray-700 text-lg">
+              {t('about.story.description')}
+              {/* Receipters was born out of necessity: a modern solution to outdated, wasteful practices. From simplifying 
               returns to preparing taxes or reducing fraud, Receipters transforms each receipt into meaningful data—for
-              consumers and businesses alike.
+              consumers and businesses alike. */}
             </p>
           </div>
         </div>
@@ -98,7 +101,7 @@ export default function page() {
               name="Gordon Odira"
               title="CEO & Founder"
               image="/assets/gordon.jpg"
-              description="A senior Integration Engineer with over 8 years in federal, state, and private tech deployments. Holds a BSc in Electrical & Computer Engineering from Rutgers University and a Master’s in Electrical and Computer Engineering from NJIT."
+              description="A senior Integration Engineer with over 8 years in federal, state, and private tech deployments. Holds a BSc in Electrical & Computer Engineering from Rutgers University and a Master's in Electrical and Computer Engineering from NJIT."
             />
             <TeamBioCard
               name="Fredrick George Osewe"
@@ -133,7 +136,6 @@ interface ValueCardProps {
 }
 
 function ValueCard({ icon, title, description }: ValueCardProps) {
-
   return (
     <div className="bg-gray-800 p-6 rounded-xl text-center shadow-lg hover:shadow-xl transition">
       <div className="mb-4 flex justify-center">{icon}</div>
@@ -165,7 +167,6 @@ function TeamBioCard({ name, title, image, description }: TeamBioCardProps) {
         <p className="text-sm text-blue-600 mb-2 font-medium">{title}</p>
         <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
       </div>
-
     </div>
   );
 }
