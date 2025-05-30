@@ -5,13 +5,13 @@ import Image from "next/image";
 import TextInput from "@/components/TextInput";
 import { useState } from "react";
 import {
-  Facebook,
   Instagram,
-  Linkedin,
   Youtube
 } from "lucide-react";
 import { FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from 'react-icons/fa6';
+import { FaSquareFacebook } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 import FooterLinksSection from "@/components/footer/FooterLinksSection";
 import { useTranslation } from "react-i18next";
 
@@ -59,12 +59,12 @@ export default function Footer() {
               <div className="flex flex-col items-start">
                 <div className="h6 mt-3 mb-3">
                   {t('footer.connectWithUs')}</div>
-              <div className="flex flex-row gap-4">
-                <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><Facebook className="hover:text-blue-500 mx-auto" /></Link>
+              <div className="flex flex-row gap-6">
+                <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><FaSquareFacebook className="w-6 h-6 hover:text-blue-500 mx-auto" /></Link>
                 <Link href="https://www.instagram.com/receipters_llc" target="_blank"><Instagram className="hover:text-pink-500 mx-auto" /></Link>
-                <Link href="https://www.x.com/receipters_llc" target="_blank"><FaXTwitter className="w-5 h-5 hover:text-blue-400 mx-auto" /></Link>
-                <Link href="https://www.linkedin.com/in/receipters-llc" target="_blank"><Linkedin className="hover:text-blue-600 mx-auto" /></Link>
-                <Link href="https://www.tiktok.com/@receipters_llc" target="_blank"><FaTiktok className="w-5 h-5 hover:text-gray-300 mx-auto" /></Link>
+                <Link href="https://www.x.com/receipters_llc" target="_blank"><FaXTwitter className="w-6 h-6 hover:text-blue-400 mx-auto" /></Link>
+                <Link href="https://www.linkedin.com/in/receipters-llc" target="_blank"><FaLinkedin className="w-6 h-6 hover:text-blue-600 mx-auto" /></Link>
+                <Link href="https://www.tiktok.com/@receipters_llc" target="_blank"><FaTiktok className="w-6 h-6 hover:text-gray-300 mx-auto" /></Link>
                 <Link href="https://www.youtube.com/@Receipters_llc" target="_blank"><Youtube className="hover:text-red-500 mx-auto" /></Link>
               </div>
             </div>
