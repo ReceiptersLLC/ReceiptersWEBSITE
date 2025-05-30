@@ -5,17 +5,19 @@ import Image from "next/image";
 import TextInput from "@/components/TextInput";
 import { useState } from "react";
 import {
-  Facebook,
   Instagram,
-  Linkedin,
   Youtube
 } from "lucide-react";
 import { FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from 'react-icons/fa6';
+import { FaSquareFacebook } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 import FooterLinksSection from "@/components/footer/FooterLinksSection";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const { t } = useTranslation('common');
 
   return (
     <div className="section bg-[#151516] text-white">
@@ -28,54 +30,52 @@ export default function Footer() {
                 <Image
                   src="/img/logo_full_w.svg"
                   alt="Logo"
-                  priority
-                  layout="fill"
-                  objectFit="contain"
+                  fill
+                  className="object-contain"
                 />
               </div>
             </Link>
             <div>
-              Join our newsletter to stay up to date on features and releases.
+              {t('footer.newsletter.title')}
             </div>
             <div>
               <div className="flex mb-3">
                 <TextInput
                   required
                   type="text"
-                  name="color"
+                  name="email"
                   placeholder="Enter your email"
                   value={email}
                   onTextChange={setEmail}
                   className="flex-1 mr-6"
                 />
                 <Button onClick={() => console.log("")} className="!rounded-full">
-                  Join now
+                  {t('footer.newsletter.button')}
                 </Button>
               </div>
               <div className="text-xs">
-                By subscribing you agree to our Privacy Policy and provide consent to receive updates from our
-                company.
+                {t('footer.newsletter.privacyPolicy')}
               </div>
               <div className="flex flex-col items-start">
-              <div className="h6 mt-3 mb-3">Connect With Us</div>
-              <div className="flex flex-row gap-4">
-                <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><Facebook className="hover:text-blue-500 mx-auto" /></Link>
+                <div className="h6 mt-3 mb-3">
+                  {t('footer.connectWithUs')}</div>
+              <div className="flex flex-row gap-6">
+                <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><FaSquareFacebook className="w-6 h-6 hover:text-blue-500 mx-auto" /></Link>
                 <Link href="https://www.instagram.com/receipters_llc" target="_blank"><Instagram className="hover:text-pink-500 mx-auto" /></Link>
-                <Link href="https://www.x.com/receipters_llc" target="_blank"><FaXTwitter className="w-5 h-5 hover:text-blue-400 mx-auto" /></Link>
-                <Link href="https://www.linkedin.com/in/receipters-llc" target="_blank"><Linkedin className="hover:text-blue-600 mx-auto" /></Link>
-                <Link href="https://www.tiktok.com/@receipters_llc" target="_blank"><FaTiktok className="w-5 h-5 hover:text-gray-300 mx-auto" /></Link>
+                <Link href="https://www.x.com/receipters_llc" target="_blank"><FaXTwitter className="w-6 h-6 hover:text-blue-400 mx-auto" /></Link>
+                <Link href="https://www.linkedin.com/in/receipters-llc" target="_blank"><FaLinkedin className="w-6 h-6 hover:text-blue-600 mx-auto" /></Link>
+                <Link href="https://www.tiktok.com/@receipters_llc" target="_blank"><FaTiktok className="w-6 h-6 hover:text-gray-300 mx-auto" /></Link>
                 <Link href="https://www.youtube.com/@Receipters_llc" target="_blank"><Youtube className="hover:text-red-500 mx-auto" /></Link>
               </div>
             </div>
-              
             </div>
           </div>
 
           {/* Right Section */}
           <div className="w-full grid grid-cols-2 gap-x-4 sm:gap-x-8">
-            <FooterLinksSection title="Quick Links" data={productLinks} />
+            <FooterLinksSection title={t('footer.quickLinks.title')} data={productLinks.map(link => ({...link, name: t(`footer.productLinks.${link.name.toLowerCase().replace(/\s/g, '')}`)}))} />
             <div className="text-sm text-gray-300 mt-4">
-                <strong>Our Office:</strong><br />
+                <strong>{t('footer.ourOffice')}:</strong><br />
                 355 Ridgewood Ave, Suite 1<br />
                 Newark, NJ 07112
               </div>
@@ -95,6 +95,7 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* Copyright */}
         <div className="text-center text-base">
           © {new Date().getFullYear()} Receipters LLC. All Rights Reserved
         </div>
@@ -111,7 +112,7 @@ const legalLinks = [
   },
   {
     id: 2,
-    name: "Terms of Service",
+    name: "Terms and Conditions",
     url: "/terms-and-conditions",
   },
 ];

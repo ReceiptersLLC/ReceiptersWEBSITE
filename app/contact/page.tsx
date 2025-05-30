@@ -1,6 +1,8 @@
 'use client';
 import {useState} from 'react';
 import ContactDetails from "@/app/contact/components/ContactDetails";
+import { useTranslation } from 'react-i18next';
+import { toast } from 'sonner';
 
 export default function Page() {
   const [fullname, setFullname] = useState('');
@@ -8,6 +10,7 @@ export default function Page() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
+  const { t } = useTranslation('common');
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     const API_ENDPOINT = `https://fl-engine-b2b.fitlov.com/api/v1/g/contact-us`;
@@ -29,32 +32,32 @@ export default function Page() {
       });
 
       if (res.ok) {
-        const data = await res.json();
-        alert(data.message || 'Message sent successfully!');
+        // const data = await res.json(); // No need to parse if not using data.message
+        toast.success(t('contact.toast.success'));
         // Reset form
         setFullname('');
         setEmail('');
         setSubject('');
         setMessage('');
       } else {
-        const error = await res.json();
-        alert(error.message || 'Failed to send message.');
+        const errorData = await res.json(); // Parse error response
+        toast.error(errorData.message || t('contact.toast.failed'));
       }
     } catch (err) {
       console.error(err);
-      alert('Something went wrong.');
+      toast.error(t('contact.toast.error'));
     }
   };
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-white p-6">
       <h2 className="mt-16 text-3xl max-w-3xl font-semibold text-left w-full text-gray-900 mb-2">
-        Drop us a message and we will get back to you!
+       {t('contact.title')}
       </h2>
 
       <form onSubmit={handleSubmit} className="w-full max-w-3xl space-y-4 mt-8">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">{t('contact.fullName')}</label>
           <input
             type="text"
             placeholder="Your full name"
@@ -65,8 +68,8 @@ export default function Page() {
           />
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Your e-mail</label>
+ <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">{t('contact.email')}</label>
           <input
             type="email"
             placeholder="Your e-mail"
@@ -78,7 +81,7 @@ export default function Page() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">{t('contact.subject')}</label>
           <input
             type="text"
             placeholder="Subject"
@@ -90,7 +93,7 @@ export default function Page() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Your message</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">{t('contact.message')}</label>
           <textarea
             placeholder="Your message here"
             rows={6}
@@ -105,7 +108,7 @@ export default function Page() {
           type="submit"
           className="w-full bg-gradient-to-r from-indigo-600 to-indigo-900 text-white font-medium py-3 rounded-full hover:opacity-90 transition"
         >
-          Send
+          {t('contact.button.send')}
         </button>
       </form>
 
