@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
+// import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 import { I18nextProvider } from "react-i18next";
-import i18n from "@/i18n.ts"; // Import the initialized i18n instance (adjust the path as needed)
+import i18n from "../i18n";
 import Navigator from "@/components/navigator";
 import Footer from "@/components/footer";
 import "./globals.css";
-
-const { i18n } = i18nConfig; // Destructure i18n from default export
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -15,14 +15,19 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+// Remove metadata export, as it's not allowed in client components
+// export const metadata: Metadata = {
+//   title: "Receipters",
+//   description: "Effortless Expense Management Anywhere.",
+// };
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-}) {
   return (
-    <html lang={i18n.defaultLocale}> {/* Use i18n.defaultLocale for dynamic language */}
+    <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
         <I18nextProvider i18n={i18n}>
           <Navigator />
