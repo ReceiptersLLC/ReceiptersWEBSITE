@@ -7,7 +7,7 @@ import {useRouter} from "next/navigation";
 
 export default function HowItWorks() {
   const router = useRouter();
-  const { t } = useTranslation('common');
+  // const { t } = useTranslation('common');
   const { t, ready } = useTranslation('common');
 
   if (!ready) {
