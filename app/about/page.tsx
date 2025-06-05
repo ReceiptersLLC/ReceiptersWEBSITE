@@ -79,11 +79,15 @@ export default function AboutPage() {
           <div className="mb-12">
             <TrendingUp className="text-indigo-600 mb-4" size={36} />
             <h3 className="text-3xl font-bold mb-4">{t('about.vision.title')}</h3>
+            <p className="text-gray-700 text-lg font-bold mb-4">
+              Mission: To interface the business solutions, management and technology thereby streamlining the receipts to be totally digital
+            </p>
             <p className="text-gray-700 text-lg">
-              {t('about.vision.description')} To become the global standard for digital receipting—where receipts
+              {t('about.vision.description')} To become the global standard for digital
+              receipting—where receipts
               aren&apos;t just stored, but transformed into smart tools for tracking, analyzing, and improving financial
               well-being.
-            </p>
+              </p>
           </div>
           <div>
             <Users className="text-purple-600 mb-4" size={36} />
