@@ -3,7 +3,11 @@
 import { useTranslation } from 'react-i18next';
 
 export default function WhoWeAre() {
-  const { t } = useTranslation('common');
+  const { t, ready } = useTranslation('common');
+
+  if (!ready) {
+    return null; // Or render a loading spinner/skeleton
+  }
 
   return (
     <div className="section">

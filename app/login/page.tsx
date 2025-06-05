@@ -27,7 +27,7 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [oauthLoading, setOauthLoading] = useState({ google: false, facebook: false });
-  const { t } = useTranslation('common');
+  const { t, ready } = useTranslation('common');
   const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -144,6 +144,10 @@ export default function LoginPage() {
       setOauthLoading({ ...oauthLoading, facebook: false });
     }
   };
+
+  if (!ready) {
+    return null; // Or a loading indicator component
+  } 
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

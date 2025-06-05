@@ -10,13 +10,17 @@ import i18n from "i18next";
 export default function Navigator() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { t } = useTranslation("common");
+  const { t, ready } = useTranslation("common");
 
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
 
   const isActive = (href: string) => pathname === href;
+
+  if (!ready) {
+    return null; // Or render a loading spinner/skeleton
+  }
 
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">

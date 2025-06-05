@@ -81,7 +81,11 @@ const aiBenefits = [
 ];
 
 export default function Page() {
-  const { t } = useTranslation('common');
+  const { t, ready } = useTranslation('common');
+
+  if (!ready) {
+    return null; // Or render a loading spinner/skeleton
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 text-gray-800">

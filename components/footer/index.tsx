@@ -17,7 +17,11 @@ import { useTranslation } from "react-i18next";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
-  const { t } = useTranslation('common');
+  const { t, ready } = useTranslation('common');
+
+  if (!ready) {
+    return null; // Or render a loading spinner/skeleton
+  }
 
   return (
     <div className="section bg-[#151516] text-white">
