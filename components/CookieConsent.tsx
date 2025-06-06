@@ -20,6 +20,10 @@ const CookieConsent: React.FC = () => {
     setIsVisible(false);
   };
 
+  const handleDecline = () => {
+    setIsVisible(false);
+  }
+
   if (!isVisible) {
     return null;
   }
