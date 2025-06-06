@@ -18,7 +18,7 @@ export default function WhatsAppWidget() {
     script.onload = () => {
       const wa_btnSetting = {
         btnColor: '#16BE45',
-        ctaText: 'WhatsApp Us',
+        ctaText: '',
         cornerRadius: 40,
         marginBottom: 20,
         marginLeft: 20,
