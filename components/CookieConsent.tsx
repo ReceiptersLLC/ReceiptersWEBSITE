@@ -44,6 +44,7 @@ const CookieConsent: React.FC = () => {
       alignItems: 'center',
       flexWrap: 'wrap',
     }}>
+ <p style={{ margin: '0 20px 0 0', fontSize: '14px' }}>
       <p style={{ margin: '0 20px 0 0', fontSize: '14px' }}>
         This website uses cookies to improve your experience. By using our website you agree to our use of cookies.
       </p>
@@ -61,6 +62,21 @@ const CookieConsent: React.FC = () => {
       >
         Accept
       </button>
+ <button
+        onClick={handleDecline}
+ style={{
+ backgroundColor: 'transparent',
+ color: '#4CAF50',
+ border: '1px solid #4CAF50',
+ padding: '8px 15px',
+ cursor: 'pointer',
+ borderRadius: '5px',
+ fontSize: '14px',
+ marginLeft: '10px', // Add some spacing between buttons
+ }}
+ >
+ Decline
+ </button>
     </div>
   );
 };
