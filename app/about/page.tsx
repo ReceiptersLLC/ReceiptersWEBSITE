@@ -5,7 +5,11 @@ import { Smile, Zap, ShieldCheck, Leaf, Globe, Users, TrendingUp } from "lucide-
 import { useTranslation } from 'react-i18next';
 
 export default function AboutPage() {
-  const { t } = useTranslation('common');
+  const { t, ready } = useTranslation('common');
+
+  if (!ready) {
+    return null;
+  }
 
   return (
     <div className="font-sans text-gray-800">
@@ -77,13 +81,21 @@ export default function AboutPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12">
+            <ShieldCheck className="text-green-600 mb-4" size={36} />
+            <h3 className="text-3xl font-bold mb-4">Our Mission</h3>
+            <p className="text-gray-700 text-lg">
+              To bridge business operations, digital infrastructure, and modern financial technology—ensuring receipts are not just digitized, but transformed into intelligent, accessible tools for real-time tracking, budgeting, and accountability. We aim to make every transaction seamless, secure, and paperless for individuals and enterprises alike.
+            </p>
+          </div>
+          <div className="mb-12">
             <TrendingUp className="text-indigo-600 mb-4" size={36} />
             <h3 className="text-3xl font-bold mb-4">{t('about.vision.title')}</h3>
             <p className="text-gray-700 text-lg">
-              {t('about.vision.description')} To become the global standard for digital receipting—where receipts
+              {t('about.vision.description')} To become the global standard for digital
+              receipting—where receipts
               aren&apos;t just stored, but transformed into smart tools for tracking, analyzing, and improving financial
               well-being.
-            </p>
+              </p>
           </div>
           <div>
             <Users className="text-purple-600 mb-4" size={36} />

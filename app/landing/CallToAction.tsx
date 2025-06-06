@@ -5,7 +5,12 @@ import { useTranslation } from 'react-i18next';
 
 export default function CallToAction() {
   const router = useRouter();
-  const { t } = useTranslation('common');
+  const { t, ready } = useTranslation('common');
+
+  if (!ready) {
+    return null; // Or a loading indicator component
+  }
+
   return (
     <div className="section bg-[#222] text-white text-center">
       <div className="max-w-7xl flex flex-col items-center">

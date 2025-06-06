@@ -10,7 +10,7 @@ export default function Page() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
-  const { t } = useTranslation('common');
+  const { t, ready } = useTranslation('common');
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     const API_ENDPOINT = `https://fl-engine-b2b.fitlov.com/api/v1/g/contact-us`;
@@ -48,6 +48,10 @@ export default function Page() {
       toast.error(t('contact.toast.error'));
     }
   };
+
+  if (!ready) {
+    return null;
+  }
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-white p-6">

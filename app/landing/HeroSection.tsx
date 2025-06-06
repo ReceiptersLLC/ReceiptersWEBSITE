@@ -6,9 +6,13 @@ import { useTranslation } from 'react-i18next';
 
 export default function HeroSection() {
   const router = useRouter();
-  const { t } = useTranslation('common');
+  const { t, ready } = useTranslation('common');
 
-  return (
+  if (!ready) {
+    return null; // Or render a loading spinner/skeleton
+  }
+
+ return (
     <div className="dp-x pt-20 flex flex-col items-center">
       <div
         className="dp-x py-4 sm:py-6 md:py-8 lg:py-12 xl:py-16 max-w-7xl grid grid-cols-1 gap-16 bg-gradient-to-b from-primary/10  via-primary/5 to-background rounded-3xl">

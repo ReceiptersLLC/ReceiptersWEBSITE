@@ -8,13 +8,17 @@ import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 
 export default function Features() {
-  const { t } = useTranslation("common");
+  const { t, ready } = useTranslation("common");
   const router = useRouter();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const selectedFeature = featuresData[selectedIndex];
   const titleKey = selectedFeature?.titleKey;
   const descriptionKey = selectedFeature?.descriptionKey;
+  
+  if (!ready) {
+    return null; // Or render a loading spinner/skeleton
+  }
 
   return (
     <div className="section">
