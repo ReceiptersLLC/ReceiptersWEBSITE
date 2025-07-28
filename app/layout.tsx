@@ -1,33 +1,30 @@
-import type {Metadata} from "next";
-import {Poppins} from "next/font/google";
 import "./globals.css";
-import Navigator from "@/components/navigator";
-import React from "react";
-import Footer from "@/components/footer";
+import { Poppins } from "next/font/google";
+import LayoutClientWrapper from "@/components/LayoutClientWrapper";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"], // Adjust weights as needed
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Receipters",
-  description: "Effortless Expense Management Anywhere.",
+  description: "Download the Receipters app",
 };
 
 export default function RootLayout({
-                                     children,
-                                   }: Readonly<{
+  children,
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-    <body className={`${poppins.variable} antialiased`}>
-    <Navigator/>
-    {children}
-    <Footer/>
-    </body>
+      <body className={`${poppins.variable} antialiased`}>
+        <LayoutClientWrapper>{children}</LayoutClientWrapper>
+        <WhatsAppWidget />
+      </body>
     </html>
   );
 }
