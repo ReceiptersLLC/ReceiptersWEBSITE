@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Receipters",
-  description: "Effortless Expense Management Anywhere.",
+  description: "Instant Digital Receipts, Zero Paper Waste.",
 };
 
 export default function Home() {

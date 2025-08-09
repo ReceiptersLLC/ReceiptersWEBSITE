@@ -11,28 +11,27 @@ export default function Testimonials() {
   }
 
   return (
-    <div className="section">
-      <div className="max-w-7xl">
-        <h2 className="text-xs font-medium text-center uppercase mb-3">
+    <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-xs sm:text-sm font-medium text-center uppercase mb-3 sm:mb-4 tracking-wider">
           {t('landing.testimonials.subtitle')}
         </h2>
-        <h3 className="h3 text-center mb-10">
+        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-10 leading-tight">
           {t('landing.testimonials.title')}
         </h3>
 
         <div>
-          <div className="grid md:grid-cols-2">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
             <div
-              className="relative bg-[url(/img/customer-satisfaction.webp)] size-[400px] rounded-3xl overflow-hidden bg-cover text-white flex flex-col justify-end p-10">
-              <div className="h1 mb-1">
+              className="relative bg-[url(/img/customer-satisfaction.webp)] w-full h-[300px] sm:h-[350px] lg:h-[400px] rounded-2xl sm:rounded-3xl overflow-hidden bg-cover bg-center text-white flex flex-col justify-end p-6 sm:p-8 lg:p-10">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2">
                 89.54%
               </div>
-              <div className="text-sm">{t('landing.testimonials.customerSatisfaction')}
-                Customer satisfaction
+              <div className="text-sm sm:text-base opacity-90">{t('landing.testimonials.customerSatisfaction')}
               </div>
             </div>
-            <div className="bg-white rounded-3xl p-8">
-              <div className="h-5 w-full mb-6 relative flex flex-row items-center">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-sm">
+              <div className="h-4 sm:h-5 w-full mb-4 sm:mb-6 relative flex flex-row items-center gap-1">
                 {[1, 2, 3, 4, 5].map((v, i) => (
                   <svg
                     key={`testimonail-svg-${i}`}
@@ -46,17 +45,17 @@ export default function Testimonials() {
                   </svg>
                 ))}
               </div>
-              <div className="h4">
+              <div className="text-lg sm:text-xl lg:text-2xl font-semibold leading-relaxed mb-4 sm:mb-6">
                 {t('landing.testimonials.quote')}
               </div>
-              <div className="flex flex-row space-x-4 items-center mt-6">
-                <div className="size-12 relative bg-amber-50 rounded-full overflow-hidden">
+              <div className="flex flex-row space-x-3 sm:space-x-4 items-center">
+                <div className="size-10 sm:size-12 relative bg-amber-50 rounded-full overflow-hidden">
                   <Image
                     alt="Customer testimonial image"
-                    src="/img/customer-testimonial.webp"
+                    src="/img/customer-satisfaction.webp"
                     layout="fill"/>
                 </div>
-                <div className="text-lg font-mediumt">
+                <div className="text-base sm:text-lg font-medium">
                   Leonard Ochieng
                 </div>
               </div>

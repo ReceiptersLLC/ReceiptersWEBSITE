@@ -110,7 +110,7 @@ export default function Page() {
 
         <button
           type="submit"
-          className="w-full bg-gradient-to-r from-indigo-600 to-indigo-900 text-white font-medium py-3 rounded-full hover:opacity-90 transition"
+          className="w-full bg-gradient-to-r from-indigo-600 to-indigo-900 text-white font-medium py-3 rounded-full hover:opacity-90 transition flex items-center justify-center"
         >
           {t('contact.button.send')}
         </button>

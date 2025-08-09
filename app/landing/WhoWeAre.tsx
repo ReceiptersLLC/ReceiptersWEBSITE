@@ -10,33 +10,32 @@ export default function WhoWeAre() {
   }
 
   return (
-    <div className="section">
+    <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 flex flex-col items-center">
       <div className="w-full max-w-7xl">
-        <h2 className="text-xs font-medium uppercase mb-3">
+        <h2 className="text-xs sm:text-sm font-medium uppercase mb-3 sm:mb-4 tracking-wider">
           {t('landing.whoWeAre.subtitle')}
         </h2>
-        <h3 className="text-2xl font-medium mb-10">
+        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 sm:mb-10 leading-tight">
           {t('landing.whoWeAre.title')}
         </h3>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {data.map((result, index) => (
             <div
               key={`result-${index}`}
-              className="p-6 rounded-3xl bg-white"
+              className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white shadow-sm"
             >
-              <div className="size-12 rounded-xl bg-slate-100 mb-12 flex p-2">
-                <div className="size-8">
+              <div className="size-10 sm:size-12 rounded-xl bg-slate-100 mb-8 sm:mb-12 flex p-2">
+                <div className="size-6 sm:size-8">
                   {result.svg()}
                 </div>
               </div>
-              <div className="h1 mb-6">{result.value}</div>
-              <div className="text-sm">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium mb-4 sm:mb-6 leading-tight">{result.value}</div>
+              <div className="text-xs sm:text-sm text-gray-600">
                 {result.captionKey ? t(result.captionKey) : result.caption}
               </div>
             </div>
           ))}
         </div>
-        {/* <div className="text-center mt-10"><a href="/download" className="btn">Get Started</a></div> */}
       </div>
     </div>
   );

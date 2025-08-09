@@ -24,13 +24,13 @@ export default function Footer() {
   }
 
   return (
-    <div className="section bg-[#151516] text-white">
-      <div className="w-full max-w-7xl">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 border-b border-b-white pb-12">
+    <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-[#151516] text-white">
+      <div className="w-full max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12 border-b border-b-white pb-8 sm:pb-12">
           {/* Left Section */}
-          <div className="grid gap-6 lg:col-span-2">
+          <div className="grid gap-4 sm:gap-6 lg:col-span-2">
             <Link href="/">
-              <div className="relative w-[138px] h-[29.117px]">
+              <div className="relative w-[120px] sm:w-[138px] h-[25px] sm:h-[29.117px]">
                 <Image
                   src="/img/logo_full_w.svg"
                   alt="Logo"
@@ -39,11 +39,11 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <div>
+            <div className="text-sm sm:text-base lg:text-lg">
               {t('footer.newsletter.title')}
             </div>
             <div>
-              <div className="flex mb-3">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 mb-3">
                 <TextInput
                   required
                   type="text"
@@ -51,35 +51,35 @@ export default function Footer() {
                   placeholder="Enter your email"
                   value={email}
                   onTextChange={setEmail}
-                  className="flex-1 mr-6"
+                  className="flex-1 sm:mr-6"
                 />
-                <Button onClick={() => console.log("")} className="!rounded-full">
+                <Button onClick={() => console.log("")} className="!rounded-full w-full sm:w-auto">
                   {t('footer.newsletter.button')}
                 </Button>
               </div>
-              <div className="text-xs">
+              <div className="text-xs sm:text-sm opacity-75 leading-relaxed">
                 {t('footer.newsletter.privacyPolicy')}
               </div>
-              <div className="flex flex-col items-start">
-                <div className="h6 mt-3 mb-3">
+              <div className="flex flex-col items-start mt-4 sm:mt-6">
+                <div className="text-sm sm:text-base font-semibold mb-3">
                   {t('footer.connectWithUs')}</div>
-              <div className="flex flex-row gap-6">
-                <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><FaSquareFacebook className="w-6 h-6 hover:text-blue-500 mx-auto" /></Link>
-                <Link href="https://www.instagram.com/receipters_llc" target="_blank"><Instagram className="hover:text-pink-500 mx-auto" /></Link>
-                <Link href="https://www.x.com/receipters_llc" target="_blank"><FaXTwitter className="w-6 h-6 hover:text-blue-400 mx-auto" /></Link>
-                <Link href="https://www.linkedin.com/in/receipters-llc" target="_blank"><FaLinkedin className="w-6 h-6 hover:text-blue-600 mx-auto" /></Link>
-                <Link href="https://www.tiktok.com/@receipters_llc" target="_blank"><FaTiktok className="w-6 h-6 hover:text-gray-300 mx-auto" /></Link>
-                <Link href="https://www.youtube.com/@Receipters_llc" target="_blank"><Youtube className="hover:text-red-500 mx-auto" /></Link>
+              <div className="flex flex-row gap-4 sm:gap-6 flex-wrap">
+                <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><FaSquareFacebook className="w-5 h-5 sm:w-6 sm:h-6 hover:text-blue-500 transition-colors" /></Link>
+                <Link href="https://www.instagram.com/receipters_llc" target="_blank"><Instagram className="w-5 h-5 sm:w-6 sm:h-6 hover:text-pink-500 transition-colors" /></Link>
+                <Link href="https://www.x.com/receipters_llc" target="_blank"><FaXTwitter className="w-5 h-5 sm:w-6 sm:h-6 hover:text-blue-400 transition-colors" /></Link>
+                <Link href="https://www.linkedin.com/in/receipters-llc" target="_blank"><FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6 hover:text-blue-600 transition-colors" /></Link>
+                <Link href="https://www.tiktok.com/@receipters_llc" target="_blank"><FaTiktok className="w-5 h-5 sm:w-6 sm:h-6 hover:text-gray-300 transition-colors" /></Link>
+                <Link href="https://www.youtube.com/@Receipters_llc" target="_blank"><Youtube className="w-5 h-5 sm:w-6 sm:h-6 hover:text-red-500 transition-colors" /></Link>
               </div>
             </div>
             </div>
           </div>
 
           {/* Right Section */}
-          <div className="w-full grid grid-cols-2 gap-x-4 sm:gap-x-8">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-4">
             <FooterLinksSection title={t('footer.quickLinks.title')} data={productLinks.map(link => ({...link, name: t(`footer.productLinks.${link.name.toLowerCase().replace(/\s/g, '')}`)}))} />
-            <div className="text-sm text-gray-300 mt-4">
-                <strong>{t('footer.ourOffice')}:</strong><br />
+            <div className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                <strong className="text-white">{t('footer.ourOffice')}:</strong><br />
                 355 Ridgewood Ave, Suite 1<br />
                 Newark, NJ 07112
               </div>
@@ -87,12 +87,12 @@ export default function Footer() {
         </div>
 
         {/* Legal links */}
-        <div className="w-full flex flex-row flex-wrap gap-4 mt-12 mb-5">
+        <div className="w-full flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-12 mb-4 sm:mb-5">
           {legalLinks.map((link, index) => (
             <Link
               key={`legal-link-${index}`}
               href={link.url}
-              className="text-sm hover:text-primary"
+              className="text-xs sm:text-sm hover:text-primary transition-colors"
             >
               {link.name}
             </Link>
@@ -100,7 +100,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="text-center text-base">
+        <div className="text-center text-xs sm:text-sm lg:text-base opacity-75">
           © {new Date().getFullYear()} Receipters LLC. All Rights Reserved
         </div>
       </div>
@@ -139,7 +139,7 @@ const productLinks = [
   },
   {
     id: 4,
-    name: "Pricing",
-    url: "/pricing",
+    name: "Contact",
+    url: "/contact",
   },
 ];

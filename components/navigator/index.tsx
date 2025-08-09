@@ -39,7 +39,6 @@ export default function Navigator() {
             <NavLink href="/about" label={t('navbar.link.about')} active={isActive("/about")} />
             <NavLink href="/product" label={t('navbar.link.product')} active={isActive("/product")} />
             <NavLink href="/contact" label={t('navbar.link.contact')} active={isActive("/contact")} />
-            <NavLink href="/pricing" label={t('navbar.link.pricing')} active={isActive("/pricing")} />
           </div>
 
           {/* Right Buttons and Language Switcher */}
@@ -112,7 +111,6 @@ export default function Navigator() {
               <NavLink href="/about" label={t("navbar.link.about")} active={isActive("/about")} mobile />
               <NavLink href="/product" label={t("navbar.link.product")} active={isActive("/product")} mobile />
               <NavLink href="/contact" label={t("navbar.link.contact")} active={isActive("/contact")} mobile />
-              <NavLink href="/pricing" label={t("navbar.link.pricing")} active={isActive("/pricing")} mobile />
 
               <div className="pt-2 border-t border-gray-200">
                 <Link href="/signup">

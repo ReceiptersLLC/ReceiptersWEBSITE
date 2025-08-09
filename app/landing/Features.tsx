@@ -21,54 +21,54 @@ export default function Features() {
   }
 
   return (
-    <div className="section">
-      <div className="max-w-7xl">
-        <h2 className="text-sm uppercase font-medium mb-4 text-center">
+    <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-xs sm:text-sm uppercase font-medium mb-3 sm:mb-4 text-center tracking-wider">
           {t("landing.features.subtitle")}
         </h2>
-        <h3 className="h3 mb-10 text-center">
+        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 sm:mb-10 text-center leading-tight">
           {t("landing.features.title")}
         </h3>
 
-        <div className="flex flex-col md:flex-row space-x-4 mb-16 justify-center">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-4 mb-12 sm:mb-16 justify-center items-center">
           {featuresData.map((feature, index) => (
             <button
               onClick={() => setSelectedIndex(index)}
               key={`feature-header-${feature.id}`}
               className={classNames(
-                "px-3 py-2 rounded-full border border-transparent hover:border-primary",
-                { "bg-white text-primary": index === selectedIndex }
+                "px-3 sm:px-4 py-2 sm:py-3 rounded-full border border-transparent hover:border-primary text-sm sm:text-base transition-all duration-200",
+                { "bg-white text-primary shadow-md": index === selectedIndex }
               )}
             >
-              {t(feature.header)} {/* Make sure `header` is a translation key */}
+              {t(feature.header)}
             </button>
           ))}
         </div>
 
-        <div className="bg-white">
-          <div className="p-8 rounded-3xl grid gap-8 md:grid-cols-2">
-            <div className="w-full aspect-[32/30] relative">
+        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg">
+          <div className="p-4 sm:p-6 lg:p-8 grid gap-6 sm:gap-8 lg:grid-cols-2">
+            <div className="w-full aspect-[32/30] relative order-2 lg:order-1">
               <Image
                 alt={t(titleKey)}
                 src="https://cdn.prod.website-files.com/6723ac9d7ce2bbc831bb8146/6723ac9d7ce2bbc831bb821d_blobs2.webp"
                 layout="fill"
-                className="rounded-3xl"
+                className="rounded-2xl sm:rounded-3xl"
               />
             </div>
-            <div className="flex flex-col space-4">
-              <h3 className="h3 mb-4">{t(titleKey)}</h3>
-              <p className="mb-8">{t(descriptionKey)}</p>
+            <div className="flex flex-col justify-center order-1 lg:order-2">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 leading-tight">{t(titleKey)}</h3>
+              <p className="text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed text-gray-600">{t(descriptionKey)}</p>
               <Button
                 variant="custom"
                 onClick={() => router.push("/download")}
-                className="!bg-gradient-to-r !from-primary !to-primaryDark px-6 !rounded-full text-white self-start"
+                className="!bg-gradient-to-r !from-primary !to-primaryDark px-4 sm:px-6 py-3 sm:py-4 !rounded-full text-white self-start w-full sm:w-auto"
               >
-                <div className="flex items-center space-x-4">
-                  <div className="font-semibold">
+                <div className="flex items-center justify-center space-x-2 sm:space-x-4">
+                  <div className="font-semibold text-sm sm:text-base">
                     {t("landing.features.button")}
                   </div>
-                  <div className="size-8 rounded-full bg-white flex items-center justify-center">
-                    <span className="material-symbols-rounded text-primary">
+                  <div className="size-6 sm:size-8 rounded-full bg-white flex items-center justify-center">
+                    <span className="material-symbols-rounded text-primary text-sm sm:text-base">
                       arrow_forward
                     </span>
                   </div>

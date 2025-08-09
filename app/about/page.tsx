@@ -14,11 +14,11 @@ export default function AboutPage() {
   return (
     <div className="font-sans text-gray-800">
       {/* About Hero Section */}
-      <section className="bg-gradient-to-r from-blue-50 to-white py-24 px-6 text-center">
+      <section className="bg-gradient-to-r from-blue-50 to-white py-12 sm:py-16 lg:py-24 px-4 sm:px-6 text-center">
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-4">{t('about.hero.title')}</h1>
-          <p className="text-xl md:text-2xl text-blue-700 mb-6">{t('about.hero.subtitle')}</p>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">{t('about.hero.title')}</h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-blue-700 mb-4 sm:mb-6">{t('about.hero.subtitle')}</p>
+          <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             In a world where cluttered drawers and lost receipts are still common, Receipters brings simplicity,
             security, and smart technology to the way receipts are handled. Our mission is to eliminate paper waste,
             streamline expense tracking, and empower users with secure, real-time access to their transactions—anytime,
@@ -28,33 +28,33 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values Section */}
-      <section className="bg-gray-900 text-white py-20 px-6">
-        <div className="text-center mb-14">
-          <p className="text-sm uppercase tracking-widest text-gray-400 mb-2">{t('about.values.subtitle')}</p>
-          <h3 className="text-4xl font-bold">{t('about.values.title')}</h3>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
+      <section className="bg-gray-900 text-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
+        <div className="text-center mb-10 sm:mb-14">
+          <p className="text-xs sm:text-sm uppercase tracking-widest text-gray-400 mb-2">{t('about.values.subtitle')}</p>
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold">{t('about.values.title')}</h3>
+          <p className="mt-3 sm:mt-4 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
             We believe in building a digital future where every receipt is more than a record—it&apos;s a resource. Our
             values guide how we create, connect, and innovate for businesses and individuals alike.
           </p>
         </div>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
           <ValueCard
-            icon={<Smile size={36} className="text-green-400" />}
+            icon={<Smile size={28} className="text-green-400 sm:w-9 sm:h-9" />}
             title="Simplicity"
             description={t('about.values.simplicity.description')}
           />
           <ValueCard
-            icon={<Zap size={36} className="text-yellow-400" />}
+            icon={<Zap size={28} className="text-yellow-400 sm:w-9 sm:h-9" />}
             title="Efficiency"
             description={t('about.values.efficiency.description')}
           />
           <ValueCard
-            icon={<ShieldCheck size={36} className="text-blue-400" />}
+            icon={<ShieldCheck size={28} className="text-blue-400 sm:w-9 sm:h-9" />}
             title="Security"
             description={t('about.values.security.description')}
           />
           <ValueCard
-            icon={<Leaf size={36} className="text-lime-400" />}
+            icon={<Leaf size={28} className="text-lime-400 sm:w-9 sm:h-9" />}
             title="Sustainability"
             description={t('about.values.sustainability.description')}
           />
@@ -62,15 +62,15 @@ export default function AboutPage() {
       </section>
 
       {/* Problem Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white px-4 sm:px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <Globe className="mx-auto text-blue-500 mb-4" size={40} />
-          <h3 className="text-3xl font-bold mb-4">{t('about.problem.title')}</h3>
-          <p className="text-lg text-gray-700 mb-4">
+          <Globe className="mx-auto text-blue-500 mb-4" size={32} />
+          <h3 className="text-2xl sm:text-3xl font-bold mb-4">{t('about.problem.title')}</h3>
+          <p className="text-sm sm:text-base lg:text-lg text-gray-700 mb-4 leading-relaxed">
             Paper receipts are expensive, wasteful, and inconvenient. Receipters replaces them with smart, digital
             alternatives—cutting costs, reducing environmental waste, and improving customer experience.
           </p>
-          <p className="text-lg text-gray-700">
+          <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
             Our dual model—{t('about.problem.model')}—serves both vendors and
             end-users, delivering security, accessibility, and efficiency across the board.
           </p>
@@ -78,19 +78,19 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Story */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-12">
-            <ShieldCheck className="text-green-600 mb-4" size={36} />
-            <h3 className="text-3xl font-bold mb-4">Our Mission</h3>
-            <p className="text-gray-700 text-lg">
+          <div className="mb-8 sm:mb-12">
+            <ShieldCheck className="text-green-600 mb-4" size={28} />
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4">Our Mission</h3>
+            <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
               To bridge business operations, digital infrastructure, and modern financial technology—ensuring receipts are not just digitized, but transformed into intelligent, accessible tools for real-time tracking, budgeting, and accountability. We aim to make every transaction seamless, secure, and paperless for individuals and enterprises alike.
             </p>
           </div>
-          <div className="mb-12">
-            <TrendingUp className="text-indigo-600 mb-4" size={36} />
-            <h3 className="text-3xl font-bold mb-4">{t('about.vision.title')}</h3>
-            <p className="text-gray-700 text-lg">
+          <div className="mb-8 sm:mb-12">
+            <TrendingUp className="text-indigo-600 mb-4" size={28} />
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4">{t('about.vision.title')}</h3>
+            <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
               {t('about.vision.description')} To become the global standard for digital
               receipting—where receipts
               aren&apos;t just stored, but transformed into smart tools for tracking, analyzing, and improving financial
@@ -98,9 +98,9 @@ export default function AboutPage() {
               </p>
           </div>
           <div>
-            <Users className="text-purple-600 mb-4" size={36} />
-            <h3 className="text-3xl font-bold mb-4">Our Story</h3>
-            <p className="text-gray-700 text-lg">
+            <Users className="text-purple-600 mb-4" size={28} />
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4">Our Story</h3>
+            <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
               {t('about.story.description')}
             </p>
           </div>
@@ -108,11 +108,11 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="bg-white py-20 px-6">
+      <section className="bg-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4">{t('about.team.title')}</h2>
-          <p className="text-gray-600 text-lg text-center mb-12">{t('about.team.subtitle')}</p>
-          <div className="grid gap-10 grid-cols-1 md:grid-cols-2">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-4">{t('about.team.title')}</h2>
+          <p className="text-gray-600 text-sm sm:text-base lg:text-lg text-center mb-8 sm:mb-12">{t('about.team.subtitle')}</p>
+          <div className="grid gap-6 sm:gap-8 lg:gap-10 grid-cols-1 lg:grid-cols-2">
             <TeamBioCard
               name="Gordon Odira"
               title="CEO & Founder"
@@ -154,10 +154,10 @@ interface ValueCardProps {
 
 function ValueCard({ icon, title, description }: ValueCardProps) {
   return (
-    <div className="bg-gray-800 p-6 rounded-xl text-center shadow-lg hover:shadow-xl transition">
-      <div className="mb-4 flex justify-center">{icon}</div>
-      <h4 className="text-xl font-semibold mb-2">{title}</h4>
-      <p className="text-gray-400 text-sm">{description}</p>
+    <div className="bg-gray-800 p-4 sm:p-6 rounded-xl text-center shadow-lg hover:shadow-xl transition">
+      <div className="mb-3 sm:mb-4 flex justify-center">{icon}</div>
+      <h4 className="text-lg sm:text-xl font-semibold mb-2">{title}</h4>
+      <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{description}</p>
     </div>
   );
 }
@@ -171,18 +171,18 @@ interface TeamBioCardProps {
 
 function TeamBioCard({ name, title, image, description }: TeamBioCardProps) {
   return (
-    <div className="flex gap-6 items-start">
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start text-center sm:text-left">
       <Image
         src={image}
         alt={name}
-        width={128}
-        height={128}
-        className="w-32 h-32 rounded-full object-cover shadow-md"
+        width={112}
+        height={112}
+        className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover shadow-md flex-shrink-0"
       />
-      <div>
-        <h3 className="text-xl font-semibold text-gray-800">{name}</h3>
-        <p className="text-sm text-blue-600 mb-2 font-medium">{title}</p>
-        <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+      <div className="flex-1">
+        <h3 className="text-lg sm:text-xl font-semibold text-gray-800">{name}</h3>
+        <p className="text-xs sm:text-sm text-blue-600 mb-2 font-medium">{title}</p>
+        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{description}</p>
       </div>
     </div>
   );
