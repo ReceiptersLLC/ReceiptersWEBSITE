@@ -195,12 +195,12 @@ export default function Page() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-blue-600 text-white text-center">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to go paperless and powerful?</h2>
-          <p className="text-lg mb-6">Start using Receipters today to manage your receipts like a pro.</p>
-          <a href="/pricing" className="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-gray-100 transition">
-            {t('product.cta.button')}
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-blue-600 text-white text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">Ready to go paperless and powerful?</h2>
+          <p className="text-sm sm:text-base lg:text-lg mb-6 leading-relaxed">Start using Receipters today to manage your receipts like a pro.</p>
+          <a href="/download" className="inline-flex items-center justify-center bg-white text-blue-600 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:bg-gray-100 transition w-full sm:w-auto max-w-sm mx-auto">
+            <span className="text-sm sm:text-base whitespace-nowrap">{t('product.cta.button')}</span>
           </a>
         </div>
       </section>

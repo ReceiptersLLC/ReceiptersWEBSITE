@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Receipters - Under Construction",
-  description: "Our website is currently under construction. Please check back soon!",
+  title: "Receipters",
+  description: "Instant Digital Receipts, Zero Paper Waste.",
 };
 
 export default function Home() {

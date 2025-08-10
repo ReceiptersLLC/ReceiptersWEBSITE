@@ -33,8 +33,8 @@ export default function page() {
       <ul className="list-disc ml-6 mb-4">
         <li>Transaction Data: Information on purchases, amounts, dates, locations, and merchant details from receipts.
         </li>
-        <li>Banking and Payment Integration Data (if connected): Bank account information, credit card details, and
-          other financial data to categorize expenses and sync transactions.
+        <li>Payment Integration Data (if connected): Credit card details and transaction records
+          to sync purchase history.
         </li>
       </ul>
 
@@ -64,8 +64,8 @@ export default function page() {
         <li>Account Management: Creating and managing your account, verifying your identity, and providing customer
           support.
         </li>
-        <li>Expense Tracking and Reporting: Organizing, categorizing, and analyzing your expense data for easier
-          tracking and insights.
+        <li>Transaction Management: Organizing and categorizing purchase records for
+          easy access and reporting.
         </li>
         <li>Improving Services: Analyzing usage data to enhance app functionality, develop new features, and ensure
           platform security.
