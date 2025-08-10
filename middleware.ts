@@ -2,15 +2,8 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
-  
-  // Allow the home page to be accessed
-  if (pathname === '/') {
-    return NextResponse.next()
-  }
-  
-  // Redirect all other routes to the home page
-  return NextResponse.redirect(new URL('/', request.url))
+  // Allow all requests to pass through
+  return NextResponse.next()
 }
 
 export const config = {
@@ -24,4 +17,4 @@ export const config = {
      */
     '/((?!api|_next/static|_next/image|favicon.ico).*)',
   ],
-} 
+}
