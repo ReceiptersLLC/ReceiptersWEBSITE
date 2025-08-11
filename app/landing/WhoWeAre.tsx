@@ -45,7 +45,7 @@ const data = [
   {
     id: 1,
     value: "150K",
-    captionKey: "landing.whoWeAre.receiptsCaptured",
+    captionKey: "landing.whoWeAre.result1.caption",
     svg: () => (
       <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
         <path className="fill-primary" d="m11.05,11.05c.65-.64,1.39-1.15,2.23-1.5L9.77,1.26c-1.91.81-3.62,1.96-5.08,3.43-1.47,1.47-2.62,3.18-3.43,5.08l8.29,3.51c.35-.83.86-1.58,1.5-2.23Z" />
@@ -57,7 +57,7 @@ const data = [
   {
     id: 2,
     value: "100+",
-    captionKey: "landing.whoWeAre.hoursSaved",
+    captionKey: "landing.whoWeAre.result2.caption",
     svg: () => (
       <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
         <path className="fill-primary" d="m16,23c-3.86,0-7-3.14-7-7H0c0,8.82,7.18,16,16,16s16-7.18,16-16h-9c0,3.86-3.14,7-7,7Z" />
@@ -68,12 +68,12 @@ const data = [
   {
     id: 3,
     value: "$10M",
-    caption: "Tax rebates",
+    captionKey: "landing.whoWeAre.result3.caption",
     svg: () => (
       <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
         <circle className="fill-primary" cx="7.5" cy="7.5" r="7.5" />
         <path className="fill-primary" d="m24.5,15c4.14,0,7.5-3.36,7.5-7.5S28.64,0,24.5,0s-7.5,3.36-7.5,7.5,3.36,7.5,7.5,7.5Zm0-10c1.38,0,2.5,1.12,2.5,2.5s-1.12,2.5-2.5,2.5-2.5-1.12-2.5-2.5,1.12-2.5,2.5-2.5Z" />
-        <path className="fill-primary" d="m7.5,17c-4.14,0-7.5,3.36-7.5,7.5s3.36,7.5,7.5,7.5,7.5-3.36,7.5-7.5-3.36-7.5-7.5-7.5Zm0,10c-1.38,0-2.5-1.12-2.5-2.5s1.12-2.5,2.5-2.5,2.5,1.12,2.5,2.5-1.12,2.5-2.5,2.5Z" />
+        <path className="fill-primary" d="m7.5,17c-4.14,0-7.5,3.36-7.5,7.5s3.36,7.5,7.5,7.5,7.5-3.36,7.5-7.5-3.36-7.5-7.5-7.5Zm0,10c-1.38,0-2.5-1.12-2.5-2.5s1.12-2.5,2.5-2.5,2.5,1.12,2.5,2.5-1.12,2.5-2.5-2.5Z" />
         <circle className="fill-primary" cx="24.5" cy="24.5" r="7.5" />
       </svg>
     )
