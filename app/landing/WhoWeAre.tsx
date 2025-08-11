@@ -31,7 +31,7 @@ export default function WhoWeAre() {
               </div>
               <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium mb-4 sm:mb-6 leading-tight">{result.value}</div>
               <div className="text-xs sm:text-sm text-gray-600">
-                {result.captionKey ? t(result.captionKey) : result.caption}
+                {t(result.captionKey)}
               </div>
             </div>
           ))}
