@@ -171,21 +171,27 @@ i18n
     ns: ["common"], // Available namespaces
     defaultNS: "common", // Default namespace for translations
     supportedLngs: ["en", "fr", "sw", "de"], // Add your supported languages
-    debug: process.env.NODE_ENV === 'development', // Enable debug in development
+    debug: false, // Disable debug to reduce console noise
     resources: {
       en: {
         common: enTranslations // Preload English translations
       }
     },
     backend: {
-      loadPath: "/locales/{{lng}}/{{ns}}.json", // Path to translation files
+      loadPath: "/api/locales/{{lng}}/{{ns}}",
+      requestOptions: {
+        cache: 'no-store',
+      },
+      crossDomain: true,
     },
+    partialBundledLanguages: true, // Allow loading of specific language resources
     detection: {
       order: ["querystring", "cookie", "localStorage", "navigator", "htmlTag"],
       caches: ["cookie"], // Store detected language in cookies
     },
     react: {
       useSuspense: false, // Disable suspense if not needed
+      bindI18n: 'languageChanged', // Reduce unnecessary updates
     },
     interpolation: {
       escapeValue: false, // React already does escaping

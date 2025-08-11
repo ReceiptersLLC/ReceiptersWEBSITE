@@ -5,16 +5,25 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { useTranslation } from "react-i18next";
-import i18n from "i18next";
 
 export default function Navigator() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { t, ready } = useTranslation("common");
+  const { t, ready, i18n: i18nInstance } = useTranslation("common");
 
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
+
+  const handleLanguageChange = async (newLanguage: string) => {
+    try {
+      console.log('Switching language from', i18nInstance.language, 'to', newLanguage);
+      await i18nInstance.changeLanguage(newLanguage);
+      console.log('Language switched successfully to', i18nInstance.language);
+    } catch (error) {
+      console.error('Error switching language:', error);
+    }
+  };
 
   const isActive = (href: string) => pathname === href;
 
@@ -55,8 +64,8 @@ export default function Navigator() {
             </Link>
             <select
               className="px-3 py-1 text-sm border rounded-md text-gray-700"
-              onChange={(e) => i18n.changeLanguage(e.target.value)}
-              value={i18n.language}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+              value={i18nInstance.language}
             >
               <option value="en">EN</option>
               <option value="sw">SW</option>
@@ -128,8 +137,8 @@ export default function Navigator() {
               <div className="pt-2 border-t border-gray-200">
                 <select
                   className="w-full px-3 py-2 mt-2 border rounded-md text-base text-gray-700 focus:outline-none"
-                  onChange={(e) => i18n.changeLanguage(e.target.value)}
-                  value={i18n.language}
+                  onChange={(e) => handleLanguageChange(e.target.value)}
+                  value={i18nInstance.language}
                 >
                   <option value="en">English</option>
                   <option value="sw">Swahili</option>
