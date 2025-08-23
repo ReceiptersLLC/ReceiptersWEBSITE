@@ -82,6 +82,9 @@ export default function Footer() {
                 <strong className="text-white">{t('footer.ourOffice')}:</strong><br />
                 355 Ridgewood Ave, Suite 1<br />
                 Newark, NJ 07112
+                355 Ridgewood Ave, Suite 1<br />
+                Nairobi, KE<br />
+                00200,Greenhouse Ngong Road <br />
               </div>
           </div>
         </div>
