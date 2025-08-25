@@ -53,7 +53,7 @@ export default function FeatureCards() {
                            flex items-center justify-center space-x-3 cursor-pointer" // Added flex, justify-center, items-center for icon alignment and cursor for interactivity
               >
                 <span className="font-semibold text-sm whitespace-nowrap">
-                  {t('features.learnMoreButton')} {/* Using 't' for translation, assuming this key exists */}
+                  {t('learn More')} {/* Using 't' for translation, assuming this key exists */}
                 </span>
                 <div className="size-6 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                   <span className="material-symbols-rounded text-primary text-sm">
