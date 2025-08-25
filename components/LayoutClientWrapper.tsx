@@ -25,9 +25,9 @@ export default function LayoutClientWrapper({
     }
   }, []);
 
-  if (!isI18nReady) {
-    return <div>Loading...</div>; // Or a proper loading spinner
-  }
+  // if (!isI18nReady) {
+  //   return <div>Loading...</div>; // Or a proper loading spinner
+  // }
 
   return (
     <I18nextProvider i18n={i18n}>
