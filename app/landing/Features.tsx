@@ -1,11 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { FaBolt, FaLock, FaLeaf } from "react-icons/fa";
-import Button from "@/components/Button";
 
-// Define the data for each feature card (POS Integration has been removed)
+// Define the data for each feature card
 const features = [
   {
     icon: <FaBolt className="text-primary text-3xl mb-4" />,
@@ -25,8 +23,7 @@ const features = [
 ];
 
 export default function FeatureCards() {
-  const router = useRouter();
-  const { t, ready } = useTranslation("common");
+  const { t, ready } = useTranslation("common"); // 't' is now used for the button text
 
   if (!ready) {
     return null;
@@ -37,7 +34,7 @@ export default function FeatureCards() {
       <div className="max-w-7xl mx-auto">
         {/* Container for the feature cards */}
         <div className="flex flex-col sm:flex-row gap-8 justify-center items-stretch">
-          {features.map((feature) => ( // Removed '_idx' completely from the map function parameters
+          {features.map((feature) => (
             <div
               key={feature.title}
               className="bg-white rounded-2xl shadow-lg flex-1 flex flex-col items-center p-8 text-center"
@@ -49,22 +46,21 @@ export default function FeatureCards() {
               <p className="text-gray-600 text-sm mb-6">
                 {feature.description}
               </p>
-              <Button
-                variant="custom"
-                onClick={() => router.push('/thank-you')}
-                className="!bg-gradient-to-r !from-primary !to-primaryDark shadow-lg transition-colors px-6 py-3 !rounded-full text-white w-full max-w-xs !justify-center mt-auto"
+              {/* Replaced the simple div with a button-like div with gradient background and arrow */}
+              <div
+                className="!bg-gradient-to-r !from-primary !to-primaryDark shadow-lg transition-colors 
+                           px-6 py-3 !rounded-full text-white w-full max-w-xs !justify-center mt-auto
+                           flex items-center justify-center space-x-3 cursor-pointer" // Added flex, justify-center, items-center for icon alignment and cursor for interactivity
               >
-                <div className="flex items-center justify-center space-x-3 w-full">
-                  <span className="font-semibold text-sm whitespace-nowrap">
-                    {t('features.learnMoreButton')}
+                <span className="font-semibold text-sm whitespace-nowrap">
+                  {t('features.learnMoreButton')} {/* Using 't' for translation, assuming this key exists */}
+                </span>
+                <div className="size-6 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-rounded text-primary text-sm">
+                    arrow_forward
                   </span>
-                  <div className="size-6 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-                    <span className="material-symbols-rounded text-primary text-sm">
-                      arrow_forward
-                    </span>
-                  </div>
                 </div>
-              </Button>
+              </div>
             </div>
           ))}
         </div>
