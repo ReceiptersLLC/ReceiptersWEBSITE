@@ -63,7 +63,7 @@ const enTranslations = {
   "landing.howItWorks.step1.description": "Our advanced POS integration automatically generates and delivers digital receipts to customers via email, SMS, or directly to their Receipters account. No more paper waste, just instant digital delivery.",
   "landing.howItWorks.step2.title": "Secure Cloud Storage",
   "landing.howItWorks.step2.description": "Every receipt is securely stored in the cloud with military-grade encryption. Customers can access their purchase history anytime, anywhere, with guaranteed data protection and privacy compliance.",
-  "landing.howItWorks.step3.title": "Seamless POS Integration",
+  "landing.howItWorks.step3.title": "Seamless Expense Tracking",
   "landing.howItWorks.step3.description": "Easy integration with existing retail systems ensures smooth transition to paperless receipts without disrupting operations. Works with all major point-of-sale platforms.",
   "landing.howItWorks.button": "Get Started Today",
   "landing.testimonials.subtitle": "Testimonials",

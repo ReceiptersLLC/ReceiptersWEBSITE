@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Smile, Zap, ShieldCheck, Leaf, Globe, Users, TrendingUp } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import React from "react"; // Import React for React.ReactNode type
 
 export default function AboutPage() {
   const { t, ready } = useTranslation('common');
@@ -19,10 +20,7 @@ export default function AboutPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">{t('about.hero.title')}</h1>
           <p className="text-lg sm:text-xl md:text-2xl text-blue-700 mb-4 sm:mb-6">{t('about.hero.subtitle')}</p>
           <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            In a world where cluttered drawers and lost receipts are still common, Receipters brings simplicity,
-            security, and smart technology to the way receipts are handled. Our mission is to eliminate paper waste,
-            streamline expense tracking, and empower users with secure, real-time access to their transactions—anytime,
-            anywhere.
+            {t('about.hero.description')}
           </p>
         </div>
       </section>
@@ -33,8 +31,8 @@ export default function AboutPage() {
           <p className="text-xs sm:text-sm uppercase tracking-widest text-gray-400 mb-2">{t('about.values.subtitle')}</p>
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold">{t('about.values.title')}</h3>
           <p className="mt-3 sm:mt-4 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-            We believe in building a digital future where every receipt is more than a record—it&apos;s a resource. Our
-            values guide how we create, connect, and innovate for businesses and individuals alike.
+            {/* This line already uses &apos;, but I'm explicitly calling t() here */}
+            {t('about.values.description')}
           </p>
         </div>
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
@@ -67,12 +65,10 @@ export default function AboutPage() {
           <Globe className="mx-auto text-blue-500 mb-4" size={32} />
           <h3 className="text-2xl sm:text-3xl font-bold mb-4">{t('about.problem.title')}</h3>
           <p className="text-sm sm:text-base lg:text-lg text-gray-700 mb-4 leading-relaxed">
-            Paper receipts are expensive, wasteful, and inconvenient. Receipters replaces them with smart, digital
-            alternatives—cutting costs, reducing environmental waste, and improving customer experience.
+            {t('about.problem.description1')}
           </p>
           <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
-            Our dual model—{t('about.problem.model')}—serves both vendors and
-            end-users, delivering security, accessibility, and efficiency across the board.
+            {t('about.problem.description2')}
           </p>
         </div>
       </section>
@@ -82,26 +78,23 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8 sm:mb-12">
             <ShieldCheck className="text-green-600 mb-4" size={28} />
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4">Our Mission</h3>
+            <h3 className="text-2xl sm:text-3xl mb-4">Our Mission</h3>
             <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
-              To bridge business operations, digital infrastructure, and modern financial technology—ensuring receipts are not just digitized, but transformed into intelligent, accessible tools for real-time tracking, budgeting, and accountability. We aim to make every transaction seamless, secure, and paperless for individuals and enterprises alike.
+              To empower businesses and individuals with seamless eco-friendly and cost efficient digital receipting solutions that promote transparency, efficiency, and sustainability in everyday life transactions.
             </p>
           </div>
           <div className="mb-8 sm:mb-12">
             <TrendingUp className="text-indigo-600 mb-4" size={28} />
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4">{t('about.vision.title')}</h3>
-            <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
-              {t('about.vision.description')} To become the global standard for digital
-              receipting—where receipts
-              aren&apos;t just stored, but transformed into smart tools for tracking, analyzing, and improving financial
-              well-being.
-              </p>
+            <h3 className="text-2xl sm:text-3xl mb-4">{t('about.vision.title')}</h3>
+            <p className="font-sans text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
+              To be Africa&apos;s leading digital receipting platform driving towards a paperless economy while saving costs,protecting the environment, and fostering financial inclusion.
+            </p>
           </div>
           <div>
             <Users className="text-purple-600 mb-4" size={28} />
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4">Our Story</h3>
-            <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
-              {t('about.story.description')}
+            <h3 className="text-2xl sm:text-3xl mb-4">Our Story</h3>
+            <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed font-sans">
+              We&apos;re called Receipters because our goal is to turn paper receipts into digital ones. Our team of professionals believes that paper receipts aren&apos;t convenient for long-term use. They create storage issues, they fade over time and become unreadable, and they pose a security risk if they fall into the wrong hands.
             </p>
           </div>
         </div>
@@ -110,9 +103,8 @@ export default function AboutPage() {
       {/* Team Section */}
       <section className="bg-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-4">{t('about.team.title')}</h2>
-          <p className="text-gray-600 text-sm sm:text-base lg:text-lg text-center mb-8 sm:mb-12">{t('about.team.subtitle')}</p>
-          <div className="grid gap-6 sm:gap-8 lg:gap-10 grid-cols-1 lg:grid-cols-2">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-5">{t('about.team.title')}</h2>
+          <div className="grid gap-6 sm:gap-8 lg:gap-10 sm:grid-cols-2 md:grid-cols-2">
             <TeamBioCard
               name="Gordon Odira"
               title="CEO & Founder"
@@ -120,7 +112,7 @@ export default function AboutPage() {
               description="A senior Integration Engineer with over 8 years in federal, state, and private tech deployments. Holds a BSc in Electrical & Computer Engineering from Rutgers University and a Master's in Electrical and Computer Engineering from NJIT."
             />
             <TeamBioCard
-              name="Fredrick George Osewe"
+              name="George Osewe"
               title="Senior Consultant, Business Development Director and Communications"
               image="/assets/george.jpg"
               description="A government and policy expert who was part of Kenya's constitutional transition team in 2010. Specializes in restructuring business operations. Holds a degree in Development Communication."
@@ -132,11 +124,19 @@ export default function AboutPage() {
               description="Lead developer of Receipters core systems. Has built hundreds of mobile apps and led health tech deployments across Africa. Graduate of Kenya Aeronautical College in Software Engineering."
             />
             <TeamBioCard
-              name="Prof. Joshua O. Agola"
+              name=" John Obura"
               title="CTO and Principal Architect"
-              image="/assets/prof.jpg"
-              description="Professor and Head of Software Engineering at JOOUST University. Expert in system architecture and cybersecurity. Leads Receipters' technical strategy and infrastructure security."
+              image="/assets/"
+              description="."
             />
+            <div className="col-span-2 justify-self-center">
+              <TeamBioCard
+                name="Joseph Orinda"
+                title="Chief Operations Officer"
+                image="/assets/Joseph.jpg"
+                description="Chief Operations Officer of Receipters."
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -170,15 +170,18 @@ interface TeamBioCardProps {
 }
 
 function TeamBioCard({ name, title, image, description }: TeamBioCardProps) {
+  const isJoseph = name === "Joseph Orinda";
   return (
     <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start text-center sm:text-left">
-      <Image
-        src={image}
-        alt={name}
-        width={112}
-        height={112}
-        className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover shadow-md flex-shrink-0"
-      />
+      <div className={`w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center flex-shrink-0 ${isJoseph ? "relative" : ""}`}>
+        <Image
+          src={image}
+          alt={name}
+          width={112}
+          height={112}
+          className={`object-cover w-full h-full ${isJoseph ? "object-top" : ""}`}
+        />
+      </div>
       <div className="flex-1">
         <h3 className="text-lg sm:text-xl font-semibold text-gray-800">{name}</h3>
         <p className="text-xs sm:text-sm text-blue-600 mb-2 font-medium">{title}</p>
