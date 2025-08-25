@@ -3,7 +3,7 @@
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 
-// Define a type for a single testimonial object
+
 interface Testimonial {
   nameKey: string;
   quoteKey: string;
@@ -14,7 +14,7 @@ export default function Testimonials() {
   const { t, ready } = useTranslation('common');
   const [isMounted, setIsMounted] = useState(false);
 
-  // Define the testimonials data using keys from the i18n JSON
+  
   const testimonials: Testimonial[] = [
     {
       nameKey: "Leonard Ochieng",
@@ -28,7 +28,7 @@ export default function Testimonials() {
     },
     {
       nameKey: "Lucy Anyika",
-      quoteKey: "Great experience from start to the end", 
+      quoteKey: "Great experience", 
       rating: 5,
     },
     {
@@ -38,15 +38,15 @@ export default function Testimonials() {
     },
   ];
 
-  // Duplicate the array to create a seamless infinite scroll effect
+  
   const allTestimonials = [...testimonials, ...testimonials];
 
   useEffect(() => {
-    setIsMounted(true); // Ensure component is mounted before animation starts
+    setIsMounted(true); 
   }, []);
 
   if (!ready || !isMounted) {
-    return null; // Or render a loading spinner/skeleton
+    return null; 
   }
 
   return (
@@ -59,9 +59,9 @@ export default function Testimonials() {
           {t('landing.testimonials.customerSatisfaction')}
         </h3>
 
-        {/* The outer container hides the overflow and sets the animation */}
+        {}
         <div className="overflow-hidden whitespace-nowrap">
-          {/* This container will move continuously from right to left */}
+          {}
           <div className="inline-block animate-marquee">
             {allTestimonials.map((testimonial, index) => (
               <div
@@ -69,7 +69,7 @@ export default function Testimonials() {
                 className="inline-block w-[280px] sm:w-[320px] lg:w-[380px] bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-sm mx-3 flex-shrink-0"
               >
                 <div className="h-4 sm:h-5 w-full mb-4 sm:mb-6 relative flex flex-row items-center gap-1">
-                  {/* Star rating based on the testimonial data */}
+                  {}
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <svg
                       key={`star-${index}-${i}`}
@@ -84,11 +84,11 @@ export default function Testimonials() {
                     </svg>
                   ))}
                 </div>
-                {/* Reduced font size for the quote */}
+                {}
                 <div className="text-base sm:text-lg lg:text-xl font-semibold leading-relaxed mb-4 sm:mb-6">
                   {t(testimonial.quoteKey).replace("It's the best paperless solution", '<br /> It\'s the best paperless solution')}
                 </div>
-                {/* Reduced font size for the customer name */}
+                {}
                 <div className="text-sm sm:text-base font-medium">
                   {t(testimonial.nameKey)}
                 </div>

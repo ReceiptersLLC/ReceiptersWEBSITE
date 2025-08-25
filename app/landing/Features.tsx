@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { FaBolt, FaCloudUploadAlt, FaLock, FaLeaf } from "react-icons/fa";
 import Button from "@/components/Button";
 
-// Define the data for each feature card (POS Integration has been removed)
+
 const features = [
   {
     icon: <FaBolt className="text-primary text-3xl mb-4" />,

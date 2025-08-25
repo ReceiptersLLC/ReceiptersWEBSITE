@@ -75,21 +75,19 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right Section */}
+          {}
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-4">
             <FooterLinksSection title={t('footer.quickLinks.title')} data={productLinks.map(link => ({...link, name: t(`footer.productLinks.${link.name.toLowerCase().replace(/\s/g, '')}`)}))} />
             <div className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                 <strong className="text-white">{t('footer.ourOffice')}:</strong><br />
                 355 Ridgewood Ave, Suite 1<br />
                 Newark, NJ 07112
-                355 Ridgewood Ave, Suite 1<br />
-                Nairobi, KE<br />
-                00200,Greenhouse Ngong Road <br />
+              
               </div>
           </div>
         </div>
 
-        {/* Legal links */}
+        {}
         <div className="w-full flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-12 mb-4 sm:mb-5">
           {legalLinks.map((link, index) => (
             <Link

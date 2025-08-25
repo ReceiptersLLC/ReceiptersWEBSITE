@@ -1,6 +1,6 @@
 "use client"
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react"; // Import useState and useEffect for the animation state
+import { useState, useEffect } from "react"; 
 import Button from "@/components/Button";
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
@@ -8,10 +8,10 @@ import Image from 'next/image';
 export default function HeroSection() {
   const router = useRouter();
   const { t, ready } = useTranslation('common');
-  const [isLoaded, setIsLoaded] = useState(false); // State to control the animation
+  const [isLoaded, setIsLoaded] = useState(false); 
 
   useEffect(() => {
-    // When the component mounts, set the state to true to trigger the animation
+   
     setIsLoaded(true);
   }, []);
 
@@ -27,7 +27,7 @@ export default function HeroSection() {
       <div className="relative z-10 flex flex-col md:flex-row w-full max-w-6xl 
                       items-center md:items-start justify-between px-4 sm:px-6 lg:px-8 py-8 md:py-16">
         
-        {/* Text content - Now animates from the right */}
+        {}
         <div className={`
           flex-1 lg:basis-3/5 text-left pr-8 mb-8 md:mb-0
           transition-all duration-1000 ease-out transform
@@ -58,7 +58,7 @@ export default function HeroSection() {
           </div>
         </div>
         
-        {/* Image - Now animates from the left */}
+        {}
         <div className={`
           hidden lg:block lg:basis-2/5 flex justify-end items-start w-full
           transition-all duration-1000 ease-out transform delay-300
