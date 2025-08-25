@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Smile, Zap, ShieldCheck, Leaf, Globe, Users, TrendingUp } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import React from "react"; // Import React for React.ReactNode type
 
 export default function AboutPage() {
   const { t, ready } = useTranslation('common');
@@ -19,10 +20,7 @@ export default function AboutPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">{t('about.hero.title')}</h1>
           <p className="text-lg sm:text-xl md:text-2xl text-blue-700 mb-4 sm:mb-6">{t('about.hero.subtitle')}</p>
           <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            In a world where cluttered drawers and lost receipts are still common, Receipters brings simplicity,
-            security, and smart technology to the way receipts are handled. Our mission is to eliminate paper waste,
-            streamline expense tracking, and empower users with secure, real-time access to their transactions—anytime,
-            anywhere.
+            {t('about.hero.description')}
           </p>
         </div>
       </section>
@@ -33,8 +31,8 @@ export default function AboutPage() {
           <p className="text-xs sm:text-sm uppercase tracking-widest text-gray-400 mb-2">{t('about.values.subtitle')}</p>
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold">{t('about.values.title')}</h3>
           <p className="mt-3 sm:mt-4 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-            We believe in building a digital future where every receipt is more than a record—it&apos;s a resource. Our
-            values guide how we create, connect, and innovate for businesses and individuals alike.
+            {/* This line already uses &apos;, but I'm explicitly calling t() here */}
+            {t('about.values.description')}
           </p>
         </div>
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
@@ -67,12 +65,10 @@ export default function AboutPage() {
           <Globe className="mx-auto text-blue-500 mb-4" size={32} />
           <h3 className="text-2xl sm:text-3xl font-bold mb-4">{t('about.problem.title')}</h3>
           <p className="text-sm sm:text-base lg:text-lg text-gray-700 mb-4 leading-relaxed">
-            Paper receipts are expensive, wasteful, and inconvenient. Receipters replaces them with smart, digital
-            alternatives—cutting costs, reducing environmental waste, and improving customer experience.
+            {t('about.problem.description1')}
           </p>
           <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
-            Our dual model—{t('about.problem.model')}—serves both vendors and
-            end-users, delivering security, accessibility, and efficiency across the board.
+            {t('about.problem.description2')}
           </p>
         </div>
       </section>
@@ -91,14 +87,14 @@ export default function AboutPage() {
             <TrendingUp className="text-indigo-600 mb-4" size={28} />
             <h3 className="text-2xl sm:text-3xl mb-4">{t('about.vision.title')}</h3>
             <p className="font-sans text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
-              To be Africa's leading digital receipting platform driving towards a paperless economy while saving costs,protecting the environment, and fostering financial inclusion..
+              To be Africa&apos;s leading digital receipting platform driving towards a paperless economy while saving costs,protecting the environment, and fostering financial inclusion.
             </p>
           </div>
           <div>
             <Users className="text-purple-600 mb-4" size={28} />
             <h3 className="text-2xl sm:text-3xl mb-4">Our Story</h3>
             <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed font-sans">
-              We're called Receipters because our goal is to turn paper receipts into digital ones. Our team of professionals believes that paper receipts aren't convenient for long-term use. They create storage issues, they fade over time and become unreadable, and they pose a security risk if they fall into the wrong hands.
+              We&apos;re called Receipters because our goal is to turn paper receipts into digital ones. Our team of professionals believes that paper receipts aren&apos;t convenient for long-term use. They create storage issues, they fade over time and become unreadable, and they pose a security risk if they fall into the wrong hands.
             </p>
           </div>
         </div>
@@ -138,7 +134,7 @@ export default function AboutPage() {
                 name="Joseph Orinda"
                 title="Chief Operations Officer"
                 image="/assets/Joseph.jpg"
-                description="As Chief Operations Officer of Receipters."
+                description="Chief Operations Officer of Receipters."
               />
             </div>
           </div>

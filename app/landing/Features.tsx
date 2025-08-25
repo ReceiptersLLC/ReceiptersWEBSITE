@@ -2,10 +2,10 @@
 
 import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import { FaBolt, FaCloudUploadAlt, FaLock, FaLeaf } from "react-icons/fa";
+import { FaBolt, FaLock, FaLeaf } from "react-icons/fa";
 import Button from "@/components/Button";
 
-
+// Define the data for each feature card (POS Integration has been removed)
 const features = [
   {
     icon: <FaBolt className="text-primary text-3xl mb-4" />,
@@ -37,7 +37,7 @@ export default function FeatureCards() {
       <div className="max-w-7xl mx-auto">
         {/* Container for the feature cards */}
         <div className="flex flex-col sm:flex-row gap-8 justify-center items-stretch">
-          {features.map((feature, idx) => (
+          {features.map((feature) => ( // Removed '_idx' completely from the map function parameters
             <div
               key={feature.title}
               className="bg-white rounded-2xl shadow-lg flex-1 flex flex-col items-center p-8 text-center"
@@ -51,11 +51,12 @@ export default function FeatureCards() {
               </p>
               <Button
                 variant="custom"
+                onClick={() => router.push('/thank-you')}
                 className="!bg-gradient-to-r !from-primary !to-primaryDark shadow-lg transition-colors px-6 py-3 !rounded-full text-white w-full max-w-xs !justify-center mt-auto"
               >
                 <div className="flex items-center justify-center space-x-3 w-full">
                   <span className="font-semibold text-sm whitespace-nowrap">
-                    Learn More
+                    {t('features.learnMoreButton')}
                   </span>
                   <div className="size-6 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                     <span className="material-symbols-rounded text-primary text-sm">
