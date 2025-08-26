@@ -126,7 +126,7 @@ export default function AboutPage() {
             <TeamBioCard
               name=" John Obura"
               title="CTO and Principal Architect"
-              image="/assets/"
+              image="/assets/John.jpg"
               description="."
             />
             <div className="col-span-2 justify-self-center">
