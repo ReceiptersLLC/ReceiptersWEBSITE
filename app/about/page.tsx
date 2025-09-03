@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { Smile, Zap, ShieldCheck, Leaf, Globe, Users, TrendingUp } from "lucide-react";
 import { useTranslation } from 'react-i18next';
-import React from "react"; // Import React for React.ReactNode type
 
 export default function AboutPage() {
   const { t, ready } = useTranslation('common');
@@ -20,7 +19,10 @@ export default function AboutPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">{t('about.hero.title')}</h1>
           <p className="text-lg sm:text-xl md:text-2xl text-blue-700 mb-4 sm:mb-6">{t('about.hero.subtitle')}</p>
           <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            {t('about.hero.description')}
+            In a world where cluttered drawers and lost receipts are still common, Receipters brings simplicity,
+            security, and smart technology to the way receipts are handled. Our mission is to eliminate paper waste,
+            streamline expense tracking, and empower users with secure, real-time access to their transactions—anytime,
+            anywhere.
           </p>
         </div>
       </section>
@@ -31,8 +33,8 @@ export default function AboutPage() {
           <p className="text-xs sm:text-sm uppercase tracking-widest text-gray-400 mb-2">{t('about.values.subtitle')}</p>
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold">{t('about.values.title')}</h3>
           <p className="mt-3 sm:mt-4 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-            {/* This line already uses &apos;, but I'm explicitly calling t() here */}
-            {t('about.values.description')}
+            We believe in building a digital future where every receipt is more than a record—it&apos;s a resource. Our
+            values guide how we create, connect, and innovate for businesses and individuals alike.
           </p>
         </div>
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
@@ -65,10 +67,12 @@ export default function AboutPage() {
           <Globe className="mx-auto text-blue-500 mb-4" size={32} />
           <h3 className="text-2xl sm:text-3xl font-bold mb-4">{t('about.problem.title')}</h3>
           <p className="text-sm sm:text-base lg:text-lg text-gray-700 mb-4 leading-relaxed">
-            {t('about.problem.description1')}
+            Paper receipts are expensive, wasteful, and inconvenient. Receipters replaces them with smart, digital
+            alternatives—cutting costs, reducing environmental waste, and improving customer experience.
           </p>
           <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
-            {t('about.problem.description2')}
+            Our dual model—{t('about.problem.model')}—serves both vendors and
+            end-users, delivering security, accessibility, and efficiency across the board.
           </p>
         </div>
       </section>
@@ -109,32 +113,32 @@ export default function AboutPage() {
               name="Gordon Odira"
               title="CEO & Founder"
               image="/assets/gordon.jpg"
-              description="A senior Integration Engineer with over 8 years in federal, state, and private tech deployments. Holds a BSc in Electrical & Computer Engineering from Rutgers University and a Master's in Electrical and Computer Engineering from NJIT."
+              description="A senior Integration Engineer with over 8 years in federal, state, and private tech deployments. He holds a BSc in Electrical & Computer Engineering from Rutgers University and a Master's in Electrical and Computer Engineering from NJIT."
             />
             <TeamBioCard
               name="George Osewe"
               title="Senior Consultant, Business Development Director and Communications"
               image="/assets/george.jpg"
-              description="A government and policy expert who was part of Kenya's constitutional transition team in 2010. Specializes in restructuring business operations. Holds a degree in Development Communication."
+              description="A government and policy expert who was part of Kenya's constitutional transition team in 2010. He specializes in restructuring business operations and holds a degree in Development Communication."
             />
             <TeamBioCard
               name="Joffrey Dozva"
               title="Senior Engineer and Technical Lead"
               image="/assets/jeffrey.jpg"
-              description="Lead developer of Receipters core systems. Has built hundreds of mobile apps and led health tech deployments across Africa. Graduate of Kenya Aeronautical College in Software Engineering."
+              description="Lead developer of Receipters' core systems. He has built hundreds of mobile apps and led health tech deployments across Africa. He is a graduate of Kenya Aeronautical College in Software Engineering."
             />
             <TeamBioCard
-              name=" John Obura"
-              title="CTO and Principal Architect"
-              image="/assets/John.jpg"
-              description="."
-            />
-            <div className="col-span-2 justify-self-center">
-              <TeamBioCard
-                name="Joseph Orinda"
+             name="Joseph Orinda"
                 title="Chief Operations Officer"
                 image="/assets/Joseph.jpg"
-                description="Chief Operations Officer of Receipters."
+                description="Joseph is an expert in High Availability and High Performance systems. He is a Certified Life Coach and holds a BSc in Computer Information Systems."
+              />
+            <div className="col-span-2 justify-self-center">
+              <TeamBioCard
+                name="John Obura"
+                title="CTO and Principal Architect"
+                image="/assets/John.jpg"
+                description="A seasoned technology leader."
               />
             </div>
           </div>

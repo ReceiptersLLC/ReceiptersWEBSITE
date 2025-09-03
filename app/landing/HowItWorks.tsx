@@ -85,28 +85,37 @@ export default function HowItWorks() {
         {/* New section with the added id */}
         <div className="mt-12 sm:mt-16 lg:mt-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
-            <div id="simplicity" className="bg-[#304191] rounded-xl p-8 flex flex-col items-center shadow">
+            <div
+              onClick={() => router.push("/about/simplicity")}
+              id="simplicity"
+              className="bg-[#304191] rounded-xl p-8 flex flex-col items-center shadow cursor-pointer">
               <span className="text-green-400 text-4xl mb-4">😊</span>
               <h3 className="text-xl font-semibold text-white mb-2">Simplicity</h3>
               <p className="text-sm text-gray-400 text-center">
                 Our user-friendly interface makes managing receipts effortless for everyone.
               </p>
             </div>
-            <div className="bg-[#304191] rounded-xl p-8 flex flex-col items-center shadow">
+            <div
+              onClick={() => router.push("/about/security")}
+              className="bg-[#304191] rounded-xl p-8 flex flex-col items-center shadow cursor-pointer">
               <span className="text-purple-400 text-4xl mb-4">🔐</span>
               <h3 className="text-xl font-semibold text-white mb-2">Security</h3>
               <p className="text-sm text-gray-400 text-center">
                 Your data is protected with military-grade encryption for peace of mind.
               </p>
             </div>
-            <div className="bg-[#304191] rounded-xl p-8 flex flex-col items-center shadow">
+            <div
+              onClick={() => router.push("/about/speed")}
+              className="bg-[#304191] rounded-xl p-8 flex flex-col items-center shadow cursor-pointer">
               <span className="text-blue-400 text-4xl mb-4">⚡</span>
               <h3 className="text-xl font-semibold text-white mb-2">Speed</h3>
               <p className="text-sm text-gray-400 text-center">
                 Get instant access to your receipts, no waiting required.
               </p>
             </div>
-            <div className="bg-[#304191] rounded-xl p-8 flex flex-col items-center shadow">
+            <div
+              onClick={() => router.push("/about/sustainability")}
+              className="bg-[#304191] rounded-xl p-8 flex flex-col items-center shadow cursor-pointer">
               <span className="text-blue-400 text-4xl mb-4">🌍</span>
               <h3 className="text-xl font-semibold text-white mb-2">Sustainability</h3>
               <p className="text-sm text-gray-400 text-center">

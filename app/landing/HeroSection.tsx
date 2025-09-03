@@ -1,4 +1,4 @@
-"use client"
+ "use client"
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react"; 
 import Button from "@/components/Button";
@@ -42,7 +42,7 @@ export default function HeroSection() {
           <div className="flex justify-start">
             <Button
               variant="custom"
-              onClick={() => router.push("/download")}
+              onClick={() => router.push("/signup")}
               className="!bg-gradient-to-r !from-primary !to-primaryDark px-6 py-3 !rounded-full text-white w-full max-w-sm !justify-center shadow-lg">
               <div className="flex items-center justify-center space-x-3 w-full">
                 <span className="font-medium text-sm whitespace-nowrap">
