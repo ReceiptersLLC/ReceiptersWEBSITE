@@ -67,7 +67,7 @@ export default function Footer() {
                 <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><FaSquareFacebook className="w-5 h-5 sm:w-6 sm:h-6 hover:text-blue-500 transition-colors" /></Link>
                 <Link href="https://www.instagram.com/receipters_llc" target="_blank"><Instagram className="w-5 h-5 sm:w-6 sm:h-6 hover:text-pink-500 transition-colors" /></Link>
                 <Link href="https://www.x.com/receipters_llc" target="_blank"><FaXTwitter className="w-5 h-5 sm:w-6 sm:h-6 hover:text-blue-400 transition-colors" /></Link>
-                <Link href="https://www.linkedin.com/in/receipters-llc" target="_blank"><FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6 hover:text-blue-600 transition-colors" /></Link>
+                <Link href="http://www.linkedin.com/company/Receipters-LLC/" target="_blank"><FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6 hover:text-blue-600 transition-colors" /></Link>
                 <Link href="https://www.tiktok.com/@receipters_llc" target="_blank"><FaTiktok className="w-5 h-5 sm:w-6 sm:h-6 hover:text-gray-300 transition-colors" /></Link>
                 <Link href="https://www.youtube.com/@Receipters_llc" target="_blank"><Youtube className="w-5 h-5 sm:w-6 sm:h-6 hover:text-red-500 transition-colors" /></Link>
               </div>

@@ -117,7 +117,7 @@ export default function AboutPage() {
             />
             <TeamBioCard
               name="George Osewe"
-              title="Senior Consultant, Business Development Director and Communications"
+              title="Senior Consultant and Communications Director"
               image="/assets/george.jpg"
               description="A government and policy expert who was part of Kenya's constitutional transition team in 2010. He specializes in restructuring business operations and holds a degree in Development Communication."
             />
