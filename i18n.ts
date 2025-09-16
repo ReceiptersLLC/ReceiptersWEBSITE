@@ -158,7 +158,16 @@ const enTranslations = {
   "navbar.link.product": "Product",
   "navbar.link.contact": "Contact",
   "navbar.button.signUp": "Sign Up",
-  "navbar.button.login": "Login"
+  "navbar.button.login": "Login",
+  "features.instantDelivery.title": "Instant Delivery",
+  "features.instantDelivery.description": "Never worry about lost or misplaced receipts again. Our system ensures that all your receipts are delivered to your account instantly after every purchase. This means you have immediate access to your transaction history, making it easy to track spending, manage expenses, and stay organized in real time.",
+  "features.instantDelivery.goBack": "Go Back",
+  "features.secureStorage.title": "Secure Storage",
+  "features.secureStorage.description": "Your privacy is our top priority. We use advanced encryption methods to protect your receipts and personal information, ensuring that your data is always safe and accessible only to you. You can trust our platform to be a secure vault for your financial records.",
+  "features.secureStorage.goBack": "Go Back",
+  "features.sustainability.title": "Sustainability",
+  "features.sustainability.description": "Join us in our mission to protect the planet. By switching to digital receipts, you can significantly reduce your paper waste and carbon footprint. Our eco-friendly solution helps you stay organized while making a positive impact on the environment.",
+  "features.sustainability.goBack": "Go Back"
 };
 
 i18n

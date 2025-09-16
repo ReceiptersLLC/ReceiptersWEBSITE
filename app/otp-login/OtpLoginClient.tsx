@@ -20,7 +20,7 @@ export default function OtpLogin() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    const queryId = searchParams.get("verificationId");
+    const queryId = searchParams ? searchParams.get("verificationId") : null;
     if (queryId) {
       setVerificationId(queryId);
     }

@@ -38,7 +38,7 @@ export default function LoginPage() {
     try {
       const response = await axios.post(`${API_URL}/v1/auth`, { email, password });
       localStorage.setItem('token', response.data.token);
-      router.push('/success');
+      router.push('/download');
     } catch (err) {
       const message = (err as AxiosError<{ message?: string }>).response?.data?.message || t('login.toast.failed');
       toast.error(message);
@@ -93,58 +93,6 @@ export default function LoginPage() {
     }
   };
 
-  const handleFacebookLogin = async () => {
-    setOauthLoading({ ...oauthLoading, facebook: true });
-    setError(null);
-
-    try {
-      if (typeof window !== 'undefined' && window.FB) {
-        window.FB.login(async (response: { authResponse?: { accessToken: string } }) => {
-          if (response.authResponse) {
-            try {
-              window.FB.api('/me', { fields: 'name,email,first_name,last_name' }, async (userInfo: { name?: string; email?: string; first_name?: string; last_name?: string }) => {
-                try {
-                  const loginResponse = await axios.post(`${API_URL}/v1/auth/oauth/facebook`, {
-                    user_info: userInfo
-                  });
-
-                  if (loginResponse.data && (loginResponse.data.status === 'succeeded' || loginResponse.data.token)) {
-                    toast.success('Facebook login successful!');
-                    localStorage.setItem('token', loginResponse.data.token);
-                    router.push('/success');
-                  }
-                } catch (err) {
-                  const message = (err as AxiosError<{ message?: string }>).response?.data?.message || 'Facebook login failed';
-                  toast.error(message);
-                  setError(message);
-                }
-              });
-            } catch (err) {
-              const message = (err as AxiosError<{ message?: string }>).response?.data?.message || 'Facebook login failed';
-              toast.error(message);
-              setError(message);
-            }
-          } else {
-            const message = 'Facebook login cancelled';
-            toast.error(message);
-            setError(message);
-            setOauthLoading({ ...oauthLoading, facebook: false });
-          }
-        }, { scope: 'email' });
-      } else {
-        const message = 'Facebook SDK not initialized';
-        toast.error(message);
-        setError(message);
-        setOauthLoading({ ...oauthLoading, facebook: false });
-      }
-    } catch (err) {
-      const message = (err as AxiosError<{ message?: string }>).response?.data?.message || 'Facebook login failed';
-      toast.error(message);
-      setError(message);
-      setOauthLoading({ ...oauthLoading, facebook: false });
-    }
-  };
-
   if (!ready) {
     return null; // Or a loading indicator component
   } 
@@ -177,17 +125,10 @@ export default function LoginPage() {
             </button>
 
             <button
-              onClick={handleFacebookLogin}
-              disabled={oauthLoading.facebook}
-              className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold text-white bg-[#1877f2] opacity-50 cursor-not-allowed"
+              disabled
             >
-              {oauthLoading.facebook ? (
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-              ) : (
-                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-              )}
+              <svg width="24" height="24" fill="currentColor" className="mr-2"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12.82v-9.294H9.692V11.01h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.686.235 2.686.235v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.696h-3.12V24h6.116C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0"/></svg>
               Continue with Facebook
             </button>
           </div>
@@ -250,17 +191,6 @@ declare global {
           }) => { requestAccessToken: () => void };
         };
       };
-    };
-    FB: {
-      login: (
-        callback: (response: { authResponse?: { accessToken: string } }) => void,
-        options: { scope: string }
-      ) => void;
-      api: (
-        path: string,
-        options: { fields: string },
-        callback: (response: { name?: string; email?: string; first_name?: string; last_name?: string }) => void
-      ) => void;
     };
   }
 }

@@ -171,4 +171,4 @@ This project is proprietary software owned by Receipters LLC. All rights reserve
 
 ---
 
-Built with ❤️ by the Receipters team - Making the world paperless, one receipt at a time.
+Built with  by the Receipters team - Making the world paperless, one receipt at a time.

@@ -14,26 +14,26 @@ export default function Testimonials() {
   const { t, ready } = useTranslation('common');
   const [isMounted, setIsMounted] = useState(false);
 
-  
+
   const testimonials: Testimonial[] = [
     {
-      nameKey: "Leonard Ochieng",
+      nameKey: "Learnard",
       quoteKey: "I love the paperless solution",
       rating: 5,
     },
     {
-      nameKey: "Tracy M ",
-      quoteKey: "Simple, but powerful features. ",
+      nameKey: "Tracy Miller",
+      quoteKey: "Simple, but powerful features.",
       rating: 5,
     },
     {
-      nameKey: "Lucy Anyika",
-      quoteKey: "Great experience", 
+      nameKey: "Lucy Adam",
+      quoteKey: "Great experience",
       rating: 5,
     },
     {
       nameKey: "Hazel Linda",
-      quoteKey: "A game-changer for my business",
+      quoteKey: "A game changer for my business",
       rating: 5,
     },
   ];
@@ -86,7 +86,7 @@ export default function Testimonials() {
                 </div>
                 {}
                 <div className="text-base sm:text-lg lg:text-xl font-semibold leading-relaxed mb-4 sm:mb-6">
-                  {t(testimonial.quoteKey).replace("It's the best paperless solution", '<br /> It\'s the best paperless solution')}
+                  {t(testimonial.quoteKey)}
                 </div>
                 {}
                 <div className="text-sm sm:text-base font-medium">
