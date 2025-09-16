@@ -18,12 +18,9 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">{t('about.hero.title')}</h1>
           <p className="text-lg sm:text-xl md:text-2xl text-blue-700 mb-4 sm:mb-6">{t('about.hero.subtitle')}</p>
-          <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            In a world where cluttered drawers and lost receipts are still common, Receipters brings simplicity,
-            security, and smart technology to the way receipts are handled. Our mission is to eliminate paper waste,
-            streamline expense tracking, and empower users with secure, real-time access to their transactions—anytime,
-            anywhere.
-          </p>
+         <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+           {t('about.hero.description')}
+         </p>
         </div>
       </section>
 
