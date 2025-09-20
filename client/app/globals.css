@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@100..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #FAFAFA;
+    --foreground: #171717;
+}
+
+/*@media (prefers-color-scheme: dark) {*/
+/*  :root {*/
+/*    --background: #0a0a0a;*/
+/*    --foreground: #ededed;*/
+/*  }*/
+/*}*/
+
+body {
+    /*color: var(--foreground);*/
+    background: var(--background);
+    font-family: Poppins, Helvetica, Lato, serif;
+}
+
+.dp-x {
+    @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-32 2xl:px-44;
+}
+
+.dp-y {
+    @apply py-4 sm:py-6 md:py-8 lg:py-12 xl:py-32 2xl:py-44;
+}
+
+.dp-t {
+    @apply pt-4 sm:pt-6 md:pt-8 lg:pt-12 xl:pt-32 2xl:pt-44;
+}
+.section {
+    @apply dp-x dp-y flex flex-col items-center
+}
+
+
+.h1 {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight
+}
+
+.h2 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium leading-tight
+}
+
+.h3 {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium leading-tight
+}
+
+.h4 {
+    @apply text-lg sm:text-xl md:text-2xl font-medium leading-tight
+}
+
+.h5 {
+    @apply text-base sm:text-lg md:text-xl font-medium leading-tight
+}
+
+.material-symbols-rounded {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
