@@ -8,20 +8,20 @@ import { useRouter } from "next/navigation";
 const features = [
   {
     icon: <FaBolt className="text-primary text-3xl mb-4" />,
-    title: "Instant Delivery",
-    description: "Receipts are delivered to your account instantly after purchase, so you never lose track.",
+    titleKey: "landing.features.data.captureReceipts.header",
+    descriptionKey: "landing.features.data.captureReceipts.description",
     slug: "instant-delivery",
   },
   {
     icon: <FaLock className="text-primary text-3xl mb-4" />,
-    title: "Secure Storage",
-    description: "Your receipts are encrypted and stored securely, accessible only by you.",
+    titleKey: "landing.features.data.trackAndAnalyze.header",
+    descriptionKey: "landing.features.data.trackAndAnalyze.description",
     slug: "secure-storage",
   },
   {
     icon: <FaLeaf className="text-primary text-3xl mb-4" />,
-    title: "Sustainability",
-    description: "Go paperless and help protect the environment with digital receipts.",
+    titleKey: "landing.features.data.generateReports.header",
+    descriptionKey: "landing.features.data.generateReports.description",
     slug: "sustainability",
   },
 ];
@@ -41,15 +41,15 @@ export default function FeatureCards() {
         <div className="flex flex-col sm:flex-row gap-8 justify-center items-stretch">
           {features.map((feature) => (
             <div
-              key={feature.title}
+              key={feature.titleKey}
               className="bg-white rounded-2xl shadow-lg flex-1 flex flex-col items-center p-8 text-center"
             >
               {feature.icon}
               <h4 className="text-lg font-semibold mb-2">
-                {feature.title}
+                {t(feature.titleKey)}
               </h4>
               <p className="text-gray-600 text-sm mb-6">
-                {feature.description}
+                {t(feature.descriptionKey)}
               </p>
               {/* Replaced the simple div with a button-like div with gradient background and arrow */}
               <div

@@ -167,7 +167,22 @@ const enTranslations = {
   "features.secureStorage.goBack": "Go Back",
   "features.sustainability.title": "Sustainability",
   "features.sustainability.description": "Join us in our mission to protect the planet. By switching to digital receipts, you can significantly reduce your paper waste and carbon footprint. Our eco-friendly solution helps you stay organized while making a positive impact on the environment.",
-  "features.sustainability.goBack": "Go Back"
+  "features.sustainability.goBack": "Go Back",
+  "landing.features.instantDelivery.title": "Instant Delivery",
+  "landing.features.instantDelivery.description": "Receipts are delivered to your account instantly after purchase, so you never lose track.",
+  "landing.features.secureStorage.title": "Secure Storage",
+  "landing.features.secureStorage.description": "Your receipts are encrypted and stored securely, accessible only by you.",
+  "landing.features.sustainability.title": "Sustainability",
+  "landing.features.sustainability.description": "Go paperless and help protect the environment with digital receipts.",
+  "landing.learn More": "learn More",
+  "landing.howItWorks.simplicity.title": "Simplicity",
+  "landing.howItWorks.simplicity.description": "Our user-friendly interface makes managing receipts effortless for everyone.",
+  "landing.howItWorks.security.title": "Security",
+  "landing.howItWorks.security.description": "Your data is protected with military-grade encryption for peace of mind.",
+  "landing.howItWorks.speed.title": "Speed",
+  "landing.howItWorks.speed.description": "Get instant access to your receipts, no waiting required.",
+  "landing.howItWorks.sustainability.title": "Sustainability",
+  "landing.howItWorks.sustainability.description": "Reduce paper waste and help the environment with our digital solutions."
 };
 
 i18n

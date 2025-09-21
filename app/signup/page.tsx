@@ -3,14 +3,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 import Button from '@/components/Button';
 import TextInput from '@/components/TextInput';
 import { toast } from 'sonner';
 
 export default function SignupPage() {
-  interface GoogleTokenResponse {
-    access_token: string;
-  }
 
   const [firstName, setFirstName] = useState('');
   const [middleName, setMiddleName] = useState('');
@@ -19,7 +17,7 @@ export default function SignupPage() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [oauthLoading, setOauthLoading] = useState({ google: false });
+  const [oauthLoading, setOauthLoading] = useState({ google: false, facebook: false });
 
   const router = useRouter();
 
@@ -68,50 +66,23 @@ export default function SignupPage() {
     setOauthLoading((prev) => ({ ...prev, google: true }));
 
     try {
-      if (typeof window !== 'undefined' && window.google) {
-        window.google.accounts.oauth2
-          .initTokenClient({
-            client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
-            scope: 'email profile',
-            callback: async (response: GoogleTokenResponse) => {
-              try {
-                const userInfoResponse = await fetch(
-                  `https://www.googleapis.com/oauth2/v2/userinfo?access_token=${response.access_token}`
-                );
-                const userInfo = await userInfoResponse.json();
-
-                const signupResponse = await axios.post(
-                  'https://engine.receipters.com/api/v1/auth/oauth/google',
-                  {
-                    access_token: response.access_token,
-                    user_info: userInfo,
-                  }
-                );
-
-                if (signupResponse.data.status === 'succeeded') {
-                  toast.success('Google signup successful!');
-                  localStorage.setItem('token', signupResponse.data.token);
-                  router.push('/success');
-                }
-              } catch (err: unknown) {
-                if (axios.isAxiosError(err)) {
-                  toast.error(err.response?.data?.message || 'Google signup failed');
-                } else {
-                  toast.error('Google signup failed');
-                }
-              } finally {
-                setOauthLoading((prev) => ({ ...prev, google: false }));
-              }
-            },
-          })
-          .requestAccessToken();
-      } else {
-        toast.error('Google OAuth not initialized');
-        setOauthLoading((prev) => ({ ...prev, google: false }));
-      }
+      await signIn('google', { callbackUrl: '/success' });
     } catch {
       toast.error('Google signup failed');
+    } finally {
       setOauthLoading((prev) => ({ ...prev, google: false }));
+    }
+  };
+
+  const handleFacebookSignup = async () => {
+    setOauthLoading((prev) => ({ ...prev, facebook: true }));
+
+    try {
+      await signIn('facebook', { callbackUrl: '/success' });
+    } catch {
+      toast.error('Facebook signup failed');
+    } finally {
+      setOauthLoading((prev) => ({ ...prev, facebook: false }));
     }
   };
 
@@ -140,6 +111,21 @@ export default function SignupPage() {
                 </svg>
               )}
               Continue with Google
+            </button>
+
+            <button
+              onClick={handleFacebookSignup}
+              disabled={oauthLoading.facebook}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              {oauthLoading.facebook ? (
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-900 mr-2"></div>
+              ) : (
+                <svg width="20" height="20" fill="currentColor" className="mr-2 text-blue-600">
+                  <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12.82v-9.294H9.692V11.01h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.686.235 2.686.235v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.696h-3.12V24h6.116C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0"/>
+                </svg>
+              )}
+              Continue with Facebook
             </button>
           </div>
 
@@ -178,18 +164,3 @@ export default function SignupPage() {
   );
 }
 
-declare global {
-  interface Window {
-    google: {
-      accounts: {
-        oauth2: {
-          initTokenClient: (config: {
-            client_id: string;
-            scope: string;
-            callback: (response: { access_token: string }) => void;
-          }) => { requestAccessToken: () => void };
-        };
-      };
-    };
-  }
-}

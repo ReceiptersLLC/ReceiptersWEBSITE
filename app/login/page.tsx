@@ -3,23 +3,13 @@
 import { useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 import Button from '@/components/Button';
 import { useTranslation } from 'react-i18next';
 import TextInput from '@/components/TextInput';
 import { toast } from 'sonner';
 
 const API_URL = 'https://engine.receipters.com/api';
-
-interface GoogleUserInfo {
-  id: string;
-  email: string;
-  verified_email: boolean;
-  name: string;
-  given_name: string;
-  family_name: string;
-  picture: string;
-  locale: string;
-}
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -53,43 +43,28 @@ export default function LoginPage() {
     setError(null);
 
     try {
-      if (typeof window !== 'undefined' && window.google) {
-        window.google.accounts.oauth2.initTokenClient({
-          client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
-          scope: 'email profile',
-          callback: async (response: { access_token: string }) => {
-            try {
-              const userInfoResponse = await fetch(
-                `https://www.googleapis.com/oauth2/v2/userinfo?access_token=${response.access_token}`
-              );
-              const userInfo: GoogleUserInfo = await userInfoResponse.json();
-
-              const loginResponse = await axios.post(`${API_URL}/v1/auth/oauth/google`, {
-                access_token: response.access_token,
-                user_info: userInfo
-              });
-
-              if (loginResponse.data && (loginResponse.data.status === 'succeeded' || loginResponse.data.token)) {
-                localStorage.setItem('token', loginResponse.data.token);
-                router.push('/success');
-              }
-            } catch (err) {
-              const message = (err as AxiosError<{ message?: string }>).response?.data?.message || 'Google login failed';
-              toast.error(message);
-              setError(message);
-            }
-          }
-        }).requestAccessToken();
-      } else {
-        const message = 'Google OAuth not initialized';
-        toast.error(message);
-        setError(message);
-      }
-    } catch (err) {
-      const message = (err as AxiosError<{ message?: string }>).response?.data?.message || 'Google login failed';
+      await signIn('google', { callbackUrl: '/success' });
+    } catch {
+      const message = 'Google login failed';
       toast.error(message);
       setError(message);
+    } finally {
       setOauthLoading({ ...oauthLoading, google: false });
+    }
+  };
+
+  const handleFacebookLogin = async () => {
+    setOauthLoading({ ...oauthLoading, facebook: true });
+    setError(null);
+
+    try {
+      await signIn('facebook', { callbackUrl: '/success' });
+    } catch {
+      const message = 'Facebook login failed';
+      toast.error(message);
+      setError(message);
+    } finally {
+      setOauthLoading({ ...oauthLoading, facebook: false });
     }
   };
 
@@ -125,10 +100,17 @@ export default function LoginPage() {
             </button>
 
             <button
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold text-white bg-[#1877f2] opacity-50 cursor-not-allowed"
-              disabled
+              onClick={handleFacebookLogin}
+              disabled={oauthLoading.facebook}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              <svg width="24" height="24" fill="currentColor" className="mr-2"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12.82v-9.294H9.692V11.01h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.686.235 2.686.235v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.696h-3.12V24h6.116C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0"/></svg>
+              {oauthLoading.facebook ? (
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-900 mr-2"></div>
+              ) : (
+                <svg width="20" height="20" fill="currentColor" className="mr-2 text-blue-600">
+                  <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12.82v-9.294H9.692V11.01h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.686.235 2.686.235v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.696h-3.12V24h6.116C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0"/>
+                </svg>
+              )}
               Continue with Facebook
             </button>
           </div>
@@ -177,20 +159,4 @@ export default function LoginPage() {
       </div>
     </div>
   );
-}
-
-declare global {
-  interface Window {
-    google: {
-      accounts: {
-        oauth2: {
-          initTokenClient: (config: {
-            client_id: string;
-            scope: string;
-            callback: (response: { access_token: string }) => void;
-          }) => { requestAccessToken: () => void };
-        };
-      };
-    };
-  }
 }
