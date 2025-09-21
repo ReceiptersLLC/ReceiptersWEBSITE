@@ -89,33 +89,33 @@ export default function HowItWorks() {
               id="simplicity"
               className="bg-[#304191] rounded-xl p-8 flex flex-col items-center shadow">
               <span className="text-green-400 text-4xl mb-4">😊</span>
-              <h3 className="text-xl font-semibold text-white mb-2">Simplicity</h3>
+              <h3 className="text-xl font-semibold text-white mb-2">{t('about.values.simplicity.title')}</h3>
               <p className="text-sm text-gray-400 text-center">
-                Our user-friendly interface makes managing receipts effortless for everyone.
+                {t('about.values.simplicity.description')}
               </p>
             </div>
             <div
               className="bg-[#304191] rounded-xl p-8 flex flex-col items-center shadow">
               <span className="text-purple-400 text-4xl mb-4">🔐</span>
-              <h3 className="text-xl font-semibold text-white mb-2">Security</h3>
+              <h3 className="text-xl font-semibold text-white mb-2">{t('about.values.security.title')}</h3>
               <p className="text-sm text-gray-400 text-center">
-                Your data is protected with military-grade encryption for peace of mind.
+                {t('about.values.security.description')}
               </p>
             </div>
             <div
               className="bg-[#304191] rounded-xl p-8 flex flex-col items-center shadow">
               <span className="text-blue-400 text-4xl mb-4">⚡</span>
-              <h3 className="text-xl font-semibold text-white mb-2">Speed</h3>
+              <h3 className="text-xl font-semibold text-white mb-2">{t('about.values.efficiency.title')}</h3>
               <p className="text-sm text-gray-400 text-center">
-                Get instant access to your receipts, no waiting required.
+                {t('about.values.efficiency.description')}
               </p>
             </div>
             <div
               className="bg-[#304191] rounded-xl p-8 flex flex-col items-center shadow">
               <span className="text-blue-400 text-4xl mb-4">🌍</span>
-              <h3 className="text-xl font-semibold text-white mb-2">Sustainability</h3>
+              <h3 className="text-xl font-semibold text-white mb-2">{t('about.values.sustainability.title')}</h3>
               <p className="text-sm text-gray-400 text-center">
-                Reduce paper waste and help the environment with our digital solutions.
+                {t('about.values.sustainability.description')}
               </p>
             </div>
           </div>
