@@ -130,14 +130,7 @@ export default function AboutPage() {
                 image="/assets/Joseph.jpg"
                 description="Joseph is an expert in High Availability and High Performance systems. He is a Certified Life Coach and holds a BSc in Computer Information Systems."
               />
-            <div className="col-span-2 justify-self-center">
-              <TeamBioCard
-                name="John Obura"
-                title="CTO and Principal Architect"
-                image="/assets/John.jpg"
-                description="A seasoned technology leader."
-              />
-            </div>
+
           </div>
         </div>
       </section>
