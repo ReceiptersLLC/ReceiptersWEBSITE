@@ -8,6 +8,12 @@ export async function middleware(request: NextRequest) {
     ? process.env.MAINTENANCE_MODE === 'true'
     : true
 
+  
+  const pathname = request.nextUrl.pathname
+  if (pathname === '/maintenance.html') {
+    return NextResponse.next()
+  }
+
   if (maintenanceMode) {
     
     const htmlResponse = await fetch(new URL('/maintenance.html', request.url))
