@@ -3,7 +3,10 @@ import type { NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {
   
-  const maintenanceMode = process.env.MAINTENANCE_MODE === 'true'
+
+  const maintenanceMode = process.env.MAINTENANCE_MODE
+    ? process.env.MAINTENANCE_MODE === 'true'
+    : true
 
   if (maintenanceMode) {
     
