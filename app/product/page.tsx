@@ -29,7 +29,7 @@ const features = [
     description: "product.features.offlineFunctionality.description"
   },
   {
-    title: "Multi-Device Sync",
+    title: "Receipters App",
     slug: "multi-device",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -102,10 +102,19 @@ export default function Page() {
       {/* Hero Section */}
       <section className="py-20 bg-white text-center">
         <div className="max-w-4xl mx-auto px-6">
-          <h1 className="text-5xl font-extrabold text-gray-900 mb-6">Receipters Products</h1>
-          <p className="text-lg text-gray-600">
-            {t('product.hero.description')}
+          <h1 className="text-5xl font-extrabold text-gray-900 mb-6">Our Products</h1>
+          <p className="text-lg text-gray-600 mb-6">
+            One unified vault. Four powerful products. Start with digital receipting, add secure storage, engage via the app, and unlock AI-driven data analysis as your needs grow.
           </p>
+          <p className="text-base text-gray-500">
+            Receipters is modular by design. Whether you're digitizing receipts for the first time or scaling advanced analytics across multiple outlets, there's a Receipters product to match your stage:
+          </p>
+          <ul className="text-left inline-block mt-4 text-gray-600">
+            <li>• Digital Receipting – Issue smart, compliant receipts.</li>
+            <li>• Receipt Storage – Store and retrieve all receipts in one secure vault.</li>
+            <li>• Receipters App – A simple interface for merchants and consumers to capture, view, and manage receipts.</li>
+            <li>• Data Analysis – Turn receipt data into AI-powered insights.</li>
+          </ul>
         </div>
       </section>
 

@@ -18,7 +18,7 @@ export default function Step2Page() {
         </p>
         <button
           onClick={() => router.back()}
-          className="mt-4 px-6 py-2 bg-primary text-white font-semibold rounded-full shadow hover:bg-opacity-90 transition-colors">
+          className="mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-full shadow hover:bg-blue-700 transition-colors">
           Go Back
         </button>
       </div>
