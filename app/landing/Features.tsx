@@ -27,48 +27,61 @@ const features = [
 ];
 
 export default function FeatureCards() {
-  const { t, ready } = useTranslation("common");
   const router = useRouter();
 
-  if (!ready) {
-    return null;
-  }
-
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+    <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        {/* Container for the feature cards */}
-        <div className="flex flex-col sm:flex-row gap-8 justify-center items-stretch">
-          {features.map((feature) => (
-            <div
-              key={feature.titleKey}
-              className="bg-white rounded-2xl shadow-lg flex-1 flex flex-col items-center p-8 text-center"
-            >
-              {feature.icon}
-              <h4 className="text-lg font-semibold mb-2">
-                {t(feature.titleKey)}
-              </h4>
-              <p className="text-gray-600 text-sm mb-6">
-                {t(feature.descriptionKey)}
-              </p>
-              {/* Replaced the simple div with a button-like div with gradient background and arrow */}
-              <div
-                onClick={() => router.push(`/features/${feature.slug}`)}
-                className="!bg-gradient-to-r !from-primary !to-primaryDark shadow-lg transition-colors 
-                           px-6 py-3 !rounded-full text-white w-full max-w-xs !justify-center mt-auto
-                           flex items-center justify-center space-x-3 cursor-pointer"
-              >
-                <span className="font-semibold text-sm whitespace-nowrap">
-                  {t('learn More')}
-                </span>
-                <div className="size-6 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-                  <span className="material-symbols-rounded text-primary text-sm">
-                    arrow_forward
-                  </span>
-                </div>
-              </div>
+        {/* Value Proposition Strip */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            One platform. Four products. Endless possibilities.
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h3 className="font-semibold text-lg mb-2 text-blue-600">Digital Receipting</h3>
+              <p className="text-gray-600 text-sm">Instantly issue smart, tax-compliant digital receipts from POS, SoftPOS, or online channels.</p>
             </div>
-          ))}
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h3 className="font-semibold text-lg mb-2 text-blue-600">Receipt Storage</h3>
+              <p className="text-gray-600 text-sm">Store and retrieve all receipts in a secure, searchable vault.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h3 className="font-semibold text-lg mb-2 text-blue-600">Receipters App</h3>
+              <p className="text-gray-600 text-sm">A simple, mobile-first interface for merchants and consumers to capture, view, and manage receipts.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h3 className="font-semibold text-lg mb-2 text-blue-600">Data Analysis</h3>
+              <p className="text-gray-600 text-sm">Unlock deep insights with AI-powered analytics on top of your transaction data.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Why Receipters Section */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Receipters?</h2>
+          <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+            Receipters sits at the intersection of payments, compliance, and data intelligence. We don't just replace paper receipts – we upgrade your entire post-transaction experience.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h3 className="font-semibold text-lg mb-3 text-blue-600">Built for Compliance</h3>
+              <p className="text-gray-600 text-sm">Receipters is designed to work hand-in-hand with modern tax and fiscalization regimes. From proper tax fields to audit-ready records, we help you stay aligned with regulatory requirements without extra admin work.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h3 className="font-semibold text-lg mb-3 text-blue-600">Secure by Design</h3>
+              <p className="text-gray-600 text-sm">Your data is encrypted, access-controlled, and fully traceable. With role-based permissions and audit logs, you always know who has seen what, and why.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h3 className="font-semibold text-lg mb-3 text-blue-600">AI-Ready Data</h3>
+              <p className="text-gray-600 text-sm">Every receipt is converted into structured, machine-readable data (JSON line items, totals, taxes, timestamps, merchant IDs, and more). That means you can plug into analytics, machine learning, and automation from day one.</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h3 className="font-semibold text-lg mb-3 text-blue-600">Developer-Friendly APIs</h3>
+              <p className="text-gray-600 text-sm">Modern REST APIs, webhooks, and SDKs make it easy to integrate Receipters into your POS, SoftPOS, e-commerce platforms, and custom systems—without disrupting your existing workflows.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

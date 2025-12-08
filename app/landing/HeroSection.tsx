@@ -34,19 +34,22 @@ export default function HeroSection() {
           ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}
         `}>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight drop-shadow-md">
-            <span dangerouslySetInnerHTML={{ __html: t('landing.hero.title') }}></span>
+            Receipters: Turn Every Receipt Into Actionable Data
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl mb-8 leading-relaxed max-w-4xl drop-shadow-md">
-            {t('landing.hero.description')}
+          <p className="text-lg sm:text-xl md:text-2xl mb-6 leading-relaxed max-w-4xl drop-shadow-md">
+            From digital receipting to secure storage, a powerful app, and AI-powered analysis, Receipters transforms everyday transactions into clean, compliant, decision-ready data for businesses and consumers.
           </p>
-          <div className="flex justify-start">
+          <p className="text-base sm:text-lg mb-8 text-gray-200 drop-shadow-md">
+            Digital receipts. Smart storage. Real insights.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-start">
             <Button
               variant="custom"
-              onClick={() => router.push("/signup")}
-              className="!bg-gradient-to-r !from-primary !to-primaryDark px-6 py-3 !rounded-full text-white w-full max-w-sm !justify-center shadow-lg">
-              <div className="flex items-center justify-center space-x-3 w-full">
+              onClick={() => router.push("/contact")}
+              className="!bg-gradient-to-r !from-primary !to-primaryDark px-8 py-3 !rounded-full text-white !justify-center shadow-lg">
+              <div className="flex items-center justify-center space-x-3">
                 <span className="font-medium text-sm whitespace-nowrap">
-                  {t('landing.hero.button')}
+                  Book a Demo
                 </span>
                 <div className="size-6 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                   <span className="material-symbols-rounded text-primary text-sm">
@@ -54,6 +57,14 @@ export default function HeroSection() {
                   </span>
                 </div>
               </div>
+            </Button>
+            <Button
+              variant="custom"
+              onClick={() => router.push("/product")}
+              className="!border-2 !border-white !text-white hover:!bg-white hover:!text-gray-800 px-8 py-3 !rounded-full !justify-center shadow-lg">
+              <span className="font-medium text-sm whitespace-nowrap">
+                Explore Our Products
+              </span>
             </Button>
           </div>
         </div>
