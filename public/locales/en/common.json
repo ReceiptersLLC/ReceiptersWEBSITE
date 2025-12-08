@@ -111,11 +111,15 @@
     "product.features.subtitle": "Explore our powerful suite of tools and features",
     "product.features.digitalReceiptIssuance.title": "Digital Receipt Issuance",
     "product.features.digitalReceiptIssuance.description": "Automatically generate and send digital receipts via email, SMS, or to Receipters accounts.",
-    "product.features.offlineFunctionality.title": "Offline Functionality",
-    "product.features.offlineFunctionality.description": "Generate receipts even when offline and sync them once internet connection is restored.",
-    "product.features.multiDeviceSync.title": "Multi-device Sync",
+    "product.features.offlineFunctionality.title": "Receipt  Storage",
+    "product.features.offlineFunctionality.description": "Receipt Storage turns Receipters into your single source of truth for receipts. All digital
+receipts, and any legacy paper receipts scanned via the app, are stored in a secure,
+centralized vault.
+Merchants and customers can quickly ﬁnd what they need using ﬂexible search tools –
+without digging through folders, ﬁles, or boxes.",
+    "Multi-Device Sync": "Receipters App",
     "product.features.multiDeviceSync.description": "Access your receipt data across all your devices seamlessly.",
-    "product.features.budgetingAssistant.title": "Receipt Organization",
+    "product.features.budgetingAssistant.title": "Data Analysis",
     "product.features.budgetingAssistant.description": "Organize and categorize your digital receipts with smart tagging and search functionality.",
     "product.features.expenseSharing.title": "Receipt Sharing",
     "product.features.expenseSharing.description": "Share receipts with family, friends, or colleagues for returns, warranties, or record-keeping.",
@@ -131,13 +135,17 @@
     "product.aiBenefits.instantRetrieval.title": "Instant Access",
     "product.aiBenefits.instantRetrieval.description": "Access your receipts from any device, anytime, with cloud synchronization.",
     "product.howItWorks.title": "How It Works",
-    "product.howItWorks.step1.title": "Step 1",
-    "product.howItWorks.step1.description": "Vendors integrate Receipters into POS. Users install the mobile app.",
-    "product.howItWorks.step2.title": "Step 2",
-    "product.howItWorks.step2.description": "At checkout, receipts are instantly sent to the user's app and securely stored.",
-    "product.howItWorks.step3.title": "Step 3",
+    "product.howItWorks.step1.title": "Step 1 – Capture",
+    "product.howItWorks.step1.description": "Receipts are generated digitally from POS or SoftPOS, captured as high-resolution
+images via the Receipters App, or received from integrated channels like e-commerce
+and delivery apps.",
+    "product.howItWorks.step2.title": "Step 2 – Structure & Store",
+    "product.howItWorks.step2.description": "Our engine extracts and structures line-item data—merchant, outlet, products,
+quantities, taxes, totals, payment methods, timestamps—and stores it in the
+Receipters Vault as clean, standardized data.",
+    "product.howItWorks.step3.title": "Step 3 – Search & Retrieve",
     "product.howItWorks.step3.description": "Users access, sort, search, and reference their receipts anytime.",
-    "product.howItWorks.step4.title": "Step 4",
+    "product.howItWorks.step4.title": "Step 4 – Analyse & Act (Optional)",
     "product.howItWorks.step4.description": "Everyone wins: fast, paperless, eco-friendly transactions.",
     "product.cta.title": "Ready to go paperless and powerful?",
     "product.cta.description": "Start using Receipters today to manage your receipts like a pro.",

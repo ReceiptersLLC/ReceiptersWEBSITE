@@ -10,11 +10,11 @@ Receipters is a modern, eco-friendly digital receipt management platform that pr
 - **POS Integration**: Seamless integration with existing point-of-sale systems
 - **Instant Delivery**: Automatic digital receipt generation and delivery via email, SMS, or Receipters accounts
 - **Vendor Analytics**: Real-time analytics dashboard for transaction insights and customer behavior
-- **Offline Functionality**: Generate receipts even when offline and sync when connection is restored
+- **Receipt  Storage**: Generate receipts even when offline and sync when connection is restored
 
 ### For Customers
 - **Secure Cloud Storage**: Military-grade encryption for all receipt data
-- **Multi-Device Sync**: Access receipts across all devices seamlessly
+- **Receipters App**: Access receipts across all devices seamlessly
 - **Smart Organization**: AI-powered categorization and search functionality
 - **Receipt Sharing**: Easy sharing with family, friends, or colleagues for returns and warranties
 

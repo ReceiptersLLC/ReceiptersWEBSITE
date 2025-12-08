@@ -106,7 +106,7 @@
   "product.features.digitalReceiptIssuance.description": "Générez et envoyez automatiquement des reçus numériques par e-mail, SMS, ou vers des comptes Receipters.",
   "product.features.offlineFunctionality.title": "Fonctionnalité Hors Ligne",
   "product.features.offlineFunctionality.description": "Générez des reçus même hors ligne et synchronisez-les une fois la connexion Internet rétablie.",
-  "product.features.multiDeviceSync.title": "Synchronisation Multi-Appareils",
+  "Multi-Device Sync": "Synchronisation Multi-Appareils",
   "product.features.multiDeviceSync.description": "Accédez à vos données de reçus sur tous vos appareils de manière transparente.",
   "product.features.budgetingAssistant.title": "Organisation des Reçus",
   "product.features.budgetingAssistant.description": "Organisez et catégorisez vos reçus numériques avec un étiquetage intelligent et une fonctionnalité de recherche.",
