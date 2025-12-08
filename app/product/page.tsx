@@ -224,6 +224,45 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Product Page Closing Section */}
+      <section className="py-20 bg-white text-center">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8">Start Where You Are. Scale As You Grow.</h2>
+          <p className="text-lg text-gray-600 mb-8">
+            With Receipters, you don't have to do everything on day one. You can:
+          </p>
+          <ol className="text-left inline-block text-gray-700 mb-8 space-y-3">
+            <li className="flex items-start">
+              <span className="font-bold mr-3">1.</span>
+              <span>Begin with Digital Receipting to modernize your checkout and clean up your data.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="font-bold mr-3">2.</span>
+              <span>Add Receipt Storage to centralize and secure your transaction history.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="font-bold mr-3">3.</span>
+              <span>Roll out the Receipters App to put receipts in the hands of staff and customers.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="font-bold mr-3">4.</span>
+              <span>Activate Data Analysis when you're ready to turn receipts into a strategic asset.</span>
+            </li>
+          </ol>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-blue-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition">
+              Compare Plans
+            </button>
+            <button
+              onClick={() => router.push('/contact')}
+              className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-full shadow-lg border-2 border-blue-600 hover:bg-blue-50 transition"
+            >
+              Talk to Our Team
+            </button>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

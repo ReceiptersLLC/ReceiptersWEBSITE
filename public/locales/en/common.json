@@ -118,9 +118,9 @@ centralized vault.
 Merchants and customers can quickly ﬁnd what they need using ﬂexible search tools –
 without digging through folders, ﬁles, or boxes.",
     "Receipters App": "Receipters App",
-    "product.features.multiDeviceSync.description": "Access your receipt data across all your devices seamlessly.",
+    "product.features.multiDeviceSync.description": "The Receipters App is the front door to the Receipters Vault. It gives both merchants and consumers a simple, mobile-first way to capture, view, and manage receipts in real time.",
     "product.features.budgetingAssistant.title": "Data Analysis",
-    "product.features.budgetingAssistant.description": "Organize and categorize your digital receipts with smart tagging and search functionality.",
+    "product.features.budgetingAssistant.description": "Data Analysis is the intelligence layer on top of your Receipters Vault. Once your receipts are flowing in and securely stored, our analytics engine and AI Agent help you understand what's really happening in your business – in real time.",
     "product.features.expenseSharing.title": "Receipt Sharing",
     "product.features.expenseSharing.description": "Share receipts with family, friends, or colleagues for returns, warranties, or record-keeping.",
     "product.features.vendorAnalyticsDashboard.title": "Vendor Analytics Dashboard",
