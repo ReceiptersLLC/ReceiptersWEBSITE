@@ -30,7 +30,7 @@ export default function AboutPage() {
           <p className="text-xs sm:text-sm uppercase tracking-widest text-gray-400 mb-2">{t('about.values.subtitle')}</p>
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold">{t('about.values.title')}</h3>
           <p className="mt-3 sm:mt-4 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-            We believe in building a digital future where every receipt is more than a record—it&apos;s a resource. Our
+            We believe in building a digital future where every receipt is more than a record—itandapos;s a resource. Our
             values guide how we create, connect, and innovate for businesses and individuals alike.
           </p>
         </div>
@@ -74,7 +74,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Vision & Story */}
+      {/* Vision and Story */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gray-50 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8 sm:mb-12">
@@ -88,14 +88,14 @@ export default function AboutPage() {
             <TrendingUp className="text-indigo-600 mb-4" size={28} />
             <h3 className="text-2xl sm:text-3xl mb-4">{t('about.vision.title')}</h3>
             <p className="font-sans text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
-              To be Africa&apos;s leading digital receipting platform driving towards a paperless economy while saving costs,protecting the environment, and fostering financial inclusion.
+              To be Africaandapos;s leading digital receipting platform driving towards a paperless economy while saving costs,protecting the environment, and fostering financial inclusion.
             </p>
           </div>
           <div>
             <Users className="text-purple-600 mb-4" size={28} />
             <h3 className="text-2xl sm:text-3xl mb-4">Our Story</h3>
             <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed font-sans">
-              We&apos;re called Receipters because our goal is to turn paper receipts into digital ones. Our team of professionals believes that paper receipts aren&apos;t convenient for long-term use. They create storage issues, they fade over time and become unreadable, and they pose a security risk if they fall into the wrong hands.
+              Weandapos;re called Receipters because our goal is to turn paper receipts into digital ones. Our team of professionals believes that paper receipts arenandapos;t convenient for long-term use. They create storage issues, they fade over time and become unreadable, and they pose a security risk if they fall into the wrong hands.
             </p>
           </div>
         </div>
@@ -108,9 +108,9 @@ export default function AboutPage() {
           <div className="grid gap-6 sm:gap-8 lg:gap-10 sm:grid-cols-2 md:grid-cols-2">
             <TeamBioCard
               name="Gordon Odira"
-              title="CEO & Founder"
+              title="CEO and Founder"
               image="/assets/gordon.jpg"
-              description="A senior Integration Engineer with over 8 years in federal, state, and private tech deployments. He holds a BSc in Electrical & Computer Engineering from Rutgers University and a Master's in Electrical and Computer Engineering from NJIT."
+              description="A senior Integration Engineer with over 8 years in federal, state, and private tech deployments. He holds a BSc in Electrical and Computer Engineering from Rutgers University and a Master's in Electrical and Computer Engineering from NJIT."
             />
             <TeamBioCard
               name="George Osewe"

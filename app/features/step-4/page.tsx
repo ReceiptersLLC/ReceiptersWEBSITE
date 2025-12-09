@@ -12,7 +12,7 @@ export default function Step4Page() {
     <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-100">
       <div className="bg-white p-10 rounded-xl shadow-lg text-center max-w-2xl">
         <FaBolt className="text-primary text-6xl mb-4 mx-auto" />
-        <h1 className="text-4xl font-bold mb-4">Step 4 – Analyse & Act (Optional)</h1>
+        <h1 className="text-4xl font-bold mb-4">Step 4 – Analyse and Act (Optional)</h1>
         <p className="text-lg text-gray-700 mb-6">
           With the Data Analysis product enabled, AI-powered dashboards and an intelligent assistant turn your receipt data into insights, alerts, and reports that drive better decisions.
         </p>

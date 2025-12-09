@@ -12,7 +12,7 @@ export default function Step3Page() {
     <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-100">
       <div className="bg-white p-10 rounded-xl shadow-lg text-center max-w-2xl">
         <FaBolt className="text-primary text-6xl mb-4 mx-auto" />
-        <h1 className="text-4xl font-bold mb-4">Step 3 – Search & Retrieve</h1>
+        <h1 className="text-4xl font-bold mb-4">Step 3 – Search and Retrieve</h1>
         <p className="text-lg text-gray-700 mb-6">
           Merchants and consumers can instantly search for receipts using web dashboards or the Receipters App. Filter by date, store, amount, SKU, payment method, and more.
         </p>

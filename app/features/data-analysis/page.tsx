@@ -34,9 +34,9 @@ export default function DataAnalysisPage() {
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li><strong>Interactive Dashboards:</strong> Visualize sales, margins, category performance, and customer trends across outlets, time periods, and channels.</li>
               <li><strong>AI Agent for Insights:</strong> Ask natural-language questions like "Which products have the highest margin this month?" or "Where are my discounts eroding profitability?" and get clear answers, charts, and explanations.</li>
-              <li><strong>Segmentation & Behavior Analysis:</strong> See which customers buy what, when, and where – and identify cross-sell or loyalty opportunities.</li>
-              <li><strong>Anomaly & Fraud Detection:</strong> Spot unusual patterns in pricing, returns, voids, or discounts that may indicate errors or fraud.</li>
-              <li><strong>Reporting & Exports:</strong> Generate automated reports for management, investors, and regulators; export data to your BI tools or data warehouse if needed.</li>
+              <li><strong>Segmentation and Behavior Analysis:</strong> See which customers buy what, when, and where – and identify cross-sell or loyalty opportunities.</li>
+              <li><strong>Anomaly and Fraud Detection:</strong> Spot unusual patterns in pricing, returns, voids, or discounts that may indicate errors or fraud.</li>
+              <li><strong>Reporting and Exports:</strong> Generate automated reports for management, investors, and regulators; export data to your BI tools or data warehouse if needed.</li>
             </ul>
           </section>
 

@@ -39,19 +39,19 @@ export default function FeatureCards() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-2 text-blue-600">Digital Receipting</h3>
+              <h3 className="font-semibold text-lg mb-2 text-blue-900">Digital Receipting</h3>
               <p className="text-gray-600 text-sm">Instantly issue smart, tax-compliant digital receipts from POS, SoftPOS, or online channels.</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-2 text-blue-600">Receipt Storage</h3>
+              <h3 className="font-semibold text-lg mb-2 text-blue-900">Receipt Storage</h3>
               <p className="text-gray-600 text-sm">Store and retrieve all receipts in a secure, searchable vault.</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-2 text-blue-600">Receipters App</h3>
+              <h3 className="font-semibold text-lg mb-2 text-blue-900">Receipters App</h3>
               <p className="text-gray-600 text-sm">A simple, mobile-first interface for merchants and consumers to capture, view, and manage receipts.</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-2 text-blue-600">Data Analysis</h3>
+              <h3 className="font-semibold text-lg mb-2 text-blue-900">Data Analysis</h3>
               <p className="text-gray-600 text-sm">Unlock deep insights with AI-powered analytics on top of your transaction data.</p>
             </div>
           </div>
@@ -66,19 +66,19 @@ export default function FeatureCards() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-3 text-blue-600">Built for Compliance</h3>
+              <h3 className="font-semibold text-lg mb-3 text-blue-900">Built for Compliance</h3>
               <p className="text-gray-600 text-sm">Receipters is designed to work hand-in-hand with modern tax and fiscalization regimes. From proper tax fields to audit-ready records, we help you stay aligned with regulatory requirements without extra admin work.</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-3 text-blue-600">Secure by Design</h3>
+              <h3 className="font-semibold text-lg mb-3 text-blue-900">Secure by Design</h3>
               <p className="text-gray-600 text-sm">Your data is encrypted, access-controlled, and fully traceable. With role-based permissions and audit logs, you always know who has seen what, and why.</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-3 text-blue-600">AI-Ready Data</h3>
+              <h3 className="font-semibold text-lg mb-3 text-blue-900">AI-Ready Data</h3>
               <p className="text-gray-600 text-sm">Every receipt is converted into structured, machine-readable data (JSON line items, totals, taxes, timestamps, merchant IDs, and more). That means you can plug into analytics, machine learning, and automation from day one.</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-3 text-blue-600">Developer-Friendly APIs</h3>
+              <h3 className="font-semibold text-lg mb-3 text-blue-900">Developer-Friendly APIs</h3>
               <p className="text-gray-600 text-sm">Modern REST APIs, webhooks, and SDKs make it easy to integrate Receipters into your POS, SoftPOS, e-commerce platforms, and custom systems—without disrupting your existing workflows.</p>
             </div>
           </div>

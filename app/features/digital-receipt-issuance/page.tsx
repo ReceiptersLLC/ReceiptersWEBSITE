@@ -34,7 +34,7 @@ export default function DigitalReceiptIssuancePage() {
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li><strong>Instant Digital Issuance:</strong> Generate and send receipts via SMS, email, app, or QR code at checkout.</li>
               <li><strong>Structured Data by Default:</strong> Every receipt is automatically converted into structured JSON: merchant, outlet, timestamp, line items, taxes, totals, and payment method.</li>
-              <li><strong>Tax & Compliance Ready:</strong> Capture the right fields for your jurisdiction to simplify VAT/tax reporting and audits.</li>
+              <li><strong>Tax and Compliance Ready:</strong> Capture the right fields for your jurisdiction to simplify VAT/tax reporting and audits.</li>
               <li><strong>Multi-Channel Support:</strong> Works with physical stores, online shops, delivery apps, and more.</li>
             </ul>
           </section>

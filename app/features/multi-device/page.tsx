@@ -36,7 +36,7 @@ export default function MultiDevicePage() {
               <li><strong>Receipt Image Capture:</strong> Snap high-resolution photos of long or short receipts; our engine stitches and reads them into structured JSON for storage.</li>
               <li><strong>Quick Digital Issuance:</strong> Send digital receipts via SMS, email, or QR when your POS or SoftPOS is not yet fully integrated.</li>
               <li><strong>Instant Lookup:</strong> Search for receipts by date, customer, amount, or SKU when handling queries, returns, or disputes – right from your phone or tablet.</li>
-              <li><strong>Branch & Role Support:</strong> Log in as a Merchant User with the correct outlet and role permissions, aligned with your organization's access rules.</li>
+              <li><strong>Branch and Role Support:</strong> Log in as a Merchant User with the correct outlet and role permissions, aligned with your organization's access rules.</li>
             </ul>
           </section>
 
@@ -44,7 +44,7 @@ export default function MultiDevicePage() {
             <h2 className="text-2xl font-semibold mb-4">Key Features (Consumer Mode)</h2>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li><strong>Personal Receipt Wallet:</strong> Automatically collect digital receipts from participating merchants and store them in the cloud.</li>
-              <li><strong>Smart Search & Filters:</strong> Find receipts by store, category, date, or amount – ideal for returns, claims, reimbursements, and tax filings.</li>
+              <li><strong>Smart Search and Filters:</strong> Find receipts by store, category, date, or amount – ideal for returns, claims, reimbursements, and tax filings.</li>
               <li><strong>Spending Snapshots:</strong> Get a simple overview of how much you've spent and where (full analytics unlocks with the Data Analysis product where enabled).</li>
               <li><strong>Secure Sharing:</strong> Share receipts with employers, insurers, or accountants via secure links or exports instead of forwarding screenshots.</li>
             </ul>

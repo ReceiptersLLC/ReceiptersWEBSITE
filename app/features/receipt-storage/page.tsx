@@ -33,9 +33,9 @@ export default function ReceiptStoragePage() {
             <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li><strong>Centralized Receipt Vault:</strong> Store every receipt – digital or scanned – in one place.</li>
-              <li><strong>Advanced Search & Filters:</strong> Find receipts by date, store, customer, SKU, amount, payment method, or tax reference.</li>
+              <li><strong>Advanced Search and Filters:</strong> Find receipts by date, store, customer, SKU, amount, payment method, or tax reference.</li>
               <li><strong>Role-Based Access Control:</strong> Assign access levels to staff (e.g., finance, audit, branch managers) to ensure the right people see the right data.</li>
-              <li><strong>Retention Policies & Audit Trails:</strong> Configure how long data is kept and track who accessed or exported what.</li>
+              <li><strong>Retention Policies and Audit Trails:</strong> Configure how long data is kept and track who accessed or exported what.</li>
               <li><strong>Multi-Tenant Design:</strong> Support multiple outlets, branches, merchants, and even white-label scenarios under one architecture.</li>
             </ul>
           </section>

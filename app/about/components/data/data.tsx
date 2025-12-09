@@ -8,9 +8,9 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
   {
     name: "Gordon Odira",
-    title: "CEO & Founder",
+    title: "CEO and Founder",
     image: "/assets/gordon.jpg",
-    description: "A senior Integration Engineer with over 8 years in federal, state, and private tech deployments. Holds a BSc in Electrical & Computer Engineering from Rutgers University and a Master's in Electrical and Computer Engineering from NJIT."
+    description: "A senior Integration Engineer with over 8 years in federal, state, and private tech deployments. Holds a BSc in Electrical and Computer Engineering from Rutgers University and a Master's in Electrical and Computer Engineering from NJIT."
   },
   {
     name: "George Osewe",

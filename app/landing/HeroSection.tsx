@@ -45,15 +45,15 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-start">
             <Button
               variant="custom"
-              onClick={() => router.push("/contact")}
+              onClick={() => router.push("/download")}
               className="!bg-gradient-to-r !from-primary !to-primaryDark px-8 py-3 !rounded-full text-white !justify-center shadow-lg">
               <div className="flex items-center justify-center space-x-3">
                 <span className="font-medium text-sm whitespace-nowrap">
-                  Book a Demo
+                  Get Started Now
                 </span>
                 <div className="size-6 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                   <span className="material-symbols-rounded text-primary text-sm">
-                    arrow_forward
+                    
                   </span>
                 </div>
               </div>

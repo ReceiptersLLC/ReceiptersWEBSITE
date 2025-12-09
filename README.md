@@ -94,7 +94,7 @@ Language detection is automatic based on browser settings, with manual switching
 - **Product** (`/product`): Detailed product features and benefits
 - **Contact** (`/contact`): Contact form and company details
 - **Download** (`/download`): App download links and information
-- **Legal Pages**: Privacy policy and terms & conditions
+- **Legal Pages**: Privacy policy and terms and conditions
 - **Authentication**: Login and signup flows with OTP verification
 
 ## 🎨 Design System
@@ -159,7 +159,7 @@ yarn build
 - **SEO**: Meta tags and structured data for search engines
 - **Accessibility**: WCAG compliant with keyboard navigation support
 
-## 📞 Support & Contact
+## 📞 Support and Contact
 
 - **Website**: [receipters.com](https://receipters.com)
 - **Email**: support@receipters.com

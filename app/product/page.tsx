@@ -115,6 +115,17 @@ export default function Page() {
             <li>• Receipters App – A simple interface for merchants and consumers to capture, view, and manage receipts.</li>
             <li>• Data Analysis – Turn receipt data into AI-powered insights.</li>
           </ul>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <a href="/download" className="bg-blue-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition text-center">
+              Get Started
+            </a>
+            <button
+              onClick={() => router.push('/contact')}
+              className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-full shadow-lg border-2 border-blue-600 hover:bg-blue-50 transition"
+            >
+              Book a Demo
+            </button>
+          </div>
         </div>
       </section>
 
@@ -143,7 +154,7 @@ export default function Page() {
       <section className="py-20 bg-white text-gray-800">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold mb-3">The Power of AI</p>
-          <h2 className="text-4xl font-bold mb-6">How Receipters&apos; AI Transforms Your Expenses</h2>
+          <h2 className="text-4xl font-bold mb-6">How Receiptersandapos; AI Transforms Your Expenses</h2>
           <p className="text-lg text-gray-600 mb-8">
             {t('product.aiBenefits.description')}
           </p>
@@ -178,10 +189,10 @@ export default function Page() {
           {/* Arrow 1 */}
           {/* <Arrow /> */}
 
-          {/* Step 2 – Structure & Store */}
+          {/* Step 2 – Structure and Store */}
           <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
             <UploadCloud size={40} className="text-green-600 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Step 2 – Structure & Store</h3>
+            <h3 className="text-xl font-semibold mb-2">Step 2 – Structure and Store</h3>
             <p className="text-gray-700 text-sm">
               {t('product.howItWorks.step2.description')}
             </p>
@@ -190,10 +201,10 @@ export default function Page() {
           {/* Arrow 2 */}
           {/* <Arrow /> */}
 
-          {/* Step 3 – Search & Retrieve */}
+          {/* Step 3 – Search and Retrieve */}
           <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
             <Smartphone size={40} className="text-purple-600 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Step 3 – Search & Retrieve</h3>
+            <h3 className="text-xl font-semibold mb-2">Step 3 – Search and Retrieve</h3>
             <p className="text-gray-700 text-sm">
               {t('product.howItWorks.step3.description')}
             </p>
@@ -202,10 +213,10 @@ export default function Page() {
           {/* Arrow 3 */}
           {/* <Arrow /> */}
 
-          {/* Step 4 – Analyse & Act (Optional) – Analyse & Act (Optional)*/}
+          {/* Step 4 – Analyse and Act (Optional) – Analyse and Act (Optional)*/}
           <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
             <Smile size={40} className="text-yellow-500 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Step 4 – Analyse & Act (Optional)</h3>
+            <h3 className="text-xl font-semibold mb-2">Step 4 – Analyse and Act (Optional)</h3>
             <p className="text-gray-700 text-sm">
               {t('product.howItWorks.step4.description')}
             </p>

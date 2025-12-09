@@ -1,6 +1,5 @@
 import HeroSection from "@/app/landing/HeroSection";
 import Features from "@/app/landing/Features";
-import Testimonials from "@/app/landing/Testimonials";
 import HowItWorks from "@/app/landing/HowItWorks";
 import CallToAction from "@/app/landing/CallToAction";
 import type { Metadata } from "next";
@@ -43,7 +42,6 @@ export default function Home() {
     <div>
       <HeroSection/>
       <Features/>
-      <Testimonials/>
       <HowItWorks/>
       <CallToAction/>
     </div>

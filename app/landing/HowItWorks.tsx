@@ -5,6 +5,7 @@ import classNames from "classnames";
 import Button from "@/components/Button";
 import { useTranslation } from 'react-i18next';
 import { useRouter } from "next/navigation";
+import Testimonials from "./Testimonials";
 
 export default function HowItWorks() {
   const router = useRouter();
@@ -16,17 +17,17 @@ export default function HowItWorks() {
       icon: "📱"
     },
     {
-      title: "Step 2 – Structure & Store",
+      title: "Step 2 – Structure and Store",
       description: "Our engine extracts and structures line-item data—merchant, outlet, products, quantities, taxes, totals, payment methods, timestamps—and stores it in the Receipters Vault as clean, standardized data.",
       icon: "💾"
     },
     {
-      title: "Step 3 – Search & Retrieve",
+      title: "Step 3 – Search and Retrieve",
       description: "Merchants and consumers can instantly search for receipts using web dashboards or the Receipters App. Filter by date, store, amount, SKU, payment method, and more.",
       icon: "🔍"
     },
     {
-      title: "Step 4 – Analyse & Act (Optional)",
+      title: "Step 4 – Analyse and Act (Optional)",
       description: "With the Data Analysis product enabled, AI-powered dashboards and an intelligent assistant turn your receipt data into insights, alerts, and reports that drive better decisions.",
       icon: "📊"
     }
@@ -64,19 +65,19 @@ export default function HowItWorks() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-blue-600 mb-2">Understand Performance</h4>
+              <h4 className="font-semibold text-blue-900 mb-2">Understand Performance</h4>
               <p className="text-sm text-gray-600">Track sales, margins, and product performance across outlets, regions, and channels.</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-blue-600 mb-2">Spot Trends & Opportunities</h4>
+              <h4 className="font-semibold text-blue-900 mb-2">Spot Trends and Opportunities</h4>
               <p className="text-sm text-gray-600">Identify fast-moving products, changing customer behavior, and new cross-sell or upsell opportunities.</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-blue-600 mb-2">Monitor Risk & Anomalies</h4>
+              <h4 className="font-semibold text-blue-900 mb-2">Monitor Risk and Anomalies</h4>
               <p className="text-sm text-gray-600">Detect unusual patterns in pricing, returns, voids, or discounts that could signal errors or fraud.</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-blue-600 mb-2">Automate Reporting</h4>
+              <h4 className="font-semibold text-blue-900 mb-2">Automate Reporting</h4>
               <p className="text-sm text-gray-600">Generate reports for management, auditors, investors, and regulators without chasing spreadsheets.</p>
             </div>
           </div>
@@ -96,7 +97,7 @@ export default function HowItWorks() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="bg-blue-50 p-8 rounded-xl">
-              <h3 className="text-2xl font-semibold text-blue-600 mb-4">For Merchants:</h3>
+              <h3 className="text-2xl font-semibold text-blue-900 mb-4">For Merchants:</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2">•</span>
@@ -114,7 +115,7 @@ export default function HowItWorks() {
             </div>
 
             <div className="bg-blue-50 p-8 rounded-xl">
-              <h3 className="text-2xl font-semibold text-blue-600 mb-4">For Consumers:</h3>
+              <h3 className="text-2xl font-semibold text-blue-900 mb-4">For Consumers:</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2">•</span>
@@ -140,36 +141,38 @@ export default function HowItWorks() {
         {/* Who We Serve Section */}
         <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6">
-            Built for Modern Businesses & Everyday Consumers
+            Built for Modern Businesses and Everyday Consumers
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-semibold text-blue-600 mb-3">Retailers & Supermarkets</h3>
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">Retailers and Supermarkets</h3>
               <p className="text-gray-600">Reduce paper, simplify audits, and understand SKU-level performance while giving customers a modern digital experience at checkout.</p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-semibold text-blue-600 mb-3">Restaurants & Hospitality</h3>
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">Restaurants and Hospitality</h3>
               <p className="text-gray-600">Issue digital receipts on the spot, streamline expense claims and corporate billing, and see which menu items really drive your margins.</p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-semibold text-blue-600 mb-3">Healthcare & Pharmacies</h3>
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">Healthcare and Pharmacies</h3>
               <p className="text-gray-600">Maintain organized, compliant transaction records and give patients easy access to receipts for insurance and claims, while protecting sensitive data.</p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-semibold text-blue-600 mb-3">Universities & Institutions</h3>
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">Universities and Institutions</h3>
               <p className="text-gray-600">Track spending across departments, projects, and vendors with clear, auditable trails—perfect for budgeting, grants reporting, and audits.</p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-md md:col-span-2 lg:col-span-1">
-              <h3 className="text-xl font-semibold text-blue-600 mb-3">Everyday Consumers</h3>
+            <div className="bg-white p-6 rounded-xl shadow-md md:col-span-2 lg:col-span-1 hover:shadow-lg transition-shadow duration-300">
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">Everyday Consumers</h3>
               <p className="text-gray-600">Enjoy a single place to keep all receipts, track spending, and find proof of purchase whenever you need it.</p>
             </div>
           </div>
         </div>
+
+        <Testimonials />
       </div>
     </div>
   )

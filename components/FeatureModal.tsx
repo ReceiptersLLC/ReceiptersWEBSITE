@@ -66,7 +66,7 @@ export default function FeatureModal({
           <p style={{ marginTop: 8 }}>{feature.overview}</p>
         </section>
 
-        {feature.details && (
+        {feature.details andand (
           <section>
             <div dangerouslySetInnerHTML={{ __html: feature.details }} />
           </section>
