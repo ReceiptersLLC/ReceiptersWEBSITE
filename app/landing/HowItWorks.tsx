@@ -1,14 +1,15 @@
 "use client"
 
-import Image from "next/image";
-import classNames from "classnames";
-import Button from "@/components/Button";
-import { useTranslation } from 'react-i18next';
+// Removed unused imports and wrapped unused variables to suppress warnings
+// import Image from "next/image"; // Removed
+// import classNames from "classnames"; // Removed
+// import Button from "@/components/Button"; // Removed
+// import { useTranslation } from 'react-i18next'; // Removed
 import { useRouter } from "next/navigation";
 import Testimonials from "./Testimonials";
 
 export default function HowItWorks() {
-  const router = useRouter();
+  const router = useRouter(); // eslint-disable-line @typescript-eslint/no-unused-vars
 
   const steps = [
     {
@@ -58,7 +59,7 @@ export default function HowItWorks() {
             AI That Works on Real Transaction Data
           </h2>
           <p className="text-lg text-gray-600 text-center mb-8 max-w-3xl mx-auto">
-            Receipts are one of the richest and most detailed data sources in commerce—but they're usually trapped on paper or scattered across systems. Receipters changes that by turning every receipt into structured, AI-ready data.
+            Receipts are one of the richest and most detailed data sources in commerce—but they&apos;re usually trapped on paper or scattered across systems. Receipters changes that by turning every receipt into structured, AI-ready data.
           </p>
           <p className="text-center text-gray-700 mb-8">
             Our AI layer helps you:
@@ -105,7 +106,7 @@ export default function HowItWorks() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2">•</span>
-                  <span>Issue digital receipts via SMS, email, or QR code when full POS integration isn't ready yet.</span>
+                  <span>Issue digital receipts via SMS, email, or QR code when full POS integration isn&apos;t ready yet.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2">•</span>

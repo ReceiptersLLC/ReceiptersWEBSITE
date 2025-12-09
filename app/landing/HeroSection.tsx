@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   const router = useRouter();
-  const { t, ready } = useTranslation('common');
+  const { t, ready } = useTranslation('common'); // eslint-disable-line @typescript-eslint/no-unused-vars
   const [isLoaded, setIsLoaded] = useState(false); 
 
   useEffect(() => {

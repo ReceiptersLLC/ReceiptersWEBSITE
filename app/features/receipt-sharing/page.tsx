@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { FaBolt } from "react-icons/fa";
+// Removed: FaBolt is no longer imported as it's not used.
+// import { FaBolt } from "react-icons/fa";
 
 
 export default function ReceiptSharingPage() {
@@ -24,7 +25,7 @@ export default function ReceiptSharingPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Overview</h2>
             <p className="text-gray-700 leading-relaxed">
-              Receipt Sharing enables seamless collaboration by allowing users to securely share digital receipts with others. Whether it's for expense reimbursement, warranty claims, group purchases, or business record-keeping, our sharing features ensure that the right people have access to the right receipts at the right time.
+              Receipt Sharing enables seamless collaboration by allowing users to securely share digital receipts with others. Whether it&apos;s for expense reimbursement, warranty claims, group purchases, or business record-keeping, our sharing features ensure that the right people have access to the right receipts at the right time.
             </p>
           </section>
 
@@ -33,7 +34,7 @@ export default function ReceiptSharingPage() {
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li><strong>Secure Link Sharing:</strong> Generate secure, time-limited links to share receipts without exposing personal information.</li>
               <li><strong>Group Sharing:</strong> Share receipts with multiple people simultaneously for expense splitting and group purchases.</li>
-              <li><strong>Permission Controls:</strong> Set view-only or download permissions based on the recipient's needs.</li>
+              <li><strong>Permission Controls:</strong> Set view-only or download permissions based on the recipient&apos;s needs.</li>
               <li><strong>Integration Ready:</strong> Connect with accounting software, expense management tools, and business applications.</li>
               <li><strong>Audit Trail:</strong> Track who has accessed shared receipts and when, maintaining security and accountability.</li>
             </ul>

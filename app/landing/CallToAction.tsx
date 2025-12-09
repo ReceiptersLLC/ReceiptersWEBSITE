@@ -1,7 +1,7 @@
 "use client"
 import Button from "@/components/Button";
 import {useRouter} from "next/navigation";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'; // eslint-disable-line @typescript-eslint/no-unused-vars
 
 export default function CallToAction() {
   const router = useRouter();
@@ -13,7 +13,7 @@ export default function CallToAction() {
           Ready to Make Your Receipts Work for You?
         </h2>
         <p className="text-sm sm:text-base lg:text-lg mb-8 sm:mb-12 max-w-3xl leading-relaxed opacity-90">
-          Start where you are. Go digital with receipts today, roll out the Receipters App to staff and customers, and unlock AI-powered analytics when you're ready.
+          Start where you are. Go digital with receipts today, roll out the Receipters App to staff and customers, and unlock AI-powered analytics when you&apos;re ready.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <Button

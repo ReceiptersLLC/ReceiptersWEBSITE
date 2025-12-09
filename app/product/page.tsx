@@ -1,4 +1,3 @@
-
 'use client'
 // import Image from 'next/image';
 import React from 'react';
@@ -107,7 +106,7 @@ export default function Page() {
             One unified vault. Four powerful products. Start with digital receipting, add secure storage, engage via the app, and unlock AI-driven data analysis as your needs grow.
           </p>
           <p className="text-base text-gray-500">
-            Receipters is modular by design. Whether you're digitizing receipts for the first time or scaling advanced analytics across multiple outlets, there's a Receipters product to match your stage:
+            Receipters is modular by design. Whether you&apos;re digitizing receipts for the first time or scaling advanced analytics across multiple outlets, there&apos;s a Receipters product to match your stage:
           </p>
           <ul className="text-left inline-block mt-4 text-gray-600">
             <li>• Digital Receipting – Issue smart, compliant receipts.</li>
@@ -154,7 +153,7 @@ export default function Page() {
       <section className="py-20 bg-white text-gray-800">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold mb-3">The Power of AI</p>
-          <h2 className="text-4xl font-bold mb-6">How Receiptersandapos; AI Transforms Your Expenses</h2>
+          <h2 className="text-4xl font-bold mb-6">How Receipters&apos; AI Transforms Your Expenses</h2>
           <p className="text-lg text-gray-600 mb-8">
             {t('product.aiBenefits.description')}
           </p>
@@ -240,7 +239,7 @@ export default function Page() {
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-gray-900 mb-8">Start Where You Are. Scale As You Grow.</h2>
           <p className="text-lg text-gray-600 mb-8">
-            With Receipters, you don't have to do everything on day one. You can:
+            With Receipters, you don&apos;t have to do everything on day one. You can:
           </p>
           <ol className="text-left inline-block text-gray-700 mb-8 space-y-3">
             <li className="flex items-start">
@@ -257,7 +256,7 @@ export default function Page() {
             </li>
             <li className="flex items-start">
               <span className="font-bold mr-3">4.</span>
-              <span>Activate Data Analysis when you're ready to turn receipts into a strategic asset.</span>
+              <span>Activate Data Analysis when you&apos;re ready to turn receipts into a strategic asset.</span>
             </li>
           </ol>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

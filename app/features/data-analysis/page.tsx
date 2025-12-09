@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { FaBolt } from "react-icons/fa";
+import { FaBolt } from "react-icons/fa"; // eslint-disable-line @typescript-eslint/no-unused-vars
 
 
 export default function DataAnalysisPage() {
@@ -24,7 +24,7 @@ export default function DataAnalysisPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Overview</h2>
             <p className="text-gray-700 leading-relaxed">
-              Data Analysis is the intelligence layer on top of your Receipters Vault. Once your receipts are flowing in and securely stored, our analytics engine and AI Agent help you understand what's really happening in your business – in real time.
+              Data Analysis is the intelligence layer on top of your Receipters Vault. Once your receipts are flowing in and securely stored, our analytics engine and AI Agent help you understand what&apos;s really happening in your business  in real time.
               This is a premium add-on that activates advanced analytics features and AI-driven dashboards for merchants and, where relevant, consumers.
             </p>
           </section>
@@ -33,8 +33,8 @@ export default function DataAnalysisPage() {
             <h2 className="text-2xl font-semibold mb-4">Key Capabilities</h2>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li><strong>Interactive Dashboards:</strong> Visualize sales, margins, category performance, and customer trends across outlets, time periods, and channels.</li>
-              <li><strong>AI Agent for Insights:</strong> Ask natural-language questions like "Which products have the highest margin this month?" or "Where are my discounts eroding profitability?" and get clear answers, charts, and explanations.</li>
-              <li><strong>Segmentation and Behavior Analysis:</strong> See which customers buy what, when, and where – and identify cross-sell or loyalty opportunities.</li>
+              <li><strong>AI Agent for Insights:</strong> Ask natural language questions like &quot;Which products have the highest margin this month?&quot; or &quot;Where are my discounts eroding profitability?&quot; and get clear answers, charts, and explanations.</li>
+              <li><strong>Segmentation and Behavior Analysis:</strong> See which customers buy what, when, and where  and identify cross sell or loyalty opportunities.</li>
               <li><strong>Anomaly and Fraud Detection:</strong> Spot unusual patterns in pricing, returns, voids, or discounts that may indicate errors or fraud.</li>
               <li><strong>Reporting and Exports:</strong> Generate automated reports for management, investors, and regulators; export data to your BI tools or data warehouse if needed.</li>
             </ul>

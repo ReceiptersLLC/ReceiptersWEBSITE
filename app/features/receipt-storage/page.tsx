@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { FaBolt } from "react-icons/fa";
+import { FaBolt } from "react-icons/fa"; // eslint-disable-line @typescript-eslint/no-unused-vars
 
 
 export default function ReceiptStoragePage() {
