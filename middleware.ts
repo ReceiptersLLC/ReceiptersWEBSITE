@@ -5,7 +5,7 @@ export async function middleware(request: NextRequest) {
   
 
   const maintenanceMode = process.env.MAINTENANCE_MODE
-    ? process.env.MAINTENANCE_MODE === 'true'
+    ? process.env.MAINTENANCE_MODE === 'false'
     : true
 
   // Allow the maintenance page and common asset/api prefixes to bypass the middleware to avoid recursion or blocking assets
