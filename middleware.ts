@@ -2,13 +2,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {
-  
-
-  const maintenanceMode = process.env.MAINTENANCE_MODE
-    ? process.env.MAINTENANCE_MODE === 'false'
-    : true
-
-  // Allow the maintenance page and common asset/api prefixes to bypass the middleware to avoid recursion or blocking assets
+  // Determine request path early and allow common assets/endpoints to bypass middleware
   const pathname = request.nextUrl.pathname
   if (
     pathname === '/maintenance.html' ||
@@ -20,6 +14,15 @@ export async function middleware(request: NextRequest) {
   ) {
     return NextResponse.next()
   }
+
+  // Disable maintenance mode in local development so you can review the site with `next dev`
+  const isDev = process.env.NODE_ENV === 'development'
+
+  // Parse MAINTENANCE_MODE reliably: treat "1", "true", "yes" (case-insensitive) as enabled.
+  const raw = process.env.MAINTENANCE_MODE
+  const maintenanceMode = !isDev && typeof raw === 'string'
+    ? ['1', 'true', 'yes'].includes(raw.toLowerCase())
+    : false
 
   if (maintenanceMode) {
     // Try to fetch the public maintenance page; if that fails, use a small inline fallback HTML

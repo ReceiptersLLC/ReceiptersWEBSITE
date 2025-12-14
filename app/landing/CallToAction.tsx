@@ -1,16 +1,17 @@
 "use client"
 import Button from "@/components/Button";
 import {useRouter} from "next/navigation";
-import { useTranslation } from 'react-i18next'; // eslint-disable-line @typescript-eslint/no-unused-vars
+import { useTranslation } from 'react-i18next';
 
 export default function CallToAction() {
+  const { t } = useTranslation('common');
   const router = useRouter();
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-          Ready to Make Your Receipts Work for You?
+          {t('landing.cta.newTitle')}
         </h2>
         <p className="text-sm sm:text-base lg:text-lg mb-8 sm:mb-12 max-w-3xl leading-relaxed opacity-90">
           Start where you are. Go digital with receipts today, roll out the Receipters App to staff and customers, and unlock AI-powered analytics when you&apos;re ready.
@@ -21,7 +22,7 @@ export default function CallToAction() {
             onClick={() => router.push("/signup")}
             className="!bg-white !text-blue-600 px-8 py-3 !rounded-full w-full sm:w-auto !justify-center hover:!bg-gray-100">
             <span className="font-medium text-sm sm:text-base whitespace-nowrap">
-              Get Started
+              {t('landing.cta.newButton1')}
             </span>
           </Button>
           <Button
@@ -29,12 +30,12 @@ export default function CallToAction() {
             onClick={() => router.push("/contact")}
             className="!bg-transparent !text-white !border-2 !border-white px-8 py-3 !rounded-full w-full sm:w-auto !justify-center hover:!bg-white hover:!text-blue-600">
             <span className="font-medium text-sm sm:text-base whitespace-nowrap">
-              Talk to Sales
+              {t('landing.cta.newButton2')}
             </span>
           </Button>
         </div>
         <p className="text-sm opacity-90">
-          Receipters – from simple receipts to powerful insights, all in one platform.
+          {t('landing.cta.newFooter')}
         </p>
       </div>
     </div>

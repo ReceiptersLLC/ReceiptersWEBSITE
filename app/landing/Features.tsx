@@ -1,7 +1,7 @@
 "use client";
 
-// The import below is commented out because it was defined but never used.
-// import { useTranslation } from "react-i18next"; 
+// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { FaBolt, FaLock, FaLeaf } from "react-icons/fa";
 // The 'useRouter' hook is imported correctly, but 'router' is unused in the current logic.
 import { useRouter } from "next/navigation";
@@ -30,6 +30,7 @@ const features = [ // eslint-disable-line @typescript-eslint/no-unused-vars
 ];
 
 export default function FeatureCards() {
+  const { t } = useTranslation('common');
   const router = useRouter(); // eslint-disable-line @typescript-eslint/no-unused-vars
 
   return (
@@ -38,51 +39,51 @@ export default function FeatureCards() {
         {/* Value Proposition Strip */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            One platform. Four products. Endless possibilities.
+            {t('landing.features.newTitle')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-2 text-blue-900">Digital Receipting</h3>
-              <p className="text-gray-600 text-sm">Instantly issue smart, tax-compliant digital receipts from POS, SoftPOS, or online channels.</p>
+              <h3 className="font-semibold text-lg mb-2 text-blue-900">{t('landing.features.digitalReceipting.title')}</h3>
+              <p className="text-gray-600 text-sm">{t('landing.features.digitalReceipting.description')}</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-2 text-blue-900">Receipt Storage</h3>
-              <p className="text-gray-600 text-sm">Store and retrieve all receipts in a secure, searchable vault.</p>
+              <h3 className="font-semibold text-lg mb-2 text-blue-900">{t('landing.features.receiptStorage.title')}</h3>
+              <p className="text-gray-600 text-sm">{t('landing.features.receiptStorage.description')}</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-2 text-blue-900">Receipters App</h3>
-              <p className="text-gray-600 text-sm">A simple, mobile-first interface for merchants and consumers to capture, view, and manage receipts.</p>
+              <h3 className="font-semibold text-lg mb-2 text-blue-900">{t('landing.features.receiptersApp.title')}</h3>
+              <p className="text-gray-600 text-sm">{t('landing.features.receiptersApp.description')}</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-2 text-blue-900">Data Analysis</h3>
-              <p className="text-gray-600 text-sm">Unlock deep insights with AI-powered analytics on top of your transaction data.</p>
+              <h3 className="font-semibold text-lg mb-2 text-blue-900">{t('landing.features.dataAnalysis.title')}</h3>
+              <p className="text-gray-600 text-sm">{t('landing.features.dataAnalysis.description')}</p>
             </div>
           </div>
         </div>
 
         {/* Why Receipters Section */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Receipters?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{t('landing.features.whyReceipters.title')}</h2>
           <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
             Receipters sits at the intersection of payments, compliance, and data intelligence. We don&apos;t just replace paper receipts – we upgrade your entire post-transaction experience.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-3 text-blue-900">Built for Compliance</h3>
-              <p className="text-gray-600 text-sm">Receipters is designed to work hand-in-hand with modern tax and fiscalization regimes. From proper tax fields to audit-ready records, we help you stay aligned with regulatory requirements without extra admin work.</p>
+              <h3 className="font-semibold text-lg mb-3 text-blue-900">{t('landing.features.builtForCompliance.title')}</h3>
+              <p className="text-gray-600 text-sm">{t('landing.features.builtForCompliance.description')}</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-3 text-blue-900">Secure by Design</h3>
-              <p className="text-gray-600 text-sm">Your data is encrypted, access-controlled, and fully traceable. With role-based permissions and audit logs, you always know who has seen what, and why.</p>
+              <h3 className="font-semibold text-lg mb-3 text-blue-900">{t('landing.features.secureByDesign.title')}</h3>
+              <p className="text-gray-600 text-sm">{t('landing.features.secureByDesign.description')}</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-3 text-blue-900">AI-Ready Data</h3>
-              <p className="text-gray-600 text-sm">Every receipt is converted into structured, machine-readable data (JSON line items, totals, taxes, timestamps, merchant IDs, and more). That means you can plug into analytics, machine learning, and automation from day one.</p>
+              <h3 className="font-semibold text-lg mb-3 text-blue-900">{t('landing.features.aiReadyData.title')}</h3>
+              <p className="text-gray-600 text-sm">{t('landing.features.aiReadyData.description')}</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="font-semibold text-lg mb-3 text-blue-900">Developer-Friendly APIs</h3>
-              <p className="text-gray-600 text-sm">Modern REST APIs, webhooks, and SDKs make it easy to integrate Receipters into your POS, SoftPOS, e-commerce platforms, and custom systems—without disrupting your existing workflows.</p>
+              <h3 className="font-semibold text-lg mb-3 text-blue-900">{t('landing.features.developerFriendlyApis.title')}</h3>
+              <p className="text-gray-600 text-sm">{t('landing.features.developerFriendlyApis.description')}</p>
             </div>
           </div>
         </div>

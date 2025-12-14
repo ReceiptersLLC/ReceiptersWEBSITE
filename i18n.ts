@@ -270,6 +270,7 @@ const enTranslations = {
   "terms.section11.contact.email": "Email: dpo@receipter.com",
   "terms.section11.contact.phone": "Phone/WhatsApp: +1 (720) 930-2570",
   "terms.section11.contact.office": "Office: 355 Ridgewood Ave, Suite 1, Newark, NJ 07"
+  
 };
 
 i18n
@@ -283,11 +284,11 @@ i18n
     defaultNS: "common", // Default namespace for translations
     supportedLngs: ["en", "fr", "sw", "de"], // Add your supported languages
     debug: false, // Disable debug to reduce console noise
-    resources: {
-      en: {
-        common: enTranslations // Preload English translations
-      }
-    },
+    // resources: {
+    //   en: {
+    //     common: enTranslations // Preload English translations
+    //   }
+    // },
     backend: {
       loadPath: "/api/locales/{{lng}}/{{ns}}",
       requestOptions: {

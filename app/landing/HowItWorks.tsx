@@ -4,32 +4,33 @@
 // import Image from "next/image"; // Removed
 // import classNames from "classnames"; // Removed
 // import Button from "@/components/Button"; // Removed
-// import { useTranslation } from 'react-i18next'; // Removed
+import { useTranslation } from 'react-i18next';
 import { useRouter } from "next/navigation";
 import Testimonials from "./Testimonials";
 
 export default function HowItWorks() {
+  const { t } = useTranslation('common');
   const router = useRouter(); // eslint-disable-line @typescript-eslint/no-unused-vars
 
   const steps = [
     {
-      title: "Step 1 – Capture",
-      description: "Receipts are generated digitally from POS or SoftPOS, captured as high-resolution images via the Receipters App, or received from integrated channels like e-commerce and delivery apps.",
+      title: t('landing.howItWorks.step1.title'),
+      description: t('landing.howItWorks.step1.description'),
       icon: "📱"
     },
     {
-      title: "Step 2 – Structure and Store",
-      description: "Our engine extracts and structures line-item data—merchant, outlet, products, quantities, taxes, totals, payment methods, timestamps—and stores it in the Receipters Vault as clean, standardized data.",
+      title: t('landing.howItWorks.step2.title'),
+      description: t('landing.howItWorks.step2.description'),
       icon: "💾"
     },
     {
-      title: "Step 3 – Search and Retrieve",
-      description: "Merchants and consumers can instantly search for receipts using web dashboards or the Receipters App. Filter by date, store, amount, SKU, payment method, and more.",
+      title: t('landing.howItWorks.step3.title'),
+      description: t('landing.howItWorks.step3.description'),
       icon: "🔍"
     },
     {
-      title: "Step 4 – Analyse and Act (Optional)",
-      description: "With the Data Analysis product enabled, AI-powered dashboards and an intelligent assistant turn your receipt data into insights, alerts, and reports that drive better decisions.",
+      title: t('landing.howItWorks.step4.title'),
+      description: t('landing.howItWorks.step4.description'),
       icon: "📊"
     }
   ];
@@ -39,7 +40,7 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto">
         {/* How It Works Title */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">How Receipters Works</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{t('landing.howItWorks.newTitle')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {steps.map((step, index) => (
               <div key={index} className="bg-gray-50 p-6 rounded-xl shadow-md">
@@ -56,53 +57,53 @@ export default function HowItWorks() {
         {/* AI Section */}
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 md:p-12 mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6">
-            AI That Works on Real Transaction Data
+            {t('landing.aiSection.title')}
           </h2>
           <p className="text-lg text-gray-600 text-center mb-8 max-w-3xl mx-auto">
             Receipts are one of the richest and most detailed data sources in commerce—but they&apos;re usually trapped on paper or scattered across systems. Receipters changes that by turning every receipt into structured, AI-ready data.
           </p>
           <p className="text-center text-gray-700 mb-8">
-            Our AI layer helps you:
+            {t('landing.aiSection.intro')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-blue-900 mb-2">Understand Performance</h4>
-              <p className="text-sm text-gray-600">Track sales, margins, and product performance across outlets, regions, and channels.</p>
+              <h4 className="font-semibold text-blue-900 mb-2">{t('landing.aiSection.understandPerformance.title')}</h4>
+              <p className="text-sm text-gray-600">{t('landing.aiSection.understandPerformance.description')}</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-blue-900 mb-2">Spot Trends and Opportunities</h4>
-              <p className="text-sm text-gray-600">Identify fast-moving products, changing customer behavior, and new cross-sell or upsell opportunities.</p>
+              <h4 className="font-semibold text-blue-900 mb-2">{t('landing.aiSection.spotTrends.title')}</h4>
+              <p className="text-sm text-gray-600">{t('landing.aiSection.spotTrends.description')}</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-blue-900 mb-2">Monitor Risk and Anomalies</h4>
-              <p className="text-sm text-gray-600">Detect unusual patterns in pricing, returns, voids, or discounts that could signal errors or fraud.</p>
+              <h4 className="font-semibold text-blue-900 mb-2">{t('landing.aiSection.monitorRisk.title')}</h4>
+              <p className="text-sm text-gray-600">{t('landing.aiSection.monitorRisk.description')}</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-blue-900 mb-2">Automate Reporting</h4>
-              <p className="text-sm text-gray-600">Generate reports for management, auditors, investors, and regulators without chasing spreadsheets.</p>
+              <h4 className="font-semibold text-blue-900 mb-2">{t('landing.aiSection.automateReporting.title')}</h4>
+              <p className="text-sm text-gray-600">{t('landing.aiSection.automateReporting.description')}</p>
             </div>
           </div>
           <p className="text-center text-gray-700 mt-8">
-            You keep full ownership of your data. We give you the tools and intelligence to make it work harder for your business.
+            {t('landing.aiSection.ownership')}
           </p>
         </div>
 
         {/* Receipters App Section */}
         <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6">
-            Receipters App: Receipts in Your Pocket
+            {t('landing.appSection.title')}
           </h2>
           <p className="text-lg text-gray-600 text-center mb-8 max-w-3xl mx-auto">
-            The Receipters App is the front door to your digital receipt world.
+            {t('landing.appSection.description')}
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="bg-blue-50 p-8 rounded-xl">
-              <h3 className="text-2xl font-semibold text-blue-900 mb-4">For Merchants:</h3>
+              <h3 className="text-2xl font-semibold text-blue-900 mb-4">{t('landing.appSection.forMerchants.title')}</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2">•</span>
-                  <span>Capture high-resolution images of receipts from legacy tills and let Receipters read and store them.</span>
+                  <span>{t('landing.appSection.forMerchants.capture')}</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2">•</span>
@@ -142,33 +143,33 @@ export default function HowItWorks() {
         {/* Who We Serve Section */}
         <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6">
-            Built for Modern Businesses and Everyday Consumers
+            {t('landing.whoWeServe.title')}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-blue-900 mb-3">Retailers and Supermarkets</h3>
-              <p className="text-gray-600">Reduce paper, simplify audits, and understand SKU-level performance while giving customers a modern digital experience at checkout.</p>
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">{t('landing.whoWeServe.retailers.title')}</h3>
+              <p className="text-gray-600">{t('landing.whoWeServe.retailers.description')}</p>
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-blue-900 mb-3">Restaurants and Hospitality</h3>
-              <p className="text-gray-600">Issue digital receipts on the spot, streamline expense claims and corporate billing, and see which menu items really drive your margins.</p>
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">{t('landing.whoWeServe.restaurants.title')}</h3>
+              <p className="text-gray-600">{t('landing.whoWeServe.restaurants.description')}</p>
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-blue-900 mb-3">Healthcare and Pharmacies</h3>
-              <p className="text-gray-600">Maintain organized, compliant transaction records and give patients easy access to receipts for insurance and claims, while protecting sensitive data.</p>
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">{t('landing.whoWeServe.healthcare.title')}</h3>
+              <p className="text-gray-600">{t('landing.whoWeServe.healthcare.description')}</p>
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-blue-900 mb-3">Universities and Institutions</h3>
-              <p className="text-gray-600">Track spending across departments, projects, and vendors with clear, auditable trails—perfect for budgeting, grants reporting, and audits.</p>
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">{t('landing.whoWeServe.universities.title')}</h3>
+              <p className="text-gray-600">{t('landing.whoWeServe.universities.description')}</p>
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-md md:col-span-2 lg:col-span-1 hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-blue-900 mb-3">Everyday Consumers</h3>
-              <p className="text-gray-600">Enjoy a single place to keep all receipts, track spending, and find proof of purchase whenever you need it.</p>
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">{t('landing.whoWeServe.consumers.title')}</h3>
+              <p className="text-gray-600">{t('landing.whoWeServe.consumers.description')}</p>
             </div>
           </div>
         </div>

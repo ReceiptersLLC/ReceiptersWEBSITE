@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   const router = useRouter();
-  const { t, ready } = useTranslation('common'); // eslint-disable-line @typescript-eslint/no-unused-vars
+  const { t, ready } = useTranslation('common');
   const [isLoaded, setIsLoaded] = useState(false); 
 
   useEffect(() => {
@@ -34,13 +34,13 @@ export default function HeroSection() {
           ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}
         `}>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight drop-shadow-md">
-            Receipters: Turn Every Receipt Into Actionable Data
+            {t('landing.hero.newTitle')}
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl mb-6 leading-relaxed max-w-4xl drop-shadow-md">
-            From digital receipting to secure storage, a powerful app, and AI-powered analysis, Receipters transforms everyday transactions into clean, compliant, decision-ready data for businesses and consumers.
+            {t('landing.hero.newDescription')}
           </p>
           <p className="text-base sm:text-lg mb-8 text-gray-200 drop-shadow-md">
-            Digital receipts. Smart storage. Real insights.
+            {t('landing.hero.newSubtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-start">
             <Button
@@ -49,7 +49,7 @@ export default function HeroSection() {
               className="!bg-gradient-to-r !from-primary !to-primaryDark px-8 py-3 !rounded-full text-white !justify-center shadow-lg">
               <div className="flex items-center justify-center space-x-3">
                 <span className="font-medium text-sm whitespace-nowrap">
-                  Get Started Now
+                  {t('landing.hero.newButton1')}
                 </span>
                 <div className="size-6 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                   <span className="material-symbols-rounded text-primary text-sm">
@@ -63,7 +63,7 @@ export default function HeroSection() {
               onClick={() => router.push("/product")}
               className="!border-2 !border-white !text-white hover:!bg-white hover:!text-gray-800 px-8 py-3 !rounded-full !justify-center shadow-lg">
               <span className="font-medium text-sm whitespace-nowrap">
-                Explore Our Products
+                {t('landing.hero.newButton2')}
               </span>
             </Button>
           </div>
@@ -78,7 +78,7 @@ export default function HeroSection() {
           <div className="w-full h-auto rounded-xl shadow-2xl max-w-[500px] lg:max-w-[700px] overflow-hidden">
             <Image
               src="/assets/re.jpg"
-              alt="Digital receipt displayed on a phone screen"
+              alt={t('landing.hero.newImageAlt')}
               width={400} 
               height={600} 
               layout="responsive"

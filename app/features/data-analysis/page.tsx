@@ -8,6 +8,7 @@ import { FaBolt } from "react-icons/fa"; // eslint-disable-line @typescript-esli
 export default function DataAnalysisPage() {
   const router = useRouter();
 
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
