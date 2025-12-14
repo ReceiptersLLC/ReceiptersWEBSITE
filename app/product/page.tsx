@@ -8,14 +8,14 @@ import { useRouter } from 'next/navigation';
 
 const features = [
   {
-    title: "Digital Receipt Issuance",
+    title: "product.features.digitalReceiptIssuance.title",
     slug: "digital-receipt-issuance",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
     ),
-    description: "Our digital receipts are generated and sent to a customer's account instantly, eliminating the need for paper slips."
+    description: "product.features.digitalReceiptIssuance.description"
   },
   {
     title: "product.features.offlineFunctionality.title",
@@ -28,7 +28,7 @@ const features = [
     description: "product.features.offlineFunctionality.description"
   },
   {
-    title: "Receipters App",
+    title: "landing.features.receiptersApp.title",
     slug: "multi-device",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -101,28 +101,28 @@ export default function Page() {
       {/* Hero Section */}
       <section className="py-20 bg-white text-center">
         <div className="max-w-4xl mx-auto px-6">
-          <h1 className="text-5xl font-extrabold text-gray-900 mb-6">Our Products</h1>
+          <h1 className="text-5xl font-extrabold text-gray-900 mb-6">{t('product.hero.title')}</h1>
           <p className="text-lg text-gray-600 mb-6">
-            One unified vault. Four powerful products. Start with digital receipting, add secure storage, engage via the app, and unlock AI-driven data analysis as your needs grow.
+            {t('product.hero.description1')}
           </p>
           <p className="text-base text-gray-500">
             Receipters is modular by design. Whether you&apos;re digitizing receipts for the first time or scaling advanced analytics across multiple outlets, there&apos;s a Receipters product to match your stage:
           </p>
           <ul className="text-left inline-block mt-4 text-gray-600">
-            <li>• Digital Receipting – Issue smart, compliant receipts.</li>
-            <li>• Receipt Storage – Store and retrieve all receipts in one secure vault.</li>
-            <li>• Receipters App – A simple interface for merchants and consumers to capture, view, and manage receipts.</li>
-            <li>• Data Analysis – Turn receipt data into AI-powered insights.</li>
+            <li>• {t('product.hero.bullet1')}</li>
+            <li>• {t('product.hero.bullet2')}</li>
+            <li>• {t('product.hero.bullet3')}</li>
+            <li>• {t('product.hero.bullet4')}</li>
           </ul>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <a href="/download" className="bg-blue-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition text-center">
-              Get Started
+              {t('product.hero.button1')}
             </a>
             <button
               onClick={() => router.push('/contact')}
               className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-full shadow-lg border-2 border-blue-600 hover:bg-blue-50 transition"
             >
-              Book a Demo
+              {t('product.hero.button2')}
             </button>
           </div>
         </div>
@@ -131,8 +131,8 @@ export default function Page() {
       {/* Features Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-gray-900">“What Receipters Offers”</h2>
-          <p className="text-xl text-center mb-8 text-gray-600">Explore our powerful suite of tools and features</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-gray-900">{t('product.features.title')}</h2>
+          <p className="text-xl text-center mb-8 text-gray-600">{t('product.features.subtitle')}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature Cards */}
             {features.map((feature, index) => (
@@ -152,7 +152,7 @@ export default function Page() {
       {/* AI Benefits Section */}
       <section className="py-20 bg-white text-gray-800">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold mb-3">The Power of AI</p>
+          <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold mb-3">{t('product.aiBenefits.subtitle')}</p>
           <h2 className="text-4xl font-bold mb-6">How Receipters&apos; AI Transforms Your Expenses</h2>
           <p className="text-lg text-gray-600 mb-8">
             {t('product.aiBenefits.description')}
@@ -162,7 +162,7 @@ export default function Page() {
               <div
                 key={idx}
                 className="bg-gray-100 p-6 rounded-xl shadow-sm text-center transition hover:shadow-md">
-                <div className="text-3xl mb-4">{t(benefit.emoji)}</div>
+                <div className="text-3xl mb-4">{benefit.emoji}</div>
                 <h3 className="text-lg font-bold mb-2">{t(benefit.title)}</h3>
                 <p className="text-gray-600 text-sm">{t(benefit.description)}</p>
               </div>
@@ -171,15 +171,15 @@ export default function Page() {
         </div>
       </section>
 
-      {/* How It Works Section */}
+      {/* {t('product.howItWorks.title')} Section */}
       <section className="bg-white py-20 px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-12">How It Works</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-12">{t('product.howItWorks.title')}</h2>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-          {/* Step 1 – Capture */}
+          {/* {t('product.howItWorks.step1.title')} */}
           <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
             <MonitorSmartphone size={40} className="text-blue-600 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Step 1 – Capture</h3>
+            <h3 className="text-xl font-semibold mb-2">{t('product.howItWorks.step1.title')}</h3>
             <p className="text-gray-700 text-sm">
               {t('product.howItWorks.step1.description')}
             </p>
@@ -188,10 +188,10 @@ export default function Page() {
           {/* Arrow 1 */}
           {/* <Arrow /> */}
 
-          {/* Step 2 – Structure and Store */}
+          {/* {t('product.howItWorks.step2.title')} */}
           <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
             <UploadCloud size={40} className="text-green-600 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Step 2 – Structure and Store</h3>
+            <h3 className="text-xl font-semibold mb-2">{t('product.howItWorks.step2.title')}</h3>
             <p className="text-gray-700 text-sm">
               {t('product.howItWorks.step2.description')}
             </p>
@@ -200,10 +200,10 @@ export default function Page() {
           {/* Arrow 2 */}
           {/* <Arrow /> */}
 
-          {/* Step 3 – Search and Retrieve */}
+          {/* {t('product.howItWorks.step3.title')} */}
           <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
             <Smartphone size={40} className="text-purple-600 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Step 3 – Search and Retrieve</h3>
+            <h3 className="text-xl font-semibold mb-2">{t('product.howItWorks.step3.title')}</h3>
             <p className="text-gray-700 text-sm">
               {t('product.howItWorks.step3.description')}
             </p>
@@ -212,10 +212,10 @@ export default function Page() {
           {/* Arrow 3 */}
           {/* <Arrow /> */}
 
-          {/* Step 4 – Analyse and Act (Optional) – Analyse and Act (Optional)*/}
+          {/* {t('product.howItWorks.step4.title')} – Analyse and Act (Optional)*/}
           <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
             <Smile size={40} className="text-yellow-500 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Step 4 – Analyse and Act (Optional)</h3>
+            <h3 className="text-xl font-semibold mb-2">{t('product.howItWorks.step4.title')}</h3>
             <p className="text-gray-700 text-sm">
               {t('product.howItWorks.step4.description')}
             </p>
@@ -226,8 +226,8 @@ export default function Page() {
       {/* CTA */}
       <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-blue-600 text-white text-center">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">Ready to go paperless and powerful?</h2>
-          <p className="text-sm sm:text-base lg:text-lg mb-6 leading-relaxed">Start using Receipters today to manage your receipts like a pro.</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">{t('product.cta.title')}</h2>
+          <p className="text-sm sm:text-base lg:text-lg mb-6 leading-relaxed">{t('product.cta.description')}</p>
           <a href="/download" className="inline-flex items-center justify-center bg-white text-blue-600 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:bg-gray-100 transition w-full sm:w-auto max-w-sm mx-auto">
             <span className="text-sm sm:text-base whitespace-nowrap">{t('product.cta.button')}</span>
           </a>
@@ -252,7 +252,7 @@ export default function Page() {
             </li>
             <li className="flex items-start">
               <span className="font-bold mr-3">3.</span>
-              <span>Roll out the Receipters App to put receipts in the hands of staff and customers.</span>
+              <span>Roll out the {t('landing.features.receiptersApp.title')} to put receipts in the hands of staff and customers.</span>
             </li>
             <li className="flex items-start">
               <span className="font-bold mr-3">4.</span>
