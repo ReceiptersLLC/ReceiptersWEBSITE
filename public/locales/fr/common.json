@@ -152,7 +152,8 @@
   "landing.features.data.generateReports.header": "Durabilité",
   "landing.features.data.generateReports.title": "Réduire l'impact environnemental avec des solutions sans papier",
   "landing.features.data.generateReports.description": "Passez au sans papier et aidez à protéger l'environnement avec des reçus numériques.",
-  "landing.features.newTitle": "Une plateforme. Quatre produits. Possibilités infinies.",
+  "landing.features.newTitle": "Commencez Où Vous Êtes. Évoluez Au Fur Et À Mesure.",
+  "landing.features.newDescription": "Avec Receipters, vous n'avez pas à tout faire le premier jour. Vous pouvez :",
   "landing.features.digitalReceipting.title": "Réception Numérique",
   "landing.features.digitalReceipting.description": "Émettez instantanément des reçus numériques intelligents et conformes à la fiscalité depuis POS, SoftPOS ou canaux en ligne.",
   "landing.features.receiptStorage.title": "Stockage de Reçus",
@@ -161,6 +162,8 @@
   "landing.features.receiptersApp.description": "Une interface mobile-first simple pour que les marchands et les consommateurs capturent, visualisent et gèrent les reçus.",
   "landing.features.dataAnalysis.title": "Analyse de Données",
   "landing.features.dataAnalysis.description": "Débloquez des insights profonds avec des analyses alimentées par l'IA sur vos données de transaction.",
+  "landing.features.comparePlans": "Comparer les Plans",
+  "landing.features.talkToTeam": "Parler à Notre Équipe",
   "landing.features.whyReceipters.title": "Pourquoi Receipters ?",
   "landing.features.whyReceipters.description": "Receipters se trouve à l'intersection des paiements, de la conformité et de l'intelligence des données. Nous ne nous contentons pas de remplacer les reçus papier – nous améliorons toute votre expérience post-transaction.",
   "landing.features.builtForCompliance.title": "Conçu pour la Conformité",
@@ -333,6 +336,13 @@
   "terms.section11.intro": "Si vous avez des questions sur ces Termes, veuillez nous contacter à :",
   "terms.section11.contact.email": "E-mail : dpo@receipter.com",
   "terms.section11.contact.phone": "Téléphone/WhatsApp : +1 (720) 930-2570",
-  "terms.section11.contact.office": "Bureau : 355 Ridgewood Ave, Suite 1, Newark, NJ 07"
-  
+  "terms.section11.contact.office": "Bureau : 355 Ridgewood Ave, Suite 1, Newark, NJ 07",
+  "product.closing.title": "Commencez Où Vous Êtes. Évoluez Au Fur Et À Mesure.",
+  "product.closing.description": "Avec Receipters, vous n'avez pas à tout faire le premier jour. Vous pouvez :",
+  "product.closing.step1": "Commencez par la réception numérique pour moderniser votre caisse et nettoyer vos données.",
+  "product.closing.step2": "Ajoutez le stockage de reçus pour centraliser et sécuriser votre historique de transactions.",
+  "product.closing.step3": "Déployez l'Application Receipters pour mettre les reçus entre les mains du personnel et des clients.",
+  "product.closing.step4": "Activez l'analyse de données lorsque vous êtes prêt à transformer les reçus en actif stratégique.",
+  "product.closing.button1": "Comparer les Plans",
+  "product.closing.button2": "Parler à Notre Équipe"
 }
