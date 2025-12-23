@@ -149,7 +149,7 @@ export default function Page() {
       <section className="py-20 bg-white text-gray-800">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold mb-3">{t('product.aiBenefits.subtitle')}</p>
-          <h2 className="text-4xl font-bold mb-6">{t('product.aiBenefits.howTransforms')}</h2>
+          <h2 className="text-4xl font-bold mb-6">{t('product.aiBenefits.title')}</h2>
           <p className="text-lg text-gray-600 mb-8">
             {t('product.aiBenefits.description')}
           </p>
