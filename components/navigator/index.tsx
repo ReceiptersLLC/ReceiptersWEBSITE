@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 export default function Navigator() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { t, ready, i18n: i18nInstance } = useTranslation("common");
+  const { t, i18n: i18nInstance } = useTranslation("common");
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -165,8 +165,8 @@ function NavLink({
     <Link
       href={href}
       className={`relative block ${mobile
-          ? "px-3 py-2 rounded-md text-base font-medium"
-          : "text-sm font-medium px-3 py-1"
+        ? "px-3 py-2 rounded-md text-base font-medium"
+        : "text-sm font-medium px-3 py-1"
         } ${active ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}`}
     >
       {label}

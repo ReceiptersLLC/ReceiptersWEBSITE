@@ -13,11 +13,7 @@ for lng in ['fr', 'sw', 'de']:
         continue
         
     with open(lng_path, 'r') as f:
-        try:
-            lng_data = json.load(f)
-        except Exception as e:
-            print(f"Error reading {lng}: {e}")
-            continue
+        lng_data = json.load(f)
             
     # Sync: keep all keys from EN, use LNG value if available
     synced_data = {}

@@ -17,7 +17,7 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [oauthLoading, setOauthLoading] = useState({ google: false, facebook: false });
-  const { t, ready } = useTranslation('common');
+  const { t } = useTranslation('common');
   const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {

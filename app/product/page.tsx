@@ -88,21 +88,21 @@ const aiBenefits = [
 ];
 
 export default function Page() {
-  const { t, ready } = useTranslation('common');
+  const { t } = useTranslation('common');
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 text-gray-800">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 text-gray-600">
 
       {/* Hero Section */}
       <section className="py-20 bg-white text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-5xl font-extrabold text-gray-900 mb-6">{t('product.hero.title')}</h1>
           <p className="text-lg text-gray-600 mb-6">
-            {t('product.hero.description1')}
+            {t('product.hero.description')}
           </p>
-          <p className="text-base text-gray-500">
-            {t('product.hero.description2')}
+          <p className="text-base text-gray-600">
+            {t('product.hero.description1')}
           </p>
           <ul className="text-left inline-block mt-4 text-gray-600">
             <li>• {t('product.hero.bullet1')}</li>
@@ -234,7 +234,7 @@ export default function Page() {
       <section className="py-20 bg-white text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-gray-900 mb-8">{t('product.closing.title')}</h2>
-          <p className="text-lg text-gray-600 mb-8">
+          <p className="text-lg text-gray-900 mb-8">
             {t('product.closing.subtitle')}
           </p>
           <ol className="text-left inline-block text-gray-700 mb-8 space-y-3">
@@ -304,18 +304,3 @@ function FeatureCard({
   );
 }
 
-// function Arrow() {
-//   return (
-//     <div className="hidden md:flex justify-center items-center">
-//       <svg
-//         className="w-6 h-6 text-gray-400"
-//         fill="none"
-//         stroke="currentColor"
-//         strokeWidth={2}
-//         viewBox="0 0 24 24"
-//       >
-//         <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-//       </svg>
-//     </div>
-//   );
-// }

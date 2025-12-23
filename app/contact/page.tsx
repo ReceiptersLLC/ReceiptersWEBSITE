@@ -10,7 +10,7 @@ export default function Page() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
-  const { t, ready } = useTranslation('common');
+  const { t } = useTranslation('common');
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     const API_ENDPOINT = `https://fl-engine-b2b.fitlov.com/api/v1/g/contact-us`;

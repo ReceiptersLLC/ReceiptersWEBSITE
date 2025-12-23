@@ -22,7 +22,7 @@ export default function Footer() {
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-[#151516] text-white">
       <div className="w-full max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12 border-b border-b-white pb-8 sm:pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 sm:gap-12 border-b border-b-white pb-8 sm:pb-12">
           { }
           <div className="grid gap-4 sm:gap-6 lg:col-span-2">
             <Link href="/">
@@ -72,13 +72,25 @@ export default function Footer() {
           </div>
 
           { }
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-4">
+          <div className="w-full">
             <FooterLinksSection title={t('footer.quickLinks.title')} data={productLinks.map(link => ({ ...link, name: t(`footer.productLinks.${link.name.toLowerCase().replace(/\s/g, '')}`) }))} />
-            <div className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-              <strong className="text-white">{t('footer.ourOffice')}:</strong><br />
-              355 Ridgewood Ave, Suite 1<br />
-              Newark, NJ 07112
+          </div>
 
+          <div className="w-full flex flex-col">
+            <div className="h5 mb-3">{t('footer.locations')}</div>
+            <div className="space-y-6">
+              <div className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                <strong className="text-white">{t('footer.primaryOffice')}:</strong><br />
+                <span className="whitespace-pre-line">{t('footer.primaryOfficeAddress')}</span>
+              </div>
+              <div className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                <strong className="text-white">{t('footer.usOffice')}:</strong><br />
+                <span className="whitespace-pre-line">{t('footer.usOfficeAddress')}</span>
+              </div>
+              <div className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                <strong className="text-white">{t('footer.zambiaOffice')}:</strong><br />
+                <span className="whitespace-pre-line">{t('footer.zambiaOfficeAddress')}</span>
+              </div>
             </div>
           </div>
         </div>

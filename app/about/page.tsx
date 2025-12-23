@@ -5,7 +5,7 @@ import { Smile, Zap, ShieldCheck, Leaf, Globe, Users, TrendingUp } from "lucide-
 import { useTranslation } from 'react-i18next';
 
 export default function AboutPage() {
-  const { t, ready } = useTranslation('common');
+  const { t } = useTranslation('common');
 
   return (
     <div className="font-sans text-gray-800">

@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   const router = useRouter();
-  const { t, ready } = useTranslation('common');
+  const { t } = useTranslation('common');
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {

@@ -11,7 +11,7 @@ interface Testimonial {
 }
 
 export default function Testimonials() {
-  const { t, ready } = useTranslation('common');
+  const { t } = useTranslation('common');
   const [isMounted, setIsMounted] = useState(false);
 
 

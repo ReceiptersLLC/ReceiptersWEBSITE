@@ -20,7 +20,6 @@ for i, line in enumerate(lines):
     if 'const enTranslations =' in line:
         start_line = i
     if start_line != -1 and line.strip() == '};' and i > start_line:
-        # Check if the next line is i18n related
         if i + 1 < len(lines) and ('i18n' in lines[i+1] or lines[i+1].strip() == ''):
             end_line = i
             break
