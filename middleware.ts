@@ -22,7 +22,7 @@ export async function middleware(request: NextRequest) {
   // Default to ENABLE maintenance in non-development when MAINTENANCE_MODE is not set.
   const raw = process.env.MAINTENANCE_MODE
   const maintenanceMode = isDev
-    ? true
+    ? false
     : typeof raw === 'string'
       ? ['1', 'true', 'yes'].includes(raw.toLowerCase())
       : true

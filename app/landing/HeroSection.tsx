@@ -1,6 +1,6 @@
- "use client"
+"use client"
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react";
 import Button from "@/components/Button";
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
@@ -8,29 +8,25 @@ import Image from 'next/image';
 export default function HeroSection() {
   const router = useRouter();
   const { t, ready } = useTranslation('common');
-  const [isLoaded, setIsLoaded] = useState(false); 
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-   
+
     setIsLoaded(true);
   }, []);
-
-  if (!ready) {
-    return null;
-  }
 
   return (
     <div className="relative pt-20 flex flex-col items-center
                     min-h-[500px] sm:min-h-[600px] lg:min-h-[700px]
                     bg-gray-500 text-white overflow-hidden"> {/* Add overflow-hidden to prevent horizontal scroll */}
-      
+
       <div className="relative z-10 flex flex-col md:flex-row w-full max-w-6xl 
                       items-center md:items-start justify-between px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        
-        {}
+
+        { }
         <div className={`
           flex-1 lg:basis-3/5 text-left pr-8 mb-8 md:mb-0
-          transition-all duration-1000 ease-out transform
+          transition-all duration-300 ease-out transform
           ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}
         `}>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight drop-shadow-md">
@@ -53,7 +49,7 @@ export default function HeroSection() {
                 </span>
                 <div className="size-6 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                   <span className="material-symbols-rounded text-primary text-sm">
-                    
+
                   </span>
                 </div>
               </div>
@@ -68,19 +64,19 @@ export default function HeroSection() {
             </Button>
           </div>
         </div>
-        
-        {}
+
+        { }
         <div className={`
           hidden lg:block lg:basis-2/5 flex justify-end items-start w-full
-          transition-all duration-1000 ease-out transform delay-300
+          transition-all duration-300 ease-out transform
           ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}
         `}>
           <div className="w-full h-auto rounded-xl shadow-2xl max-w-[500px] lg:max-w-[700px] overflow-hidden">
             <Image
               src="/assets/re.jpg"
               alt={t('landing.hero.newImageAlt')}
-              width={400} 
-              height={600} 
+              width={400}
+              height={600}
               layout="responsive"
               objectFit="cover"
               className="rounded-xl"

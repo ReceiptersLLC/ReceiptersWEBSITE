@@ -7,10 +7,6 @@ import { useTranslation } from 'react-i18next';
 export default function AboutPage() {
   const { t, ready } = useTranslation('common');
 
-  if (!ready) {
-    return null;
-  }
-
   return (
     <div className="font-sans text-gray-800">
       {/* About Hero Section */}
@@ -18,9 +14,9 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">{t('about.hero.title')}</h1>
           <p className="text-lg sm:text-xl md:text-2xl text-blue-700 mb-4 sm:mb-6">{t('about.hero.subtitle')}</p>
-         <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-           {t('about.hero.description')}
-         </p>
+          <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            {t('about.hero.description')}
+          </p>
         </div>
       </section>
 
@@ -30,8 +26,7 @@ export default function AboutPage() {
           <p className="text-xs sm:text-sm uppercase tracking-widest text-gray-400 mb-2">{t('about.values.subtitle')}</p>
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold">{t('about.values.title')}</h3>
           <p className="mt-3 sm:mt-4 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-            We believe in building a digital future where every receipt is more than a record—itandapos;s a resource. Our
-            values guide how we create, connect, and innovate for businesses and individuals alike.
+            {t('about.values.description')}
           </p>
         </div>
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
@@ -64,12 +59,10 @@ export default function AboutPage() {
           <Globe className="mx-auto text-blue-500 mb-4" size={32} />
           <h3 className="text-2xl sm:text-3xl font-bold mb-4">{t('about.problem.title')}</h3>
           <p className="text-sm sm:text-base lg:text-lg text-gray-700 mb-4 leading-relaxed">
-            Paper receipts are expensive, wasteful, and inconvenient. Receipters replaces them with smart, digital
-            alternatives—cutting costs, reducing environmental waste, and improving customer experience.
+            {t('about.problem.description1')}
           </p>
           <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
-            Our dual model—{t('about.problem.model')}—serves both vendors and
-            end-users, delivering security, accessibility, and efficiency across the board.
+            {t('about.problem.description2', { model: t('about.problem.model') })}
           </p>
         </div>
       </section>
@@ -79,23 +72,23 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8 sm:mb-12">
             <ShieldCheck className="text-green-600 mb-4" size={28} />
-            <h3 className="text-2xl sm:text-3xl mb-4">Our Mission</h3>
+            <h3 className="text-2xl sm:text-3xl mb-4">{t('about.mission.title')}</h3>
             <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
-              To empower businesses and individuals with seamless eco-friendly and cost efficient digital receipting solutions that promote transparency, efficiency, and sustainability in everyday life transactions.
+              {t('about.mission.description')}
             </p>
           </div>
           <div className="mb-8 sm:mb-12">
             <TrendingUp className="text-indigo-600 mb-4" size={28} />
             <h3 className="text-2xl sm:text-3xl mb-4">{t('about.vision.title')}</h3>
             <p className="font-sans text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed">
-              To be Africaandapos;s leading digital receipting platform driving towards a paperless economy while saving costs,protecting the environment, and fostering financial inclusion.
+              {t('about.vision.description')}
             </p>
           </div>
           <div>
             <Users className="text-purple-600 mb-4" size={28} />
-            <h3 className="text-2xl sm:text-3xl mb-4">Our Story</h3>
+            <h3 className="text-2xl sm:text-3xl mb-4">{t('about.story.title')}</h3>
             <p className="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed font-sans">
-              Weandapos;re called Receipters because our goal is to turn paper receipts into digital ones. Our team of professionals believes that paper receipts arenandapos;t convenient for long-term use. They create storage issues, they fade over time and become unreadable, and they pose a security risk if they fall into the wrong hands.
+              {t('about.story.description')}
             </p>
           </div>
         </div>
@@ -107,29 +100,29 @@ export default function AboutPage() {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-5">{t('about.team.title')}</h2>
           <div className="grid gap-6 sm:gap-8 lg:gap-10 sm:grid-cols-2 md:grid-cols-2">
             <TeamBioCard
-              name="Gordon Odira"
-              title="CEO and Founder"
+              name={t('about.team.gordon.name')}
+              title={t('about.team.gordon.title')}
               image="/assets/gordon.jpg"
-              description="A senior Integration Engineer with over 8 years in federal, state, and private tech deployments. He holds a BSc in Electrical and Computer Engineering from Rutgers University and a Master's in Electrical and Computer Engineering from NJIT."
+              description={t('about.team.gordon.bio')}
             />
             <TeamBioCard
-              name="George Osewe"
-              title="Senior Consultant and Communications Director"
+              name={t('about.team.george.name')}
+              title={t('about.team.george.title')}
               image="/assets/george.jpg"
-              description="A government and policy expert who was part of Kenya's constitutional transition team in 2010. He specializes in restructuring business operations and holds a degree in Development Communication."
+              description={t('about.team.george.bio')}
             />
             <TeamBioCard
-              name="Joffrey Dozva"
-              title="Senior Engineer and Technical Lead"
+              name={t('about.team.joffrey.name')}
+              title={t('about.team.joffrey.title')}
               image="/assets/jeffrey.jpg"
-              description="Lead developer of Receipters' core systems. He has built hundreds of mobile apps and led health tech deployments across Africa. He is a graduate of Kenya Aeronautical College in Software Engineering."
+              description={t('about.team.joffrey.bio')}
             />
             <TeamBioCard
-             name="Joseph Orinda"
-                title="Chief Operations Officer"
-                image="/assets/Joseph.jpg"
-                description="Joseph is an expert in High Availability and High Performance systems. He is a Certified Life Coach and holds a BSc in Computer Information Systems."
-              />
+              name={t('about.team.joseph.name')}
+              title={t('about.team.joseph.title')}
+              image="/assets/Joseph.jpg"
+              description={t('about.team.joseph.bio')}
+            />
 
           </div>
         </div>

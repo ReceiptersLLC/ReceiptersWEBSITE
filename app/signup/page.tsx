@@ -7,9 +7,10 @@ import { signIn } from 'next-auth/react';
 import Button from '@/components/Button';
 import TextInput from '@/components/TextInput';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 
 export default function SignupPage() {
-
+  const { t } = useTranslation('common');
   const [firstName, setFirstName] = useState('');
   const [middleName, setMiddleName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -45,17 +46,17 @@ export default function SignupPage() {
       const verificationId: string | undefined = otpResponse.data.verificationId;
 
       if (verificationId) {
-        toast.success('Signup successful! Please enter the OTP sent to your email.');
+        toast.success(t('signup.toast.successOtp'));
         router.push(`/otp-login?verificationId=${verificationId}`);
       } else {
-        toast.success('Signup successful! Please continue to login.');
+        toast.success(t('signup.toast.successLogin'));
         router.push('/otp-login');
       }
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
-        toast.error(err.response?.data?.message || 'Signup failed. Please try again.');
+        toast.error(err.response?.data?.message || t('signup.toast.failed'));
       } else {
-        toast.error('Signup failed. Please try again.');
+        toast.error(t('signup.toast.failed'));
       }
     } finally {
       setLoading(false);
@@ -68,7 +69,7 @@ export default function SignupPage() {
     try {
       await signIn('google', { callbackUrl: '/success' });
     } catch {
-      toast.error('Google signup failed');
+      toast.error(t('signup.toast.googleFailed'));
     } finally {
       setOauthLoading((prev) => ({ ...prev, google: false }));
     }
@@ -80,7 +81,7 @@ export default function SignupPage() {
     try {
       await signIn('facebook', { callbackUrl: '/success' });
     } catch {
-      toast.error('Facebook signup failed');
+      toast.error(t('signup.toast.facebookFailed'));
     } finally {
       setOauthLoading((prev) => ({ ...prev, facebook: false }));
     }
@@ -89,7 +90,7 @@ export default function SignupPage() {
   return (
     <div className="flex min-h-screen flex-col justify-center py-12 px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="text-center text-3xl font-extrabold text-gray-900">Create your account</h2>
+        <h2 className="text-center text-3xl font-extrabold text-gray-900">{t('signup.title')}</h2>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-2xl">
@@ -110,7 +111,7 @@ export default function SignupPage() {
                   <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
                 </svg>
               )}
-              Continue with Google
+              {t('signup.continueWithGoogle')}
             </button>
 
             <button
@@ -122,10 +123,10 @@ export default function SignupPage() {
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-900 mr-2"></div>
               ) : (
                 <svg width="20" height="20" fill="currentColor" className="mr-2 text-blue-600">
-                  <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12.82v-9.294H9.692V11.01h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.686.235 2.686.235v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.696h-3.12V24h6.116C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0"/>
+                  <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12.82v-9.294H9.692V11.01h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.686.235 2.686.235v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.696h-3.12V24h6.116C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0" />
                 </svg>
               )}
-              Continue with Facebook
+              {t('signup.continueWithFacebook')}
             </button>
           </div>
 
@@ -134,28 +135,28 @@ export default function SignupPage() {
               <div className="w-full border-t border-gray-300" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">Or continue with email</span>
+              <span className="px-2 bg-white text-gray-500">{t('signup.orContinueWithEmail')}</span>
             </div>
           </div>
 
           <form className="space-y-6" onSubmit={handleSignup}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <TextInput name="firstName" label="First Name" value={firstName} onTextChange={setFirstName} required />
-              <TextInput name="middleName" label="Middle Name" value={middleName} onTextChange={setMiddleName} />
-              <TextInput name="lastName" label="Last Name" value={lastName} onTextChange={setLastName} required />
-              <TextInput name="email" label="Email" type="email" value={email} onTextChange={setEmail} required />
-              <TextInput name="phoneNumber" label="Phone Number" type="tel" value={phoneNumber} onTextChange={setPhoneNumber} required />
-              <TextInput name="password" label="Password" type="password" value={password} onTextChange={setPassword} required />
+              <TextInput name="firstName" label={t('signup.firstName')} value={firstName} onTextChange={setFirstName} required />
+              <TextInput name="middleName" label={t('signup.middleName')} value={middleName} onTextChange={setMiddleName} />
+              <TextInput name="lastName" label={t('signup.lastName')} value={lastName} onTextChange={setLastName} required />
+              <TextInput name="email" label={t('signup.email')} type="email" value={email} onTextChange={setEmail} required />
+              <TextInput name="phoneNumber" label={t('signup.phoneNumber')} type="tel" value={phoneNumber} onTextChange={setPhoneNumber} required />
+              <TextInput name="password" label={t('signup.password')} type="password" value={password} onTextChange={setPassword} required />
             </div>
             <Button type="submit" disabled={loading}>
-              {loading ? 'Signing Up...' : 'Sign Up'}
+              {loading ? t('signup.button.signingUp') : t('signup.button.signUp')}
             </Button>
           </form>
 
           <p className="mt-6 text-center text-sm text-gray-600">
-            Already have an account?{' '}
+            {t('signup.alreadyHaveAccount')}{' '}
             <a href="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
-              Log in here
+              {t('signup.logInHere')}
             </a>
           </p>
         </div>

@@ -10,10 +10,6 @@ export default function InstantDeliveryPage() {
   const router = useRouter();
   const { t, ready } = useTranslation('common');
 
-  if (!ready) {
-    return null;
-  }
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-100">
       <div className="bg-white p-10 rounded-xl shadow-lg text-center max-w-2xl">

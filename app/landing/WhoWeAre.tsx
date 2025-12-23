@@ -9,10 +9,6 @@ export default function CTASection() {
   const router = useRouter();
   const { t, ready } = useTranslation("common");
 
-  if (!ready) {
-    return null;
-  }
-
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32 bg-gray-950 text-white">
       <div className="max-w-4xl mx-auto text-center">

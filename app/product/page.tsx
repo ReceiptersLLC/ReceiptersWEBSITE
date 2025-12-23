@@ -91,10 +91,6 @@ export default function Page() {
   const { t, ready } = useTranslation('common');
   const router = useRouter();
 
-  if (!ready) {
-    return null; // Or render a loading spinner/skeleton
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 text-gray-800">
 
@@ -106,7 +102,7 @@ export default function Page() {
             {t('product.hero.description1')}
           </p>
           <p className="text-base text-gray-500">
-            Receipters is modular by design. Whether you&apos;re digitizing receipts for the first time or scaling advanced analytics across multiple outlets, there&apos;s a Receipters product to match your stage:
+            {t('product.hero.description2')}
           </p>
           <ul className="text-left inline-block mt-4 text-gray-600">
             <li>• {t('product.hero.bullet1')}</li>
@@ -153,7 +149,7 @@ export default function Page() {
       <section className="py-20 bg-white text-gray-800">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold mb-3">{t('product.aiBenefits.subtitle')}</p>
-          <h2 className="text-4xl font-bold mb-6">How Receipters&apos; AI Transforms Your Expenses</h2>
+          <h2 className="text-4xl font-bold mb-6">{t('product.aiBenefits.howTransforms')}</h2>
           <p className="text-lg text-gray-600 mb-8">
             {t('product.aiBenefits.description')}
           </p>
@@ -237,18 +233,18 @@ export default function Page() {
       {/* Product Page Closing Section */}
       <section className="py-20 bg-white text-center">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8">Start Where You Are. Scale As You Grow.</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-8">{t('product.closing.title')}</h2>
           <p className="text-lg text-gray-600 mb-8">
-            With Receipters, you don&apos;t have to do everything on day one. You can:
+            {t('product.closing.subtitle')}
           </p>
           <ol className="text-left inline-block text-gray-700 mb-8 space-y-3">
             <li className="flex items-start">
               <span className="font-bold mr-3">1.</span>
-              <span>Begin with Digital Receipting to modernize your checkout and clean up your data.</span>
+              <span>{t('product.closing.step1')}</span>
             </li>
             <li className="flex items-start">
               <span className="font-bold mr-3">2.</span>
-              <span>Add Receipt Storage to centralize and secure your transaction history.</span>
+              <span>{t('product.closing.step2')}</span>
             </li>
             <li className="flex items-start">
               <span className="font-bold mr-3">3.</span>
@@ -256,7 +252,7 @@ export default function Page() {
             </li>
             <li className="flex items-start">
               <span className="font-bold mr-3">4.</span>
-              <span>Activate Data Analysis when you&apos;re ready to turn receipts into a strategic asset.</span>
+              <span>{t('product.closing.step4')}</span>
             </li>
           </ol>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

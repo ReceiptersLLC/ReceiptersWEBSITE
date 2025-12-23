@@ -27,10 +27,6 @@ export default function Navigator() {
 
   const isActive = (href: string) => pathname === href;
 
-  if (!ready) {
-    return null; // Or render a loading spinner/skeleton
-  }
-
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -168,11 +164,10 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={`relative block ${
-        mobile
+      className={`relative block ${mobile
           ? "px-3 py-2 rounded-md text-base font-medium"
           : "text-sm font-medium px-3 py-1"
-      } ${active ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}`}
+        } ${active ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}`}
     >
       {label}
       {!mobile && active && (

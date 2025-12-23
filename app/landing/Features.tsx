@@ -76,7 +76,7 @@ export default function FeatureCards() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{t('landing.features.whyReceipters.title')}</h2>
           <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
-            Receipters sits at the intersection of payments, compliance, and data intelligence. We don&apos;t just replace paper receipts – we upgrade your entire post-transaction experience.
+            {t('landing.features.whyReceipters.description')}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
