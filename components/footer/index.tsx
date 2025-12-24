@@ -110,7 +110,7 @@ export default function Footer() {
 
         { }
         <div className="text-center text-xs sm:text-sm lg:text-base opacity-75">
-          © {new Date().getFullYear()} Receipters LLC. All Rights Reserved
+          © {new Date().getFullYear()} Receipters Technology. All Rights Reserved
         </div>
       </div>
     </div>
@@ -148,6 +148,16 @@ const productLinks = [
   },
   {
     id: 4,
+    name: "Blogs",
+    url: "/blogs",
+  },
+  {
+    id: 5,
+    name: "Careers",
+    url: "/careers",
+  },
+  {
+    id: 6,
     name: "Contact",
     url: "/contact",
   },

@@ -43,6 +43,8 @@ export default function Navigator() {
             <NavLink href="/" label={t('navbar.link.home')} active={isActive("/")} />
             <NavLink href="/about" label={t('navbar.link.about')} active={isActive("/about")} />
             <NavLink href="/product" label={t('navbar.link.product')} active={isActive("/product")} />
+            <NavLink href="/blogs" label={t('navbar.link.blogs')} active={isActive("/blogs")} />
+            <NavLink href="/careers" label={t('navbar.link.careers')} active={isActive("/careers")} />
             <NavLink href="/contact" label={t('navbar.link.contact')} active={isActive("/contact")} />
           </div>
 
@@ -115,6 +117,8 @@ export default function Navigator() {
               <NavLink href="/" label={t("navbar.link.home")} active={isActive("/")} mobile />
               <NavLink href="/about" label={t("navbar.link.about")} active={isActive("/about")} mobile />
               <NavLink href="/product" label={t("navbar.link.product")} active={isActive("/product")} mobile />
+              <NavLink href="/blogs" label={t("navbar.link.blogs")} active={isActive("/blogs")} mobile />
+              <NavLink href="/careers" label={t("navbar.link.careers")} active={isActive("/careers")} mobile />
               <NavLink href="/contact" label={t("navbar.link.contact")} active={isActive("/contact")} mobile />
 
               <div className="pt-2 border-t border-gray-200">
