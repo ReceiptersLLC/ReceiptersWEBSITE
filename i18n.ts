@@ -1,4 +1,4 @@
-// i18n.ts
+
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import Backend from "i18next-http-backend";
@@ -563,11 +563,11 @@ i18n
       caches: ["cookie"], // Store detected language in cookies
     },
     react: {
-      useSuspense: false, // Disable suspense if not needed
-      bindI18n: 'languageChanged', // Reduce unnecessary updates
+      useSuspense: false, 
+      bindI18n: 'languageChanged', 
     },
     interpolation: {
-      escapeValue: false, // React already does escaping
+      escapeValue: false, 
     },
   });
 

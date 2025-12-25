@@ -1,35 +1,11 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import { Briefcase, MapPin, ArrowRight, Globe, Zap, Heart } from 'lucide-react';
+import { Globe, Zap, Heart } from 'lucide-react';
 import Link from 'next/link';
 
 export default function CareersPage() {
     const { t } = useTranslation('common');
-
-    const jobs = [
-        {
-            id: 1,
-            title: t('careers.job1.title'),
-            location: t('careers.job1.location'),
-            description: t('careers.job1.description'),
-            type: 'Full-time',
-        },
-        {
-            id: 2,
-            title: t('careers.job2.title'),
-            location: t('careers.job2.location'),
-            description: t('careers.job2.description'),
-            type: 'Remote',
-        },
-        {
-            id: 3,
-            title: t('careers.job3.title'),
-            location: t('careers.job3.location'),
-            description: t('careers.job3.description'),
-            type: 'Full-time',
-        },
-    ];
 
     return (
         <div className="min-h-screen bg-white font-sans">
@@ -86,43 +62,16 @@ export default function CareersPage() {
                     <h2 className="text-3xl font-bold text-gray-900">
                         {t('careers.openings.title')}
                     </h2>
-                    <span className="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-semibold">
-                        {jobs.length} Open Roles
-                    </span>
                 </div>
-                <div className="space-y-6">
-                    {jobs.map((job) => (
-                        <div key={job.id} className="group bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 hover:border-blue-500 hover:shadow-lg transition-all duration-300">
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                                <div className="flex-1">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">{job.type}</span>
-                                    </div>
-                                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                                        {job.title}
-                                    </h3>
-                                    <div className="flex items-center gap-4 text-gray-500 text-sm mb-4">
-                                        <div className="flex items-center gap-1">
-                                            <MapPin size={16} />
-                                            <span>{job.location}</span>
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <Briefcase size={16} />
-                                            <span>{job.type}</span>
-                                        </div>
-                                    </div>
-                                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                                        {job.description}
-                                    </p>
-                                </div>
-                                <div className="flex-shrink-0">
-                                    <Link href={`/careers/${job.id}`} className="inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-blue-600 transition-all group-hover:scale-105">
-                                        Apply Now <ArrowRight size={18} className="ml-2" />
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                <div className="text-center py-16">
+                    <div className="bg-gray-50 border border-gray-200 rounded-2xl p-12">
+                        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                            {t('careers.comingSoon.title')}
+                        </h3>
+                        <p className="text-gray-600 text-lg">
+                            {t('careers.comingSoon.description')}
+                        </p>
+                    </div>
                 </div>
             </section>
 

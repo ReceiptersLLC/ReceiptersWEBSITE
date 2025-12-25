@@ -1,11 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Calendar, User, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import BlogModal from '@/components/BlogModal';
 
 export default function BlogsPage() {
     const { t } = useTranslation('common');
+    const [selectedPost, setSelectedPost] = useState<number | null>(null);
 
     const posts = [
         {
@@ -15,6 +17,7 @@ export default function BlogsPage() {
             date: 'Dec 20, 2025',
             author: 'Gordon Odira',
             category: 'Technology',
+            content: t('blogs.post1.content'),
         },
         {
             id: 2,
@@ -23,6 +26,7 @@ export default function BlogsPage() {
             date: 'Dec 15, 2025',
             author: 'George Osewe',
             category: 'Sustainability',
+            content: t('blogs.post2.content'),
         },
         {
             id: 3,
@@ -31,8 +35,11 @@ export default function BlogsPage() {
             date: 'Dec 10, 2025',
             author: 'Joffrey Dozva',
             category: 'AI & Data',
+            content: t('blogs.post3.content'),
         },
     ];
+
+    const selectedPostData = selectedPost ? posts.find(p => p.id === selectedPost) : null;
 
     return (
         <div className="min-h-screen bg-gray-50 font-sans">
@@ -60,8 +67,8 @@ export default function BlogsPage() {
                                 <div className="flex items-center gap-4 text-xs font-medium text-blue-600 mb-4 uppercase tracking-wider">
                                     <span>{post.category}</span>
                                 </div>
-                                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 leading-tight hover:text-blue-600 transition-colors">
-                                    <Link href={`/blogs/${post.id}`}>{post.title}</Link>
+                                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 leading-tight">
+                                    {post.title}
                                 </h3>
                                 <p className="text-gray-600 mb-6 line-clamp-3 text-sm sm:text-base">
                                     {post.excerpt}
@@ -77,15 +84,25 @@ export default function BlogsPage() {
                                             <span>{post.author}</span>
                                         </div>
                                     </div>
-                                    <Link href={`/blogs/${post.id}`} className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-1 group text-sm sm:text-base">
+                                    <button
+                                        onClick={() => setSelectedPost(post.id)}
+                                        className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-1 group text-sm sm:text-base transition-colors"
+                                    >
                                         Read More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                         </article>
                     ))}
                 </div>
             </section>
+
+            {selectedPostData && (
+                <BlogModal
+                    post={selectedPostData}
+                    onClose={() => setSelectedPost(null)}
+                />
+            )}
         </div>
     );
 }
