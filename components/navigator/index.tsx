@@ -1,19 +1,40 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 
 import { useTranslation } from "react-i18next";
 
 export default function Navigator() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [blogsDropdownOpen, setBlogsDropdownOpen] = useState(false);
   const pathname = usePathname();
   const { t, i18n: i18nInstance } = useTranslation("common");
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMobileMenuOpen(false);
+    setBlogsDropdownOpen(false);
   }, [pathname]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setBlogsDropdownOpen(false);
+      }
+    };
+
+    if (blogsDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [blogsDropdownOpen]);
 
   const handleLanguageChange = async (newLanguage: string) => {
     try {
@@ -43,7 +64,43 @@ export default function Navigator() {
             <NavLink href="/" label={t('navbar.link.home')} active={isActive("/")} />
             <NavLink href="/about" label={t('navbar.link.about')} active={isActive("/about")} />
             <NavLink href="/product" label={t('navbar.link.product')} active={isActive("/product")} />
-            <NavLink href="/blogs" label={t('navbar.link.blogs')} active={isActive("/blogs")} />
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setBlogsDropdownOpen(!blogsDropdownOpen)}
+                className={`flex items-center space-x-1 text-sm font-medium px-3 py-1 ${
+                  isActive("/blogs") || pathname.startsWith("/blogs")
+                    ? "text-blue-600"
+                    : "text-gray-700 hover:text-blue-600"
+                }`}
+              >
+                <span>{t('navbar.link.blogs')}</span>
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform ${blogsDropdownOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {blogsDropdownOpen && (
+                <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-1 z-50">
+                  <Link
+                    href="/blogs"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    onClick={() => setBlogsDropdownOpen(false)}
+                  >
+                    {t('navbar.link.blogs')}
+                  </Link>
+                  <Link
+                    href="/blogs/announcement"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    onClick={() => setBlogsDropdownOpen(false)}
+                  >
+                    {t('navbar.link.announcement')}
+                  </Link>
+                </div>
+              )}
+              {(isActive("/blogs") || pathname.startsWith("/blogs")) && !blogsDropdownOpen && (
+                <span className="absolute -bottom-1 left-0 h-0.5 w-full bg-blue-600"></span>
+              )}
+            </div>
             <NavLink href="/careers" label={t('navbar.link.careers')} active={isActive("/careers")} />
             <NavLink href="/contact" label={t('navbar.link.contact')} active={isActive("/contact")} />
           </div>
@@ -117,7 +174,16 @@ export default function Navigator() {
               <NavLink href="/" label={t("navbar.link.home")} active={isActive("/")} mobile />
               <NavLink href="/about" label={t("navbar.link.about")} active={isActive("/about")} mobile />
               <NavLink href="/product" label={t("navbar.link.product")} active={isActive("/product")} mobile />
-              <NavLink href="/blogs" label={t("navbar.link.blogs")} active={isActive("/blogs")} mobile />
+              <div className="space-y-1">
+                <NavLink href="/blogs" label={t("navbar.link.blogs")} active={isActive("/blogs")} mobile />
+                <Link
+                  href="/blogs/announcement"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t("navbar.link.announcement")}
+                </Link>
+              </div>
               <NavLink href="/careers" label={t("navbar.link.careers")} active={isActive("/careers")} mobile />
               <NavLink href="/contact" label={t("navbar.link.contact")} active={isActive("/contact")} mobile />
 

@@ -33,7 +33,7 @@ export default function BlogsPage() {
             title: t('blogs.post3.title'),
             excerpt: t('blogs.post3.excerpt'),
             date: 'Dec 10, 2025',
-            author: 'Joffrey Dozva',
+            author: 'Protas Junior',
             category: 'AI & Data',
             content: t('blogs.post3.content'),
         },
