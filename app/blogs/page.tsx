@@ -88,7 +88,7 @@ export default function BlogsPage() {
                                         onClick={() => setSelectedPost(post.id)}
                                         className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-1 group text-sm sm:text-base transition-colors"
                                     >
-                                        Read More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                                        {t('blog.readMore')} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                                     </button>
                                 </div>
                             </div>
