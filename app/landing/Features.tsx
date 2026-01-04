@@ -31,7 +31,7 @@ const features = [ // eslint-disable-line @typescript-eslint/no-unused-vars
 
 export default function FeatureCards() {
   const { t } = useTranslation('common');
-  const router = useRouter(); // eslint-disable-line @typescript-eslint/no-unused-vars
+  const router = useRouter();
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-gray-50">
@@ -63,10 +63,16 @@ export default function FeatureCards() {
             </div>
           </div>
           <div className="mt-8 text-center">
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-lg mr-4 hover:bg-blue-700 transition-colors">
+            <button
+              onClick={() => router.push("/product")}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg mr-4 hover:bg-blue-700 transition-colors"
+            >
               {t('landing.features.comparePlans')}
             </button>
-            <button className="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors">
+            <button
+              onClick={() => router.push("/contact")}
+              className="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors"
+            >
               {t('landing.features.talkToTeam')}
             </button>
           </div>

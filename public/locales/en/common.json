@@ -530,5 +530,15 @@
   "features.vendor-analytics-dashboard.page.benefitsBusiness.item4": "Streamline financial reporting and reconciliation",
   "features.vendor-analytics-dashboard.page.idealFor.title": "Ideal For",
   "features.vendor-analytics-dashboard.page.idealFor.content": "Store managers, business owners, and retail executives who need actionable data to run their businesses more effectively.",
-  "features.page.goBack": "← Go Back"
+  "features.page.goBack": "← Go Back",
+  "announcements.hero.title": "Announcements",
+  "announcements.hero.description": "Stay updated with the latest news, events, and milestones from Receipters.",
+  "announcements.post1.title": "Konza Launch",
+  "announcements.post1.date": "January 15, 2026",
+  "announcements.post1.excerpt": "We are thrilled to announce the official launch of Receipters at Konza Technopolis.",
+  "announcements.post1.content": "We are thrilled to announce the official launch of Receipters at Konza Technopolis, marking a major milestone in our journey toward a paperless economy. This launch represents our commitment to innovation and sustainable technology in Kenya's premier tech hub.",
+  "announcements.post2.title": "Great Lake University Partnership",
+  "announcements.post2.date": "February 10, 2026",
+  "announcements.post2.excerpt": "Visiting Great Lake University for a strategic partnership meeting in February.",
+  "announcements.post2.content": "Our team will be visiting Great Lake University in February for a strategic partnership meeting to foster innovation and digital transformation in academic institutions. We look forward to collaborating with the university to implement digital receipting solutions across the campus."
 }

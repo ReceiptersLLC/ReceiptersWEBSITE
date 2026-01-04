@@ -27,7 +27,7 @@ export default function CareersPage() {
                     <div className="text-center mb-16">
                         <h2 className="text-3xl sm:text-4xl font-bold mb-4">Why Join Receipters?</h2>
                         <p className="text-gray-400 max-w-2xl mx-auto">
-                            We're a fast-growing team dedicated to making a positive impact on the world through technology.
+                            We&apos;re a fast-growing team dedicated to making a positive impact on the world through technology.
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -78,9 +78,9 @@ export default function CareersPage() {
             {/* CTA Section */}
             <section className="py-20 bg-blue-600 text-white text-center px-4">
                 <div className="max-w-3xl mx-auto">
-                    <h2 className="text-3xl sm:text-4xl font-bold mb-6">Don't see a role that fits?</h2>
+                    <h2 className="text-3xl sm:text-4xl font-bold mb-6">Don&apos;t see a role that fits?</h2>
                     <p className="text-blue-100 text-lg mb-10">
-                        We're always looking for talented individuals to join our mission. Send us your resume and we'll keep you in mind for future openings.
+                        We&apos;re always looking for talented individuals to join our mission. Send us your resume and we&apos;ll keep you in mind for future openings.
                     </p>
                     <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl">
                         Get in Touch

@@ -256,7 +256,10 @@ export default function Page() {
             </li>
           </ol>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition">
+            <button
+              onClick={() => router.push('/product')}
+              className="bg-blue-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition"
+            >
               Compare Plans
             </button>
             <button
