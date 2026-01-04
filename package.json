@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sync-i18n": "node scripts/sync-translations.js"
   },
   "dependencies": {
     "axios": "^1.9.0",
