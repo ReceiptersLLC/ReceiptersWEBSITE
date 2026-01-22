@@ -146,21 +146,21 @@ export default function Page() {
       </section>
 
       {/* AI Benefits Section */}
-      <section className="py-20 bg-white text-gray-800">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold mb-3">{t('product.aiBenefits.subtitle')}</p>
-          <h2 className="text-4xl font-bold mb-6">{t('product.aiBenefits.title')}</h2>
-          <p className="text-lg text-gray-600 mb-8">
+      <section className="py-12 md:py-20 bg-white text-gray-800">
+        <div className="max-w-5xl mx-auto px-4 md:px-6 text-center">
+          <p className="text-xs md:text-sm uppercase tracking-widest text-blue-600 font-semibold mb-2 md:mb-3">{t('product.aiBenefits.subtitle')}</p>
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">{t('product.aiBenefits.title')}</h2>
+          <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">
             {t('product.aiBenefits.description')}
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-8">
             {aiBenefits.map((benefit, idx) => (
               <div
                 key={idx}
-                className="bg-gray-100 p-6 rounded-xl shadow-sm text-center transition hover:shadow-md">
-                <div className="text-3xl mb-4">{benefit.emoji}</div>
-                <h3 className="text-lg font-bold mb-2">{t(benefit.title)}</h3>
-                <p className="text-gray-600 text-sm">{t(benefit.description)}</p>
+                className="bg-gray-100 p-4 md:p-6 rounded-xl shadow-sm text-center transition hover:shadow-md hover:bg-gray-150">
+                <div className="text-4xl md:text-5xl mb-3 md:mb-4">{benefit.emoji}</div>
+                <h3 className="text-base md:text-lg font-bold mb-2">{t(benefit.title)}</h3>
+                <p className="text-gray-600 text-xs md:text-sm leading-relaxed">{t(benefit.description)}</p>
               </div>
             ))}
           </div>
