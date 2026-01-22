@@ -19,13 +19,13 @@ export async function middleware(request: NextRequest) {
   const isDev = process.env.NODE_ENV === 'development'
 
   // Parse MAINTENANCE_MODE reliably: treat "1", "true", "yes" (case-insensitive) as enabled.
-  // Default to ENABLE maintenance in non-development when MAINTENANCE_MODE is not set.
+  // Default to DISABLE maintenance in non-development when MAINTENANCE_MODE is not set.
   const raw = process.env.MAINTENANCE_MODE
   const maintenanceMode = isDev
-    ? false
+    ? true
     : typeof raw === 'string'
       ? ['1', 'true', 'yes'].includes(raw.toLowerCase())
-      : true
+      : false
 
   if (maintenanceMode) {
     // Try to fetch the public maintenance page; if that fails, use a small inline fallback HTML
