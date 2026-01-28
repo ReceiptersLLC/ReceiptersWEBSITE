@@ -255,16 +255,16 @@ export default function Page() {
               <span>{t('product.closing.step4')}</span>
             </li>
           </ol>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <button
               onClick={() => router.push('/product')}
-              className="bg-blue-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition"
+              className="flex-1 sm:flex-none bg-blue-600 text-white font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition"
             >
               Compare Plans
             </button>
             <button
               onClick={() => router.push('/contact')}
-              className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-full shadow-lg border-2 border-blue-600 hover:bg-blue-50 transition"
+              className="flex-1 sm:flex-none bg-white text-blue-600 font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg border-2 border-blue-600 hover:bg-blue-50 transition"
             >
               Talk to Our Team
             </button>
