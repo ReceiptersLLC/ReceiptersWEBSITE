@@ -1,5 +1,5 @@
 'use client';
-import {useState} from 'react';
+import { useState } from 'react';
 import ContactDetails from "@/app/contact/components/ContactDetails";
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
@@ -10,7 +10,7 @@ export default function Page() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
-  const { t, ready } = useTranslation('common');
+  const { t } = useTranslation('common');
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     const API_ENDPOINT = `https://engine.receipters.com/api/v1/g/contact-us`;
@@ -49,14 +49,10 @@ export default function Page() {
     }
   };
 
-  if (!ready) {
-    return null;
-  }
-
   return (
     <div className="flex flex-col items-center min-h-screen bg-white p-6">
       <h2 className="mt-16 text-3xl max-w-3xl font-semibold text-left w-full text-gray-900 mb-2">
-       {t('contact.title')}
+        {t('contact.title')}
       </h2>
 
       <form onSubmit={handleSubmit} className="w-full max-w-3xl space-y-4 mt-8">
@@ -72,7 +68,7 @@ export default function Page() {
           />
         </div>
 
- <div>
+        <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">{t('contact.email')}</label>
           <input
             type="email"
@@ -116,8 +112,8 @@ export default function Page() {
         </button>
       </form>
 
-      <div className="h-12"/>
-      <ContactDetails/>
+      <div className="h-12" />
+      <ContactDetails />
     </div>
   );
 }

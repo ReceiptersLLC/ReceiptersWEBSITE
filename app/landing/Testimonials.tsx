@@ -11,7 +11,7 @@ interface Testimonial {
 }
 
 export default function Testimonials() {
-  const { t, ready } = useTranslation('common');
+  const { t } = useTranslation('common');
   const [isMounted, setIsMounted] = useState(false);
 
 
@@ -38,15 +38,15 @@ export default function Testimonials() {
     },
   ];
 
-  
+
   const allTestimonials = [...testimonials, ...testimonials];
 
   useEffect(() => {
-    setIsMounted(true); 
+    setIsMounted(true);
   }, []);
 
-  if (!ready || !isMounted) {
-    return null; 
+  if (!isMounted) {
+    return null;
   }
 
   return (
@@ -59,9 +59,9 @@ export default function Testimonials() {
           {t('landing.testimonials.customerSatisfaction')}
         </h3>
 
-        {}
+        { }
         <div className="overflow-hidden whitespace-nowrap">
-          {}
+          { }
           <div className="inline-block animate-marquee">
             {allTestimonials.map((testimonial, index) => (
               <div
@@ -69,7 +69,7 @@ export default function Testimonials() {
                 className="inline-block w-[280px] sm:w-[320px] lg:w-[380px] bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-sm mx-3 flex-shrink-0"
               >
                 <div className="h-4 sm:h-5 w-full mb-4 sm:mb-6 relative flex flex-row items-center gap-1">
-                  {}
+                  { }
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <svg
                       key={`star-${index}-${i}`}
@@ -84,11 +84,11 @@ export default function Testimonials() {
                     </svg>
                   ))}
                 </div>
-                {}
+                { }
                 <div className="text-base sm:text-lg lg:text-xl font-semibold leading-relaxed mb-4 sm:mb-6">
                   {t(testimonial.quoteKey)}
                 </div>
-                {}
+                { }
                 <div className="text-sm sm:text-base font-medium">
                   {t(testimonial.nameKey)}
                 </div>

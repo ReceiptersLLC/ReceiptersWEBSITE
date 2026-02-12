@@ -31,7 +31,7 @@ const features = [ // eslint-disable-line @typescript-eslint/no-unused-vars
 
 export default function FeatureCards() {
   const { t } = useTranslation('common');
-  const router = useRouter(); // eslint-disable-line @typescript-eslint/no-unused-vars
+  const router = useRouter();
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-gray-50">
@@ -41,6 +41,9 @@ export default function FeatureCards() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {t('landing.features.newTitle')}
           </h2>
+          <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+            {t('landing.features.newDescription')}
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             <div className="bg-white p-6 rounded-xl shadow-md">
               <h3 className="font-semibold text-lg mb-2 text-blue-900">{t('landing.features.digitalReceipting.title')}</h3>
@@ -59,13 +62,27 @@ export default function FeatureCards() {
               <p className="text-gray-600 text-sm">{t('landing.features.dataAnalysis.description')}</p>
             </div>
           </div>
+          <div className="mt-8 text-center">
+            <button
+              onClick={() => router.push("/product")}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg mr-4 hover:bg-blue-700 transition-colors"
+            >
+              {t('landing.features.comparePlans')}
+            </button>
+            <button
+              onClick={() => router.push("/contact")}
+              className="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors"
+            >
+              {t('landing.features.talkToTeam')}
+            </button>
+          </div>
         </div>
 
         {/* Why Receipters Section */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{t('landing.features.whyReceipters.title')}</h2>
           <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
-            Receipters sits at the intersection of payments, compliance, and data intelligence. We don&apos;t just replace paper receipts – we upgrade your entire post-transaction experience.
+            {t('landing.features.whyReceipters.description')}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

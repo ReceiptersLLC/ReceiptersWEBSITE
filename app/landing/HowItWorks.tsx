@@ -60,7 +60,7 @@ export default function HowItWorks() {
             {t('landing.aiSection.title')}
           </h2>
           <p className="text-lg text-gray-600 text-center mb-8 max-w-3xl mx-auto">
-            Receipts are one of the richest and most detailed data sources in commerce—but they&apos;re usually trapped on paper or scattered across systems. Receipters changes that by turning every receipt into structured, AI-ready data.
+            {t('landing.aiSection.description')}
           </p>
           <p className="text-center text-gray-700 mb-8">
             {t('landing.aiSection.intro')}
@@ -107,36 +107,36 @@ export default function HowItWorks() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2">•</span>
-                  <span>Issue digital receipts via SMS, email, or QR code when full POS integration isn&apos;t ready yet.</span>
+                  <span>{t('landing.appSection.forMerchants.issue')}</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2">•</span>
-                  <span>Look up past transactions quickly when handling queries, returns, or disputes.</span>
+                  <span>{t('landing.appSection.forMerchants.lookup')}</span>
                 </li>
               </ul>
             </div>
 
             <div className="bg-blue-50 p-8 rounded-xl">
-              <h3 className="text-2xl font-semibold text-blue-900 mb-4">For Consumers:</h3>
+              <h3 className="text-2xl font-semibold text-blue-900 mb-4">{t('landing.appSection.forConsumers.title')}</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2">•</span>
-                  <span>Automatically collect digital receipts from participating merchants into a single, secure personal wallet.</span>
+                  <span>{t('landing.appSection.forConsumers.collect')}</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2">•</span>
-                  <span>Find any receipt in seconds using smart search and filters.</span>
+                  <span>{t('landing.appSection.forConsumers.find')}</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2">•</span>
-                  <span>Use receipts for returns, warranties, reimbursements, and personal budgeting—without keeping stacks of paper.</span>
+                  <span>{t('landing.appSection.forConsumers.use')}</span>
                 </li>
               </ul>
             </div>
           </div>
 
           <p className="text-center text-gray-600 mt-8">
-            The app connects seamlessly to the Receipters Vault and, where enabled, to our AI-powered Data Analysis tools.
+            {t('landing.appSection.connect')}
           </p>
         </div>
 

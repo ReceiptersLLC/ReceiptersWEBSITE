@@ -7,11 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 export default function SustainabilityPage() {
   const router = useRouter();
-  const { t, ready } = useTranslation('common');
-
-  if (!ready) {
-    return null;
-  }
+  const { t } = useTranslation('common');
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-100">

@@ -17,7 +17,7 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [oauthLoading, setOauthLoading] = useState({ google: false, facebook: false });
-  const { t, ready } = useTranslation('common');
+  const { t } = useTranslation('common');
   const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -68,10 +68,6 @@ export default function LoginPage() {
     }
   };
 
-  if (!ready) {
-    return null; // Or a loading indicator component
-  } 
-
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
@@ -96,7 +92,7 @@ export default function LoginPage() {
                   <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
                 </svg>
               )}
-              Continue with Google
+              {t('login.continueWithGoogle')}
             </button>
 
             <button
@@ -108,10 +104,10 @@ export default function LoginPage() {
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-900 mr-2"></div>
               ) : (
                 <svg width="20" height="20" fill="currentColor" className="mr-2 text-blue-600">
-                  <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12.82v-9.294H9.692V11.01h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.686.235 2.686.235v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.696h-3.12V24h6.116C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0"/>
+                  <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12.82v-9.294H9.692V11.01h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.686.235 2.686.235v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.696h-3.12V24h6.116C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0" />
                 </svg>
               )}
-              Continue with Facebook
+              {t('login.continueWithFacebook')}
             </button>
           </div>
 
@@ -120,7 +116,7 @@ export default function LoginPage() {
               <div className="w-full border-t border-gray-300" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">Or continue with email</span>
+              <span className="px-2 bg-white text-gray-500">{t('login.orContinueWithEmail')}</span>
             </div>
           </div>
 
@@ -150,9 +146,9 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-4 text-center text-sm text-gray-600">
-            Donand#39;t have an account?{' '}
+            {t('login.dontHaveAccount')}{' '}
             <a href="/signup" className="text-indigo-600 hover:text-indigo-500 font-medium">
-              Sign Up
+              {t('login.signUp')}
             </a>
           </div>
         </div>

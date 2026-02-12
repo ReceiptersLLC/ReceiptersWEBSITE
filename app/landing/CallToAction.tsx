@@ -1,6 +1,6 @@
 "use client"
 import Button from "@/components/Button";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useTranslation } from 'react-i18next';
 
 export default function CallToAction() {
@@ -14,7 +14,7 @@ export default function CallToAction() {
           {t('landing.cta.newTitle')}
         </h2>
         <p className="text-sm sm:text-base lg:text-lg mb-8 sm:mb-12 max-w-3xl leading-relaxed opacity-90">
-          Start where you are. Go digital with receipts today, roll out the Receipters App to staff and customers, and unlock AI-powered analytics when you&apos;re ready.
+          {t('landing.cta.newDescription')}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <Button
