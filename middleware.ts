@@ -16,7 +16,7 @@ export async function middleware(request: NextRequest) {
   }
 
   // Maintenance mode is disabled
-  const maintenanceMode = true
+  const maintenanceMode = false
 
   if (maintenanceMode) {
     // Try to fetch the public maintenance page; if that fails, use a small inline fallback HTML
