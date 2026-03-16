@@ -1,9 +1,5 @@
 import "./globals.css";
 import { Poppins } from "next/font/google";
-import LayoutClientWrapper from "@/components/LayoutClientWrapper";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
-import OAuthInit from "@/components/OAuthInit";
-import SessionProviderWrapper from "@/components/SessionProviderWrapper";
 import type { Metadata } from "next";
 import Script from "next/script";
 
@@ -21,7 +17,7 @@ export const metadata: Metadata = {
   description: "Transform your business with Receipters' secure, eco-friendly digital receipt solutions. Integrated POS systems for instant customer delivery, cloud storage, and paperless transactions. Join hundreds of businesses going digital.",
   keywords: [
     "digital receipts",
-    "paperless receipts", 
+    "paperless receipts",
     "POS integration",
     "receipt management",
     "eco-friendly business",
@@ -92,7 +88,7 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: {
       "en-US": "/en",
-      "fr-FR": "/fr", 
+      "fr-FR": "/fr",
       "de-DE": "/de",
       "sw-KE": "/sw",
     },
@@ -109,11 +105,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} antialiased`}>
         <Script src="https://accounts.google.com/gsi/client" strategy="beforeInteractive" />
         <Script src="https://connect.facebook.net/en_US/sdk.js" strategy="beforeInteractive" />
-        <OAuthInit />
-        <SessionProviderWrapper>
-          <LayoutClientWrapper>{children}</LayoutClientWrapper>
-        </SessionProviderWrapper>
-        <WhatsAppWidget />
+        {children}
       </body>
     </html>
   );

@@ -89,7 +89,7 @@ export default function Navigator() {
                     {t('navbar.link.blogs')}
                   </Link>
                   <Link
-                    href="/blogs/announcement"
+                    href="/app/(website)/blogs/announcement"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     onClick={() => setBlogsDropdownOpen(false)}
                   >
@@ -177,7 +177,7 @@ export default function Navigator() {
               <div className="space-y-1">
                 <NavLink href="/blogs" label={t("navbar.link.blogs")} active={isActive("/blogs")} mobile />
                 <Link
-                  href="/blogs/announcement"
+                  href="/app/(website)/blogs/announcement"
                   className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                   onClick={() => setMobileMenuOpen(false)}
                 >

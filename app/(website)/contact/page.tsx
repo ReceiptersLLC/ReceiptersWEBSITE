@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import ContactDetails from "@/app/contact/components/ContactDetails";
+import ContactDetails from "@/app/(website)/contact/components/ContactDetails";
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 

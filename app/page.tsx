@@ -1,7 +1,7 @@
-import HeroSection from "@/app/landing/HeroSection";
-import Features from "@/app/landing/Features";
-import HowItWorks from "@/app/landing/HowItWorks";
-import CallToAction from "@/app/landing/CallToAction";
+import HeroSection from "@/app/(website)/landing/HeroSection";
+import Features from "@/app/(website)/landing/Features";
+import HowItWorks from "@/app/(website)/landing/HowItWorks";
+import CallToAction from "@/app/(website)/landing/CallToAction";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Transform your business with Receipters' secure, eco-friendly digital receipt solutions. Integrated POS systems for instant customer delivery, cloud storage, and paperless transactions. Join hundreds of businesses going digital today.",
   keywords: [
     "digital receipts",
-    "paperless receipts", 
+    "paperless receipts",
     "POS integration",
     "instant receipt delivery",
     "eco-friendly business solutions",
