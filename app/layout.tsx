@@ -1,13 +1,13 @@
 import "./globals.css";
-import { Poppins } from "next/font/google";
-import type { Metadata } from "next";
+// import { Poppins } from "next/font/google";
+import type {Metadata} from "next";
 import Script from "next/script";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
+// const poppins = Poppins({
+//   variable: "--font-poppins",
+//   subsets: ["latin"],
+//   weight: ["300", "400", "500", "600", "700"],
+// });
 
 export const metadata: Metadata = {
   title: {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "receipt automation",
     "sustainable receipts"
   ],
-  authors: [{ name: "Receipters LLC" }],
+  authors: [{name: "Receipters LLC"}],
   creator: "Receipters LLC",
   publisher: "Receipters LLC",
   robots: {
@@ -66,12 +66,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/img/logo.svg", type: "image/svg+xml" },
-      { url: "/img/logo.png", type: "image/png" }
+      {url: "/img/logo.svg", type: "image/svg+xml"},
+      {url: "/img/logo.png", type: "image/png"}
     ],
     shortcut: "/img/logo.png",
     apple: [
-      { url: "/img/logo.png", sizes: "180x180", type: "image/png" },
+      {url: "/img/logo.png", sizes: "180x180", type: "image/png"},
     ],
   },
   manifest: "/manifest.json",
@@ -96,17 +96,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-}: {
+                                     children,
+                                   }: {
   children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>
-        <Script src="https://accounts.google.com/gsi/client" strategy="beforeInteractive" />
-        <Script src="https://connect.facebook.net/en_US/sdk.js" strategy="beforeInteractive" />
-        {children}
-      </body>
+    {/*<body className={`${poppins.variable} antialiased`}>*/}
+    <body className={`antialiased`}>
+    <Script src="https://accounts.google.com/gsi/client" strategy="beforeInteractive"/>
+    <Script src="https://connect.facebook.net/en_US/sdk.js" strategy="beforeInteractive"/>
+    {children}
+    </body>
     </html>
   );
 }
