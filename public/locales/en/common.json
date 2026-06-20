@@ -553,5 +553,19 @@
   "announcements.post2.title": "Great Lake University Partnership",
   "announcements.post2.date": "February 10, 2026",
   "announcements.post2.excerpt": "Visiting Great Lake University for a strategic partnership meeting in February.",
-  "announcements.post2.content": "Our team will be visiting Great Lake University in February for a strategic partnership meeting to foster innovation and digital transformation in academic institutions. We look forward to collaborating with the university to implement digital receipting solutions across the campus."
+  "announcements.post2.content": "Our team will be visiting Great Lake University in February for a strategic partnership meeting to foster innovation and digital transformation in academic institutions. We look forward to collaborating with the university to implement digital receipting solutions across the campus.",
+  "login.continueWithGoogle": "Continue with Google",
+  "login.continueWithFacebook": "Continue with Facebook",
+  "login.orContinueWithEmail": "Or continue with email",
+  "login.dontHaveAccount": "Don't have an account?",
+  "login.signUp": "Sign up",
+  "signup.continueWithGoogle": "Continue with Google",
+  "signup.continueWithFacebook": "Continue with Facebook",
+  "signup.orContinueWithEmail": "Or continue with email",
+  "signup.alreadyHaveAccount": "Already have an account?",
+  "signup.logInHere": "Log in here",
+  "signup.toast.successOtp": "Account created! Redirecting to verification.",
+  "signup.toast.successLogin": "Logged in successfully!",
+  "signup.toast.googleFailed": "Google sign-in failed. Please try again.",
+  "signup.toast.facebookFailed": "Facebook sign-in failed. Please try again."
 }

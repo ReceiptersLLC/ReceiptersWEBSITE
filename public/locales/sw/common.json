@@ -553,5 +553,19 @@
   "announcements.post2.title": "Ushirikiano na Chuo Kikuu cha Great Lake",
   "announcements.post2.date": "Februari 10, 2026",
   "announcements.post2.excerpt": "Kutembelea Chuo Kikuu cha Great Lake kwa mkutano wa ushirikiano wa kimkakati mwezi Februari.",
-  "announcements.post2.content": "Timu yetu itatembelea Chuo Kikuu cha Great Lake mwezi Februari kwa mkutano wa ushirikiano wa kimkakati ili kukuza uvumbuzi na mabadiliko ya kidijitali katika taasisi za kitaaluma. Tunatazamia kushirikiana na chuo kikuu kutekeleza suluhisho za risiti za kidijitali kote kampasini."
+  "announcements.post2.content": "Timu yetu itatembelea Chuo Kikuu cha Great Lake mwezi Februari kwa mkutano wa ushirikiano wa kimkakati ili kukuza uvumbuzi na mabadiliko ya kidijitali katika taasisi za kitaaluma. Tunatazamia kushirikiana na chuo kikuu kutekeleza suluhisho za risiti za kidijitali kote kampasini.",
+  "login.continueWithGoogle": "Endelea na Google",
+  "login.continueWithFacebook": "Endelea na Facebook",
+  "login.orContinueWithEmail": "Au endelea na barua pepe",
+  "login.dontHaveAccount": "Huna akaunti?",
+  "login.signUp": "Jisajili",
+  "signup.continueWithGoogle": "Endelea na Google",
+  "signup.continueWithFacebook": "Endelea na Facebook",
+  "signup.orContinueWithEmail": "Au endelea na barua pepe",
+  "signup.alreadyHaveAccount": "Tayari una akaunti?",
+  "signup.logInHere": "Ingia hapa",
+  "signup.toast.successOtp": "Akaunti imeundwa! Inaelekeza kwenye uthibitishaji.",
+  "signup.toast.successLogin": "Umeingia kwa mafanikio!",
+  "signup.toast.googleFailed": "Kuingia kwa Google kumeshindwa. Tafadhali jaribu tena.",
+  "signup.toast.facebookFailed": "Kuingia kwa Facebook kumeshindwa. Tafadhali jaribu tena."
 }

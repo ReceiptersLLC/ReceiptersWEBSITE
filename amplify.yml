@@ -1,0 +1,20 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Plain `yarn install` (not --frozen-lockfile) so a minor lockfile drift
+        # can't fail the build the way it did before.
+        - yarn install
+    build:
+      commands:
+        - yarn build
+  artifacts:
+    # .next as baseDirectory tells Amplify to deploy this as a Next.js SSR app.
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*

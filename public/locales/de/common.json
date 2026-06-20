@@ -553,5 +553,19 @@
   "announcements.post2.title": "Partnerschaft mit der Great Lake University",
   "announcements.post2.date": "10. Februar 2026",
   "announcements.post2.excerpt": "Besuch der Great Lake University für ein strategisches Partnerschaftstreffen im Februar.",
-  "announcements.post2.content": "Unser Team wird im Februar die Great Lake University für ein strategisches Partnerschaftstreffen besuchen, um Innovationen und die digitale Transformation in akademischen Institutionen zu fördern. Wir freuen uns auf die Zusammenarbeit mit der Universität, um digitale Beleglösungen auf dem gesamten Campus zu implementieren."
+  "announcements.post2.content": "Unser Team wird im Februar die Great Lake University für ein strategisches Partnerschaftstreffen besuchen, um Innovationen und die digitale Transformation in akademischen Institutionen zu fördern. Wir freuen uns auf die Zusammenarbeit mit der Universität, um digitale Beleglösungen auf dem gesamten Campus zu implementieren.",
+  "login.continueWithGoogle": "Mit Google fortfahren",
+  "login.continueWithFacebook": "Mit Facebook fortfahren",
+  "login.orContinueWithEmail": "Oder mit E-Mail fortfahren",
+  "login.dontHaveAccount": "Sie haben noch kein Konto?",
+  "login.signUp": "Registrieren",
+  "signup.continueWithGoogle": "Mit Google fortfahren",
+  "signup.continueWithFacebook": "Mit Facebook fortfahren",
+  "signup.orContinueWithEmail": "Oder mit E-Mail fortfahren",
+  "signup.alreadyHaveAccount": "Sie haben bereits ein Konto?",
+  "signup.logInHere": "Hier anmelden",
+  "signup.toast.successOtp": "Konto erstellt! Weiterleitung zur Verifizierung.",
+  "signup.toast.successLogin": "Erfolgreich angemeldet!",
+  "signup.toast.googleFailed": "Anmeldung mit Google fehlgeschlagen. Bitte versuchen Sie es erneut.",
+  "signup.toast.facebookFailed": "Anmeldung mit Facebook fehlgeschlagen. Bitte versuchen Sie es erneut."
 }

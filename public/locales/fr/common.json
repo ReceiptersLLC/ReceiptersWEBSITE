@@ -553,5 +553,19 @@
   "announcements.post2.title": "Partenariat avec l'Université Great Lake",
   "announcements.post2.date": "10 Février 2026",
   "announcements.post2.excerpt": "Visite de l'Université Great Lake pour une réunion de partenariat stratégique en février.",
-  "announcements.post2.content": "Notre équipe se rendra à l'Université Great Lake en février pour une réunion de partenariat stratégique afin de favoriser l'innovation et la transformation numérique dans les institutions académiques. Nous sommes impatients de collaborer avec l'université pour mettre en œuvre des solutions de reçus numériques sur tout le campus."
+  "announcements.post2.content": "Notre équipe se rendra à l'Université Great Lake en février pour une réunion de partenariat stratégique afin de favoriser l'innovation et la transformation numérique dans les institutions académiques. Nous sommes impatients de collaborer avec l'université pour mettre en œuvre des solutions de reçus numériques sur tout le campus.",
+  "login.continueWithGoogle": "Continuer avec Google",
+  "login.continueWithFacebook": "Continuer avec Facebook",
+  "login.orContinueWithEmail": "Ou continuer avec l'e-mail",
+  "login.dontHaveAccount": "Vous n'avez pas de compte ?",
+  "login.signUp": "S'inscrire",
+  "signup.continueWithGoogle": "Continuer avec Google",
+  "signup.continueWithFacebook": "Continuer avec Facebook",
+  "signup.orContinueWithEmail": "Ou continuer avec l'e-mail",
+  "signup.alreadyHaveAccount": "Vous avez déjà un compte ?",
+  "signup.logInHere": "Connectez-vous ici",
+  "signup.toast.successOtp": "Compte créé ! Redirection vers la vérification.",
+  "signup.toast.successLogin": "Connexion réussie !",
+  "signup.toast.googleFailed": "La connexion avec Google a échoué. Veuillez réessayer.",
+  "signup.toast.facebookFailed": "La connexion avec Facebook a échoué. Veuillez réessayer."
 }
