@@ -5,6 +5,7 @@ export async function middleware(request: NextRequest) {
   // Determine request path early and allow common assets/endpoints to bypass middleware
   const pathname = request.nextUrl.pathname
   if (
+    pathname === '/maintenance' ||
     pathname === '/maintenance.html' ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/_next') ||
@@ -15,15 +16,15 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // Maintenance mode is disabled
-  const maintenanceMode = false
+  // Maintenance mode toggle (set to `true` to enable)
+  const maintenanceMode = true
 
   if (maintenanceMode) {
     // Try to fetch the public maintenance page; if that fails, use a small inline fallback HTML
     let html = ''
     try {
       const origin = request.nextUrl.origin
-      const htmlResponse = await fetch(new URL('/maintenance.html', origin).toString())
+      const htmlResponse = await fetch(new URL('/maintenance', origin).toString())
       if (!htmlResponse.ok) throw new Error('Failed to fetch maintenance page')
       html = await htmlResponse.text()
     } catch (err) {
