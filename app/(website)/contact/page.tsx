@@ -13,7 +13,7 @@ export default function Page() {
   const { t } = useTranslation('common');
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    const API_ENDPOINT = `https://engine.receipters.com/api/v1/g/contact-us`;
+    const API_ENDPOINT = '/api/contact';
 
     const payload = {
       fullname,

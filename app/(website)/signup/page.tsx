@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { useAuth } from '@/context/AuthContext';
 import Button from '@/components/Button';
 import TextInput from '@/components/TextInput';
 import { toast } from 'sonner';
@@ -21,6 +20,7 @@ export default function SignupPage() {
   const [oauthLoading, setOauthLoading] = useState({ google: false, facebook: false });
 
   const router = useRouter();
+  const { signUp, loginWithGoogle, loginWithFacebook } = useAuth();
 
   const handleSignup = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -36,28 +36,15 @@ export default function SignupPage() {
     };
 
     try {
-      await axios.post('https://engine.receipters.com/api/v1/users/signup', payload);
-
-      const otpResponse = await axios.post('https://engine.receipters.com/api/v1/auth/lotp', {
-        identifier: email,
-        destination: 'EMAIL',
-      });
-
-      const verificationId: string | undefined = otpResponse.data.verificationId;
-
-      if (verificationId) {
-        toast.success(t('signup.toast.successOtp'));
-        router.push(`/otp-login?verificationId=${verificationId}`);
-      } else {
-        toast.success(t('signup.toast.successLogin'));
-        router.push('/otp-login');
-      }
+      await signUp(payload);
+      toast.success(t('signup.toast.successLogin') || 'Registered and logged in successfully!');
+      router.push('/download');
     } catch (err: unknown) {
-      if (axios.isAxiosError(err)) {
-        toast.error(err.response?.data?.message || t('signup.toast.failed'));
-      } else {
-        toast.error(t('signup.toast.failed'));
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Signup failed:', err);
       }
+      const message = err instanceof Error ? err.message : t('signup.toast.failed');
+      toast.error(message);
     } finally {
       setLoading(false);
     }
@@ -67,9 +54,12 @@ export default function SignupPage() {
     setOauthLoading((prev) => ({ ...prev, google: true }));
 
     try {
-      await signIn('google', { callbackUrl: '/success' });
-    } catch {
-      toast.error(t('signup.toast.googleFailed'));
+      await loginWithGoogle();
+      toast.success('Signed up with Google!');
+      router.push('/download');
+    } catch (err: unknown) {
+      const errorObj = err as { message?: string };
+      toast.error(errorObj.message || t('signup.toast.googleFailed'));
     } finally {
       setOauthLoading((prev) => ({ ...prev, google: false }));
     }
@@ -79,13 +69,17 @@ export default function SignupPage() {
     setOauthLoading((prev) => ({ ...prev, facebook: true }));
 
     try {
-      await signIn('facebook', { callbackUrl: '/success' });
-    } catch {
-      toast.error(t('signup.toast.facebookFailed'));
+      await loginWithFacebook();
+      toast.success('Signed up with Facebook!');
+      router.push('/download');
+    } catch (err: unknown) {
+      const errorObj = err as { message?: string };
+      toast.error(errorObj.message || t('signup.toast.facebookFailed'));
     } finally {
       setOauthLoading((prev) => ({ ...prev, facebook: false }));
     }
   };
+
 
   return (
     <div className="flex min-h-screen flex-col justify-center py-12 px-6 lg:px-8">

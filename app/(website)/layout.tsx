@@ -3,6 +3,7 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import OAuthInit from "@/components/OAuthInit";
 import SessionProviderWrapper from "@/components/SessionProviderWrapper";
 import Script from "next/script";
+import { Toaster } from "sonner";
 
 export default function RootLayout({
                                      children,
@@ -18,6 +19,8 @@ export default function RootLayout({
         <LayoutClientWrapper>{children}</LayoutClientWrapper>
       </SessionProviderWrapper>
       <WhatsAppWidget/>
+      <Toaster position="top-right" richColors />
     </>
   );
 }
+

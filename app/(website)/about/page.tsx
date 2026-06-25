@@ -1,8 +1,8 @@
 'use client';
 
-import Image from "next/image";
 import { Smile, Zap, ShieldCheck, Leaf, Globe, Users, TrendingUp } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+
 
 export default function AboutPage() {
   const { t } = useTranslation('common');
@@ -93,43 +93,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Team Section */}
-      <section className="bg-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-5">{t('about.team.title')}</h2>
-          <div className="grid gap-6 sm:gap-8 lg:gap-10 sm:grid-cols-2 md:grid-cols-2">
-            <TeamBioCard
-              name={t('about.team.gordon.name')}
-              title={t('about.team.gordon.title')}
-              image="/assets/gordon.jpg"
-              description={t('about.team.gordon.bio')}
-            />
-            <TeamBioCard
-              name={t('about.team.george.name')}
-              title={t('about.team.george.title')}
-              image="/assets/george.jpg"
-              description={t('about.team.george.bio')}
-            />
-            <TeamBioCard
-              name={t('about.team.joffrey.name')}
-              title={t('about.team.joffrey.title')}
-              image="/assets/jeffrey.jpg"
-              description={t('about.team.joffrey.bio')}
-            />
-            <TeamBioCard
-              name={t('about.team.joseph.name')}
-              title={t('about.team.joseph.title')}
-              image="/assets/Joseph.jpg"
-              description={t('about.team.joseph.bio')}
-            />
-
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
+
 
 // COMPONENTS
 
@@ -145,35 +112,6 @@ function ValueCard({ icon, title, description }: ValueCardProps) {
       <div className="mb-3 sm:mb-4 flex justify-center">{icon}</div>
       <h4 className="text-lg sm:text-xl font-semibold mb-2">{title}</h4>
       <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{description}</p>
-    </div>
-  );
-}
-
-interface TeamBioCardProps {
-  name: string;
-  title: string;
-  image: string;
-  description: string;
-}
-
-function TeamBioCard({ name, title, image, description }: TeamBioCardProps) {
-  const isJoseph = name === "Joseph Orinda";
-  return (
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start text-center sm:text-left">
-      <div className={`w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center flex-shrink-0 ${isJoseph ? "relative" : ""}`}>
-        <Image
-          src={image}
-          alt={name}
-          width={112}
-          height={112}
-          className={`object-cover w-full h-full ${isJoseph ? "object-top" : ""}`}
-        />
-      </div>
-      <div className="flex-1">
-        <h3 className="text-lg sm:text-xl font-semibold text-gray-800">{name}</h3>
-        <p className="text-xs sm:text-sm text-blue-600 mb-2 font-medium">{title}</p>
-        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{description}</p>
-      </div>
     </div>
   );
 }

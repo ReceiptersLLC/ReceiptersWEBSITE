@@ -1,15 +1,12 @@
 "use client";
 
 import { useState } from 'react';
-import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { useAuth } from '@/context/AuthContext';
 import Button from '@/components/Button';
 import { useTranslation } from 'react-i18next';
 import TextInput from '@/components/TextInput';
 import { toast } from 'sonner';
-
-const API_URL = 'https://engine.receipters.com/api';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -19,6 +16,7 @@ export default function LoginPage() {
   const [oauthLoading, setOauthLoading] = useState({ google: false, facebook: false });
   const { t } = useTranslation('common');
   const router = useRouter();
+  const { login, loginWithGoogle, loginWithFacebook } = useAuth();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,11 +24,11 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${API_URL}/v1/auth`, { email, password });
-      localStorage.setItem('token', response.data.token);
+      await login(email, password);
+      toast.success(t('login.toast.success') || 'Logged in successfully!');
       router.push('/download');
-    } catch (err) {
-      const message = (err as AxiosError<{ message?: string }>).response?.data?.message || t('login.toast.failed');
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : t('login.toast.failed');
       toast.error(message);
       setError(message);
     } finally {
@@ -39,34 +37,39 @@ export default function LoginPage() {
   };
 
   const handleGoogleLogin = async () => {
-    setOauthLoading({ ...oauthLoading, google: true });
+    setOauthLoading(prev => ({ ...prev, google: true }));
     setError(null);
 
     try {
-      await signIn('google', { callbackUrl: '/success' });
-    } catch {
-      const message = 'Google login failed';
+      await loginWithGoogle();
+      toast.success('Logged in with Google!');
+      router.push('/download');
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Google login failed';
       toast.error(message);
       setError(message);
     } finally {
-      setOauthLoading({ ...oauthLoading, google: false });
+      setOauthLoading(prev => ({ ...prev, google: false }));
     }
   };
 
   const handleFacebookLogin = async () => {
-    setOauthLoading({ ...oauthLoading, facebook: true });
+    setOauthLoading(prev => ({ ...prev, facebook: true }));
     setError(null);
 
     try {
-      await signIn('facebook', { callbackUrl: '/success' });
-    } catch {
-      const message = 'Facebook login failed';
+      await loginWithFacebook();
+      toast.success('Logged in with Facebook!');
+      router.push('/download');
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Facebook login failed';
       toast.error(message);
       setError(message);
     } finally {
-      setOauthLoading({ ...oauthLoading, facebook: false });
+      setOauthLoading(prev => ({ ...prev, facebook: false }));
     }
   };
+
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
