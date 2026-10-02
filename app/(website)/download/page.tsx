@@ -23,7 +23,7 @@ const DownloadPage = () => {
         </Link>
 
         {/* Google Play */}
-        <Link href="https://play.google.com/store/apps/details?id=com.receipters" target="_blank" rel="noopener noreferrer">
+        <Link href="https://play.google.com/store/apps/details?id=com.receipters.app" target="_blank" rel="noopener noreferrer">
           <div className="flex flex-col items-center hover:scale-105 transition-transform duration-200">
             <Image 
               src="/assets/google-play.svg" 
