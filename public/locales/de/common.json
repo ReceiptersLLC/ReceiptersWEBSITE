@@ -582,5 +582,10 @@
   "landing.hero.artifactCaption": "Beispielbeleg und der dazu gespeicherte Datensatz.",
   "landing.whoWeServe.other.title": "Eine andere Branche?",
   "landing.whoWeServe.other.description": "Beschreiben Sie Ihre Kassenumgebung, und wir beraten Sie zur Integration.",
-  "footer.tagline": "Infrastruktur für digitale Belege für Händler, Institutionen und Verbraucher."
+  "footer.tagline": "Infrastruktur für digitale Belege für Händler, Institutionen und Verbraucher.",
+  "navbar.link.services": "Leistungen",
+  "footer.explore": "Entdecken",
+  "footer.company": "Unternehmen",
+  "footer.trustLegal": "Vertrauen und Rechtliches",
+  "footer.deleteAccount": "Konto löschen"
 }

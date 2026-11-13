@@ -582,5 +582,10 @@
   "landing.hero.artifactCaption": "Risiti ya mfano na rekodi inayohifadhiwa kwa ajili yake.",
   "landing.whoWeServe.other.title": "Sekta nyingine?",
   "landing.whoWeServe.other.description": "Tueleze mazingira yako ya mauzo nasi tutakushauri kuhusu uunganishaji.",
-  "footer.tagline": "Miundombinu ya risiti za kidijitali kwa wafanyabiashara, taasisi na watumiaji."
+  "footer.tagline": "Miundombinu ya risiti za kidijitali kwa wafanyabiashara, taasisi na watumiaji.",
+  "navbar.link.services": "Huduma",
+  "footer.explore": "Gundua",
+  "footer.company": "Kampuni",
+  "footer.trustLegal": "Uaminifu na sheria",
+  "footer.deleteAccount": "Futa akaunti"
 }
