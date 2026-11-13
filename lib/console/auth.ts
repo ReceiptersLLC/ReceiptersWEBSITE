@@ -83,3 +83,13 @@ export async function sendEmail(opts: { to: string; subject: string; html: strin
 
 export const escapeHtml = (v: string) =>
   String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/**
+ * Public address used in emailed links and redirects. It is fixed on purpose: request headers can be forged,
+ * and a forged host would put a valid sign-in token in a link to someone else's site.
+ */
+export function publicBaseUrl(requestOrigin: string): string {
+  const configured = process.env.CONSOLE_BASE_URL;
+  if (configured) return configured.replace(/\/$/, '');
+  return process.env.NODE_ENV === 'production' ? 'https://www.receipters.com' : requestOrigin;
+}

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createToken, isOwnerEmail, secretConfigured, sendEmail } from '@/lib/console/auth';
+import { createToken, isOwnerEmail, publicBaseUrl, secretConfigured, sendEmail } from '@/lib/console/auth';
 import { renderEmail } from '@/lib/console/emailTemplate';
 
 export async function POST(request: Request) {
@@ -18,7 +18,7 @@ export async function POST(request: Request) {
   if (!isOwnerEmail(address)) return generic;
 
   const token = createToken('link', address);
-  const base = (process.env.CONSOLE_BASE_URL || new URL(request.url).origin).replace(/\/$/, '');
+  const base = publicBaseUrl(new URL(request.url).origin);
   const link = `${base}/api/console/verify?token=${encodeURIComponent(token as string)}`;
 
   const { html, text } = renderEmail({
