@@ -140,14 +140,6 @@ export default function Footer() {
                   <div className="min-w-0">
                     <h3 className="font-serif text-xl font-medium leading-tight text-white">{t(title)}</h3>
                     <p className="mt-2 whitespace-pre-line text-[15px] leading-relaxed text-white/80">{t(address)}</p>
-                    <a
-                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t(address).replace(/\n/g, ", "))}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-3 inline-block text-sm font-semibold text-skyDeep underline-offset-4 hover:text-white hover:underline"
-                    >
-                      {t("footer.openInMaps")}
-                    </a>
                   </div>
                 </article>
               ))}
