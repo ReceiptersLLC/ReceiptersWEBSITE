@@ -94,13 +94,13 @@
   "landing.features.developerFriendlyApis.title": "APIs Amicales pour les Développeurs",
   "landing.features.developerFriendlyApis.description": "Des API REST modernes, des webhooks et des SDK rendent facile l'intégration de Receipters dans vos POS, SoftPOS, plateformes e-commerce et systèmes personnalisés – sans perturber vos workflows existants.",
   "landing.howItWorks.newTitle": "Comment Receipters Fonctionne",
-  "landing.howItWorks.step1.title": "Étape 1 – Capture",
+  "landing.howItWorks.step1.title": "Capture",
   "landing.howItWorks.step1.description": "Les reçus sont générés numériquement depuis POS ou SoftPOS, capturés comme images haute résolution via l'Application Receipters, ou reçus depuis des canaux intégrés comme e-commerce et livraison.",
-  "landing.howItWorks.step2.title": "Étape 2 – Structurer et Stocker",
+  "landing.howItWorks.step2.title": "Structurer et stocker",
   "landing.howItWorks.step2.description": "Notre moteur extrait et structure les données d'éléments de ligne – marchand, outlet, produits, quantités, taxes, totaux, méthodes de paiement, horodatages – et stocke dans le Vault Receipters comme données propres et standardisées.",
-  "landing.howItWorks.step3.title": "Étape 3 – Rechercher et Récupérer",
+  "landing.howItWorks.step3.title": "Rechercher et récupérer",
   "landing.howItWorks.step3.description": "Les marchands et consommateurs peuvent rechercher instantanément des reçus en utilisant des tableaux de bord web ou l'Application Receipters. Filtrer par date, magasin, montant, SKU, méthode de paiement, etc.",
-  "landing.howItWorks.step4.title": "Étape 4 – Analyser et Agir (Optionnel)",
+  "landing.howItWorks.step4.title": "Analyser et agir",
   "landing.howItWorks.step4.description": "Avec le produit Analyse de Données activé, des tableaux de bord alimentés par l'IA et un assistant intelligent transforment vos données de reçus en insights, alertes et rapports qui conduisent à de meilleures décisions.",
   "landing.aiSection.title": "IA Qui Fonctionne sur des Données de Transaction Réelles",
   "landing.aiSection.description": "Les reçus sont l'une des sources de données les plus riches et détaillées dans le commerce – mais elles sont généralement piégées sur papier ou dispersées dans les systèmes. Receipters change cela en transformant chaque reçu en données structurées et prêtes pour l'IA.",
@@ -578,5 +578,9 @@
   "signup.toast.successOtp": "Compte créé ! Redirection vers la vérification.",
   "signup.toast.successLogin": "Connexion réussie !",
   "signup.toast.googleFailed": "La connexion avec Google a échoué. Veuillez réessayer.",
-  "signup.toast.facebookFailed": "La connexion avec Facebook a échoué. Veuillez réessayer."
+  "signup.toast.facebookFailed": "La connexion avec Facebook a échoué. Veuillez réessayer.",
+  "landing.hero.artifactCaption": "Reçu d'exemple et l'enregistrement stocké correspondant.",
+  "landing.whoWeServe.other.title": "Un autre secteur ?",
+  "landing.whoWeServe.other.description": "Décrivez votre environnement de point de vente et nous vous conseillerons sur l'intégration.",
+  "footer.tagline": "Infrastructure de reçus numériques pour les commerçants, les institutions et les consommateurs."
 }

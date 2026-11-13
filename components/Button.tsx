@@ -21,16 +21,16 @@ export default function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  let buttonClasses = 'flex items-center text-btn h-fit py-3 rounded-xl focus:outline-none';
+  let buttonClasses = 'flex items-center justify-center text-sm font-semibold h-fit py-3 transition-colors';
   let textClasses = '';
   let iconClasses = '';
 
   // Apply variant-specific classes
   if (variant === 'primary') {
-    buttonClasses += ' px-4 bg-primary text-white hover:bg-primary-light focus:ring-blue-500';
+    buttonClasses += ' px-6 bg-primary text-white hover:bg-ink';
     iconClasses += ' whiten';
   } else if (variant === 'secondary') {
-    buttonClasses += ' px-4 bg-primary-light text-white hover:bg-primary-light focus:ring-gray-500';
+    buttonClasses += ' px-6 border border-ink text-ink hover:bg-ink hover:text-white';
     iconClasses += ' whiten';
   } else if (variant === 'text') {
     textClasses += ' text-link hover:underline hover:text-primary-light focus:underline';

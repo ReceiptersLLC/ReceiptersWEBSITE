@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-    --background: #FAFAFA;
+    --background: #FFFFFF;
     --foreground: #171717;
 }
 
@@ -17,9 +17,46 @@
 /*}*/
 
 body {
-    /*color: var(--foreground);*/
+    color: #0E1433;
     background: var(--background);
-    font-family: Poppins, Helvetica, Lato, serif;
+    font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
+}
+
+/* Square corners site-wide. Circles (avatars, spinners) keep rounded-full;
+   pill-shaped buttons and links are squared like everything else. */
+[class*="rounded"]:not([class*="rounded-full"]),
+button[class*="rounded-full"],
+a[class*="rounded-full"],
+input,
+select,
+textarea {
+    border-radius: 0 !important;
+}
+
+:focus-visible {
+    outline: 2px solid #2E388F;
+    outline-offset: 2px;
+}
+
+/* Receipt paper: zig-zag torn edge along the bottom. */
+.receipt-paper {
+    -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+    mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+}
+
+/* Hero: the stored record writes itself in, one line at a time. */
+@keyframes record-line {
+    from { opacity: 0; transform: translateX(-6px); }
+    to { opacity: 1; transform: none; }
+}
+
+.record-line {
+    animation: record-line 0.35s ease-out both;
+    animation-delay: calc(var(--i) * 65ms + 350ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .record-line { animation: none; }
 }
 
 .dp-x {
