@@ -14,7 +14,7 @@ type ConsoleState = {
 
 const ConsoleContext = createContext<ConsoleState | null>(null);
 
-const verb: Record<AccountStatus, string> = { active: 'activated', paused: 'paused', deactivated: 'deactivated' };
+const verb: Record<AccountStatus, string> = { active: 'activated', paused: 'paused', deactivated: 'deactivated', invited: 'invited' };
 
 export function ConsoleProvider({ children }: { children: ReactNode }) {
   const [admins, setAdmins] = useState<AdminAccount[]>(seedAdmins);
@@ -38,9 +38,9 @@ export function ConsoleProvider({ children }: { children: ReactNode }) {
     (product: string, admin: NewAdmin) => {
       setAdmins((prev) => [
         ...prev,
-        { id: `${product}-${Date.now()}`, product, ...admin, status: 'active', lastActiveMinutes: null },
+        { id: `${product}-${Date.now()}`, product, ...admin, status: 'invited', lastActiveMinutes: null },
       ]);
-      log(product, `${admin.name} was added as ${admin.role.toLowerCase()} by you`);
+      log(product, `${admin.name} was invited as ${admin.role.toLowerCase()} by you`);
     },
     [log]
   );
