@@ -2,8 +2,8 @@
 
 import { useMemo, useState, type FormEvent } from 'react';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { ChevronRight, Pause, Play, Search, UserPlus, UserX, X } from 'lucide-react';
+import { useParams, useRouter } from 'next/navigation';
+import { ArrowLeft, ExternalLink, Pause, Play, Search, UserPlus, UserX, X } from 'lucide-react';
 import { useConsole } from '@/components/console/ConsoleProvider';
 import StatusBadge from '@/components/console/StatusBadge';
 import { consoleProducts, timeAgo, type AccountStatus, type AdminAccount } from '@/lib/console/data';
@@ -21,6 +21,7 @@ const input =
 
 export default function ProductConsole() {
   const { product: slug } = useParams<{ product: string }>();
+  const router = useRouter();
   const { admins, activity, setStatus, addAdmin } = useConsole();
   const product = consoleProducts.find((p) => p.slug === slug);
 
@@ -49,6 +50,30 @@ export default function ProductConsole() {
         <Link href="/console" className="mt-4 inline-block font-semibold text-primary underline underline-offset-4">
           Back to all products
         </Link>
+      </div>
+    );
+  }
+
+  if (product.externalConsoleUrl) {
+    return (
+      <div>
+        <Link href="/console" className="inline-flex w-fit items-center gap-2 border border-line bg-white px-4 py-2.5 text-sm font-semibold text-primary transition-colors hover:border-primary hover:bg-primary hover:text-white">
+          <ArrowLeft className="size-4" aria-hidden="true" /> Back to all products
+        </Link>
+        <div className="mt-8 max-w-xl border border-line bg-white p-8">
+          <h1 className="font-serif text-3xl font-medium tracking-tight">{product.name} has its own console</h1>
+          <p className="mt-3 text-[15px] leading-relaxed text-muted">
+            Owners and admins for {product.name} are managed in its own owner console. It opens in a new tab.
+          </p>
+          <a
+            href={product.externalConsoleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-ink"
+          >
+            Open {product.name} console <ExternalLink className="size-4" aria-hidden="true" />
+          </a>
+        </div>
       </div>
     );
   }
@@ -111,13 +136,29 @@ export default function ProductConsole() {
 
   return (
     <div>
-      <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-muted">
-        <Link href="/console" className="font-semibold text-primary hover:underline">All products</Link>
-        <ChevronRight className="size-4" aria-hidden="true" />
-        <span>{product.name}</span>
-      </nav>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <Link
+          href="/console"
+          className="inline-flex w-fit items-center gap-2 border border-line bg-white px-4 py-2.5 text-sm font-semibold text-primary transition-colors hover:border-primary hover:bg-primary hover:text-white"
+        >
+          <ArrowLeft className="size-4" aria-hidden="true" /> Back to all products
+        </Link>
+        <div className="flex items-center gap-3">
+          <label htmlFor="switch-product" className="text-sm font-semibold text-muted">Switch product</label>
+          <select
+            id="switch-product"
+            value={product.slug}
+            onChange={(e) => router.push(`/console/${e.target.value}`)}
+            className="border border-line bg-white px-3 py-2.5 text-sm font-semibold text-ink outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+          >
+            {consoleProducts.map((p) => (
+              <option key={p.slug} value={p.slug}>{p.name}</option>
+            ))}
+          </select>
+        </div>
+      </div>
 
-      <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h1 className="font-serif text-3xl font-medium tracking-tight sm:text-4xl">{product.name} console</h1>
           <p className="mt-2 text-lg text-muted">{product.description}</p>

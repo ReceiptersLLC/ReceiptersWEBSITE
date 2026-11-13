@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Boxes } from 'lucide-react';
+import { ArrowRight, Boxes, ExternalLink } from 'lucide-react';
 import { useConsole } from '@/components/console/ConsoleProvider';
 import { consoleProducts, timeAgo } from '@/lib/console/data';
 
@@ -24,21 +24,42 @@ export default function ConsoleHome() {
             (min, a) => (a.lastActiveMinutes === null ? min : min === null ? a.lastActiveMinutes : Math.min(min, a.lastActiveMinutes)),
             null
           );
-          return (
-            <Link
-              key={p.slug}
-              href={`/console/${p.slug}`}
-              className="group flex flex-col border border-line border-t-[3px] border-t-primary bg-white p-6 transition-all hover:-translate-y-0.5 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <h2 className="font-serif text-2xl font-medium tracking-tight">{p.name}</h2>
-                  <p className="mt-1 text-sm text-muted">{p.category}</p>
-                </div>
-                <span className="flex size-10 shrink-0 items-center justify-center bg-primary text-white">
-                  <Boxes className="size-5" strokeWidth={1.5} aria-hidden="true" />
-                </span>
+          const external = p.externalConsoleUrl;
+          const cardClass =
+            'group flex flex-col border border-line border-t-[3px] border-t-primary bg-white p-6 transition-all hover:-translate-y-0.5 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]';
+          const head = (
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <h2 className="font-serif text-2xl font-medium tracking-tight">{p.name}</h2>
+                <p className="mt-1 text-sm text-muted">{p.category}</p>
               </div>
+              <span className="flex size-10 shrink-0 items-center justify-center bg-primary text-white">
+                <Boxes className="size-5" strokeWidth={1.5} aria-hidden="true" />
+              </span>
+            </div>
+          );
+
+          if (external) {
+            return (
+              <a key={p.slug} href={external} target="_blank" rel="noopener noreferrer" className={cardClass}>
+                {head}
+                <p className="mt-4 text-[15px] leading-relaxed text-muted">{p.description}</p>
+                <p className="mt-6 border border-line bg-mist px-4 py-3 text-sm leading-relaxed text-muted">
+                  This product has its own owner console. It opens in a new tab.
+                </p>
+                <div className="mt-5 flex items-center justify-end border-t border-line pt-4 text-sm">
+                  <span className="flex items-center gap-1.5 font-semibold text-primary">
+                    Open {p.name} console
+                    <ExternalLink className="size-4" aria-hidden="true" />
+                  </span>
+                </div>
+              </a>
+            );
+          }
+
+          return (
+            <Link key={p.slug} href={`/console/${p.slug}`} className={cardClass}>
+              {head}
               <p className="mt-4 text-[15px] leading-relaxed text-muted">{p.description}</p>
               <dl className="mt-6 grid grid-cols-3 gap-px border border-line bg-line text-center">
                 {[
