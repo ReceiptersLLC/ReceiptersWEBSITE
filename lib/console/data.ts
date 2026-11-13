@@ -16,13 +16,33 @@ export type AdminAccount = {
 
 export type ActivityEvent = { id: string; product: string; text: string; minutesAgo: number };
 
-export type ConsoleProduct = { slug: string; name: string; category: string; description: string };
+export type ConsoleProduct = {
+  slug: string;
+  name: string;
+  category: string;
+  description: string;
+  /** Set when the product already has its own owners/admin console. The console links out to it. */
+  externalConsoleUrl?: string;
+};
 
 export const consoleProducts: ConsoleProduct[] = [
   { slug: 'receipters-app', name: 'Receipters App', category: 'Receipts', description: 'Merchant and customer receipt app.' },
-  { slug: 'bodapos', name: 'BodaPOS', category: 'Point of sale', description: 'Point of sale for retail and wholesale.' },
+  {
+    slug: 'bodapos',
+    name: 'BodaPOS',
+    category: 'Point of sale',
+    description: 'Point of sale for retail and wholesale.',
+    externalConsoleUrl: 'https://www.bodapos.com/owner',
+  },
   { slug: 'linearpos', name: 'LinearPOS', category: 'Point of sale', description: 'Point of sale for fast-moving counters.' },
   { slug: 'chomapos', name: 'ChomaPOS', category: 'Point of sale', description: 'Point of sale for food and hospitality.' },
+  {
+    slug: 'chomapos-plus',
+    name: 'ChomaPOS Plus',
+    category: 'Point of sale',
+    description: 'The Plus edition of ChomaPOS, managed in its own owner console.',
+    externalConsoleUrl: 'https://plus-owner.chomapos.com/',
+  },
   { slug: 'nairopos', name: 'NairoPOS', category: 'Point of sale', description: 'Point of sale for multi-branch retail.' },
   { slug: 'fursapay', name: 'FursaPay', category: 'Payments', description: 'Payments linked to digital receipts.' },
   { slug: 'shahidibox', name: 'ShahidiBox', category: 'Receipt vault', description: 'Keeps signed eTIMS receipts from the till.' },
@@ -33,6 +53,7 @@ const prefix: Record<string, string> = {
   bodapos: 'BP',
   linearpos: 'LP',
   chomapos: 'CP',
+  'chomapos-plus': 'CX',
   nairopos: 'NP',
   fursapay: 'FP',
   shahidibox: 'SB',
