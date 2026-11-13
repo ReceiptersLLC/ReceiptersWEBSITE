@@ -29,7 +29,7 @@ const channels = [
   { key: 'email', Icon: Mail, value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}`, external: true },
   { key: 'emailGeneral', Icon: Mail, value: GENERAL_EMAIL, href: `mailto:${GENERAL_EMAIL}`, external: true },
   { key: 'whatsappKenya', Icon: MessageCircle, value: '+254 722 752 755', href: 'https://wa.me/254722752755', external: true },
-  { key: 'whatsappUsa', Icon: MessageCircle, value: '+1 (720) 930-7025', href: 'https://wa.me/17209307025', external: true },
+  { key: 'whatsappUsa', Icon: MessageCircle, value: '+1 (720) 930-2570', href: 'https://wa.me/17209302570', external: true },
   { key: 'offices', Icon: MapPin, value: 'Nairobi, Newark, Lusaka', href: '#locations', external: false },
 ];
 
