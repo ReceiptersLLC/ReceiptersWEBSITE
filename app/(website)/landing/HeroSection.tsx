@@ -8,7 +8,7 @@ export default function HeroSection() {
   const { t } = useTranslation("common");
 
   return (
-    <section className="bg-ink-depth text-white">
+    <section className="bg-primary-hero text-white">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 py-16 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:py-24">
         <div className="flex flex-col justify-center lg:col-span-6">
           <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.6rem]">
@@ -31,7 +31,7 @@ export default function HeroSection() {
               {t("landing.hero.newButton2")}
             </Link>
           </div>
-          <p className="mt-8 text-sm text-white/55">{t("landing.hero.newSubtitle")}</p>
+          <p className="mt-8 text-sm text-white/75">{t("landing.hero.newSubtitle")}</p>
         </div>
         <div className="lg:col-span-6">
           <ReceiptArtifact caption={t("landing.hero.artifactCaption")} />

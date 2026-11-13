@@ -38,7 +38,7 @@ export default function CareersPage() {
   return (
     <div className="bg-white text-ink">
       {/* Hero with an index of the open roles */}
-      <section className="bg-ink-depth text-white">
+      <section className="bg-primary-hero text-white">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-12 lg:items-center lg:py-24">
           <div className="lg:col-span-7">
             <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.6rem]">

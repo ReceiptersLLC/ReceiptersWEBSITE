@@ -103,7 +103,7 @@ export default function ReceiptArtifact({ caption }: { caption: string }) {
           </pre>
         </div>
       </div>
-      <figcaption className="mt-4 text-xs text-white/45">{caption}</figcaption>
+      <figcaption className="mt-4 text-xs text-white/70">{caption}</figcaption>
     </figure>
   );
 }
