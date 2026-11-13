@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { SESSION_COOKIE, escapeHtml, readToken, sendEmail } from '@/lib/console/auth';
+import { SESSION_COOKIE, readToken, sendEmail } from '@/lib/console/auth';
+import { renderEmail } from '@/lib/console/emailTemplate';
 import { adminDb } from '@/lib/firebase-admin';
 
 export async function POST(request: Request) {
@@ -30,12 +31,20 @@ export async function POST(request: Request) {
     }
   }
 
-  const sent = await sendEmail({
-    to: email,
-    subject: `You have been invited to manage ${productName} on Receipters`,
-    text: `Hello ${name},\n\nYou have been invited as ${role.toLowerCase()} of ${productName} (business ID ${businessId}) on Receipters.\n\nThe Receipters team will contact you with your access details.\n\nReceipters`,
-    html: `<p>Hello ${escapeHtml(name)},</p><p>You have been invited as <strong>${escapeHtml(role.toLowerCase())}</strong> of <strong>${escapeHtml(productName)}</strong> (business ID ${escapeHtml(businessId)}) on Receipters.</p><p>The Receipters team will contact you with your access details.</p><p>Receipters</p>`,
+  const { html, text } = renderEmail({
+    eyebrow: 'Invitation',
+    heading: `You have been invited, ${name}`,
+    intro: [
+      `You have been invited as ${role.toLowerCase()} of ${productName} (business ID ${businessId}) on Receipters.`,
+      'The Receipters team will contact you with your access details.',
+    ],
+    notice: {
+      title: 'Not expecting this?',
+      body: 'Ignore this email, or write to support@receipters.com and we will remove the invitation.',
+    },
+    reason: `You received this because ${owner} invited ${email} to ${productName}.`,
   });
+  const sent = await sendEmail({ to: email, subject: `You have been invited to manage ${productName} on Receipters`, html, text });
 
   if (!sent && !stored) {
     return NextResponse.json({ message: 'The invite could not be sent or saved. Email and storage are not set up yet.' }, { status: 503 });
