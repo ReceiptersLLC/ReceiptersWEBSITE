@@ -164,6 +164,9 @@ export default function Footer() {
 const legalLinks = [
   { nameKey: "footer.legalLinks.privacyPolicy", url: "/privacy-policy" },
   { nameKey: "footer.legalLinks.termsAndConditions", url: "/terms-and-conditions" },
+  { nameKey: "legal.nav.cookies", url: "/cookie-policy" },
+  { nameKey: "legal.nav.compliance", url: "/compliance" },
+  { nameKey: "legal.nav.hub", url: "/legal" },
   { nameKey: "footer.deleteAccount", url: "/delete-account" },
 ];
 

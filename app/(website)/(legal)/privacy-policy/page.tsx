@@ -1,106 +1,90 @@
 'use client';
 
-import React from 'react';
 import { useTranslation } from 'react-i18next';
+import LegalLayout, { Section, Sub, P, List } from '@/components/legal/LegalLayout';
+
+const ids = ['collect', 'use', 'share', 'security', 'retention', 'rights', 'children', 'changes', 'contact'];
 
 export default function Page() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
+  const p = (key: string) => t(`privacyPolicy.${key}`);
+  const sections = ids.map((id, i) => ({ id, title: p(`section${i + 1}.title`) }));
 
   return (
-    <div className="max-w-screen-md mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">{t('privacyPolicy.title')}</h1>
-      <p className="text-sm text-gray-500 mb-6">{t('privacyPolicy.effectiveDate')}</p>
+    <LegalLayout title={p('title')} meta={p('effectiveDate')} subtitle={p('intro')} sections={sections}>
+      <Section id="collect" title={p('section1.title')}>
+        <P>{p('section1.intro')}</P>
+        <Sub title={p('section1.personalInfo.title')} />
+        <List items={['name', 'email', 'phone', 'billing', 'credentials'].map((k) => p(`section1.personalInfo.${k}`))} />
+        <Sub title={p('section1.financialData.title')} />
+        <List items={['transaction', 'payment'].map((k) => p(`section1.financialData.${k}`))} />
+        <Sub title={p('section1.deviceInfo.title')} />
+        <List items={['details', 'usage'].map((k) => p(`section1.deviceInfo.${k}`))} />
+        <Sub title={p('section1.location.title')} />
+        <P>{p('section1.location.description')}</P>
+        <Sub title={p('section1.cookies.title')} />
+        <List items={['storage', 'analytics'].map((k) => p(`section1.cookies.${k}`))} />
+      </Section>
 
-      <p className="mb-4">
-        {t('privacyPolicy.intro')}
-      </p>
+      <Section id="use" title={p('section2.title')}>
+        <P>{p('section2.intro')}</P>
+        <List
+          items={['accountManagement', 'transactionManagement', 'improvingServices', 'communications', 'compliance'].map((k) =>
+            p(`section2.${k}`)
+          )}
+        />
+      </Section>
 
-      <h2 className="text-xl font-semibold mt-6 mb-4">{t('privacyPolicy.section1.title')}</h2>
-      <p className="mb-4">{t('privacyPolicy.section1.intro')}</p>
+      <Section id="share" title={p('section3.title')}>
+        <P>{p('section3.intro')}</P>
+        <List
+          items={['serviceProviders', 'legalCompliance', 'businessTransfers'].map((k) => (
+            <span key={k}>
+              <strong className="font-semibold text-ink">{p(`section3.${k}.title`)}:</strong> {p(`section3.${k}.description`)}
+            </span>
+          ))}
+        />
+      </Section>
 
-      <h3 className="text-lg font-semibold mb-2">{t('privacyPolicy.section1.personalInfo.title')}</h3>
-      <ul className="list-disc ml-6 mb-4">
-        <li>{t('privacyPolicy.section1.personalInfo.name')}</li>
-        <li>{t('privacyPolicy.section1.personalInfo.email')}</li>
-        <li>{t('privacyPolicy.section1.personalInfo.phone')}</li>
-        <li>{t('privacyPolicy.section1.personalInfo.billing')}</li>
-        <li>{t('privacyPolicy.section1.personalInfo.credentials')}</li>
-      </ul>
+      <Section id="security" title={p('section4.title')}>
+        <P>{p('section4.description')}</P>
+      </Section>
 
-      <h3 className="text-lg font-semibold mb-2">{t('privacyPolicy.section1.financialData.title')}</h3>
-      <ul className="list-disc ml-6 mb-4">
-        <li>{t('privacyPolicy.section1.financialData.transaction')}</li>
-        <li>{t('privacyPolicy.section1.financialData.payment')}</li>
-      </ul>
+      <Section id="retention" title={p('section5.title')}>
+        <P>{p('section5.description')}</P>
+      </Section>
 
-      <h3 className="text-lg font-semibold mb-2">{t('privacyPolicy.section1.deviceInfo.title')}</h3>
-      <ul className="list-disc ml-6 mb-4">
-        <li>{t('privacyPolicy.section1.deviceInfo.details')}</li>
-        <li>{t('privacyPolicy.section1.deviceInfo.usage')}</li>
-      </ul>
+      <Section id="rights" title={p('section6.title')}>
+        <List items={['access', 'deletion', 'portability', 'consent'].map((k) => p(`section6.${k}`))} />
+        <P>
+          <a href="/delete-account" className="font-semibold text-primary underline underline-offset-4">
+            {t('legal.nav.delete')}
+          </a>
+        </P>
+      </Section>
 
-      <h3 className="text-lg font-semibold mb-2">{t('privacyPolicy.section1.location.title')}</h3>
-      <p className="mb-4">{t('privacyPolicy.section1.location.description')}</p>
+      <Section id="children" title={p('section7.title')}>
+        <P>{p('section7.description')}</P>
+      </Section>
 
-      <h3 className="text-lg font-semibold mb-2">{t('privacyPolicy.section1.cookies.title')}</h3>
-      <ul className="list-disc ml-6 mb-4">
-        <li>{t('privacyPolicy.section1.cookies.storage')}</li>
-        <li>{t('privacyPolicy.section1.cookies.analytics')}</li>
-      </ul>
+      <Section id="changes" title={p('section8.title')}>
+        <P>{p('section8.description')}</P>
+      </Section>
 
-      <h2 className="text-xl font-semibold mt-6 mb-4">{t('privacyPolicy.section2.title')}</h2>
-      <p className="mb-4">{t('privacyPolicy.section2.intro')}</p>
-      <ul className="list-disc ml-6 mb-4">
-        <li>{t('privacyPolicy.section2.accountManagement')}</li>
-        <li>{t('privacyPolicy.section2.transactionManagement')}</li>
-        <li>{t('privacyPolicy.section2.improvingServices')}</li>
-        <li>{t('privacyPolicy.section2.communications')}</li>
-        <li>{t('privacyPolicy.section2.compliance')}</li>
-      </ul>
-
-      <h2 className="text-xl font-semibold mt-6 mb-4">{t('privacyPolicy.section3.title')}</h2>
-      <p className="mb-4">{t('privacyPolicy.section3.intro')}</p>
-      <ul className="list-disc ml-6 mb-4">
-        <li>
-          <span className="font-semibold">{t('privacyPolicy.section3.serviceProviders.title')}:</span> {t('privacyPolicy.section3.serviceProviders.description')}
-        </li>
-        <li>
-          <span className="font-semibold">{t('privacyPolicy.section3.legalCompliance.title')}:</span> {t('privacyPolicy.section3.legalCompliance.description')}
-        </li>
-        <li>
-          <span className="font-semibold">{t('privacyPolicy.section3.businessTransfers.title')}:</span> {t('privacyPolicy.section3.businessTransfers.description')}
-        </li>
-      </ul>
-
-      <h2 className="text-xl font-semibold mt-6 mb-4">{t('privacyPolicy.section4.title')}</h2>
-      <p className="mb-4">{t('privacyPolicy.section4.description')}</p>
-
-      <h2 className="text-xl font-semibold mt-6 mb-4">{t('privacyPolicy.section5.title')}</h2>
-      <p className="mb-4">{t('privacyPolicy.section5.description')}</p>
-
-      <h2 className="text-xl font-semibold mt-6 mb-4">{t('privacyPolicy.section6.title')}</h2>
-      <ul className="list-disc ml-6 mb-4">
-        <li>{t('privacyPolicy.section6.access')}</li>
-        <li>{t('privacyPolicy.section6.deletion')}</li>
-        <li>{t('privacyPolicy.section6.portability')}</li>
-        <li>{t('privacyPolicy.section6.consent')}</li>
-      </ul>
-
-      <h2 className="text-xl font-semibold mt-6 mb-4">{t('privacyPolicy.section7.title')}</h2>
-      <p className="mb-4">{t('privacyPolicy.section7.description')}</p>
-
-      <h2 className="text-xl font-semibold mt-6 mb-4">{t('privacyPolicy.section8.title')}</h2>
-      <p className="mb-4">{t('privacyPolicy.section8.description')}</p>
-
-      <h2 className="text-xl font-semibold mt-6 mb-4">{t('privacyPolicy.section9.title')}</h2>
-      <p className="mb-4">{t('privacyPolicy.section9.intro')}</p>
-      <address className="not-italic mb-4">
-        <p>{t('privacyPolicy.section9.company')}</p>
-        <p>{t('privacyPolicy.section9.email')}: <a href="mailto:dpo@receipter.com" className="text-blue-500">dpo@receipter.com</a></p>
-        <p>{t('privacyPolicy.section9.phone')}: +254 700 031512</p>
-      </address>
-
-      <p className="text-sm text-gray-600">{t('privacyPolicy.conclusion')}</p>
-    </div>
+      <Section id="contact" title={p('section9.title')}>
+        <P>{p('section9.intro')}</P>
+        <address className="not-italic space-y-1 text-[17px] leading-[1.75] text-muted">
+          <p>{p('section9.company')}</p>
+          <p>
+            {p('section9.email')}:{' '}
+            <a href="mailto:dpo@receipter.com" className="font-semibold text-primary underline underline-offset-4">
+              dpo@receipter.com
+            </a>
+          </p>
+          <p>{p('section9.phone')}: +254 700 031512</p>
+        </address>
+        <p className="text-sm leading-relaxed text-muted">{p('conclusion')}</p>
+      </Section>
+    </LegalLayout>
   );
-};
+}
