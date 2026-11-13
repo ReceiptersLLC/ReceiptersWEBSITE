@@ -587,5 +587,12 @@
   "footer.explore": "Explorer",
   "footer.company": "Entreprise",
   "footer.trustLegal": "Confiance et mentions légales",
-  "footer.deleteAccount": "Supprimer le compte"
+  "footer.deleteAccount": "Supprimer le compte",
+  "navbar.allProducts": "Tous les produits",
+  "navbar.allServices": "Tous les services",
+  "productFamily.title": "Produits Receipters",
+  "productFamily.description": "Les produits de point de vente, de paiement et de reçus conçus par Receipters Technologies.",
+  "productFamily.category.pos": "Point de vente",
+  "productFamily.category.payments": "Paiements",
+  "productFamily.category.vault": "Coffre de reçus"
 }

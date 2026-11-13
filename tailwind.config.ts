@@ -16,6 +16,8 @@ export default {
         ink: "#0E1433",
         inkDeep: "#080C22",
         mist: "#F3F5F9",
+        sky: "#CDE7FA",
+        skyDeep: "#7CC0EE",
         line: "#D9DEEA",
         muted: "#4A5170",
         signal: "#1F9D6B",

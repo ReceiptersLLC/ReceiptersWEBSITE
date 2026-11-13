@@ -623,5 +623,12 @@
   "services.process.step3.title": "Enable analytics",
   "services.process.step3.description": "Turn on the Data Analysis module when your organisation is ready.",
   "services.cta.title": "Discuss your point-of-sale environment",
-  "services.cta.description": "Tell us which POS, SoftPOS or e-commerce systems you run and we will advise on integration."
+  "services.cta.description": "Tell us which POS, SoftPOS or e-commerce systems you run and we will advise on integration.",
+  "navbar.allProducts": "All products",
+  "navbar.allServices": "All services",
+  "productFamily.title": "Receipters products",
+  "productFamily.description": "The point-of-sale, payments and receipt products built by Receipters Technologies.",
+  "productFamily.category.pos": "Point of sale",
+  "productFamily.category.payments": "Payments",
+  "productFamily.category.vault": "Receipt vault"
 }

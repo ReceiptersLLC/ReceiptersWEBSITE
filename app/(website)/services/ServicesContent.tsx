@@ -33,7 +33,7 @@ export default function ServicesContent() {
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
           <div className="grid border-l border-t border-line md:grid-cols-2">
             {services.map(({ key, Icon }) => (
-              <div key={key} className="border-b border-r border-line p-7 sm:p-9 md:min-h-[22rem]">
+              <div key={key} id={key} className="scroll-mt-32 border-b border-r border-line p-7 sm:p-9 md:min-h-[22rem]">
                 <Icon className="size-7 text-primary" strokeWidth={1.5} aria-hidden="true" />
                 <h2 className="mt-7 text-2xl font-semibold tracking-tight text-ink">
                   {t(`services.${key}.title`)}
