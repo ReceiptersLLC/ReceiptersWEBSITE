@@ -94,13 +94,13 @@
   "landing.features.developerFriendlyApis.title": "APIs Rafiki kwa Wasanidi Programu",
   "landing.features.developerFriendlyApis.description": "APIs za REST za kisasa, webhook, na SDK hufanya iwe rahisi kuunganisha Receipters kwenye POS zako, SoftPOS, mifumo ya e-commerce, na mifumo maalum – bila kutatiza mtiririko wako wa kazi uliopo.",
   "landing.howItWorks.newTitle": "Jinsi Receipters Inavyofanya Kazi",
-  "landing.howItWorks.step1.title": "Hatua ya 1 – Kamata",
+  "landing.howItWorks.step1.title": "Nasa",
   "landing.howItWorks.step1.description": "Stakabadhi hutolewa kidijitali kutoka POS au SoftPOS, kukamatwa kama picha za hali ya juu kupitia Programu ya Receipters, au kupokelewa kutoka mifumo iliyounganishwa kama e-commerce na huduma za utoaji.",
-  "landing.howItWorks.step2.title": "Hatua ya 2 – Panga na Hifadhi",
+  "landing.howItWorks.step2.title": "Panga na hifadhi",
   "landing.howItWorks.step2.description": "Injini yetu inachimba na kupanga data ya vipengee vya mstari – mfanyabiashara, outlet, bidhaa, idadi, ushuru, jumla, njia za malipo, nyakati – na kuhifadhi katika Receipters Vault kama data safi, iliyopangwa vizuri.",
-  "landing.howItWorks.step3.title": "Hatua ya 3 – Tafuta na Pata",
+  "landing.howItWorks.step3.title": "Tafuta na pata",
   "landing.howItWorks.step3.description": "Wafanyabiashara na watumiaji wanaweza kutafuta stakabadhi mara moja kwa kutumia dashibodi za wavuti au Programu ya Receipters. Chuja kwa tarehe, duka, kiasi, SKU, njia ya malipo, na zaidi.",
-  "landing.howItWorks.step4.title": "Hatua ya 4 – Chambua na Tendeke (Hiari)",
+  "landing.howItWorks.step4.title": "Changanua na chukua hatua",
   "landing.howItWorks.step4.description": "Ikiwa bidhaa ya Uchambuzi wa Data imeamilishwa, dashibodi zinazoendeshwa na AI na msaidizi mahiri hubadilisha data yako ya stakabadhi kuwa maarifa, arifa, na ripoti zinazoendesha maamuzi bora.",
   "landing.aiSection.title": "AI Inayofanya Kazi kwenye Data Halisi ya Muamala",
   "landing.aiSection.description": "Stakabadhi ni vyanzo vikubwa zaidi vya data na vya kina katika biashara – lakini mara nyingi hufungwa kwenye karatasi au kutawanyika katika mifumo. Receipters inabadilisha hilo kwa kubadilisha kila stakabadhi kuwa data iliyopangwa, tayari kwa AI.",
@@ -578,5 +578,9 @@
   "signup.toast.successOtp": "Akaunti imeundwa! Inaelekeza kwenye uthibitishaji.",
   "signup.toast.successLogin": "Umeingia kwa mafanikio!",
   "signup.toast.googleFailed": "Kuingia kwa Google kumeshindwa. Tafadhali jaribu tena.",
-  "signup.toast.facebookFailed": "Kuingia kwa Facebook kumeshindwa. Tafadhali jaribu tena."
+  "signup.toast.facebookFailed": "Kuingia kwa Facebook kumeshindwa. Tafadhali jaribu tena.",
+  "landing.hero.artifactCaption": "Risiti ya mfano na rekodi inayohifadhiwa kwa ajili yake.",
+  "landing.whoWeServe.other.title": "Sekta nyingine?",
+  "landing.whoWeServe.other.description": "Tueleze mazingira yako ya mauzo nasi tutakushauri kuhusu uunganishaji.",
+  "footer.tagline": "Miundombinu ya risiti za kidijitali kwa wafanyabiashara, taasisi na watumiaji."
 }

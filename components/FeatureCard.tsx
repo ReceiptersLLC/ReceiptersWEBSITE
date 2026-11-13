@@ -15,33 +15,17 @@ export default function FeatureCard({ feature }: { feature: Feature }) {
 
   return (
     <>
-      <article
-        style={{
-          background: '#fff',
-          borderRadius: 12,
-          padding: 24,
-          boxShadow: '0 6px 18px rgba(0,0,0,0.06)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 12,
-        }}
-      >
-        <div style={{ minHeight: 40 }}>{feature.icon || null}</div>
-        <h3 style={{ margin: 0 }}>{feature.title}</h3>
-        <p style={{ margin: 0, color: '#666' }}>{feature.tagline}</p>
-        <div style={{ marginTop: 'auto' }}>
+      <article className="flex min-h-[17rem] flex-col gap-3 border border-line bg-white p-7">
+        <div className="min-h-10 text-primary">{feature.icon || null}</div>
+        <h3 className="m-0 text-lg font-semibold text-ink">{feature.title}</h3>
+        <p className="m-0 text-[15px] leading-relaxed text-muted">{feature.tagline}</p>
+        <div className="mt-auto pt-3">
           <button
+            type="button"
             onClick={() => setOpen(true)}
-            style={{
-              background: 'linear-gradient(90deg,#2e3fd5,#0b2347)',
-              color: '#fff',
-              padding: '12px 22px',
-              borderRadius: 999,
-              border: 'none',
-              cursor: 'pointer',
-            }}
+            className="bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ink"
           >
-            learn More →
+            Learn more
           </button>
         </div>
       </article>
