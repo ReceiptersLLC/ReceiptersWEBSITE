@@ -35,7 +35,7 @@ export function Modules() {
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              <h2 className="font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
                 {t("landing.features.newTitle")}
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-muted">
@@ -45,13 +45,13 @@ export function Modules() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/product"
-                className="inline-flex items-center justify-center bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink"
+                className="inline-flex items-center justify-center bg-primary px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-ink"
               >
                 {t("landing.features.comparePlans")}
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center border border-ink px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-white"
+                className="inline-flex items-center justify-center border border-ink px-6 py-3 text-sm font-semibold text-ink transition-all hover:-translate-y-0.5 hover:bg-ink hover:text-white"
               >
                 {t("landing.features.talkToTeam")}
               </Link>
@@ -63,7 +63,7 @@ export function Modules() {
               <Link
                 key={key}
                 href={href}
-                className="group flex min-h-[15rem] flex-col border-b border-r border-line bg-white p-7 transition-colors hover:bg-mist"
+                className="group relative flex min-h-[15rem] flex-col border-b border-r border-line bg-white p-7 transition-all hover:z-10 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]"
               >
                 <Icon className="size-7 text-primary" strokeWidth={1.5} aria-hidden="true" />
                 <h3 className="mt-8 text-lg font-semibold text-ink">
@@ -91,7 +91,7 @@ export function WhyReceipters() {
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:py-28">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-28">
-              <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              <h2 className="font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
                 {t("landing.features.whyReceipters.title")}
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-muted">
@@ -101,7 +101,7 @@ export function WhyReceipters() {
           </div>
           <div className="grid border-l border-t border-line sm:grid-cols-2 lg:col-span-8">
             {reasons.map(({ key, Icon }) => (
-              <div key={key} className="border-b border-r border-line bg-white p-7 sm:min-h-[17rem]">
+              <div key={key} className="border-b border-r border-line bg-white p-7 transition-colors hover:bg-mist/60 sm:min-h-[17rem]">
                 <Icon className="size-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
                 <h3 className="mt-6 text-lg font-semibold text-ink">
                   {t(`landing.features.${key}.title`)}

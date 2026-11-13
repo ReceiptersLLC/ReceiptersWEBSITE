@@ -23,7 +23,8 @@ export default {
         signal: "#1F9D6B",
       },
       fontFamily: {
-        sans: ['"IBM Plex Sans"', "Helvetica", "Arial", "sans-serif"],
+        sans: ['"Hanken Grotesk Variable"', '"Hanken Grotesk"', "Helvetica", "Arial", "sans-serif"],
+        serif: ['"Fraunces Variable"', '"Fraunces"', "Georgia", "serif"],
         mono: ['"IBM Plex Mono"', "ui-monospace", "Menlo", "monospace"],
       },
     },

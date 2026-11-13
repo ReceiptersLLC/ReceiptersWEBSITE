@@ -20,12 +20,12 @@ export function Steps() {
   return (
       <section id="how-it-works" className="scroll-mt-28 border-t border-line bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-          <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          <h2 className="font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
             {t("landing.howItWorks.newTitle")}
           </h2>
           <ol className="mt-12 grid list-none border-l border-t border-line p-0 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
-              <li key={step} className="border-b border-r border-line p-7 lg:min-h-[19rem]">
+              <li key={step} className="border-b border-r border-line p-7 transition-colors hover:bg-mist/60 lg:min-h-[19rem]">
                 <div className="font-mono text-sm font-medium text-primary">
                   {String(index + 1).padStart(2, "0")}
                 </div>
@@ -48,10 +48,10 @@ export function Analytics() {
   const { t } = useTranslation("common");
 
   return (
-      <section className="bg-ink text-white">
+      <section className="bg-ink-depth text-white">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
           <div className="max-w-3xl">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="font-serif text-3xl font-medium tracking-tight sm:text-4xl">
               {t("landing.aiSection.title")}
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-white/70">
@@ -82,7 +82,7 @@ export function AppSection() {
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              <h2 className="font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
                 {t("landing.appSection.title")}
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-muted">
@@ -140,12 +140,12 @@ export function Sectors() {
   return (
       <section id="sectors" className="scroll-mt-28 border-t border-line bg-mist">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-          <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          <h2 className="font-serif max-w-2xl text-3xl font-medium tracking-tight text-ink sm:text-4xl">
             {t("landing.whoWeServe.title")}
           </h2>
           <div className="mt-12 grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
             {sectors.map((key) => (
-              <div key={key} className="border-b border-r border-line bg-white p-7 lg:min-h-[13rem]">
+              <div key={key} className="border-b border-r border-line bg-white p-7 transition-colors hover:bg-mist/60 lg:min-h-[13rem]">
                 <h3 className="text-lg font-semibold text-ink">
                   {t(`landing.whoWeServe.${key}.title`)}
                 </h3>
@@ -156,7 +156,7 @@ export function Sectors() {
             ))}
             <Link
               href="/contact"
-              className="group flex flex-col border-b border-r border-line bg-primary p-7 text-white transition-colors hover:bg-ink lg:min-h-[13rem]"
+              className="group flex flex-col border-b border-r border-line bg-primary p-7 text-white transition-all hover:-translate-y-0.5 hover:bg-ink lg:min-h-[13rem]"
             >
               <h3 className="text-lg font-semibold">{t("landing.whoWeServe.other.title")}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-white/75">

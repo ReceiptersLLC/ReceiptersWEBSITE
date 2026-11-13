@@ -11,7 +11,7 @@ export default function ProductFamily() {
   return (
     <section className="border-y border-line bg-mist">
       <div className="mx-auto max-w-7xl px-5 py-16 text-left sm:px-8 lg:py-20">
-        <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+        <h2 className="font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
           {t("productFamily.title")}
         </h2>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
@@ -22,10 +22,10 @@ export default function ProductFamily() {
             <div
               key={product.slug}
               id={product.slug}
-              className="flex min-h-[11rem] scroll-mt-32 flex-col border-b border-r border-line bg-white p-7"
+              className="group relative flex min-h-[11rem] scroll-mt-32 flex-col border-b border-r border-line bg-white p-7 transition-all hover:z-10 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]"
             >
               <div className="text-sm text-muted">{t(product.categoryKey)}</div>
-              <h3 className="mt-2 text-2xl font-semibold tracking-tight text-ink">{product.name}</h3>
+              <h3 className="font-serif mt-2 text-2xl font-medium tracking-tight text-ink">{product.name}</h3>
               <div className="mt-auto pt-6">
                 {product.href ? (
                   <a

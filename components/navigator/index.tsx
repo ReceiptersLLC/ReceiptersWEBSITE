@@ -152,7 +152,7 @@ export default function Navigator() {
               <span className="relative block h-11 w-[30px]">
                 <Image src="/img/logo.svg" alt="" fill className="object-contain" />
               </span>
-              <span className="text-xl font-semibold tracking-tight text-ink">Receipters</span>
+              <span className="font-serif text-xl font-medium tracking-tight text-ink">Receipters</span>
             </Link>
 
             {/* Desktop navigation */}
