@@ -72,7 +72,7 @@ export default function Navigator() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={close}
-            className="flex items-center justify-between gap-3 px-4 py-2.5 text-sm text-ink hover:bg-sky"
+            className="flex items-center justify-between gap-3 px-4 py-3 text-base text-ink hover:bg-sky"
           >
             <span>{product.name}</span>
             <ArrowUpRight size={14} className="text-muted" aria-hidden="true" />
@@ -149,12 +149,12 @@ export default function Navigator() {
       {/* Main bar */}
       <nav className="border-b border-skyDeep/60 border-t-[3px] border-t-primary bg-sky" ref={navRef}>
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="flex h-[72px] items-center justify-between">
+          <div className="flex h-[92px] items-center justify-between">
             <Link href="/" className="flex items-center gap-3">
-              <span className="relative block h-11 w-[30px]">
+              <span className="relative block h-14 w-[38px]">
                 <Image src="/img/logo.svg" alt="" fill className="object-contain" />
               </span>
-              <span className="font-serif text-xl font-medium tracking-tight text-ink">Receipters</span>
+              <span className="font-serif text-[1.75rem] font-medium tracking-tight text-ink">Receipters</span>
             </Link>
 
             {/* Desktop navigation */}
@@ -197,16 +197,16 @@ export default function Navigator() {
                 <button
                   type="button"
                   onClick={() => logout()}
-                  className="px-3 py-2 text-sm font-semibold text-red-600 hover:text-red-700 hover:underline"
+                  className="px-3 py-2 text-[15px] font-semibold text-red-600 xl:text-[17px] hover:text-red-700 hover:underline"
                 >
                   {t("navbar.button.signOut")}
                 </button>
               ) : (
                 <>
-                  <Link href="/login" className="px-3 py-2 text-sm font-semibold text-ink hover:text-primary">
+                  <Link href="/login" className="px-3 py-2 text-[15px] font-semibold text-ink hover:text-primary xl:text-[17px]">
                     {t("navbar.button.login")}
                   </Link>
-                  <Link href="/signup" className="px-3 py-2 text-sm font-semibold text-ink hover:text-primary">
+                  <Link href="/signup" className="px-3 py-2 text-[15px] font-semibold text-ink hover:text-primary xl:text-[17px]">
                     {t("navbar.button.signUp")}
                   </Link>
                 </>
@@ -228,7 +228,7 @@ export default function Navigator() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="absolute left-0 top-full z-50 max-h-[calc(100vh-113px)] w-full overflow-y-auto border-b border-line bg-white lg:hidden">
+          <div className="absolute left-0 top-full z-50 max-h-[calc(100vh-133px)] w-full overflow-y-auto border-b border-line bg-white lg:hidden">
             <div className="mx-auto max-w-7xl px-5 py-3 sm:px-8">
               <NavLink href="/" label={t("navbar.link.home")} active={isActive("/")} mobile />
               <NavLink href="/about" label={t("navbar.link.about")} active={isActive("/about")} mobile />
@@ -307,17 +307,17 @@ function Dropdown({
         aria-expanded={open}
         aria-haspopup="true"
         onClick={onToggle}
-        className={`flex items-center gap-1 px-4 text-sm font-semibold transition-colors ${
+        className={`flex items-center gap-1 px-3 text-[15px] font-semibold transition-colors xl:px-4 xl:text-[17px] ${
           active ? "bg-primary text-white" : open ? "bg-white/60 text-ink" : "text-ink hover:bg-white/50"
         }`}
       >
         <span>{label}</span>
-        <ChevronDown size={15} className={`transition-transform ${open ? "rotate-180" : ""}`} aria-hidden="true" />
+        <ChevronDown size={17} className={`transition-transform ${open ? "rotate-180" : ""}`} aria-hidden="true" />
       </button>
       {open && (
         <div
           className={`absolute left-0 top-full z-50 border border-line border-t-[3px] border-t-primary bg-white py-1.5 shadow-[0_16px_32px_-12px_rgba(14,20,51,0.28)] ${
-            wide ? "w-72" : "w-56"
+            wide ? "w-80" : "w-64"
           }`}
         >
           {children}
@@ -342,7 +342,7 @@ function MenuItem({
     <Link
       href={href}
       onClick={onClick}
-      className={`block px-4 py-2.5 text-sm hover:bg-sky ${
+      className={`block px-4 py-3 text-base hover:bg-sky ${
         strong ? "mb-1 border-b border-line pb-3 font-semibold text-primary" : "text-ink"
       }`}
     >
@@ -404,7 +404,7 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={`flex items-center px-4 text-sm font-semibold transition-colors ${
+      className={`flex items-center px-3 text-[15px] font-semibold transition-colors xl:px-4 xl:text-[17px] ${
         active ? "bg-primary text-white" : "text-ink hover:bg-white/50"
       }`}
     >
