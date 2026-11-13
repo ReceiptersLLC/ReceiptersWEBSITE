@@ -594,5 +594,22 @@
   "productFamily.description": "Die Kassen-, Zahlungs- und Belegprodukte von Receipters Technologies.",
   "productFamily.category.pos": "Kassensystem",
   "productFamily.category.payments": "Zahlungen",
-  "productFamily.category.vault": "Belegtresor"
+  "productFamily.category.vault": "Belegtresor",
+  "cookies.footerLink": "Cookie-Einstellungen",
+  "cookies.banner.title": "Ihre Cookie-Auswahl",
+  "cookies.banner.description": "Wir verwenden notwendige Cookies für den Betrieb dieser Website. Mit Ihrer Erlaubnis merken wir uns außerdem Ihre Sprache und laden den WhatsApp-Support-Chat, damit Sie uns von jeder Seite aus erreichen.",
+  "cookies.banner.choose": "Auswählen",
+  "cookies.banner.necessaryOnly": "Nur notwendige",
+  "cookies.banner.acceptAll": "Alle akzeptieren",
+  "cookies.settings.title": "Cookie-Einstellungen",
+  "cookies.settings.description": "Wählen Sie, was diese Website auf Ihrem Gerät speichern darf. Sie können dies jederzeit über den Link in der Fußzeile ändern.",
+  "cookies.settings.close": "Schließen",
+  "cookies.settings.save": "Auswahl speichern",
+  "cookies.necessary.title": "Notwendig",
+  "cookies.necessary.description": "Hält Sie angemeldet und speichert Ihre Cookie-Auswahl. Ohne diese funktioniert die Website nicht.",
+  "cookies.necessary.alwaysOn": "Immer aktiv",
+  "cookies.preferences.title": "Präferenzen",
+  "cookies.preferences.description": "Merkt sich die gewählte Sprache, damit die Website beim nächsten Besuch in dieser Sprache geöffnet wird.",
+  "cookies.chat.title": "Support-Chat",
+  "cookies.chat.description": "Lädt die WhatsApp-Chat-Schaltfläche auf jeder Seite. Sie wird von einem Drittanbieter bereitgestellt, der eigene Cookies setzen kann."
 }

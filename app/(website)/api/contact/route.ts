@@ -13,22 +13,40 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!adminDb) {
-      console.error('Firebase Admin DB is not initialized. Please verify your environment variables.');
+    // Store the message when Firestore is configured. A storage failure must
+    // not stop the email notification below.
+    let stored = false;
+    if (adminDb) {
+      try {
+        await adminDb.collection('contact_messages').add({
+          fullname,
+          email,
+          subject,
+          message,
+          createdAt: new Date().toISOString(),
+        });
+        stored = true;
+      } catch (dbError) {
+        console.error('Failed to store contact message:', dbError);
+      }
+    }
+
+    const emailConfigured = Boolean(process.env.EMAIL_USER && process.env.EMAIL_PASS);
+    if (!stored && !emailConfigured) {
+      console.error('Contact form: neither Firestore nor email is configured.');
       return NextResponse.json(
-        { message: 'Database service is currently unavailable.' },
-        { status: 500 }
+        { message: 'The contact service is currently unavailable.' },
+        { status: 503 }
       );
     }
 
-    // Store contact message in Firestore collection
-    await adminDb.collection('contact_messages').add({
-      fullname,
-      email,
-      subject,
-      message,
-      createdAt: new Date().toISOString(),
-    });
+    const escapeHtml = (value: string) =>
+      String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    const headerSafe = (value: string) => String(value).replace(/[\r\n"<>]/g, ' ').trim();
 
     // Send email notification using Nodemailer
     const transporter = nodemailer.createTransport({
@@ -40,10 +58,10 @@ export async function POST(request: Request) {
     });
 
     const mailOptions = {
-      from: `"${fullname} (Contact Form)" <${process.env.EMAIL_USER}>`,
+      from: `"${headerSafe(fullname)} (Contact Form)" <${process.env.EMAIL_USER}>`,
       replyTo: email,
       to: process.env.EMAIL_RECEIVER || process.env.EMAIL_USER, // The email where you want to receive notifications
-      subject: `New Contact Form Submission: ${subject}`,
+      subject: `New Contact Form Submission: ${headerSafe(subject)}`,
       text: `You have received a new message from your website contact form.
 
 Name: ${fullname}
@@ -54,18 +72,24 @@ Message:
 ${message}
 `,
       html: `<h3>New Contact Form Submission</h3>
-<p><strong>Name:</strong> ${fullname}</p>
-<p><strong>Email:</strong> ${email}</p>
-<p><strong>Subject:</strong> ${subject}</p>
-<p><strong>Message:</strong><br>${message.replace(/\n/g, '<br>')}</p>`,
+<p><strong>Name:</strong> ${escapeHtml(fullname)}</p>
+<p><strong>Email:</strong> ${escapeHtml(email)}</p>
+<p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
+<p><strong>Message:</strong><br>${escapeHtml(message).replace(/\n/g, '<br>')}</p>`,
     };
 
-    try {
-      await transporter.sendMail(mailOptions);
-      console.log('Email notification sent successfully.');
-    } catch (emailError) {
-      console.error('Failed to send email notification:', emailError);
-      // We don't return an error here because the message was successfully saved to Firestore
+    if (emailConfigured) {
+      try {
+        await transporter.sendMail(mailOptions);
+      } catch (emailError) {
+        console.error('Failed to send email notification:', emailError);
+        if (!stored) {
+          return NextResponse.json(
+            { message: 'The contact service is currently unavailable.' },
+            { status: 503 }
+          );
+        }
+      }
     }
 
     return NextResponse.json({ message: 'Message sent successfully.' }, { status: 200 });

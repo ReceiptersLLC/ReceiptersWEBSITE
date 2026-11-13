@@ -33,7 +33,7 @@ i18n
     partialBundledLanguages: true, // Allow loading of specific language resources
     detection: {
       order: ["querystring", "cookie", "localStorage", "navigator", "htmlTag"],
-      caches: ["cookie"], // Store detected language in cookies
+      caches: [], // The language is remembered only with consent; see lib/consent.ts
     },
     react: {
       useSuspense: false,
