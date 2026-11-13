@@ -53,7 +53,7 @@ export default function Footer() {
   const companyLinks = companyItems.map((link) => ({ ...link, name: t(link.name) }));
 
   return (
-    <footer className="bg-inkDeep-depth text-white">
+    <footer className="border-t border-white/20 bg-inkDeep-depth text-white">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         {/* Brand, app and link columns */}
         <div className="grid gap-12 border-b border-white/15 py-16 lg:grid-cols-12 lg:py-20">
@@ -102,7 +102,7 @@ export default function Footer() {
         <div id="locations" className="grid scroll-mt-32 gap-12 border-b border-white/15 py-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <div className="text-[15px] font-semibold">{t("footer.getInTouch")}</div>
-            <p className="mt-2 max-w-md text-sm leading-relaxed text-white/60">{t("footer.getInTouchDescription")}</p>
+            <p className="mt-2 max-w-md text-sm leading-relaxed text-white/75">{t("footer.getInTouchDescription")}</p>
             <ul className="m-0 mt-5 list-none space-y-3 p-0">
               {contacts.map(({ key, value, href, Icon }) => (
                 <li key={key}>
@@ -112,7 +112,7 @@ export default function Footer() {
                     className="group flex items-center gap-3 text-[15px] text-white/80 transition-colors hover:text-white"
                   >
                     <Icon className="size-4 shrink-0 text-skyDeep" strokeWidth={1.75} aria-hidden="true" />
-                    <span className="w-40 shrink-0 text-white/55">{t(key)}</span>
+                    <span className="w-40 shrink-0 text-white/75">{t(key)}</span>
                     <span className="font-medium group-hover:underline group-hover:underline-offset-4">{value}</span>
                   </a>
                 </li>
@@ -130,7 +130,7 @@ export default function Footer() {
             <div className="text-[15px] font-semibold">{t("footer.locations")}</div>
             <div className="mt-5 grid gap-8 sm:grid-cols-3">
               {offices.map(({ title, address }) => (
-                <div key={title} className="text-sm leading-relaxed text-white/65">
+                <div key={title} className="text-sm leading-relaxed text-white/78">
                   <div className="mb-1.5 flex items-center gap-2 font-medium text-white">
                     <MapPin className="size-4 text-skyDeep" strokeWidth={1.75} aria-hidden="true" />
                     {t(title)}
@@ -143,7 +143,7 @@ export default function Footer() {
         </div>
 
         {/* Legal bar */}
-        <div className="flex flex-col gap-5 py-8 text-sm text-white/60 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-5 py-8 text-sm text-white/75 lg:flex-row lg:items-center lg:justify-between">
           <div>© {new Date().getFullYear()} Receipters Technology. All rights reserved.</div>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {legalLinks.map((link) => (
