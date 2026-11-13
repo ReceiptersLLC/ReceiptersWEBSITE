@@ -637,5 +637,7 @@
   "careers.roles.accountant.summary": "Tenez nos comptes avec rigueur et aidez à garantir que les reçus respectent les règles fiscales et de conformité.",
   "careers.roles.accountant.point1": "Gérer la facturation, les paiements, le rapprochement et la clôture mensuelle",
   "careers.roles.accountant.point2": "Préparer la TVA et les autres déclarations obligatoires dans chaque pays où nous sommes présents",
-  "careers.roles.accountant.point3": "Vérifier que les données des reçus enregistrent la taxe comme les autorités le attendent"
+  "careers.roles.accountant.point3": "Vérifier que les données des reçus enregistrent la taxe comme les autorités le attendent",
+  "navbar.link.app": "Application",
+  "navbar.button.signOut": "Se déconnecter"
 }

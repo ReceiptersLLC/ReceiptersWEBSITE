@@ -637,5 +637,7 @@
   "careers.roles.accountant.summary": "Führen Sie unsere Bücher genau und helfen Sie sicherzustellen, dass Belege Steuer- und Compliance-Regeln erfüllen.",
   "careers.roles.accountant.point1": "Rechnungsstellung, Zahlungen, Abstimmung und Monatsabschluss verwalten",
   "careers.roles.accountant.point2": "Umsatzsteuer und andere Pflichtmeldungen in jedem unserer Länder vorbereiten",
-  "careers.roles.accountant.point3": "Prüfen, ob Belegdaten die Steuer so erfassen, wie Behörden es erwarten"
+  "careers.roles.accountant.point3": "Prüfen, ob Belegdaten die Steuer so erfassen, wie Behörden es erwarten",
+  "navbar.link.app": "App",
+  "navbar.button.signOut": "Abmelden"
 }

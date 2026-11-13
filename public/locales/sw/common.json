@@ -637,5 +637,7 @@
   "careers.roles.accountant.summary": "Weka vitabu vyetu sahihi na usaidie kuhakikisha risiti zinakidhi sheria za kodi na uzingatiaji.",
   "careers.roles.accountant.point1": "Simamia ankara, malipo, usuluhishi na kufunga mwezi",
   "careers.roles.accountant.point2": "Andaa VAT na ritani nyingine za lazima katika kila nchi tunayofanyia kazi",
-  "careers.roles.accountant.point3": "Kagua jinsi data ya risiti inavyorekodi kodi ili ilingane na matarajio ya wadhibiti"
+  "careers.roles.accountant.point3": "Kagua jinsi data ya risiti inavyorekodi kodi ili ilingane na matarajio ya wadhibiti",
+  "navbar.link.app": "Programu",
+  "navbar.button.signOut": "Toka"
 }
