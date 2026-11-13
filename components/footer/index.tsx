@@ -128,15 +128,28 @@ export default function Footer() {
 
           <div className="lg:col-span-7">
             <div className="text-[15px] font-semibold">{t("footer.locations")}</div>
-            <div className="mt-5 grid gap-8 sm:grid-cols-3">
+            <div className="mt-5 grid gap-4">
               {offices.map(({ title, address }) => (
-                <div key={title} className="text-sm leading-relaxed text-white/78">
-                  <div className="mb-1.5 flex items-center gap-2 font-medium text-white">
-                    <MapPin className="size-4 text-skyDeep" strokeWidth={1.75} aria-hidden="true" />
-                    {t(title)}
+                <article
+                  key={title}
+                  className="group flex gap-5 border border-white/20 border-l-[3px] border-l-skyDeep bg-white/[0.07] p-5 transition-all hover:-translate-y-0.5 hover:border-white/40 hover:border-l-skyDeep hover:bg-white/[0.12] hover:shadow-[0_18px_30px_-16px_rgba(8,12,34,0.7)] sm:p-6"
+                >
+                  <div className="flex size-11 shrink-0 items-center justify-center bg-white text-primary">
+                    <MapPin className="size-5" strokeWidth={1.75} aria-hidden="true" />
                   </div>
-                  <span className="whitespace-pre-line">{t(address)}</span>
-                </div>
+                  <div className="min-w-0">
+                    <h3 className="font-serif text-xl font-medium leading-tight text-white">{t(title)}</h3>
+                    <p className="mt-2 whitespace-pre-line text-[15px] leading-relaxed text-white/80">{t(address)}</p>
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t(address).replace(/\n/g, ", "))}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-block text-sm font-semibold text-skyDeep underline-offset-4 hover:text-white hover:underline"
+                    >
+                      {t("footer.openInMaps")}
+                    </a>
+                  </div>
+                </article>
               ))}
             </div>
           </div>

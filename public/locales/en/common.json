@@ -790,5 +790,6 @@
   "legal.nav.cookies": "Cookie Policy",
   "legal.nav.compliance": "Compliance",
   "legal.nav.delete": "Delete account",
-  "legal.onThisPage": "On this page"
+  "legal.onThisPage": "On this page",
+  "footer.openInMaps": "Open in Maps"
 }
