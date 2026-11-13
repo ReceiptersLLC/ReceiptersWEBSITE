@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import { Globe, Zap, Heart, Code2, Megaphone, Headset, Calculator, Check, Mail, ArrowDown, MapPin } from 'lucide-react';
+import { Globe, Zap, Heart, Code2, Megaphone, Headset, Calculator, Check, Mail, ArrowDown, MapPin, Building2, Laptop, Shuffle, Clock, CalendarClock } from 'lucide-react';
 import Link from 'next/link';
 
 const APPLY_EMAIL = 'info@receipters.com';
@@ -28,6 +28,17 @@ const offices = [
 ];
 
 const steps = ['step1', 'step2', 'step3'];
+
+const modes = [
+  { key: 'onsite', Icon: Building2 },
+  { key: 'remote', Icon: Laptop },
+  { key: 'hybrid', Icon: Shuffle },
+];
+const types = [
+  { key: 'fulltime', Icon: Clock },
+  { key: 'parttime', Icon: CalendarClock },
+];
+const workPoints = ['point1', 'point2', 'point3'];
 
 export default function CareersPage() {
   const { t } = useTranslation('common');
@@ -163,20 +174,80 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Where we work */}
-      <section className="border-b border-line bg-white">
+      {/* How and where we work */}
+      <section id="how-we-work" className="scroll-mt-28 bg-white">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+          <h2 className="max-w-2xl font-serif text-3xl font-medium tracking-tight sm:text-4xl">{t('careers.work.title')}</h2>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{t('careers.work.subtitle')}</p>
+
+          <h3 className="mt-12 text-[15px] font-semibold">{t('careers.work.modesTitle')}</h3>
+          <div className="mt-4 grid gap-6 md:grid-cols-3">
+            {modes.map(({ key, Icon }) => (
+              <article
+                key={key}
+                className="flex flex-col border border-line border-t-[3px] border-t-primary bg-white p-7 transition-all hover:-translate-y-0.5 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]"
+              >
+                <div className="flex size-12 items-center justify-center bg-primary text-white">
+                  <Icon className="size-6" strokeWidth={1.5} aria-hidden="true" />
+                </div>
+                <h4 className="mt-6 font-serif text-2xl font-medium tracking-tight">{t(`careers.work.modes.${key}.title`)}</h4>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted">{t(`careers.work.modes.${key}.summary`)}</p>
+                <ul className="m-0 mt-5 list-none space-y-3 border-t border-line p-0 pt-5">
+                  {workPoints.map((point) => (
+                    <li key={point} className="flex gap-3 text-[15px] leading-relaxed text-muted">
+                      <Check className="mt-1 size-4 shrink-0 text-signal" strokeWidth={2.5} aria-hidden="true" />
+                      <span>{t(`careers.work.modes.${key}.${point}`)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <h3 className="mt-14 text-[15px] font-semibold">{t('careers.work.typesTitle')}</h3>
+          <div className="mt-4 grid gap-6 md:grid-cols-2">
+            {types.map(({ key, Icon }) => (
+              <article key={key} className="flex gap-5 border border-line bg-mist p-7">
+                <div className="flex size-12 shrink-0 items-center justify-center bg-white text-primary">
+                  <Icon className="size-6" strokeWidth={1.5} aria-hidden="true" />
+                </div>
+                <div>
+                  <h4 className="font-serif text-2xl font-medium tracking-tight">{t(`careers.work.types.${key}.title`)}</h4>
+                  <p className="mt-2 text-[15px] leading-relaxed text-muted">{t(`careers.work.types.${key}.summary`)}</p>
+                  <ul className="m-0 mt-4 list-none space-y-2.5 p-0">
+                    {workPoints.map((point) => (
+                      <li key={point} className="flex gap-3 text-[15px] leading-relaxed text-muted">
+                        <Check className="mt-1 size-4 shrink-0 text-primary" strokeWidth={2.5} aria-hidden="true" />
+                        <span>{t(`careers.work.types.${key}.${point}`)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-8 max-w-3xl text-[15px] leading-relaxed text-muted">{t('careers.work.note')}</p>
+        </div>
+      </section>
+
+      {/* Onsite locations */}
+      <section className="border-y border-line bg-mist">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
           <h2 className="max-w-2xl font-serif text-3xl font-medium tracking-tight sm:text-4xl">{t('careers.where.title')}</h2>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{t('careers.where.subtitle')}</p>
-          <div className="mt-10 grid border-l border-t border-line md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {offices.map(({ title, address }) => (
-              <div key={title} className="border-b border-r border-line p-7">
-                <div className="flex items-center gap-2 text-lg font-semibold">
-                  <MapPin className="size-5 text-primary" strokeWidth={1.75} aria-hidden="true" />
-                  {t(title)}
+              <article
+                key={title}
+                className="border border-line border-l-[3px] border-l-primary bg-white p-7 transition-all hover:-translate-y-0.5 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]"
+              >
+                <div className="flex size-11 items-center justify-center bg-primary text-white">
+                  <MapPin className="size-5" strokeWidth={1.75} aria-hidden="true" />
                 </div>
-                <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed text-muted">{t(address)}</p>
-              </div>
+                <h3 className="mt-5 font-serif text-xl font-medium">{t(title)}</h3>
+                <p className="mt-2 whitespace-pre-line text-[15px] leading-relaxed text-muted">{t(address)}</p>
+              </article>
             ))}
           </div>
         </div>
