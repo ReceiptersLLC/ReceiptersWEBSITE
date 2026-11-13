@@ -1,312 +1,206 @@
 'use client'
-// import Image from 'next/image';
 import React from 'react';
-import { Smartphone, MonitorSmartphone, UploadCloud, Smile } from "lucide-react";
-// import {ReactNode} from "react";
+import Link from 'next/link';
+import {
+  ReceiptText,
+  Database,
+  MonitorSmartphone,
+  Wallet,
+  Share2,
+  ChartLine,
+  Tags,
+  TrendingUp,
+  ScanSearch,
+  UploadCloud,
+  Smartphone,
+  Smile,
+  Check,
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/navigation';
 import ProductFamily from '@/components/ProductFamily';
 
 const features = [
-  {
-    title: "product.features.digitalReceiptIssuance.title",
-    slug: "digital-receipt-issuance",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-    ),
-    description: "product.features.digitalReceiptIssuance.description"
-  },
-  {
-    title: "product.features.offlineFunctionality.title",
-    slug: "receipt-storage",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 3v18h18M8 8h8v8H8z" />
-      </svg>
-    ),
-    description: "product.features.offlineFunctionality.description"
-  },
-  {
-    title: "landing.features.receiptersApp.title",
-    slug: "multi-device",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 10h16M4 14h8" />
-      </svg>
-    ),
-    description: "product.features.multiDeviceSync.description"
-  },
-  {
-    title: "product.features.budgetingAssistant.title",
-    slug: "data-analysis",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2h0c1.1 0 2 .9 2 2s-.9 2-2 2m0-6v2m0 4v.01" />
-      </svg>
-    ),
-    description: "product.features.budgetingAssistant.description"
-  },
-  {
-    title: "product.features.expenseSharing.title",
-    slug: "receipt-sharing",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5" />
-      </svg>
-    ),
-    description: "product.features.expenseSharing.description"
-  },
-  {
-    title: "product.features.vendorAnalyticsDashboard.title",
-    slug: "vendor-analytics-dashboard",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
-      </svg>
-    ),
-    description: "product.features.vendorAnalyticsDashboard.description"
-  }
+  { title: 'product.features.digitalReceiptIssuance.title', slug: 'digital-receipt-issuance', Icon: ReceiptText, description: 'product.features.digitalReceiptIssuance.description' },
+  { title: 'product.features.offlineFunctionality.title', slug: 'receipt-storage', Icon: Database, description: 'product.features.offlineFunctionality.description' },
+  { title: 'landing.features.receiptersApp.title', slug: 'multi-device', Icon: MonitorSmartphone, description: 'product.features.multiDeviceSync.description' },
+  { title: 'product.features.budgetingAssistant.title', slug: 'data-analysis', Icon: Wallet, description: 'product.features.budgetingAssistant.description' },
+  { title: 'product.features.expenseSharing.title', slug: 'receipt-sharing', Icon: Share2, description: 'product.features.expenseSharing.description' },
+  { title: 'product.features.vendorAnalyticsDashboard.title', slug: 'vendor-analytics-dashboard', Icon: ChartLine, description: 'product.features.vendorAnalyticsDashboard.description' },
 ];
 
 const aiBenefits = [
-  {
-    emoji: "🧠",
-    title: "product.aiBenefits.smartCategorization.title",
-    description: "product.aiBenefits.smartCategorization.description"
-  },
-  {
-    emoji: "📊",
-    title: "product.aiBenefits.trendDetection.title",
-    description: "product.aiBenefits.trendDetection.description"
-  },
-  {
-    emoji: "🔍",
-    title: "product.aiBenefits.instantRetrieval.title",
-    description: "product.aiBenefits.instantRetrieval.description"
-  }
+  { Icon: Tags, title: 'product.aiBenefits.smartCategorization.title', description: 'product.aiBenefits.smartCategorization.description' },
+  { Icon: TrendingUp, title: 'product.aiBenefits.trendDetection.title', description: 'product.aiBenefits.trendDetection.description' },
+  { Icon: ScanSearch, title: 'product.aiBenefits.instantRetrieval.title', description: 'product.aiBenefits.instantRetrieval.description' },
 ];
+
+const steps = [
+  { key: 'step1', Icon: MonitorSmartphone },
+  { key: 'step2', Icon: UploadCloud },
+  { key: 'step3', Icon: Smartphone },
+  { key: 'step4', Icon: Smile },
+];
+
+const buttonPrimary =
+  'inline-flex items-center justify-center bg-primary px-7 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-ink';
+const buttonOutline =
+  'inline-flex items-center justify-center border border-ink px-7 py-3.5 text-sm font-semibold text-ink transition-all hover:-translate-y-0.5 hover:bg-ink hover:text-white';
 
 export default function Page() {
   const { t } = useTranslation('common');
-  const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 text-gray-600">
-
-      {/* Hero Section */}
-      <section className="py-20 bg-white text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          <h1 className="text-5xl font-extrabold text-gray-900 mb-6">{t('product.hero.title')}</h1>
-          <p className="text-lg text-gray-600 mb-6">
-            {t('product.hero.description')}
-          </p>
-          <p className="text-base text-gray-600">
-            {t('product.hero.description1')}
-          </p>
-          <ul className="text-left inline-block mt-4 text-gray-600">
-            <li>• {t('product.hero.bullet1')}</li>
-            <li>• {t('product.hero.bullet2')}</li>
-            <li>• {t('product.hero.bullet3')}</li>
-            <li>• {t('product.hero.bullet4')}</li>
-          </ul>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <a href="/download" className="bg-blue-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition text-center">
-              {t('product.hero.button1')}
-            </a>
-            <button
-              onClick={() => router.push('/contact')}
-              className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-full shadow-lg border-2 border-blue-600 hover:bg-blue-50 transition"
-            >
-              {t('product.hero.button2')}
-            </button>
+    <div className="bg-white text-ink">
+      {/* Hero */}
+      <section className="bg-ink-depth text-white">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-12 lg:py-24">
+          <div className="lg:col-span-7">
+            <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.4rem]">
+              {t('product.hero.title')}
+            </h1>
+            <p className="mt-6 max-w-2xl text-[1.1rem] leading-[1.7] text-white/75">{t('product.hero.description')}</p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/download"
+                className="inline-flex items-center justify-center bg-white px-7 py-3.5 text-sm font-semibold text-ink transition-all hover:-translate-y-0.5 hover:bg-mist"
+              >
+                {t('product.hero.button1')}
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:border-white hover:bg-white/10"
+              >
+                {t('product.hero.button2')}
+              </Link>
+            </div>
+          </div>
+          <div className="lg:col-span-5">
+            <p className="text-[15px] leading-relaxed text-white/70">{t('product.hero.description1')}</p>
+            <ul className="mt-5 list-none space-y-3 border-t border-white/15 p-0 pt-5">
+              {['bullet1', 'bullet2', 'bullet3', 'bullet4'].map((key) => (
+                <li key={key} className="flex gap-3 text-[15px] leading-relaxed text-white/85">
+                  <Check className="mt-1 size-4 shrink-0 text-[#7BE0B5]" strokeWidth={2.5} aria-hidden="true" />
+                  <span>{t(`product.hero.${key}`)}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
       <ProductFamily />
 
-      {/* Features Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-gray-900">{t('product.features.title')}</h2>
-          <p className="text-xl text-center mb-8 text-gray-600">{t('product.features.subtitle')}</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Feature Cards */}
-            {features.map((feature, index) => (
-              <FeatureCard
-                key={index}
-                title={t(feature.title)}
-                icon={feature.icon}
-                description={t(feature.description)}
-                slug={feature.slug}
-              />
+      {/* Features */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+          <h2 className="font-serif max-w-2xl text-3xl font-medium tracking-tight sm:text-4xl">
+            {t('product.features.title')}
+          </h2>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{t('product.features.subtitle')}</p>
+          <div className="mt-12 grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+            {features.map(({ title, slug, Icon, description }) => (
+              <Link
+                key={slug}
+                href={`/features/${slug}`}
+                className="group relative flex min-h-[15rem] flex-col border-b border-r border-line bg-white p-7 transition-all hover:z-10 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]"
+              >
+                <Icon className="size-7 text-primary" strokeWidth={1.5} aria-hidden="true" />
+                <h3 className="mt-8 text-lg font-semibold">{t(title)}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-muted">{t(description)}</p>
+                <span className="mt-auto pt-6 text-sm font-semibold text-primary underline-offset-4 group-hover:underline">
+                  {t('learn More')}
+                </span>
+              </Link>
             ))}
-
           </div>
         </div>
       </section>
 
-      {/* AI Benefits Section */}
-      <section className="py-12 md:py-20 bg-white text-gray-800">
-        <div className="max-w-5xl mx-auto px-4 md:px-6 text-center">
-          <p className="text-xs md:text-sm uppercase tracking-widest text-blue-600 font-semibold mb-2 md:mb-3">{t('product.aiBenefits.subtitle')}</p>
-          <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">{t('product.aiBenefits.title')}</h2>
-          <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">
-            {t('product.aiBenefits.description')}
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-8">
-            {aiBenefits.map((benefit, idx) => (
-              <div
-                key={idx}
-                className="bg-gray-100 p-4 md:p-6 rounded-xl shadow-sm text-center transition hover:shadow-md hover:bg-gray-150">
-                <div className="text-4xl md:text-5xl mb-3 md:mb-4">{benefit.emoji}</div>
-                <h3 className="text-base md:text-lg font-bold mb-2">{t(benefit.title)}</h3>
-                <p className="text-gray-600 text-xs md:text-sm leading-relaxed">{t(benefit.description)}</p>
+      {/* AI benefits */}
+      <section className="bg-ink-depth text-white">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+          <h2 className="font-serif max-w-3xl text-3xl font-medium tracking-tight sm:text-4xl">
+            {t('product.aiBenefits.title')}
+          </h2>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/70">{t('product.aiBenefits.description')}</p>
+          <div className="mt-12 grid border-l border-t border-white/15 md:grid-cols-3">
+            {aiBenefits.map(({ Icon, title, description }) => (
+              <div key={title} className="border-b border-r border-white/15 p-7 lg:min-h-[14rem]">
+                <Icon className="size-6 text-skyDeep" strokeWidth={1.5} aria-hidden="true" />
+                <h3 className="mt-6 text-lg font-semibold">{t(title)}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-white/65">{t(description)}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* {t('product.howItWorks.title')} Section */}
-      <section className="bg-white py-20 px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-12">{t('product.howItWorks.title')}</h2>
-
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-          {/* {t('product.howItWorks.step1.title')} */}
-          <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
-            <MonitorSmartphone size={40} className="text-blue-600 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">{t('product.howItWorks.step1.title')}</h3>
-            <p className="text-gray-700 text-sm">
-              {t('product.howItWorks.step1.description')}
-            </p>
-          </div>
-
-          {/* Arrow 1 */}
-          {/* <Arrow /> */}
-
-          {/* {t('product.howItWorks.step2.title')} */}
-          <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
-            <UploadCloud size={40} className="text-green-600 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">{t('product.howItWorks.step2.title')}</h3>
-            <p className="text-gray-700 text-sm">
-              {t('product.howItWorks.step2.description')}
-            </p>
-          </div>
-
-          {/* Arrow 2 */}
-          {/* <Arrow /> */}
-
-          {/* {t('product.howItWorks.step3.title')} */}
-          <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
-            <Smartphone size={40} className="text-purple-600 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">{t('product.howItWorks.step3.title')}</h3>
-            <p className="text-gray-700 text-sm">
-              {t('product.howItWorks.step3.description')}
-            </p>
-          </div>
-
-          {/* Arrow 3 */}
-          {/* <Arrow /> */}
-
-          {/* {t('product.howItWorks.step4.title')} – Analyse and Act (Optional)*/}
-          <div className="bg-gray-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
-            <Smile size={40} className="text-yellow-500 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">{t('product.howItWorks.step4.title')}</h3>
-            <p className="text-gray-700 text-sm">
-              {t('product.howItWorks.step4.description')}
-            </p>
-          </div>
+      {/* How it works: a real sequence */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+          <h2 className="font-serif text-3xl font-medium tracking-tight sm:text-4xl">{t('product.howItWorks.title')}</h2>
+          <ol className="mt-12 grid list-none border-l border-t border-line p-0 sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map(({ key, Icon }, index) => (
+              <li key={key} className="border-b border-r border-line p-7 transition-colors hover:bg-mist/60 lg:min-h-[17rem]">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-sm font-medium text-primary">{String(index + 1).padStart(2, '0')}</span>
+                  <Icon className="size-6 text-primary" strokeWidth={1.5} aria-hidden="true" />
+                </div>
+                <div className="mt-3 h-px w-10 bg-primary" aria-hidden="true" />
+                <h3 className="mt-6 text-lg font-semibold">{t(`product.howItWorks.${key}.title`)}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-muted">{t(`product.howItWorks.${key}.description`)}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-blue-600 text-white text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">{t('product.cta.title')}</h2>
-          <p className="text-sm sm:text-base lg:text-lg mb-6 leading-relaxed">{t('product.cta.description')}</p>
-          <a href="/download" className="inline-flex items-center justify-center bg-white text-blue-600 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:bg-gray-100 transition w-full sm:w-auto max-w-sm mx-auto">
-            <span className="text-sm sm:text-base whitespace-nowrap">{t('product.cta.button')}</span>
-          </a>
-        </div>
-      </section>
-
-      {/* Product Page Closing Section */}
-      <section className="py-20 bg-white text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8">{t('product.closing.title')}</h2>
-          <p className="text-lg text-gray-900 mb-8">
-            {t('product.closing.subtitle')}
-          </p>
-          <ol className="text-left inline-block text-gray-700 mb-8 space-y-3">
-            <li className="flex items-start">
-              <span className="font-bold mr-3">1.</span>
-              <span>{t('product.closing.step1')}</span>
-            </li>
-            <li className="flex items-start">
-              <span className="font-bold mr-3">2.</span>
-              <span>{t('product.closing.step2')}</span>
-            </li>
-            <li className="flex items-start">
-              <span className="font-bold mr-3">3.</span>
-              <span>Roll out the {t('landing.features.receiptersApp.title')} to put receipts in the hands of staff and customers.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="font-bold mr-3">4.</span>
-              <span>{t('product.closing.step4')}</span>
-            </li>
-          </ol>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <button
-              onClick={() => router.push('/product')}
-              className="flex-1 sm:flex-none bg-blue-600 text-white font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition"
-            >
-              Compare Plans
-            </button>
-            <button
-              onClick={() => router.push('/contact')}
-              className="flex-1 sm:flex-none bg-white text-blue-600 font-semibold px-6 sm:px-8 py-3 rounded-full shadow-lg border-2 border-blue-600 hover:bg-blue-50 transition"
-            >
-              Talk to Our Team
-            </button>
+      <section className="bg-primary-depth text-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-20 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="font-serif text-3xl font-medium tracking-tight sm:text-4xl">{t('product.cta.title')}</h2>
+            <p className="mt-4 text-lg leading-relaxed text-white/80">{t('product.cta.description')}</p>
           </div>
+          <Link
+            href="/download"
+            className="inline-flex shrink-0 items-center justify-center bg-white px-7 py-3.5 text-sm font-semibold text-primary transition-all hover:-translate-y-0.5 hover:bg-mist"
+          >
+            {t('product.cta.button')}
+          </Link>
         </div>
       </section>
 
+      {/* Getting started: a real sequence */}
+      <section className="border-t border-line bg-mist">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:py-24">
+          <div className="lg:col-span-5">
+            <h2 className="font-serif text-3xl font-medium tracking-tight sm:text-4xl">{t('product.closing.title')}</h2>
+            <p className="mt-4 text-lg leading-relaxed text-muted">{t('product.closing.subtitle')}</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="/product" className={buttonPrimary}>
+                {t('landing.features.comparePlans')}
+              </Link>
+              <Link href="/contact" className={buttonOutline}>
+                {t('landing.features.talkToTeam')}
+              </Link>
+            </div>
+          </div>
+          <ol className="m-0 list-none border-t border-line p-0 lg:col-span-7">
+            {[
+              t('product.closing.step1'),
+              t('product.closing.step2'),
+              `Roll out the ${t('landing.features.receiptersApp.title')} to put receipts in the hands of staff and customers.`,
+              t('product.closing.step4'),
+            ].map((text, index) => (
+              <li key={index} className="flex gap-5 border-b border-line py-5">
+                <span className="font-mono text-sm font-medium text-primary">{String(index + 1).padStart(2, '0')}</span>
+                <span className="text-[17px] leading-relaxed">{text}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
     </div>
   );
 }
-
-function FeatureCard({
-  title,
-  icon,
-  description,
-  slug,
-}: {
-  title: string;
-  icon: React.ReactNode;
-  description: string;
-  slug: string;
-}) {
-  const { t } = useTranslation('common');
-  const router = useRouter();
-
-  return (
-    <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition transform hover:scale-105">
-      <div className="flex justify-center mb-4">{icon}</div>
-      <h3 className="font-semibold text-xl mb-2 text-center text-gray-900">{title}</h3>
-      <p className="text-gray-600 text-center mb-4">{description}</p>
-      <div className="text-center">
-        <button
-          onClick={() => router.push(`/features/${slug}`)}
-          className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
-        >
-          {t('learn More')}
-        </button>
-      </div>
-    </div>
-  );
-}
-

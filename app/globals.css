@@ -19,7 +19,17 @@
 body {
     color: #0E1433;
     background: var(--background);
-    font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
+    font-family: "Hanken Grotesk Variable", "Hanken Grotesk", Helvetica, Arial, sans-serif;
+    font-optical-sizing: auto;
+}
+
+/* Fraunces is used as the display face for headlines. Its optical-size axis
+   sizes itself automatically (font-optical-sizing: auto), so the same
+   weight reads sturdy and ink-trapped at hero scale and calmer in a
+   sub-heading — no manual size-by-size tuning needed. */
+.font-serif {
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
 }
 
 /* Square corners site-wide. Circles (avatars, spinners) keep rounded-full;
@@ -93,6 +103,23 @@ textarea {
 
 .h5 {
     @apply text-base sm:text-lg md:text-xl font-medium leading-tight
+}
+
+/* Dark sections get a quiet radial lift instead of a flat fill — the glow
+   sits where nothing else is competing for attention. */
+.bg-ink-depth {
+    background-color: #0E1433;
+    background-image: radial-gradient(ellipse 80% 60% at 85% -10%, rgba(124, 192, 238, 0.14), transparent 60%);
+}
+
+.bg-primary-depth {
+    background-color: #2E388F;
+    background-image: radial-gradient(ellipse 70% 70% at 10% 110%, rgba(255, 255, 255, 0.10), transparent 60%);
+}
+
+.bg-inkDeep-depth {
+    background-color: #080C22;
+    background-image: radial-gradient(ellipse 90% 50% at 50% 0%, rgba(124, 192, 238, 0.08), transparent 65%);
 }
 
 .material-symbols-rounded {

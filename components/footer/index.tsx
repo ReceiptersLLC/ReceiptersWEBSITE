@@ -17,7 +17,7 @@ export default function Footer() {
   const { t } = useTranslation('common');
 
   return (
-    <footer className="bg-inkDeep text-white">
+    <footer className="bg-inkDeep-depth text-white">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
         <div className="grid gap-12 border-b border-white/15 pb-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -25,7 +25,7 @@ export default function Footer() {
               <span className="relative block h-9 w-6">
                 <Image src="/img/logo.svg" alt="" fill className="object-contain" />
               </span>
-              <span className="text-lg font-semibold tracking-tight">Receipters</span>
+              <span className="font-serif text-lg font-medium tracking-tight">Receipters</span>
             </Link>
             <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-white/65">
               {t('footer.tagline')}

@@ -13,7 +13,7 @@ export default function ServicesTeaser() {
     <section className="bg-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:py-28">
         <div className="lg:col-span-7">
-          <h2 className="max-w-xl text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          <h2 className="font-serif max-w-xl text-3xl font-medium tracking-tight text-ink sm:text-4xl">
             {t("landing.servicesTeaser.title")}
           </h2>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
@@ -22,13 +22,13 @@ export default function ServicesTeaser() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/services"
-              className="inline-flex items-center justify-center bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink"
+              className="inline-flex items-center justify-center bg-primary px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-ink"
             >
               {t("landing.servicesTeaser.button")}
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center border border-ink px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-ink hover:text-white"
+              className="inline-flex items-center justify-center border border-ink px-6 py-3 text-sm font-semibold text-ink transition-all hover:-translate-y-0.5 hover:bg-ink hover:text-white"
             >
               {t("landing.features.talkToTeam")}
             </Link>

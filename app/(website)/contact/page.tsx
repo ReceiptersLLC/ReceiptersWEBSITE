@@ -100,9 +100,9 @@ export default function Page() {
   return (
     <div className="bg-mist">
       {/* Hero with search */}
-      <section className="bg-ink text-white">
+      <section className="bg-ink-depth text-white">
         <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-20">
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">{t('support.hero.title')}</h1>
+          <h1 className="font-serif text-4xl font-medium tracking-tight sm:text-5xl">{t('support.hero.title')}</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/75">{t('support.hero.description')}</p>
           <label className="relative mt-8 block max-w-2xl">
             <span className="sr-only">{t('support.hero.searchLabel')}</span>
@@ -138,7 +138,7 @@ export default function Page() {
                   key={key}
                   href={href}
                   {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className={`group flex items-center gap-3.5 border border-line bg-white p-3.5 transition-colors hover:border-primary hover:bg-sky/40 ${
+                  className={`group flex items-center gap-3.5 border border-line bg-white p-3.5 transition-all hover:-translate-y-0.5 hover:border-primary hover:bg-sky/40 hover:shadow-[0_12px_24px_-12px_rgba(14,20,51,0.2)] ${
                     key === 'offices' ? 'sm:col-span-2' : ''
                   }`}
                 >
@@ -169,7 +169,7 @@ export default function Page() {
                   <Link
                     key={key}
                     href={href}
-                    className="group flex items-center gap-3.5 border border-line bg-white p-3.5 transition-colors hover:border-primary hover:bg-sky/40"
+                    className="group flex items-center gap-3.5 border border-line bg-white p-3.5 transition-all hover:-translate-y-0.5 hover:border-primary hover:bg-sky/40 hover:shadow-[0_12px_24px_-12px_rgba(14,20,51,0.2)]"
                   >
                     <span className="flex size-11 shrink-0 items-center justify-center bg-ink text-white">
                       <Icon className="size-5" strokeWidth={1.75} aria-hidden="true" />
