@@ -25,7 +25,7 @@ const contacts = [
   { key: "footer.supportEmail", value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}`, Icon: Mail },
   { key: "footer.generalEmail", value: GENERAL_EMAIL, href: `mailto:${GENERAL_EMAIL}`, Icon: Mail },
   { key: "footer.whatsappKenya", value: "+254 722 752 755", href: "https://wa.me/254722752755", Icon: MessageCircle },
-  { key: "footer.whatsappUsa", value: "+1 (720) 930-7025", href: "https://wa.me/17209307025", Icon: MessageCircle },
+  { key: "footer.whatsappUsa", value: "+1 (720) 930-2570", href: "https://wa.me/17209302570", Icon: MessageCircle },
 ];
 
 const offices = [
