@@ -186,7 +186,6 @@ export default function Navigator() {
               >
                 {blogItems}
               </Dropdown>
-              <NavLink href="/download" label={t("navbar.link.app")} active={isActive("/download")} />
               <NavLink href="/careers" label={t("navbar.link.careers")} active={isActive("/careers")} />
               <NavLink href="/contact" label={t("navbar.link.contact")} active={isActive("/contact")} />
             </div>
@@ -253,7 +252,6 @@ export default function Navigator() {
               >
                 {blogItems}
               </MobileGroup>
-              <NavLink href="/download" label={t("navbar.link.app")} active={isActive("/download")} mobile />
               <NavLink href="/careers" label={t("navbar.link.careers")} active={isActive("/careers")} mobile />
               <NavLink href="/contact" label={t("navbar.link.contact")} active={isActive("/contact")} mobile />
 
