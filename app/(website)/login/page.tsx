@@ -16,7 +16,7 @@ export default function LoginPage() {
   const [oauthLoading, setOauthLoading] = useState({ google: false, facebook: false });
   const { t } = useTranslation('common');
   const router = useRouter();
-  const { login, loginWithGoogle, loginWithFacebook } = useAuth();
+  const { login, loginWithGoogle, loginWithFacebook, authAvailable } = useAuth();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,6 +79,12 @@ export default function LoginPage() {
         </div>
 
         <div className="bg-white py-8 px-6 shadow rounded-lg sm:px-8">
+          {!authAvailable && (
+            <div role="alert" className="mb-6 rounded-md border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+              Sign-in is temporarily unavailable on the website. Please use the Receipters app
+              {' '}(<a href="/download" className="font-medium underline">download it here</a>).
+            </div>
+          )}
           <div className="space-y-3 mb-6">
             <button
               onClick={handleGoogleLogin}
