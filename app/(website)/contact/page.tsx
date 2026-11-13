@@ -22,10 +22,12 @@ import {
 } from 'lucide-react';
 
 const SUPPORT_EMAIL = 'support@receipters.com';
+const GENERAL_EMAIL = 'info@receipters.com';
 const MESSAGE_LIMIT = 4000;
 
 const channels = [
   { key: 'email', Icon: Mail, value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}`, external: true },
+  { key: 'emailGeneral', Icon: Mail, value: GENERAL_EMAIL, href: `mailto:${GENERAL_EMAIL}`, external: true },
   { key: 'whatsappKenya', Icon: MessageCircle, value: '+254 722 752 755', href: 'https://wa.me/254722752755', external: true },
   { key: 'whatsappUsa', Icon: MessageCircle, value: '+1 (720) 930-7025', href: 'https://wa.me/17209307025', external: true },
   { key: 'offices', Icon: MapPin, value: 'Nairobi, Newark, Lusaka', href: '#locations', external: false },
@@ -136,7 +138,9 @@ export default function Page() {
                   key={key}
                   href={href}
                   {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="group flex items-center gap-3.5 border border-line bg-white p-3.5 transition-colors hover:border-primary hover:bg-sky/40"
+                  className={`group flex items-center gap-3.5 border border-line bg-white p-3.5 transition-colors hover:border-primary hover:bg-sky/40 ${
+                    key === 'offices' ? 'sm:col-span-2' : ''
+                  }`}
                 >
                   <span className="flex size-11 shrink-0 items-center justify-center bg-primary text-white">
                     <Icon className="size-5" strokeWidth={1.75} aria-hidden="true" />
@@ -274,6 +278,10 @@ export default function Page() {
                     {t('support.form.failed')}{' '}
                     <a href={`mailto:${SUPPORT_EMAIL}`} className="font-semibold text-primary underline">
                       {SUPPORT_EMAIL}
+                    </a>{' '}
+                    {t('support.form.or')}{' '}
+                    <a href={`mailto:${GENERAL_EMAIL}`} className="font-semibold text-primary underline">
+                      {GENERAL_EMAIL}
                     </a>
                   </p>
                 )}

@@ -122,6 +122,12 @@ export default function Navigator() {
             <a href="mailto:info@receipters.com" className="hidden text-white/75 hover:text-white md:inline">
               info@receipters.com
             </a>
+            <a
+              href="mailto:support@receipters.com"
+              className="hidden border-l border-white/25 pl-4 text-white/75 hover:text-white lg:inline"
+            >
+              support@receipters.com
+            </a>
             <select
               aria-label="Language"
               className="border border-white/25 bg-ink px-1.5 py-1 text-xs text-white"
