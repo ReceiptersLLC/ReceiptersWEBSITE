@@ -733,5 +733,15 @@
   "productFamily.bodapos.description": "Point of sale and business management for retail and wholesale in Kenya.",
   "productFamily.shahidibox.description": "Keeps your signed eTIMS receipts from the moment the till issues them.",
   "navbar.link.app": "App",
-  "navbar.button.signOut": "Sign out"
+  "navbar.button.signOut": "Sign out",
+  "services.individualHistory.title": "Individual historical receipts",
+  "services.individualHistory.description": "Bring the receipts you already hold into your Receipters account, so past purchases sit beside new digital ones.",
+  "services.individualHistory.point1": "Paper receipts captured with the Receipters App",
+  "services.individualHistory.point2": "Past purchases searchable by store, date and amount",
+  "services.individualHistory.point3": "Receipts kept for warranties, returns and budgeting",
+  "services.merchantHistory.title": "Merchant historical receipts",
+  "services.merchantHistory.description": "We import your past receipts into the Receipters Vault, so old transactions sit beside new digital receipts.",
+  "services.merchantHistory.point1": "Import from legacy tills, spreadsheets and exported POS records",
+  "services.merchantHistory.point2": "Structured into line items, totals, taxes and dates",
+  "services.merchantHistory.point3": "Searchable for audits, returns and customer queries"
 }
