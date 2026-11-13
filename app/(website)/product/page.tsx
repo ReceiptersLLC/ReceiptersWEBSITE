@@ -128,7 +128,7 @@ export default function Page() {
               <div key={title} className="border-b border-r border-white/15 p-7 lg:min-h-[14rem]">
                 <Icon className="size-6 text-skyDeep" strokeWidth={1.5} aria-hidden="true" />
                 <h3 className="mt-6 text-lg font-semibold">{t(title)}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-white/65">{t(description)}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-white/78">{t(description)}</p>
               </div>
             ))}
           </div>

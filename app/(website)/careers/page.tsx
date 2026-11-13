@@ -45,7 +45,7 @@ export default function CareersPage() {
               {t('careers.hero.title')}
             </h1>
             <p className="mt-6 max-w-xl text-[1.1rem] leading-[1.7] text-white/75">{t('careers.hero.description')}</p>
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/60">{t('careers.hero.detail')}</p>
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/75">{t('careers.hero.detail')}</p>
           </div>
           <nav aria-label={t('careers.index.title')} className="lg:col-span-5">
             <div className="border border-white/20 bg-white/[0.04]">
@@ -156,7 +156,7 @@ export default function CareersPage() {
               <div key={key} className="border-b border-r border-white/15 p-7 lg:min-h-[14rem]">
                 <Icon className="size-6 text-skyDeep" strokeWidth={1.5} aria-hidden="true" />
                 <h3 className="mt-6 text-lg font-semibold">{t(`careers.whyJoin.${key}.title`)}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-white/65">{t(`careers.whyJoin.${key}.description`)}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-white/78">{t(`careers.whyJoin.${key}.description`)}</p>
               </div>
             ))}
           </div>

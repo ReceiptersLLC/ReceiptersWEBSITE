@@ -62,13 +62,13 @@ export function Analytics() {
             {analytics.map((key) => (
               <div key={key} className="border-b border-r border-white/15 p-7 lg:min-h-[13rem]">
                 <h3 className="text-lg font-semibold">{t(`landing.aiSection.${key}.title`)}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-white/65">
+                <p className="mt-2 text-[15px] leading-relaxed text-white/78">
                   {t(`landing.aiSection.${key}.description`)}
                 </p>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-sm text-white/55">{t("landing.aiSection.ownership")}</p>
+          <p className="mt-8 text-sm text-white/75">{t("landing.aiSection.ownership")}</p>
         </div>
       </section>
   );

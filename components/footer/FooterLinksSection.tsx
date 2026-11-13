@@ -59,7 +59,7 @@ export default function FooterLinksSection({
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-1.5 text-[15px] text-white/65 transition-colors hover:text-white"
+              className="py-1.5 text-[15px] text-white/78 transition-colors hover:text-white"
             >
               {item.name}
             </a>
@@ -67,7 +67,7 @@ export default function FooterLinksSection({
             <Link
               key={`footer-${item.name}-${i}-${item.id}`}
               href={item.url}
-              className="py-1.5 text-[15px] text-white/65 transition-colors hover:text-white"
+              className="py-1.5 text-[15px] text-white/78 transition-colors hover:text-white"
             >
               {item.name}
             </Link>
