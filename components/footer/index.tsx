@@ -47,7 +47,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-b border-white/15 py-10">
+        <div id="locations" className="scroll-mt-32 border-b border-white/15 py-10">
           <div className="mb-5 text-sm font-semibold">{t('footer.locations')}</div>
           <div className="grid gap-8 sm:grid-cols-3">
             <div className="text-sm leading-relaxed text-white/65">
