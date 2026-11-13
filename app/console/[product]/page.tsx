@@ -13,6 +13,7 @@ const filters: Array<{ key: 'all' | AccountStatus; label: string }> = [
   { key: 'active', label: 'Active' },
   { key: 'paused', label: 'Paused' },
   { key: 'deactivated', label: 'Deactivated' },
+  { key: 'invited', label: 'Invited' },
 ];
 
 const input =
@@ -29,6 +30,8 @@ export default function ProductConsole() {
   const [inviting, setInviting] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', businessId: '', role: 'Admin' as AdminAccount['role'] });
   const [formError, setFormError] = useState('');
+  const [sending, setSending] = useState(false);
+  const [notice, setNotice] = useState('');
 
   const list = useMemo(() => admins.filter((a) => a.product === slug), [admins, slug]);
   const businessIds = useMemo(() => Array.from(new Set(list.map((a) => a.businessId))), [list]);
@@ -52,16 +55,34 @@ export default function ProductConsole() {
 
   const count = (s: AccountStatus) => list.filter((a) => a.status === s).length;
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) || !form.businessId.trim()) {
       setFormError('Enter a name, a valid email and a business ID.');
       return;
     }
-    addAdmin(product.slug, { ...form, name: form.name.trim(), email: form.email.trim(), businessId: form.businessId.trim() });
-    setForm({ name: '', email: '', businessId: '', role: 'Admin' });
+    setSending(true);
     setFormError('');
-    setInviting(false);
+    try {
+      const res = await fetch('/api/console/invite', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, product: product.slug, productName: product.name }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setFormError(data.message || 'The invite could not be sent.');
+        return;
+      }
+      addAdmin(product.slug, { ...form, name: form.name.trim(), email: form.email.trim(), businessId: form.businessId.trim() });
+      setNotice(data.message || 'Invite sent.');
+      setForm({ name: '', email: '', businessId: '', role: 'Admin' });
+      setInviting(false);
+    } catch {
+      setFormError('Could not reach the server. Try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   const actions = (a: AdminAccount) => (
@@ -106,7 +127,7 @@ export default function ProductConsole() {
           onClick={() => setInviting((v) => !v)}
           className="inline-flex items-center justify-center gap-2 bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-ink"
         >
-          <UserPlus className="size-4" aria-hidden="true" /> Add admin
+          <UserPlus className="size-4" aria-hidden="true" /> Invite admin
         </button>
       </div>
 
@@ -127,7 +148,7 @@ export default function ProductConsole() {
 
       {inviting && (
         <form onSubmit={submit} noValidate className="mt-6 border border-line bg-white p-6">
-          <h2 className="font-serif text-xl font-medium">Add an admin to {product.name}</h2>
+          <h2 className="font-serif text-xl font-medium">Invite an admin to {product.name}</h2>
           <div className="mt-5 grid gap-4 md:grid-cols-4">
             <div>
               <label htmlFor="a-name" className="mb-1.5 block text-sm font-semibold">Name</label>
@@ -152,11 +173,13 @@ export default function ProductConsole() {
           </div>
           {formError && <p role="alert" className="mt-3 text-sm text-red-700">{formError}</p>}
           <div className="mt-5 flex gap-3">
-            <button type="submit" className="bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-ink">Add admin</button>
+            <button type="submit" disabled={sending} className="bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-ink disabled:opacity-60">{sending ? 'Sending...' : 'Send invite'}</button>
             <button type="button" onClick={() => setInviting(false)} className="border border-line px-6 py-3 text-sm font-semibold hover:border-primary">Cancel</button>
           </div>
         </form>
       )}
+
+      {notice && <p role="status" className="mt-6 border border-line bg-white px-5 py-3 text-[15px] text-signal">{notice}</p>}
 
       <section className="mt-10">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">

@@ -1,6 +1,6 @@
 // Sample data for the owners console preview. Replace with the real API when it exists.
 
-export type AccountStatus = 'active' | 'paused' | 'deactivated';
+export type AccountStatus = 'active' | 'paused' | 'deactivated' | 'invited';
 
 export type AdminAccount = {
   id: string;
