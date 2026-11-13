@@ -128,18 +128,18 @@ export default function Footer() {
 
           <div className="lg:col-span-7">
             <div className="text-[15px] font-semibold">{t("footer.locations")}</div>
-            <div className="mt-5 grid gap-4">
+            <div className="mt-4 grid gap-3">
               {offices.map(({ title, address }) => (
                 <article
                   key={title}
-                  className="group flex gap-5 border border-white/20 border-l-[3px] border-l-skyDeep bg-white/[0.07] p-5 transition-all hover:-translate-y-0.5 hover:border-white/40 hover:border-l-skyDeep hover:bg-white/[0.12] hover:shadow-[0_18px_30px_-16px_rgba(8,12,34,0.7)] sm:p-6"
+                  className="group flex items-start gap-3.5 border border-white/20 border-l-[3px] border-l-skyDeep bg-white/[0.07] px-4 py-3 transition-all hover:-translate-y-0.5 hover:border-white/40 hover:border-l-skyDeep hover:bg-white/[0.12] hover:shadow-[0_14px_24px_-14px_rgba(8,12,34,0.7)]"
                 >
-                  <div className="flex size-11 shrink-0 items-center justify-center bg-white text-primary">
-                    <MapPin className="size-5" strokeWidth={1.75} aria-hidden="true" />
+                  <div className="flex size-8 shrink-0 items-center justify-center bg-white text-primary">
+                    <MapPin className="size-4" strokeWidth={1.75} aria-hidden="true" />
                   </div>
                   <div className="min-w-0">
-                    <h3 className="font-serif text-xl font-medium leading-tight text-white">{t(title)}</h3>
-                    <p className="mt-2 whitespace-pre-line text-[15px] leading-relaxed text-white/80">{t(address)}</p>
+                    <h3 className="font-serif text-base font-medium leading-tight text-white">{t(title)}</h3>
+                    <p className="mt-1 whitespace-pre-line text-sm leading-snug text-white/80">{t(address)}</p>
                   </div>
                 </article>
               ))}
