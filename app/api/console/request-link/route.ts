@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createToken, isOwnerEmail, publicBaseUrl, secretConfigured, sendEmail } from '@/lib/console/auth';
 import { renderEmail } from '@/lib/console/emailTemplate';
+import { passwordStoreConfigured } from '@/lib/console/passwords';
 
 export async function POST(request: Request) {
   const { email } = (await request.json().catch(() => ({}))) as { email?: string };
@@ -21,24 +22,52 @@ export async function POST(request: Request) {
   const base = publicBaseUrl(new URL(request.url).origin);
   const link = `${base}/api/console/verify?token=${encodeURIComponent(token as string)}`;
 
-  const { html, text } = renderEmail({
-    eyebrow: 'Sign-in link',
-    heading: 'Sign in to the owners console',
-    intro: ['Use the button below to sign in to the Receipters owners console. The link works for 15 minutes.'],
-    action: { label: 'Sign in to the console', url: link },
-    stepsTitle: 'How to use it',
-    steps: [
-      'Open the link on the device where you asked for it.',
-      'You are signed in and taken to the console.',
-      'Sign out from the top right when you are done. Sessions end after 8 hours.',
-    ],
-    notice: {
-      title: 'Keep this link to yourself.',
-      body: 'Nobody from Receipters will ever ask you to forward it. If you did not ask for it, ignore this email and nothing happens.',
-    },
-    reason: `You received this because someone asked for a sign-in link for ${address}.`,
+  const passwordMode = passwordStoreConfigured();
+  const { html, text } = renderEmail(
+    passwordMode
+      ? {
+          eyebrow: 'Password setup',
+          heading: 'Create or reset your password',
+          intro: [
+            'Use the button below to create a password for the Receipters owners console, or to reset it. The link works once and expires in 15 minutes.',
+          ],
+          action: { label: 'Set my password', url: link },
+          stepsTitle: 'How to use it',
+          steps: [
+            'Open the link on the device where you asked for it.',
+            'Choose a password of at least 12 characters.',
+            'From then on, sign in with your email and password.',
+          ],
+          notice: {
+            title: 'Keep this link to yourself.',
+            body: 'Nobody from Receipters will ever ask you to forward it. If you did not ask for it, ignore this email. Your current password stays as it is.',
+          },
+          reason: `You received this because someone asked to set the console password for ${address}.`,
+        }
+      : {
+          eyebrow: 'Sign-in link',
+          heading: 'Sign in to the owners console',
+          intro: ['Use the button below to sign in to the Receipters owners console. The link works for 15 minutes.'],
+          action: { label: 'Sign in to the console', url: link },
+          stepsTitle: 'How to use it',
+          steps: [
+            'Open the link on the device where you asked for it.',
+            'You are signed in and taken to the console.',
+            'Sign out from the top right when you are done. Sessions end after 8 hours.',
+          ],
+          notice: {
+            title: 'Keep this link to yourself.',
+            body: 'Nobody from Receipters will ever ask you to forward it. If you did not ask for it, ignore this email and nothing happens.',
+          },
+          reason: `You received this because someone asked for a sign-in link for ${address}.`,
+        }
+  );
+  const sent = await sendEmail({
+    to: address,
+    subject: passwordMode ? 'Set your Receipters owners console password' : 'Your Receipters owners console sign-in link',
+    html,
+    text,
   });
-  const sent = await sendEmail({ to: address, subject: 'Your Receipters owners console sign-in link', html, text });
 
   if (!sent) {
     if (process.env.NODE_ENV !== 'production') {

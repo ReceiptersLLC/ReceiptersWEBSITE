@@ -1,20 +1,19 @@
 import { NextResponse } from 'next/server';
-import { SESSION_COOKIE, createToken, publicBaseUrl, readToken, sessionMaxAge } from '@/lib/console/auth';
+import { publicBaseUrl, readToken, setSessionCookie } from '@/lib/console/auth';
+import { passwordStoreConfigured } from '@/lib/console/passwords';
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const base = publicBaseUrl(url.origin);
-  const email = readToken('link', url.searchParams.get('token') || undefined);
+  const token = url.searchParams.get('token') || undefined;
+  const email = readToken('link', token);
   if (!email) return NextResponse.redirect(`${base}/console?error=link`);
 
-  const session = createToken('session', email) as string;
+  // With password storage, the link opens the "create your password" form. Without it, the link signs you in.
+  if (passwordStoreConfigured()) {
+    return NextResponse.redirect(`${base}/console?setup=${encodeURIComponent(token as string)}`);
+  }
   const response = NextResponse.redirect(`${base}/console`);
-  response.cookies.set(SESSION_COOKIE, session, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-    path: '/',
-    maxAge: sessionMaxAge,
-  });
+  setSessionCookie(response, email);
   return response;
 }
