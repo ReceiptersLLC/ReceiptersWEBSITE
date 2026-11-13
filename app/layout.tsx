@@ -6,7 +6,6 @@ import "@fontsource/ibm-plex-mono/500.css";
 import "./globals.css";
 // import { Poppins } from "next/font/google";
 import type {Metadata} from "next";
-import Script from "next/script";
 
 // const poppins = Poppins({
 //   variable: "--font-poppins",
@@ -109,8 +108,6 @@ export default function RootLayout({
     <html lang="en">
     {/*<body className={`${poppins.variable} antialiased`}>*/}
     <body className={`antialiased`}>
-    <Script src="https://accounts.google.com/gsi/client" strategy="beforeInteractive"/>
-    <Script src="https://connect.facebook.net/en_US/sdk.js" strategy="beforeInteractive"/>
     {children}
     </body>
     </html>

@@ -11,6 +11,7 @@ import { FaSquareFacebook } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import FooterLinksSection from "@/components/footer/FooterLinksSection";
 import { useTranslation } from "react-i18next";
+import { openCookieSettings } from "@/lib/consent";
 
 export default function Footer() {
   const { t } = useTranslation('common');
@@ -73,6 +74,9 @@ export default function Footer() {
                 {t(link.nameKey)}
               </Link>
             ))}
+            <button type="button" onClick={openCookieSettings} className="transition-colors hover:text-white">
+              {t("cookies.footerLink")}
+            </button>
           </div>
         </div>
       </div>

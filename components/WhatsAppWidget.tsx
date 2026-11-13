@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useConsent } from '@/lib/consent';
 
 declare global {
   interface Window {
@@ -8,15 +9,23 @@ declare global {
   }
 }
 
+const SCRIPT_ID = 'wa-widget-script';
+
+// The chat button is served by a third party, so it loads only after the
+// visitor allows the support chat in the cookie settings.
 export default function WhatsAppWidget() {
+  const consent = useConsent();
+  const allowed = consent?.chat === true;
+
   useEffect(() => {
+    if (!allowed || document.getElementById(SCRIPT_ID)) return;
+
     const script = document.createElement('script');
+    script.id = SCRIPT_ID;
     script.src = 'https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js';
     script.async = true;
-    document.body.appendChild(script);
-
     script.onload = () => {
-      const wa_btnSetting = {
+      window._waEmbed?.({
         btnColor: '#16BE45',
         ctaText: '',
         cornerRadius: 40,
@@ -26,12 +35,12 @@ export default function WhatsAppWidget() {
         btnPosition: 'right',
         whatsAppNumber: '17209302570',
         welcomeMessage: 'Hello, how can we help you?',
-        zIndex: 999999,
+        zIndex: 999,
         btnColorScheme: 'light',
-      };
-      window._waEmbed?.(wa_btnSetting);
+      });
     };
-  }, []);
+    document.body.appendChild(script);
+  }, [allowed]);
 
   return null;
 }

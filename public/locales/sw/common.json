@@ -594,5 +594,22 @@
   "productFamily.description": "Bidhaa za mauzo, malipo na risiti zilizoundwa na Receipters Technologies.",
   "productFamily.category.pos": "Mfumo wa mauzo",
   "productFamily.category.payments": "Malipo",
-  "productFamily.category.vault": "Hifadhi ya risiti"
+  "productFamily.category.vault": "Hifadhi ya risiti",
+  "cookies.footerLink": "Mipangilio ya vidakuzi",
+  "cookies.banner.title": "Chaguo zako za vidakuzi",
+  "cookies.banner.description": "Tunatumia vidakuzi muhimu kuendesha tovuti hii. Kwa ruhusa yako, pia tunakumbuka lugha yako na kupakia gumzo la usaidizi la WhatsApp ili uweze kutufikia kutoka ukurasa wowote.",
+  "cookies.banner.choose": "Chagua",
+  "cookies.banner.necessaryOnly": "Muhimu pekee",
+  "cookies.banner.acceptAll": "Kubali vyote",
+  "cookies.settings.title": "Mipangilio ya vidakuzi",
+  "cookies.settings.description": "Chagua kile ambacho tovuti hii inaweza kuhifadhi kwenye kifaa chako. Unaweza kubadilisha wakati wowote kupitia kiungo kilicho chini ya ukurasa.",
+  "cookies.settings.close": "Funga",
+  "cookies.settings.save": "Hifadhi chaguo",
+  "cookies.necessary.title": "Muhimu",
+  "cookies.necessary.description": "Hukuweka umeingia na huhifadhi chaguo lako la vidakuzi. Tovuti haiwezi kufanya kazi bila hivi.",
+  "cookies.necessary.alwaysOn": "Vimewashwa kila wakati",
+  "cookies.preferences.title": "Mapendeleo",
+  "cookies.preferences.description": "Hukumbuka lugha unayochagua, ili tovuti ifunguke kwa lugha hiyo utakaporudi.",
+  "cookies.chat.title": "Gumzo la usaidizi",
+  "cookies.chat.description": "Hupakia kitufe cha gumzo la WhatsApp kwenye kila ukurasa. Kinatolewa na mtu wa tatu, ambaye anaweza kuweka vidakuzi vyake."
 }

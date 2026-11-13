@@ -684,5 +684,22 @@
   "support.form.send": "Send message",
   "support.form.sending": "Sending…",
   "support.form.sent": "Message sent. We will reply by email.",
-  "support.form.failed": "Your message was not sent. Email us directly at"
+  "support.form.failed": "Your message was not sent. Email us directly at",
+  "cookies.footerLink": "Cookie settings",
+  "cookies.banner.title": "Your cookie choices",
+  "cookies.banner.description": "We use necessary cookies to run this site. With your permission we also remember your language, and load the WhatsApp support chat so you can reach us from any page.",
+  "cookies.banner.choose": "Choose",
+  "cookies.banner.necessaryOnly": "Necessary only",
+  "cookies.banner.acceptAll": "Accept all",
+  "cookies.settings.title": "Cookie settings",
+  "cookies.settings.description": "Choose what this site may store on your device. You can change this at any time from the link in the footer.",
+  "cookies.settings.close": "Close",
+  "cookies.settings.save": "Save choices",
+  "cookies.necessary.title": "Necessary",
+  "cookies.necessary.description": "Keeps you signed in and records your cookie choice. The site cannot work without these.",
+  "cookies.necessary.alwaysOn": "Always on",
+  "cookies.preferences.title": "Preferences",
+  "cookies.preferences.description": "Remembers the language you choose, so the site opens in it on your next visit.",
+  "cookies.chat.title": "Support chat",
+  "cookies.chat.description": "Loads the WhatsApp chat button on every page. It is provided by a third party, which may set its own cookies."
 }

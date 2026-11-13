@@ -594,5 +594,22 @@
   "productFamily.description": "Les produits de point de vente, de paiement et de reçus conçus par Receipters Technologies.",
   "productFamily.category.pos": "Point de vente",
   "productFamily.category.payments": "Paiements",
-  "productFamily.category.vault": "Coffre de reçus"
+  "productFamily.category.vault": "Coffre de reçus",
+  "cookies.footerLink": "Paramètres des cookies",
+  "cookies.banner.title": "Vos choix en matière de cookies",
+  "cookies.banner.description": "Nous utilisons les cookies nécessaires au fonctionnement de ce site. Avec votre accord, nous mémorisons aussi votre langue et chargeons le chat d'assistance WhatsApp pour que vous puissiez nous joindre depuis n'importe quelle page.",
+  "cookies.banner.choose": "Choisir",
+  "cookies.banner.necessaryOnly": "Nécessaires uniquement",
+  "cookies.banner.acceptAll": "Tout accepter",
+  "cookies.settings.title": "Paramètres des cookies",
+  "cookies.settings.description": "Choisissez ce que ce site peut enregistrer sur votre appareil. Vous pouvez modifier ce choix à tout moment depuis le lien en pied de page.",
+  "cookies.settings.close": "Fermer",
+  "cookies.settings.save": "Enregistrer mes choix",
+  "cookies.necessary.title": "Nécessaires",
+  "cookies.necessary.description": "Maintiennent votre connexion et enregistrent votre choix de cookies. Le site ne peut pas fonctionner sans eux.",
+  "cookies.necessary.alwaysOn": "Toujours actifs",
+  "cookies.preferences.title": "Préférences",
+  "cookies.preferences.description": "Mémorise la langue que vous choisissez, afin que le site s'ouvre dans cette langue à votre prochaine visite.",
+  "cookies.chat.title": "Chat d'assistance",
+  "cookies.chat.description": "Charge le bouton de chat WhatsApp sur chaque page. Il est fourni par un tiers, qui peut déposer ses propres cookies."
 }
