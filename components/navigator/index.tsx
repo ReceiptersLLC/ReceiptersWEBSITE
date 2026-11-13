@@ -282,8 +282,8 @@ function Dropdown({
         aria-expanded={open}
         aria-haspopup="true"
         onClick={onToggle}
-        className={`flex items-center gap-1 border-b-[3px] px-3.5 text-sm font-medium transition-colors ${
-          active || open ? "border-primary text-ink" : "border-transparent text-ink/75 hover:text-ink"
+        className={`flex items-center gap-1 px-4 text-sm font-semibold transition-colors ${
+          active ? "bg-primary text-white" : open ? "bg-white/60 text-ink" : "text-ink hover:bg-white/50"
         }`}
       >
         <span>{label}</span>
@@ -343,7 +343,7 @@ function MobileGroup({
         type="button"
         aria-expanded={open}
         onClick={onToggle}
-        className="flex w-full items-center justify-between border-l-2 border-transparent px-3 py-3 text-base font-medium text-muted"
+        className="flex w-full items-center justify-between px-3 py-3 text-base font-semibold text-ink"
       >
         <span>{label}</span>
         <ChevronDown size={18} className={`transition-transform ${open ? "rotate-180" : ""}`} aria-hidden="true" />
@@ -368,8 +368,8 @@ function NavLink({
     return (
       <Link
         href={href}
-        className={`block border-l-2 px-3 py-3 text-base font-medium ${
-          active ? "border-primary text-ink" : "border-transparent text-muted"
+        className={`block px-3 py-3 text-base font-semibold ${
+          active ? "bg-primary text-white" : "text-ink"
         }`}
       >
         {label}
@@ -379,8 +379,8 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={`flex items-center border-b-[3px] px-3.5 text-sm font-medium transition-colors ${
-        active ? "border-primary text-ink" : "border-transparent text-ink/75 hover:text-ink"
+      className={`flex items-center px-4 text-sm font-semibold transition-colors ${
+        active ? "bg-primary text-white" : "text-ink hover:bg-white/50"
       }`}
     >
       {label}
