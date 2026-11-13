@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
-import Testimonials from "./Testimonials";
 
 const steps = ["step1", "step2", "step3", "step4"];
 const analytics = ["understandPerformance", "spotTrends", "monitorRisk", "automateReporting"];
@@ -14,13 +13,12 @@ const audiences = [
   { key: "forConsumers", points: ["collect", "find", "use"] },
 ];
 
-export default function HowItWorks() {
+// A real sequence, so the steps are numbered.
+export function Steps() {
   const { t } = useTranslation("common");
 
   return (
-    <>
-      {/* How it works: a real sequence, so the steps are numbered */}
-      <section className="bg-white">
+      <section id="how-it-works" className="scroll-mt-16 border-t border-line bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
           <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
             {t("landing.howItWorks.newTitle")}
@@ -43,8 +41,13 @@ export default function HowItWorks() {
           </ol>
         </div>
       </section>
+  );
+}
 
-      {/* Analytics */}
+export function Analytics() {
+  const { t } = useTranslation("common");
+
+  return (
       <section className="bg-ink text-white">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
           <div className="max-w-3xl">
@@ -68,8 +71,13 @@ export default function HowItWorks() {
           <p className="mt-8 text-sm text-white/55">{t("landing.aiSection.ownership")}</p>
         </div>
       </section>
+  );
+}
 
-      {/* App */}
+export function AppSection() {
+  const { t } = useTranslation("common");
+
+  return (
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -123,9 +131,14 @@ export default function HowItWorks() {
           <p className="mt-6 text-sm text-muted">{t("landing.appSection.connect")}</p>
         </div>
       </section>
+  );
+}
 
-      {/* Sectors */}
-      <section className="border-t border-line bg-mist">
+export function Sectors() {
+  const { t } = useTranslation("common");
+
+  return (
+      <section id="sectors" className="scroll-mt-16 border-t border-line bg-mist">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
           <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
             {t("landing.whoWeServe.title")}
@@ -156,8 +169,5 @@ export default function HowItWorks() {
           </div>
         </div>
       </section>
-
-      <Testimonials />
-    </>
   );
 }

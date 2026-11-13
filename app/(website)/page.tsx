@@ -1,6 +1,9 @@
 import HeroSection from "@/app/(website)/landing/HeroSection";
-import Features from "@/app/(website)/landing/Features";
-import HowItWorks from "@/app/(website)/landing/HowItWorks";
+import { Modules, WhyReceipters } from "@/app/(website)/landing/Features";
+import { Steps, Analytics, AppSection, Sectors } from "@/app/(website)/landing/HowItWorks";
+import MissionVision from "@/app/(website)/landing/MissionVision";
+import ServicesTeaser from "@/app/(website)/landing/ServicesTeaser";
+import Testimonials from "@/app/(website)/landing/Testimonials";
 import CallToAction from "@/app/(website)/landing/CallToAction";
 import type { Metadata } from "next";
 
@@ -41,8 +44,15 @@ export default function Home() {
   return (
     <div>
       <HeroSection/>
-      <Features/>
-      <HowItWorks/>
+      <Modules/>
+      <MissionVision/>
+      <Steps/>
+      <Sectors/>
+      <AppSection/>
+      <WhyReceipters/>
+      <Analytics/>
+      <ServicesTeaser/>
+      <Testimonials/>
       <CallToAction/>
     </div>
   );
