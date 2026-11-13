@@ -41,22 +41,41 @@ export function createToken(kind: 'link' | 'session', email: string): string | n
   const key = secret();
   if (!key) return null;
   const ttl = kind === 'link' ? LINK_SECONDS : SESSION_SECONDS;
-  const payload = b64(JSON.stringify({ e: email.toLowerCase(), x: Math.floor(Date.now() / 1000) + ttl }));
+  const now = Math.floor(Date.now() / 1000);
+  const payload = b64(JSON.stringify({ e: email.toLowerCase(), x: now + ttl, i: now }));
   return `${payload}.${sign(kind, payload, key)}`;
 }
 
-export function readToken(kind: 'link' | 'session', token: string | undefined): string | null {
+export function readTokenFull(
+  kind: 'link' | 'session',
+  token: string | undefined
+): { email: string; issuedAt: number } | null {
   const key = secret();
   if (!key || !token) return null;
   const [payload, signature] = token.split('.');
   if (!payload || !signature || !safeEqual(signature, sign(kind, payload, key))) return null;
   try {
-    const { e, x } = JSON.parse(unb64(payload)) as { e: string; x: number };
+    const { e, x, i } = JSON.parse(unb64(payload)) as { e: string; x: number; i?: number };
     if (!e || x < Math.floor(Date.now() / 1000) || !isOwnerEmail(e)) return null;
-    return e;
+    return { email: e, issuedAt: i ?? 0 };
   } catch {
     return null;
   }
+}
+
+export function readToken(kind: 'link' | 'session', token: string | undefined): string | null {
+  return readTokenFull(kind, token)?.email ?? null;
+}
+
+/** Attaches the signed-in session cookie to a response. */
+export function setSessionCookie(response: { cookies: { set: (name: string, value: string, options: Record<string, unknown>) => void } }, email: string) {
+  response.cookies.set(SESSION_COOKIE, createToken('session', email) as string, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    path: '/',
+    maxAge: SESSION_SECONDS,
+  });
 }
 
 export const sessionMaxAge = SESSION_SECONDS;

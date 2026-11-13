@@ -10,7 +10,7 @@ frontend:
       commands:
         # Amplify variables exist at build time only. Write the server-side ones to
         # .env.production so the running server (API routes) can read them.
-        - env | grep -E '^(RESEND_API_KEY|CONSOLE_)' >> .env.production || true
+        - node scripts/write-env.js
         - yarn build
   artifacts:
     # .next as baseDirectory tells Amplify to deploy this as a Next.js SSR app.
