@@ -65,6 +65,7 @@ export default function Navigator() {
             <NavLink href="/" label={t("navbar.link.home")} active={isActive("/")} />
             <NavLink href="/about" label={t("navbar.link.about")} active={isActive("/about")} />
             <NavLink href="/product" label={t("navbar.link.product")} active={isActive("/product")} />
+            <NavLink href="/services" label={t("navbar.link.services")} active={isActive("/services")} />
             <div className="relative flex" ref={dropdownRef}>
               <button
                 type="button"
@@ -142,6 +143,7 @@ export default function Navigator() {
             <NavLink href="/" label={t("navbar.link.home")} active={isActive("/")} mobile />
             <NavLink href="/about" label={t("navbar.link.about")} active={isActive("/about")} mobile />
             <NavLink href="/product" label={t("navbar.link.product")} active={isActive("/product")} mobile />
+            <NavLink href="/services" label={t("navbar.link.services")} active={isActive("/services")} mobile />
             <NavLink href="/blogs" label={t("navbar.link.blogs")} active={isActive("/blogs")} mobile />
             <NavLink
               href="/blogs/announcement"

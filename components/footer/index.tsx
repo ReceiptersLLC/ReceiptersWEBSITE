@@ -40,25 +40,27 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-2 lg:col-start-7">
-            <FooterLinksSection title={t('footer.quickLinks.title')} data={productLinks.map(link => ({ ...link, name: t(`footer.productLinks.${link.name.toLowerCase().replace(/\s/g, '')}`) }))} />
+          <div className="grid gap-10 sm:grid-cols-3 lg:col-span-7">
+            <FooterLinksSection title={t('footer.explore')} data={exploreLinks.map(link => ({ ...link, name: t(link.name) }))} />
+            <FooterLinksSection title={t('footer.company')} data={companyLinks.map(link => ({ ...link, name: t(link.name) }))} />
+            <FooterLinksSection title={t('footer.trustLegal')} data={trustLinks.map(link => ({ ...link, name: t(link.name) }))} />
           </div>
+        </div>
 
-          <div className="lg:col-span-4">
-            <div className="mb-3 text-sm font-semibold">{t('footer.locations')}</div>
-            <div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-1">
-              <div className="text-sm leading-relaxed text-white/65">
-                <strong className="font-medium text-white">{t('footer.primaryOffice')}</strong><br />
-                <span className="whitespace-pre-line">{t('footer.primaryOfficeAddress')}</span>
-              </div>
-              <div className="text-sm leading-relaxed text-white/65">
-                <strong className="font-medium text-white">{t('footer.usOffice')}</strong><br />
-                <span className="whitespace-pre-line">{t('footer.usOfficeAddress')}</span>
-              </div>
-              <div className="text-sm leading-relaxed text-white/65">
-                <strong className="font-medium text-white">{t('footer.zambiaOffice')}</strong><br />
-                <span className="whitespace-pre-line">{t('footer.zambiaOfficeAddress')}</span>
-              </div>
+        <div className="border-b border-white/15 py-10">
+          <div className="mb-5 text-sm font-semibold">{t('footer.locations')}</div>
+          <div className="grid gap-8 sm:grid-cols-3">
+            <div className="text-sm leading-relaxed text-white/65">
+              <strong className="font-medium text-white">{t('footer.primaryOffice')}</strong><br />
+              <span className="whitespace-pre-line">{t('footer.primaryOfficeAddress')}</span>
+            </div>
+            <div className="text-sm leading-relaxed text-white/65">
+              <strong className="font-medium text-white">{t('footer.usOffice')}</strong><br />
+              <span className="whitespace-pre-line">{t('footer.usOfficeAddress')}</span>
+            </div>
+            <div className="text-sm leading-relaxed text-white/65">
+              <strong className="font-medium text-white">{t('footer.zambiaOffice')}</strong><br />
+              <span className="whitespace-pre-line">{t('footer.zambiaOfficeAddress')}</span>
             </div>
           </div>
         </div>
@@ -91,35 +93,27 @@ const legalLinks = [
   },
 ];
 
-const productLinks = [
-  {
-    id: 1,
-    name: "Home",
-    url: "/",
-  },
-  {
-    id: 2,
-    name: "Product",
-    url: "/product",
-  },
-  {
-    id: 3,
-    name: "About",
-    url: "/about",
-  },
-  {
-    id: 4,
-    name: "Blogs",
-    url: "/blogs",
-  },
-  {
-    id: 5,
-    name: "Careers",
-    url: "/careers",
-  },
-  {
-    id: 6,
-    name: "Contact",
-    url: "/contact",
-  },
+const exploreLinks = [
+  { id: 1, name: "landing.features.digitalReceipting.title", url: "/features/digital-receipt-issuance" },
+  { id: 2, name: "landing.features.receiptStorage.title", url: "/features/receipt-storage" },
+  { id: 3, name: "landing.features.receiptersApp.title", url: "/features/multi-device" },
+  { id: 4, name: "landing.features.dataAnalysis.title", url: "/features/data-analysis" },
+  { id: 5, name: "landing.howItWorks.newTitle", url: "/#how-it-works" },
+  { id: 6, name: "landing.whoWeServe.title", url: "/#sectors" },
+];
+
+const companyLinks = [
+  { id: 1, name: "navbar.link.home", url: "/" },
+  { id: 2, name: "navbar.link.about", url: "/about" },
+  { id: 3, name: "navbar.link.product", url: "/product" },
+  { id: 4, name: "navbar.link.services", url: "/services" },
+  { id: 5, name: "navbar.link.blogs", url: "/blogs" },
+  { id: 6, name: "navbar.link.careers", url: "/careers" },
+  { id: 7, name: "navbar.link.contact", url: "/contact" },
+];
+
+const trustLinks = [
+  { id: 1, name: "footer.legalLinks.privacyPolicy", url: "/privacy-policy" },
+  { id: 2, name: "footer.legalLinks.termsAndConditions", url: "/terms-and-conditions" },
+  { id: 3, name: "footer.deleteAccount", url: "/delete-account" },
 ];

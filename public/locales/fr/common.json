@@ -582,5 +582,10 @@
   "landing.hero.artifactCaption": "Reçu d'exemple et l'enregistrement stocké correspondant.",
   "landing.whoWeServe.other.title": "Un autre secteur ?",
   "landing.whoWeServe.other.description": "Décrivez votre environnement de point de vente et nous vous conseillerons sur l'intégration.",
-  "footer.tagline": "Infrastructure de reçus numériques pour les commerçants, les institutions et les consommateurs."
+  "footer.tagline": "Infrastructure de reçus numériques pour les commerçants, les institutions et les consommateurs.",
+  "navbar.link.services": "Services",
+  "footer.explore": "Explorer",
+  "footer.company": "Entreprise",
+  "footer.trustLegal": "Confiance et mentions légales",
+  "footer.deleteAccount": "Supprimer le compte"
 }
