@@ -29,55 +29,28 @@ const CookieConsent: React.FC = () => {
   }
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: '#f0f0f0',
-        padding: '10px 20px',
-        textAlign: 'center',
-        boxShadow: '0px -2px 5px rgba(0, 0, 0, 0.2)',
-        zIndex: 1000,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-      }}
-    >
-      <p style={{ margin: '0 20px 0 0', fontSize: '14px' }}>
-        This website uses cookies to improve your experience. By using our website you agree to our use of cookies.
-      </p>
-      <button
-        onClick={handleAccept}
-        style={{
-          backgroundColor: '#4CAF50',
-          color: 'white',
-          border: 'none',
-          padding: '8px 15px',
-          cursor: 'pointer',
-          borderRadius: '5px',
-          fontSize: '14px',
-        }}
-      >
-        Accept
-      </button>
-      <button
-        onClick={handleDecline}
-        style={{
-          backgroundColor: 'transparent',
-          color: '#4CAF50',
-          border: '1px solid #4CAF50',
-          padding: '8px 15px',
-          cursor: 'pointer',
-          borderRadius: '5px',
-          fontSize: '14px',
-          marginLeft: '10px',
-        }}
-      >
-        Decline
-      </button>
+    <div className="fixed inset-x-0 bottom-0 z-[1000] border-t border-line bg-white">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <p className="m-0 text-sm leading-relaxed text-muted">
+          This website uses cookies to improve your experience. By using our website you agree to our use of cookies.
+        </p>
+        <div className="flex shrink-0 gap-3">
+          <button
+            type="button"
+            onClick={handleDecline}
+            className="border border-ink px-5 py-2 text-sm font-semibold text-ink transition-colors hover:bg-mist"
+          >
+            Decline
+          </button>
+          <button
+            type="button"
+            onClick={handleAccept}
+            className="bg-primary px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-ink"
+          >
+            Accept
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

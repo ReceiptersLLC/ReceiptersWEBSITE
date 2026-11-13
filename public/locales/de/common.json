@@ -94,13 +94,13 @@
   "landing.features.developerFriendlyApis.title": "Entwicklerfreundliche APIs",
   "landing.features.developerFriendlyApis.description": "Moderne REST-APIs, Webhooks und SDKs machen es einfach, Receipters in Ihre POS, SoftPOS, E-Commerce-Plattformen und benutzerdefinierten Systeme zu integrieren – ohne Ihre bestehenden Workflows zu stören.",
   "landing.howItWorks.newTitle": "Wie Receipters funktioniert",
-  "landing.howItWorks.step1.title": "Schritt 1 – Erfassen",
+  "landing.howItWorks.step1.title": "Erfassen",
   "landing.howItWorks.step1.description": "Quittungen werden digital von POS oder SoftPOS generiert, als hochauflösende Bilder über die Receipters App erfasst oder von integrierten Kanälen wie E-Commerce und Liefer-Apps empfangen.",
-  "landing.howItWorks.step2.title": "Schritt 2 – Strukturieren und Speichern",
+  "landing.howItWorks.step2.title": "Strukturieren und speichern",
   "landing.howItWorks.step2.description": "Unsere Engine extrahiert und strukturiert Zeilenelementdaten – Händler, Outlet, Produkte, Mengen, Steuern, Summen, Zahlungsmethoden, Zeitstempel – und speichert sie im Receipters Vault als saubere, standardisierte Daten.",
-  "landing.howItWorks.step3.title": "Schritt 3 – Suchen und Abrufen",
+  "landing.howItWorks.step3.title": "Suchen und abrufen",
   "landing.howItWorks.step3.description": "Händler und Verbraucher können Quittungen sofort über Web-Dashboards oder die Receipters App suchen. Filtern nach Datum, Geschäft, Betrag, SKU, Zahlungsmethode und mehr.",
-  "landing.howItWorks.step4.title": "Schritt 4 – Analysieren und Handeln (Optional)",
+  "landing.howItWorks.step4.title": "Analysieren und handeln",
   "landing.howItWorks.step4.description": "Mit dem Datenanalyseprodukt aktiviert verwandeln KI-gestützte Dashboards und ein intelligenter Assistent Ihre Quittungsdaten in Einblicke, Warnungen und Berichte, die bessere Entscheidungen vorantreiben.",
   "landing.aiSection.title": "KI, die auf realen Transaktionsdaten funktioniert",
   "landing.aiSection.description": "Quittungen sind eine der reichsten und detailliertesten Datenquellen im Handel – aber sie sind meist auf Papier gefangen oder über Systeme verstreut. Receipters ändert das, indem jede Quittung in strukturierte, KI-bereite Daten verwandelt wird.",
@@ -578,5 +578,9 @@
   "signup.toast.successOtp": "Konto erstellt! Weiterleitung zur Verifizierung.",
   "signup.toast.successLogin": "Erfolgreich angemeldet!",
   "signup.toast.googleFailed": "Anmeldung mit Google fehlgeschlagen. Bitte versuchen Sie es erneut.",
-  "signup.toast.facebookFailed": "Anmeldung mit Facebook fehlgeschlagen. Bitte versuchen Sie es erneut."
+  "signup.toast.facebookFailed": "Anmeldung mit Facebook fehlgeschlagen. Bitte versuchen Sie es erneut.",
+  "landing.hero.artifactCaption": "Beispielbeleg und der dazu gespeicherte Datensatz.",
+  "landing.whoWeServe.other.title": "Eine andere Branche?",
+  "landing.whoWeServe.other.description": "Beschreiben Sie Ihre Kassenumgebung, und wir beraten Sie zur Integration.",
+  "footer.tagline": "Infrastruktur für digitale Belege für Händler, Institutionen und Verbraucher."
 }

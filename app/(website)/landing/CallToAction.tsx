@@ -1,43 +1,37 @@
-"use client"
-import Button from "@/components/Button";
-import { useRouter } from "next/navigation";
-import { useTranslation } from 'react-i18next';
+"use client";
+
+import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export default function CallToAction() {
-  const { t } = useTranslation('common');
-  const router = useRouter();
+  const { t } = useTranslation("common");
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center">
-      <div className="max-w-7xl mx-auto flex flex-col items-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-          {t('landing.cta.newTitle')}
-        </h2>
-        <p className="text-sm sm:text-base lg:text-lg mb-8 sm:mb-12 max-w-3xl leading-relaxed opacity-90">
-          {t('landing.cta.newDescription')}
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-          <Button
-            variant="custom"
-            onClick={() => router.push("/signup")}
-            className="!bg-white !text-blue-600 px-8 py-3 !rounded-full w-full sm:w-auto !justify-center hover:!bg-gray-100">
-            <span className="font-medium text-sm sm:text-base whitespace-nowrap">
-              {t('landing.cta.newButton1')}
-            </span>
-          </Button>
-          <Button
-            variant="custom"
-            onClick={() => router.push("/contact")}
-            className="!bg-transparent !text-white !border-2 !border-white px-8 py-3 !rounded-full w-full sm:w-auto !justify-center hover:!bg-white hover:!text-blue-600">
-            <span className="font-medium text-sm sm:text-base whitespace-nowrap">
-              {t('landing.cta.newButton2')}
-            </span>
-          </Button>
+    <section className="bg-primary text-white">
+      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-5 py-20 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:py-24">
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+            {t("landing.cta.newTitle")}
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-white/80">
+            {t("landing.cta.newDescription")}
+          </p>
         </div>
-        <p className="text-sm opacity-90">
-          {t('landing.cta.newFooter')}
-        </p>
+        <div className="flex flex-col gap-3 sm:flex-row lg:shrink-0">
+          <Link
+            href="/download"
+            className="inline-flex items-center justify-center bg-white px-7 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-mist"
+          >
+            {t("landing.cta.newButton1")}
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center border border-white/60 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
+          >
+            {t("landing.cta.newButton2")}
+          </Link>
+        </div>
       </div>
-    </div>
-  )
+    </section>
+  );
 }
