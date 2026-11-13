@@ -40,9 +40,9 @@ export default function CookieConsent() {
   if (consent === undefined) return null; // not read yet
 
   const primaryButton =
-    "bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ink";
+    "bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink";
   const secondaryButton =
-    "border border-ink px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-mist";
+    "border border-ink px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-mist";
 
   return (
     <>
@@ -51,22 +51,33 @@ export default function CookieConsent() {
         <div
           role="region"
           aria-label={t("cookies.banner.title")}
-          className="fixed inset-x-0 bottom-0 z-[1000] border-t-[3px] border-primary bg-white shadow-[0_-12px_32px_-16px_rgba(14,20,51,0.35)]"
+          className="fixed inset-x-0 bottom-0 z-[1000] max-h-[90vh] overflow-y-auto border-t-[3px] border-primary bg-white shadow-[0_-12px_32px_-16px_rgba(14,20,51,0.35)]"
         >
-          <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-5 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-3xl">
-              <h2 className="text-base font-semibold text-ink">{t("cookies.banner.title")}</h2>
-              <p className="mt-1 text-sm leading-relaxed text-muted">{t("cookies.banner.description")}</p>
+          <div className="mx-auto grid max-w-7xl gap-6 px-5 py-6 sm:px-8 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-8">
+              <h2 className="text-lg font-semibold text-ink">{t("cookies.banner.title")}</h2>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-muted">{t("cookies.banner.description")}</p>
+              <ul className="m-0 mt-3 grid list-none gap-x-8 gap-y-1.5 p-0 text-sm text-muted sm:grid-cols-3">
+                <li><span className="font-semibold text-ink">{t("cookies.necessary.title")}</span>: {t("cookies.banner.necessaryCaption")}</li>
+                <li><span className="font-semibold text-ink">{t("cookies.preferences.title")}</span>: {t("cookies.banner.preferencesCaption")}</li>
+                <li><span className="font-semibold text-ink">{t("cookies.chat.title")}</span>: {t("cookies.banner.chatCaption")}</li>
+              </ul>
+              <p className="mt-3 text-sm text-muted">
+                {t("cookies.banner.changeLater")}{" "}
+                <Link href="/privacy-policy" className="font-semibold text-primary underline underline-offset-4">
+                  {t("cookies.banner.privacyLink")}
+                </Link>
+              </p>
             </div>
-            <div className="flex shrink-0 flex-wrap gap-3">
-              <button type="button" onClick={() => setSettingsOpen(true)} className="px-2 py-2.5 text-sm font-semibold text-primary underline underline-offset-4">
-                {t("cookies.banner.choose")}
-              </button>
-              <button type="button" onClick={() => choose({ preferences: false, chat: false })} className={secondaryButton}>
-                {t("cookies.banner.necessaryOnly")}
-              </button>
+            <div className="flex flex-col gap-3 lg:col-span-4">
               <button type="button" onClick={() => choose({ preferences: true, chat: true })} className={primaryButton}>
                 {t("cookies.banner.acceptAll")}
+              </button>
+              <button type="button" onClick={() => choose({ preferences: false, chat: false })} className={secondaryButton}>
+                {t("cookies.banner.rejectAll")}
+              </button>
+              <button type="button" onClick={() => setSettingsOpen(true)} className={secondaryButton}>
+                {t("cookies.banner.settings")}
               </button>
             </div>
           </div>
@@ -126,6 +137,9 @@ export default function CookieConsent() {
                 {t("footer.legalLinks.privacyPolicy")}
               </Link>
               <div className="flex flex-wrap gap-3">
+                <button type="button" onClick={() => choose({ preferences: false, chat: false })} className={secondaryButton}>
+                  {t("cookies.banner.rejectAll")}
+                </button>
                 <button type="button" onClick={() => choose({ preferences: true, chat: true })} className={secondaryButton}>
                   {t("cookies.banner.acceptAll")}
                 </button>
