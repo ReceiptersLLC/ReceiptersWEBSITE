@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://receipters.com",
+    url: "https://www.receipters.com",
     siteName: "Receipters",
     title: "Receipters - Digital Receipt Management Solutions",
     description: "Transform your business with secure, eco-friendly digital receipt solutions. Integrated POS systems for instant delivery and paperless transactions.",
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://receipters.com"),
+  metadataBase: new URL("https://www.receipters.com"),
   alternates: {
     canonical: "/",
     languages: {

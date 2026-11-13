@@ -4,65 +4,65 @@
   
   <!-- Main pages -->
   <url>
-    <loc>https://receipters.com/</loc>
+    <loc>https://www.receipters.com/</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://receipters.com/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://receipters.com/fr"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://receipters.com/de"/>
-    <xhtml:link rel="alternate" hreflang="sw" href="https://receipters.com/sw"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.receipters.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.receipters.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.receipters.com/de"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://www.receipters.com/sw"/>
   </url>
   
   <url>
-    <loc>https://receipters.com/about</loc>
+    <loc>https://www.receipters.com/about</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://receipters.com/about"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://receipters.com/fr/about"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://receipters.com/de/about"/>
-    <xhtml:link rel="alternate" hreflang="sw" href="https://receipters.com/sw/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.receipters.com/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.receipters.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.receipters.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://www.receipters.com/sw/about"/>
   </url>
   
   <url>
-    <loc>https://receipters.com/product</loc>
+    <loc>https://www.receipters.com/product</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://receipters.com/product"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://receipters.com/fr/product"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://receipters.com/de/product"/>
-    <xhtml:link rel="alternate" hreflang="sw" href="https://receipters.com/sw/product"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.receipters.com/product"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.receipters.com/fr/product"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.receipters.com/de/product"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://www.receipters.com/sw/product"/>
   </url>
   
   <url>
-    <loc>https://receipters.com/contact</loc>
+    <loc>https://www.receipters.com/contact</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://receipters.com/contact"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://receipters.com/fr/contact"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://receipters.com/de/contact"/>
-    <xhtml:link rel="alternate" hreflang="sw" href="https://receipters.com/sw/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.receipters.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.receipters.com/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.receipters.com/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="sw" href="https://www.receipters.com/sw/contact"/>
   </url>
   
   <url>
-    <loc>https://receipters.com/download</loc>
+    <loc>https://www.receipters.com/download</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://receipters.com/login</loc>
+    <loc>https://www.receipters.com/login</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://receipters.com/signup</loc>
+    <loc>https://www.receipters.com/signup</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -70,14 +70,14 @@
   
   <!-- Legal pages -->
   <url>
-    <loc>https://receipters.com/privacy-policy</loc>
+    <loc>https://www.receipters.com/privacy-policy</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
-    <loc>https://receipters.com/terms-and-conditions</loc>
+    <loc>https://www.receipters.com/terms-and-conditions</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

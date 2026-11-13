@@ -13,4 +13,4 @@ Disallow: /success
 Disallow: /otp-login
 
 # Sitemap location
-Sitemap: https://receipters.com/sitemap.xml
+Sitemap: https://www.receipters.com/sitemap.xml
