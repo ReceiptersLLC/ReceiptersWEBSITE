@@ -1,9 +1,6 @@
 "use client";
 import Link from "next/link";
-import Button from "@/components/Button";
 import Image from "next/image";
-import TextInput from "@/components/TextInput";
-import { useState } from "react";
 import {
   Instagram,
   Youtube
@@ -16,104 +13,68 @@ import FooterLinksSection from "@/components/footer/FooterLinksSection";
 import { useTranslation } from "react-i18next";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
   const { t } = useTranslation('common');
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-[#151516] text-white">
-      <div className="w-full max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 sm:gap-12 border-b border-b-white pb-8 sm:pb-12">
-          { }
-          <div className="grid gap-4 sm:gap-6 lg:col-span-2">
-            <Link href="/">
-              <div className="relative w-[120px] sm:w-[138px] h-[25px] sm:h-[29.117px]">
-                <Image
-                  src="/img/logo_full_w.svg"
-                  alt="Logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
+    <footer className="bg-inkDeep text-white">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+        <div className="grid gap-12 border-b border-white/15 pb-12 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <Link href="/" className="inline-flex items-center gap-2.5">
+              <span className="relative block h-9 w-6">
+                <Image src="/img/logo.svg" alt="" fill className="object-contain" />
+              </span>
+              <span className="text-lg font-semibold tracking-tight">Receipters</span>
             </Link>
-            <div className="text-sm sm:text-base lg:text-lg">
-              {t('footer.newsletter.title')}
-            </div>
-            <div>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 mb-3">
-                <TextInput
-                  required
-                  type="text"
-                  name="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onTextChange={setEmail}
-                  className="flex-1 sm:mr-6"
-                />
-                <Button onClick={() => console.log("")} className="!rounded-full w-full sm:w-auto">
-                  {t('footer.newsletter.button')}
-                </Button>
-              </div>
-              <div className="text-xs sm:text-sm opacity-75 leading-relaxed">
-                {t('footer.newsletter.privacyPolicy')}
-              </div>
-              <div className="flex flex-col items-start mt-4 sm:mt-6">
-                <div className="text-sm sm:text-base font-semibold mb-3">
-                  {t('footer.connectWithUs')}</div>
-                <div className="flex flex-row gap-4 sm:gap-6 flex-wrap">
-                  <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank"><FaSquareFacebook className="w-5 h-5 sm:w-6 sm:h-6 hover:text-blue-500 transition-colors" /></Link>
-                  <Link href="https://www.instagram.com/receipters_llc" target="_blank"><Instagram className="w-5 h-5 sm:w-6 sm:h-6 hover:text-pink-500 transition-colors" /></Link>
-                  <Link href="https://www.x.com/receipters_llc" target="_blank"><FaXTwitter className="w-5 h-5 sm:w-6 sm:h-6 hover:text-blue-400 transition-colors" /></Link>
-                  <Link href="http://www.linkedin.com/company/Receipters-LLC/" target="_blank"><FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6 hover:text-blue-600 transition-colors" /></Link>
-                  <Link href="https://www.tiktok.com/@receipters_llc" target="_blank"><FaTiktok className="w-5 h-5 sm:w-6 sm:h-6 hover:text-gray-300 transition-colors" /></Link>
-                  <Link href="https://www.youtube.com/@Receipters_llc" target="_blank"><Youtube className="w-5 h-5 sm:w-6 sm:h-6 hover:text-red-500 transition-colors" /></Link>
-                </div>
-              </div>
+            <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-white/65">
+              {t('footer.tagline')}
+            </p>
+            <div className="mt-8 text-sm font-semibold">{t('footer.connectWithUs')}</div>
+            <div className="mt-4 flex flex-wrap gap-5 text-white/70">
+              <Link href="https://www.facebook.com/profile.php?id=61576378047776" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaSquareFacebook className="size-5 transition-colors hover:text-white" /></Link>
+              <Link href="https://www.instagram.com/receipters_llc" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram className="size-5 transition-colors hover:text-white" /></Link>
+              <Link href="https://www.x.com/receipters_llc" target="_blank" rel="noopener noreferrer" aria-label="X"><FaXTwitter className="size-5 transition-colors hover:text-white" /></Link>
+              <Link href="http://www.linkedin.com/company/Receipters-LLC/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin className="size-5 transition-colors hover:text-white" /></Link>
+              <Link href="https://www.tiktok.com/@receipters_llc" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><FaTiktok className="size-5 transition-colors hover:text-white" /></Link>
+              <Link href="https://www.youtube.com/@Receipters_llc" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><Youtube className="size-5 transition-colors hover:text-white" /></Link>
             </div>
           </div>
 
-          { }
-          <div className="w-full">
+          <div className="lg:col-span-2 lg:col-start-7">
             <FooterLinksSection title={t('footer.quickLinks.title')} data={productLinks.map(link => ({ ...link, name: t(`footer.productLinks.${link.name.toLowerCase().replace(/\s/g, '')}`) }))} />
           </div>
 
-          <div className="w-full flex flex-col">
-            <div className="h5 mb-3">{t('footer.locations')}</div>
-            <div className="space-y-6">
-              <div className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                <strong className="text-white">{t('footer.primaryOffice')}:</strong><br />
+          <div className="lg:col-span-4">
+            <div className="mb-3 text-sm font-semibold">{t('footer.locations')}</div>
+            <div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-1">
+              <div className="text-sm leading-relaxed text-white/65">
+                <strong className="font-medium text-white">{t('footer.primaryOffice')}</strong><br />
                 <span className="whitespace-pre-line">{t('footer.primaryOfficeAddress')}</span>
               </div>
-              <div className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                <strong className="text-white">{t('footer.usOffice')}:</strong><br />
+              <div className="text-sm leading-relaxed text-white/65">
+                <strong className="font-medium text-white">{t('footer.usOffice')}</strong><br />
                 <span className="whitespace-pre-line">{t('footer.usOfficeAddress')}</span>
               </div>
-              <div className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                <strong className="text-white">{t('footer.zambiaOffice')}:</strong><br />
+              <div className="text-sm leading-relaxed text-white/65">
+                <strong className="font-medium text-white">{t('footer.zambiaOffice')}</strong><br />
                 <span className="whitespace-pre-line">{t('footer.zambiaOfficeAddress')}</span>
               </div>
             </div>
           </div>
         </div>
 
-        { }
-        <div className="w-full flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-12 mb-4 sm:mb-5">
-          {legalLinks.map((link, index) => (
-            <Link
-              key={`legal-link-${index}`}
-              href={link.url}
-              className="text-xs sm:text-sm hover:text-primary transition-colors"
-            >
-              {t(link.nameKey)}
-            </Link>
-          ))}
-        </div>
-
-        { }
-        <div className="text-center text-xs sm:text-sm lg:text-base opacity-75">
-          © {new Date().getFullYear()} Receipters Technology. All Rights Reserved
+        <div className="mt-8 flex flex-col gap-4 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
+          <div>© {new Date().getFullYear()} Receipters Technology. All rights reserved.</div>
+          <div className="flex gap-6">
+            {legalLinks.map((link) => (
+              <Link key={link.id} href={link.url} className="transition-colors hover:text-white">
+                {t(link.nameKey)}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

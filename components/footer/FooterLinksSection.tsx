@@ -34,7 +34,7 @@ export default function FooterLinksSection({
 
   return (
     <div className="flex flex-col">
-      <div className="h5 mb-3">{title}</div>
+      <div className="mb-3 text-sm font-semibold">{title}</div>
       <div className={`flex ${isSocial ? "flex-col gap-4" : "flex-col"}`}>
         {data.map((item, i) => {
           const isExternal = item.url.startsWith("http");
@@ -59,7 +59,7 @@ export default function FooterLinksSection({
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm hover:text-primary py-2 font-medium"
+              className="py-1.5 text-sm text-white/65 transition-colors hover:text-white"
             >
               {item.name}
             </a>
@@ -67,7 +67,7 @@ export default function FooterLinksSection({
             <Link
               key={`footer-${item.name}-${i}-${item.id}`}
               href={item.url}
-              className="text-sm hover:text-primary py-2 font-medium"
+              className="py-1.5 text-sm text-white/65 transition-colors hover:text-white"
             >
               {item.name}
             </Link>
