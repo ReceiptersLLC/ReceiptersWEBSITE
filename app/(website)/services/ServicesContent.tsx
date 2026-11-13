@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { Cable, Rocket, Code2, ChartLine, Check } from "lucide-react";
+import { Cable, Rocket, Code2, ChartLine, UserRound, ArchiveRestore, Check } from "lucide-react";
 
 const services = [
   { key: "integration", Icon: Cable },
   { key: "onboarding", Icon: Rocket },
   { key: "developer", Icon: Code2 },
   { key: "analytics", Icon: ChartLine },
+  { key: "individualHistory", Icon: UserRound },
+  { key: "merchantHistory", Icon: ArchiveRestore },
 ];
 const points = ["point1", "point2", "point3"];
 const steps = ["step1", "step2", "step3"];

@@ -637,5 +637,15 @@
   "careers.roles.accountant.summary": "Weka vitabu vyetu sahihi na usaidie kuhakikisha risiti zinakidhi sheria za kodi na uzingatiaji.",
   "careers.roles.accountant.point1": "Simamia ankara, malipo, usuluhishi na kufunga mwezi",
   "careers.roles.accountant.point2": "Andaa VAT na ritani nyingine za lazima katika kila nchi tunayofanyia kazi",
-  "careers.roles.accountant.point3": "Kagua jinsi data ya risiti inavyorekodi kodi ili ilingane na matarajio ya wadhibiti"
+  "careers.roles.accountant.point3": "Kagua jinsi data ya risiti inavyorekodi kodi ili ilingane na matarajio ya wadhibiti",
+  "services.individualHistory.title": "Risiti za zamani za mtu binafsi",
+  "services.individualHistory.description": "Leta risiti ulizonazo tayari kwenye akaunti yako ya Receipters, ili manunuzi ya zamani yakae pamoja na risiti mpya za kidijitali.",
+  "services.individualHistory.point1": "Risiti za karatasi zinanaswa kwa programu ya Receipters",
+  "services.individualHistory.point2": "Manunuzi ya zamani yanatafutika kwa duka, tarehe na kiasi",
+  "services.individualHistory.point3": "Risiti zinahifadhiwa kwa dhamana, marejesho na bajeti",
+  "services.merchantHistory.title": "Risiti za zamani za mfanyabiashara",
+  "services.merchantHistory.description": "Tunaingiza risiti zako za zamani kwenye Hifadhi ya Receipters, ili miamala ya zamani ikae pamoja na risiti mpya za kidijitali.",
+  "services.merchantHistory.point1": "Uingizaji kutoka tili za zamani, lahajedwali na data iliyotolewa kwenye POS",
+  "services.merchantHistory.point2": "Zinapangwa kuwa bidhaa, jumla, kodi na tarehe",
+  "services.merchantHistory.point3": "Zinatafutika kwa ukaguzi, marejesho na maswali ya wateja"
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
 
-const services = ["integration", "onboarding", "developer", "analytics"];
+const services = ["integration", "onboarding", "developer", "analytics", "individualHistory", "merchantHistory"];
 
 export default function ServicesTeaser() {
   const { t } = useTranslation("common");

@@ -637,5 +637,15 @@
   "careers.roles.accountant.summary": "Führen Sie unsere Bücher genau und helfen Sie sicherzustellen, dass Belege Steuer- und Compliance-Regeln erfüllen.",
   "careers.roles.accountant.point1": "Rechnungsstellung, Zahlungen, Abstimmung und Monatsabschluss verwalten",
   "careers.roles.accountant.point2": "Umsatzsteuer und andere Pflichtmeldungen in jedem unserer Länder vorbereiten",
-  "careers.roles.accountant.point3": "Prüfen, ob Belegdaten die Steuer so erfassen, wie Behörden es erwarten"
+  "careers.roles.accountant.point3": "Prüfen, ob Belegdaten die Steuer so erfassen, wie Behörden es erwarten",
+  "services.individualHistory.title": "Historische Belege für Privatpersonen",
+  "services.individualHistory.description": "Bringen Sie Ihre vorhandenen Belege in Ihr Receipters-Konto, damit frühere Käufe neben neuen digitalen Belegen stehen.",
+  "services.individualHistory.point1": "Papierbelege mit der Receipters-App erfasst",
+  "services.individualHistory.point2": "Frühere Käufe durchsuchbar nach Geschäft, Datum und Betrag",
+  "services.individualHistory.point3": "Belege für Garantie, Rückgabe und Budget aufbewahrt",
+  "services.merchantHistory.title": "Historische Belege für Händler",
+  "services.merchantHistory.description": "Wir importieren Ihre früheren Belege in den Receipters-Tresor, damit alte Transaktionen neben neuen digitalen Belegen stehen.",
+  "services.merchantHistory.point1": "Import aus alten Kassen, Tabellen und exportierten Kassendaten",
+  "services.merchantHistory.point2": "Strukturiert in Positionen, Summen, Steuern und Datum",
+  "services.merchantHistory.point3": "Durchsuchbar für Prüfungen, Rückgaben und Kundenanfragen"
 }
