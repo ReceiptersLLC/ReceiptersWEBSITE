@@ -27,7 +27,7 @@ export const products: ProductLink[] = [
     slug: "shahidibox",
     name: "ShahidiBox",
     categoryKey: "productFamily.category.vault",
-    href: "https://shahidibox.com",
+    href: "https://www.shahidibox.com",
     descriptionKey: "productFamily.shahidibox.description",
   },
 ];
