@@ -587,5 +587,12 @@
   "footer.explore": "Entdecken",
   "footer.company": "Unternehmen",
   "footer.trustLegal": "Vertrauen und Rechtliches",
-  "footer.deleteAccount": "Konto löschen"
+  "footer.deleteAccount": "Konto löschen",
+  "navbar.allProducts": "Alle Produkte",
+  "navbar.allServices": "Alle Leistungen",
+  "productFamily.title": "Receipters-Produkte",
+  "productFamily.description": "Die Kassen-, Zahlungs- und Belegprodukte von Receipters Technologies.",
+  "productFamily.category.pos": "Kassensystem",
+  "productFamily.category.payments": "Zahlungen",
+  "productFamily.category.vault": "Belegtresor"
 }

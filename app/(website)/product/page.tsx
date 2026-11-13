@@ -5,6 +5,7 @@ import { Smartphone, MonitorSmartphone, UploadCloud, Smile } from "lucide-react"
 // import {ReactNode} from "react";
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
+import ProductFamily from '@/components/ProductFamily';
 
 const features = [
   {
@@ -123,6 +124,8 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <ProductFamily />
 
       {/* Features Section */}
       <section className="py-16 bg-gray-50">

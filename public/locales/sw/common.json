@@ -587,5 +587,12 @@
   "footer.explore": "Gundua",
   "footer.company": "Kampuni",
   "footer.trustLegal": "Uaminifu na sheria",
-  "footer.deleteAccount": "Futa akaunti"
+  "footer.deleteAccount": "Futa akaunti",
+  "navbar.allProducts": "Bidhaa zote",
+  "navbar.allServices": "Huduma zote",
+  "productFamily.title": "Bidhaa za Receipters",
+  "productFamily.description": "Bidhaa za mauzo, malipo na risiti zilizoundwa na Receipters Technologies.",
+  "productFamily.category.pos": "Mfumo wa mauzo",
+  "productFamily.category.payments": "Malipo",
+  "productFamily.category.vault": "Hifadhi ya risiti"
 }

@@ -18,7 +18,7 @@ export function Steps() {
   const { t } = useTranslation("common");
 
   return (
-      <section id="how-it-works" className="scroll-mt-16 border-t border-line bg-white">
+      <section id="how-it-works" className="scroll-mt-28 border-t border-line bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
           <h2 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
             {t("landing.howItWorks.newTitle")}
@@ -138,7 +138,7 @@ export function Sectors() {
   const { t } = useTranslation("common");
 
   return (
-      <section id="sectors" className="scroll-mt-16 border-t border-line bg-mist">
+      <section id="sectors" className="scroll-mt-28 border-t border-line bg-mist">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
           <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
             {t("landing.whoWeServe.title")}
