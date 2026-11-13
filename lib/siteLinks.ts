@@ -22,7 +22,7 @@ export const products: ProductLink[] = [
   { slug: "linearpos", name: "LinearPOS", categoryKey: "productFamily.category.pos", href: "https://www.linearpos.com" },
   { slug: "chomapos", name: "ChomaPOS", categoryKey: "productFamily.category.pos", href: "https://www.chomapos.com" },
   { slug: "nairopos", name: "NairoPOS", categoryKey: "productFamily.category.pos", href: "https://www.nairopos.com" },
-  { slug: "fursapay", name: "FursaPay", categoryKey: "productFamily.category.payments", href: "https://www.fursapay.com" },
+  { slug: "fursapay", name: "FursaPay", categoryKey: "productFamily.category.payments", href: "https://fursapay.com" },
   {
     slug: "shahidibox",
     name: "ShahidiBox",
