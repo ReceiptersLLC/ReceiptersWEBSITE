@@ -637,5 +637,15 @@
   "careers.roles.accountant.summary": "Tenez nos comptes avec rigueur et aidez à garantir que les reçus respectent les règles fiscales et de conformité.",
   "careers.roles.accountant.point1": "Gérer la facturation, les paiements, le rapprochement et la clôture mensuelle",
   "careers.roles.accountant.point2": "Préparer la TVA et les autres déclarations obligatoires dans chaque pays où nous sommes présents",
-  "careers.roles.accountant.point3": "Vérifier que les données des reçus enregistrent la taxe comme les autorités le attendent"
+  "careers.roles.accountant.point3": "Vérifier que les données des reçus enregistrent la taxe comme les autorités le attendent",
+  "services.individualHistory.title": "Reçus historiques des particuliers",
+  "services.individualHistory.description": "Ajoutez les reçus que vous possédez déjà à votre compte Receipters, pour que vos achats passés côtoient les reçus numériques récents.",
+  "services.individualHistory.point1": "Reçus papier saisis avec l'application Receipters",
+  "services.individualHistory.point2": "Achats passés recherchables par magasin, date et montant",
+  "services.individualHistory.point3": "Reçus conservés pour les garanties, les retours et le budget",
+  "services.merchantHistory.title": "Reçus historiques des commerçants",
+  "services.merchantHistory.description": "Nous importons vos anciens reçus dans le coffre Receipters, pour que les anciennes transactions côtoient les nouveaux reçus numériques.",
+  "services.merchantHistory.point1": "Import depuis d'anciennes caisses, des tableurs et des exports de caisse",
+  "services.merchantHistory.point2": "Structurés en lignes, totaux, taxes et dates",
+  "services.merchantHistory.point3": "Recherchables pour les audits, les retours et les demandes clients"
 }

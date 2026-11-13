@@ -37,4 +37,6 @@ export const services = [
   { slug: "onboarding", titleKey: "services.onboarding.title" },
   { slug: "developer", titleKey: "services.developer.title" },
   { slug: "analytics", titleKey: "services.analytics.title" },
+  { slug: "individualHistory", titleKey: "services.individualHistory.title" },
+  { slug: "merchantHistory", titleKey: "services.merchantHistory.title" },
 ];
