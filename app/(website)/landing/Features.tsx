@@ -27,12 +27,10 @@ const reasons = [
   { key: "developerFriendlyApis", Icon: Webhook },
 ];
 
-export default function Features() {
+export function Modules() {
   const { t } = useTranslation("common");
 
   return (
-    <>
-      {/* Product modules */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -82,9 +80,14 @@ export default function Features() {
           </div>
         </div>
       </section>
+  );
+}
 
-      {/* Why Receipters */}
-      <section className="border-t border-line bg-mist">
+export function WhyReceipters() {
+  const { t } = useTranslation("common");
+
+  return (
+      <section id="compliance" className="scroll-mt-16 border-t border-line bg-mist">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:py-28">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-28">
@@ -111,6 +114,5 @@ export default function Features() {
           </div>
         </div>
       </section>
-    </>
   );
 }
