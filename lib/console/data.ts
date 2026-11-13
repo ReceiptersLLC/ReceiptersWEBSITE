@@ -40,7 +40,7 @@ export const consoleProducts: ConsoleProduct[] = [
     slug: 'chomapos-plus',
     name: 'ChomaPOS Plus',
     category: 'Point of sale',
-    description: 'The Plus edition of ChomaPOS, managed in its own owner console.',
+    description: 'The Plus edition of ChomaPOS.',
     externalConsoleUrl: 'https://plus-owner.chomapos.com/',
   },
   { slug: 'nairopos', name: 'NairoPOS', category: 'Point of sale', description: 'Point of sale for multi-branch retail.' },

@@ -15,7 +15,7 @@ export default function ConsoleHome() {
         Choose a product to manage its business IDs and admin accounts.
       </p>
 
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="m-0 mt-10 list-none space-y-3 p-0">
         {consoleProducts.map((p) => {
           const list = admins.filter((a) => a.product === p.slug);
           const count = (s: string) => list.filter((a) => a.status === s).length;
@@ -25,70 +25,74 @@ export default function ConsoleHome() {
             null
           );
           const external = p.externalConsoleUrl;
-          const cardClass =
-            'group flex flex-col border border-line border-t-[3px] border-t-primary bg-white p-6 transition-all hover:-translate-y-0.5 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]';
-          const head = (
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <h2 className="font-serif text-2xl font-medium tracking-tight">{p.name}</h2>
-                <p className="mt-1 text-sm text-muted">{p.category}</p>
+
+          const body = (
+            <>
+              <div className="flex min-w-0 items-center gap-4 lg:w-[34%]">
+                <span className="flex size-11 shrink-0 items-center justify-center bg-primary text-white">
+                  <Boxes className="size-5" strokeWidth={1.5} aria-hidden="true" />
+                </span>
+                <div className="min-w-0">
+                  <h2 className="font-serif text-xl font-medium leading-tight tracking-tight">{p.name}</h2>
+                  <p className="mt-0.5 text-sm text-muted">
+                    {p.category} · {p.description}
+                  </p>
+                </div>
               </div>
-              <span className="flex size-10 shrink-0 items-center justify-center bg-primary text-white">
-                <Boxes className="size-5" strokeWidth={1.5} aria-hidden="true" />
-              </span>
-            </div>
+
+              {external ? (
+                <p className="flex-1 text-sm leading-relaxed text-muted">
+                  Managed in its own owner console. Opens in a new tab.
+                </p>
+              ) : (
+                <dl className="grid flex-1 grid-cols-5 gap-px border border-line bg-line text-center">
+                  {[
+                    ['Businesses', businesses],
+                    ['Admins', list.length],
+                    ['Active', count('active')],
+                    ['Paused', count('paused')],
+                    ['Deactivated', count('deactivated')],
+                  ].map(([label, value]) => (
+                    <div key={label as string} className="bg-white px-1 py-2">
+                      <dd className="font-mono text-lg font-medium">{value}</dd>
+                      <dt className="text-[11px] text-muted sm:text-xs">{label}</dt>
+                    </div>
+                  ))}
+                </dl>
+              )}
+
+              <div className="flex items-center justify-between gap-6 lg:w-[26%] lg:justify-end">
+                {!external && <span className="text-sm text-muted">Active {timeAgo(recent)}</span>}
+                <span className="flex shrink-0 items-center gap-1.5 text-sm font-semibold text-primary">
+                  {external ? 'Open console' : 'Manage'}
+                  {external ? (
+                    <ExternalLink className="size-4" aria-hidden="true" />
+                  ) : (
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                  )}
+                </span>
+              </div>
+            </>
           );
 
-          if (external) {
-            return (
-              <a key={p.slug} href={external} target="_blank" rel="noopener noreferrer" className={cardClass}>
-                {head}
-                <p className="mt-4 text-[15px] leading-relaxed text-muted">{p.description}</p>
-                <p className="mt-6 border border-line bg-mist px-4 py-3 text-sm leading-relaxed text-muted">
-                  This product has its own owner console. It opens in a new tab.
-                </p>
-                <div className="mt-5 flex items-center justify-end border-t border-line pt-4 text-sm">
-                  <span className="flex items-center gap-1.5 font-semibold text-primary">
-                    Open {p.name} console
-                    <ExternalLink className="size-4" aria-hidden="true" />
-                  </span>
-                </div>
-              </a>
-            );
-          }
+          const rowClass =
+            'group flex flex-col gap-4 border border-line border-l-[3px] border-l-primary bg-white p-4 transition-all hover:border-primary/50 hover:shadow-[0_14px_28px_-16px_rgba(14,20,51,0.22)] sm:p-5 lg:flex-row lg:items-center lg:gap-6';
 
           return (
-            <Link key={p.slug} href={`/console/${p.slug}`} className={cardClass}>
-              {head}
-              <p className="mt-4 text-[15px] leading-relaxed text-muted">{p.description}</p>
-              <dl className="mt-6 grid grid-cols-3 gap-px border border-line bg-line text-center">
-                {[
-                  ['Businesses', businesses],
-                  ['Admins', list.length],
-                  ['Active', count('active')],
-                ].map(([label, value]) => (
-                  <div key={label as string} className="bg-white px-2 py-3">
-                    <dd className="font-mono text-xl font-medium">{value}</dd>
-                    <dt className="mt-0.5 text-xs text-muted">{label}</dt>
-                  </div>
-                ))}
-              </dl>
-              <div className="mt-5 flex items-center justify-between text-sm">
-                <span className="text-muted">
-                  {count('paused')} paused · {count('deactivated')} deactivated
-                </span>
-              </div>
-              <div className="mt-4 flex items-center justify-between border-t border-line pt-4 text-sm">
-                <span className="text-muted">Last activity {timeAgo(recent)}</span>
-                <span className="flex items-center gap-1.5 font-semibold text-primary">
-                  Open console
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                </span>
-              </div>
-            </Link>
+            <li key={p.slug}>
+              {external ? (
+                <a href={external} target="_blank" rel="noopener noreferrer" className={rowClass}>
+                  {body}
+                </a>
+              ) : (
+                <Link href={`/console/${p.slug}`} className={rowClass}>
+                  {body}
+                </Link>
+              )}
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 }
