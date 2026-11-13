@@ -83,7 +83,11 @@ export function renderEmail(c: EmailContent): { html: string; text: string } {
     </td></tr>
     <tr><td style="padding:28px 32px 8px;">
       <div style="border-top:1px solid ${LINE};padding-top:20px;font:bold 16px ${SERIF};color:${INK};">Need help?</div>
-      <p style="margin:8px 0 0;font:13px/1.6 ${FONT};color:${MUTED};">Write to <a href="mailto:support@receipters.com" style="color:${BLUE};">support@receipters.com</a>. A person at Receipters will reply within 2 working days.</p>
+      <p style="margin:8px 0 12px;font:13px/1.6 ${FONT};color:${MUTED};">Write to <a href="mailto:support@receipters.com" style="color:${BLUE};">support@receipters.com</a>, or message us on WhatsApp. A person at Receipters will reply within 2 working days.</p>
+      <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="font:13px/1.6 ${FONT};color:${INK};">
+        <tr><td style="padding:6px 0;border-top:1px solid ${LINE};width:90px;color:${MUTED};">Kenya</td><td style="padding:6px 0;border-top:1px solid ${LINE};"><a href="https://wa.me/254722752755" style="color:${BLUE};text-decoration:none;font-weight:bold;">+254 722 752 755</a></td></tr>
+        <tr><td style="padding:6px 0;border-top:1px solid ${LINE};border-bottom:1px solid ${LINE};color:${MUTED};">USA</td><td style="padding:6px 0;border-top:1px solid ${LINE};border-bottom:1px solid ${LINE};"><a href="https://wa.me/17209302570" style="color:${BLUE};text-decoration:none;font-weight:bold;">+1 (720) 930-2570</a></td></tr>
+      </table>
     </td></tr>
     <tr><td style="padding:24px 32px 32px;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${BLUE};"><tr><td style="padding:20px 22px;font:12px/1.6 ${FONT};color:#DCE3F7;">
@@ -107,7 +111,7 @@ export function renderEmail(c: EmailContent): { html: string; text: string } {
     c.code ? `\nCode: ${c.code.value} (${c.code.caption})` : '',
     c.steps?.length ? `\n${c.stepsTitle || 'How to use it'}\n${c.steps.map((s, i) => `${i + 1}. ${s}`).join('\n')}` : '',
     c.notice ? `\n${c.notice.title} ${c.notice.body}` : '',
-    '\nNeed help? Write to support@receipters.com.',
+    '\nNeed help? Write to support@receipters.com or WhatsApp Kenya +254 722 752 755, USA +1 (720) 930-2570.',
     `\n${c.reason}`,
   ]
     .filter((l) => l !== '')
