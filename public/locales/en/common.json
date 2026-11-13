@@ -729,5 +729,7 @@
   "careers.roles.accountant.summary": "Keep our books accurate and help make sure receipts meet tax and compliance rules.",
   "careers.roles.accountant.point1": "Manage invoicing, payments, reconciliation and month-end close",
   "careers.roles.accountant.point2": "Prepare VAT and other statutory filings in each country we operate in",
-  "careers.roles.accountant.point3": "Review how receipt data records tax so it matches what regulators expect"
+  "careers.roles.accountant.point3": "Review how receipt data records tax so it matches what regulators expect",
+  "productFamily.bodapos.description": "Point of sale and business management for retail and wholesale in Kenya.",
+  "productFamily.shahidibox.description": "Keeps your signed eTIMS receipts from the moment the till issues them."
 }

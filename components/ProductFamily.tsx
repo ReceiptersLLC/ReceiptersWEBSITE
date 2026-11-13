@@ -22,10 +22,13 @@ export default function ProductFamily() {
             <div
               key={product.slug}
               id={product.slug}
-              className="group relative flex min-h-[11rem] scroll-mt-32 flex-col border-b border-r border-line bg-white p-7 transition-all hover:z-10 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]"
+              className="group relative flex min-h-[13rem] scroll-mt-32 flex-col border-b border-r border-line bg-white p-7 transition-all hover:z-10 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]"
             >
               <div className="text-sm text-muted">{t(product.categoryKey)}</div>
               <h3 className="font-serif mt-2 text-2xl font-medium tracking-tight text-ink">{product.name}</h3>
+              {product.descriptionKey && (
+                <p className="mt-3 text-[15px] leading-relaxed text-muted">{t(product.descriptionKey)}</p>
+              )}
               <div className="mt-auto pt-6">
                 {product.href ? (
                   <a
@@ -34,7 +37,7 @@ export default function ProductFamily() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-sm font-semibold text-primary underline-offset-4 hover:underline"
                   >
-                    {product.href.replace("https://", "")}
+                    {product.href.replace("https://", "").replace("www.", "")}
                     <ArrowUpRight size={14} aria-hidden="true" />
                   </a>
                 ) : (
