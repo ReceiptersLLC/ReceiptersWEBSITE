@@ -638,6 +638,8 @@
   "careers.roles.accountant.point1": "Rechnungsstellung, Zahlungen, Abstimmung und Monatsabschluss verwalten",
   "careers.roles.accountant.point2": "Umsatzsteuer und andere Pflichtmeldungen in jedem unserer Länder vorbereiten",
   "careers.roles.accountant.point3": "Prüfen, ob Belegdaten die Steuer so erfassen, wie Behörden es erwarten",
+  "navbar.link.app": "App",
+  "navbar.button.signOut": "Abmelden",
   "services.individualHistory.title": "Historische Belege für Privatpersonen",
   "services.individualHistory.description": "Bringen Sie Ihre vorhandenen Belege in Ihr Receipters-Konto, damit frühere Käufe neben neuen digitalen Belegen stehen.",
   "services.individualHistory.point1": "Papierbelege mit der Receipters-App erfasst",

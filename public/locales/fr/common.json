@@ -638,6 +638,8 @@
   "careers.roles.accountant.point1": "Gérer la facturation, les paiements, le rapprochement et la clôture mensuelle",
   "careers.roles.accountant.point2": "Préparer la TVA et les autres déclarations obligatoires dans chaque pays où nous sommes présents",
   "careers.roles.accountant.point3": "Vérifier que les données des reçus enregistrent la taxe comme les autorités le attendent",
+  "navbar.link.app": "Application",
+  "navbar.button.signOut": "Se déconnecter",
   "services.individualHistory.title": "Reçus historiques des particuliers",
   "services.individualHistory.description": "Ajoutez les reçus que vous possédez déjà à votre compte Receipters, pour que vos achats passés côtoient les reçus numériques récents.",
   "services.individualHistory.point1": "Reçus papier saisis avec l'application Receipters",

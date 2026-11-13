@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ChevronDown, Menu, X, ArrowUpRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { products, services } from "@/lib/siteLinks";
+import { useAuth } from "@/context/AuthContext";
 
 const languages = [
   { code: "en", label: "English" },
@@ -22,6 +23,7 @@ export default function Navigator() {
   const pathname = usePathname();
   const { t, i18n: i18nInstance } = useTranslation("common");
   const navRef = useRef<HTMLDivElement>(null);
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -184,21 +186,31 @@ export default function Navigator() {
               >
                 {blogItems}
               </Dropdown>
+              <NavLink href="/download" label={t("navbar.link.app")} active={isActive("/download")} />
               <NavLink href="/careers" label={t("navbar.link.careers")} active={isActive("/careers")} />
               <NavLink href="/contact" label={t("navbar.link.contact")} active={isActive("/contact")} />
             </div>
 
             {/* Account */}
-            <div className="hidden items-center gap-2 lg:flex">
-              <Link href="/login" className="px-3 py-2 text-sm font-semibold text-ink hover:text-primary">
-                {t("navbar.button.login")}
-              </Link>
-              <Link
-                href="/signup"
-                className="bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink"
-              >
-                {t("navbar.button.signUp")}
-              </Link>
+            <div className="hidden items-center gap-1 lg:flex">
+              {user ? (
+                <button
+                  type="button"
+                  onClick={() => logout()}
+                  className="px-3 py-2 text-sm font-semibold text-red-600 hover:text-red-700 hover:underline"
+                >
+                  {t("navbar.button.signOut")}
+                </button>
+              ) : (
+                <>
+                  <Link href="/login" className="px-3 py-2 text-sm font-semibold text-ink hover:text-primary">
+                    {t("navbar.button.login")}
+                  </Link>
+                  <Link href="/signup" className="px-3 py-2 text-sm font-semibold text-ink hover:text-primary">
+                    {t("navbar.button.signUp")}
+                  </Link>
+                </>
+              )}
             </div>
 
             {/* Mobile toggle */}
@@ -241,16 +253,29 @@ export default function Navigator() {
               >
                 {blogItems}
               </MobileGroup>
+              <NavLink href="/download" label={t("navbar.link.app")} active={isActive("/download")} mobile />
               <NavLink href="/careers" label={t("navbar.link.careers")} active={isActive("/careers")} mobile />
               <NavLink href="/contact" label={t("navbar.link.contact")} active={isActive("/contact")} mobile />
 
               <div className="mb-2 mt-3 grid grid-cols-2 gap-3 border-t border-line pt-4">
-                <Link href="/login" className="border border-ink px-4 py-3 text-center text-sm font-semibold text-ink">
-                  {t("navbar.button.login")}
-                </Link>
-                <Link href="/signup" className="bg-primary px-4 py-3 text-center text-sm font-semibold text-white">
-                  {t("navbar.button.signUp")}
-                </Link>
+                {user ? (
+                  <button
+                    type="button"
+                    onClick={() => logout()}
+                    className="col-span-2 border border-red-600 px-4 py-3 text-center text-sm font-semibold text-red-600"
+                  >
+                    {t("navbar.button.signOut")}
+                  </button>
+                ) : (
+                  <>
+                    <Link href="/login" className="border border-ink px-4 py-3 text-center text-sm font-semibold text-ink">
+                      {t("navbar.button.login")}
+                    </Link>
+                    <Link href="/signup" className="border border-ink px-4 py-3 text-center text-sm font-semibold text-ink">
+                      {t("navbar.button.signUp")}
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>
