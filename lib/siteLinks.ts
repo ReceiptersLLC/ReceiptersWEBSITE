@@ -5,17 +5,31 @@ export type ProductLink = {
   name: string;
   /** Translation key for the short category label. */
   categoryKey: string;
-  /** External site for the product, where one exists. */
+  /** The product's own website, where one exists. */
   href?: string;
+  /** Translation key for a one-line description, where one is available. */
+  descriptionKey?: string;
 };
 
 export const products: ProductLink[] = [
-  { slug: "bodapos", name: "BodaPOS", categoryKey: "productFamily.category.pos" },
-  { slug: "linearpos", name: "LinearPOS", categoryKey: "productFamily.category.pos" },
-  { slug: "chomapos", name: "ChomaPOS", categoryKey: "productFamily.category.pos" },
-  { slug: "nairopos", name: "NairoPOS", categoryKey: "productFamily.category.pos" },
-  { slug: "fursapay", name: "FursaPay", categoryKey: "productFamily.category.payments" },
-  { slug: "shahidibox", name: "ShahidiBox", categoryKey: "productFamily.category.vault", href: "https://shahidibox.com" },
+  {
+    slug: "bodapos",
+    name: "BodaPOS",
+    categoryKey: "productFamily.category.pos",
+    href: "https://www.bodapos.com",
+    descriptionKey: "productFamily.bodapos.description",
+  },
+  { slug: "linearpos", name: "LinearPOS", categoryKey: "productFamily.category.pos", href: "https://www.linearpos.com" },
+  { slug: "chomapos", name: "ChomaPOS", categoryKey: "productFamily.category.pos", href: "https://www.chomapos.com" },
+  { slug: "nairopos", name: "NairoPOS", categoryKey: "productFamily.category.pos", href: "https://www.nairopos.com" },
+  { slug: "fursapay", name: "FursaPay", categoryKey: "productFamily.category.payments", href: "https://www.fursapay.com" },
+  {
+    slug: "shahidibox",
+    name: "ShahidiBox",
+    categoryKey: "productFamily.category.vault",
+    href: "https://www.shahidibox.com",
+    descriptionKey: "productFamily.shahidibox.description",
+  },
 ];
 
 export const services = [
