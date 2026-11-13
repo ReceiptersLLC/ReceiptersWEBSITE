@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Receipters - Instant Digital Receipts, Zero Paper Waste",
     description: "Transform your business with secure, eco-friendly digital receipt solutions. Join hundreds of businesses going paperless.",
-    url: "https://receipters.com",
+    url: "https://www.receipters.com",
     type: "website",
     images: [
       {
