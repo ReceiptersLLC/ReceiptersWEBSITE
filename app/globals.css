@@ -112,6 +112,14 @@ textarea {
     background-image: radial-gradient(ellipse 80% 60% at 85% -10%, rgba(124, 192, 238, 0.14), transparent 60%);
 }
 
+/* Page heroes use the brand blue of the active navigation tab. */
+.bg-primary-hero {
+    background-color: #2E388F;
+    background-image:
+        radial-gradient(ellipse 80% 70% at 88% -10%, rgba(124, 192, 238, 0.30), transparent 60%),
+        radial-gradient(ellipse 70% 80% at 0% 115%, rgba(8, 12, 34, 0.38), transparent 65%);
+}
+
 .bg-primary-depth {
     background-color: #2E388F;
     background-image: radial-gradient(ellipse 70% 70% at 10% 110%, rgba(255, 255, 255, 0.10), transparent 60%);

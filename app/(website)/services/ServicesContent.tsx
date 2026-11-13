@@ -20,7 +20,7 @@ export default function ServicesContent() {
 
   return (
     <div>
-      <section className="bg-ink-depth text-white">
+      <section className="bg-primary-hero text-white">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-24">
           <h1 className="font-serif text-4xl font-medium tracking-tight sm:text-5xl">
             {t("services.hero.title")}

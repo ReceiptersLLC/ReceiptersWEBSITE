@@ -100,7 +100,7 @@ export default function Page() {
   return (
     <div className="bg-mist">
       {/* Hero with search */}
-      <section className="bg-ink-depth text-white">
+      <section className="bg-primary-hero text-white">
         <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-20">
           <h1 className="font-serif text-4xl font-medium tracking-tight sm:text-5xl">{t('support.hero.title')}</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/75">{t('support.hero.description')}</p>
