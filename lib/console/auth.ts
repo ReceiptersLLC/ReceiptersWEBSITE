@@ -67,7 +67,11 @@ export const secretConfigured = () => secret() !== null;
 export async function sendEmail(opts: { to: string; subject: string; html: string; text: string }): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return false;
-  const from = process.env.CONSOLE_FROM_EMAIL || 'Receipters <receipters@receipters.com>';
+  // CONSOLE_FROM_EMAIL may hold a bare address or "Name <address>". Build a valid sender either way,
+  // because characters like < and > can be mangled on their way through the hosting build.
+  const configured = process.env.CONSOLE_FROM_EMAIL || '';
+  const address = configured.match(/[^\s<>"']+@[^\s<>"']+\.[^\s<>"']+/)?.[0] || 'receipters@receipters.com';
+  const from = `Receipters <${address}>`;
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
