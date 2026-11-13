@@ -16,8 +16,9 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // Maintenance mode toggle (set to `true` to enable)
-  const maintenanceMode = true
+  // Maintenance mode toggle. Off by default; set the MAINTENANCE_MODE environment
+  // variable to "true" (and redeploy) to show the maintenance page site-wide.
+  const maintenanceMode = process.env.MAINTENANCE_MODE === 'true'
 
   if (maintenanceMode) {
     // Try to fetch the public maintenance page; if that fails, use a small inline fallback HTML
