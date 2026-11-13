@@ -782,5 +782,13 @@
   "careers.process.step3.title": "Talk with the team",
   "careers.process.step3.description": "If it looks like a fit, we arrange a conversation about the role and your experience.",
   "careers.where.title": "Where we work",
-  "careers.where.subtitle": "Receipters has offices in Kenya, the United States and Zambia."
+  "careers.where.subtitle": "Receipters has offices in Kenya, the United States and Zambia.",
+  "legal.nav.label": "Legal documents",
+  "legal.nav.hub": "Legal centre",
+  "legal.nav.privacy": "Privacy Policy",
+  "legal.nav.terms": "Terms and Conditions",
+  "legal.nav.cookies": "Cookie Policy",
+  "legal.nav.compliance": "Compliance",
+  "legal.nav.delete": "Delete account",
+  "legal.onThisPage": "On this page"
 }

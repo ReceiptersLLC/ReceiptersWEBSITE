@@ -1,106 +1,65 @@
 'use client';
 
-import React from "react";
-import Link from "next/link";
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
+import LegalLayout, { Section, P, List } from '@/components/legal/LegalLayout';
+
+const ids = ['eligibility', 'account', 'use', 'data', 'payments', 'ip', 'termination', 'disclaimer', 'liability', 'changes', 'contact'];
+const range = (n: number) => Array.from({ length: n }, (_, i) => i + 1);
 
 export default function Page() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
+  const k = (key: string) => t(`terms.${key}`);
+  const sections = ids.map((id, i) => ({ id, title: k(`section${i + 1}.title`) }));
 
   return (
-    <div className="max-w-screen-md mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-2">{t('terms.title')}</h1>
-      <p className="text-sm text-gray-600 mb-2">{t('terms.subtitle')}</p>
-      <p className="text-sm text-gray-500 mb-6">{t('terms.effectiveDate')}</p>
-      <p className="mb-6">
-        {t('terms.intro')}
-      </p>
+    <LegalLayout title={k('title')} subtitle={k('subtitle')} meta={k('effectiveDate')} sections={sections}>
+      <P>{k('intro')}</P>
 
-      <h2 className="text-2xl font-semibold mb-3">{t('terms.section1.title')}</h2>
-      <p className="mb-6">
-        {t('terms.section1.description')}
-      </p>
-
-      <h2 className="text-2xl font-semibold mb-3">{t('terms.section2.title')}</h2>
-      <p className="mb-6">
-        {t('terms.section2.description')}
-      </p>
-
-      <h2 className="text-2xl font-semibold mb-3">{t('terms.section3.title')}</h2>
-      <p className="mb-4">
-        {t('terms.section3.intro')}
-      </p>
-      <ul className="list-disc pl-6 mb-6">
-        <li className="mb-2">{t('terms.section3.services.1')}</li>
-        <li className="mb-2">{t('terms.section3.services.2')}</li>
-        <li className="mb-2">{t('terms.section3.services.3')}</li>
-        <li>{t('terms.section3.services.4')}</li>
-      </ul>
-      <p className="mb-6">
-        {t('terms.section3.agreement')}
-      </p>
-
-      <h2 className="text-2xl font-semibold mb-3">{t('terms.section4.title')}</h2>
-      <p className="mb-2">
-        {t('terms.section4.description')}
-      </p>
-      <p className="mb-6">
-        <Link href="/privacy-policy" className="text-blue-500 underline">
-          {t('terms.section4.link')}
-        </Link>
-      </p>
-
-      <h2 className="text-2xl font-semibold mb-3">{t('terms.section5.title')}</h2>
-      <p className="mb-4">
-        {t('terms.section5.description')}
-      </p>
-      <ul className="list-disc pl-6 mb-4">
-        <li className="mb-2">{t('terms.section5.items.1')}</li>
-        <li className="mb-2">{t('terms.section5.items.2')}</li>
-        <li className="mb-2">{t('terms.section5.items.3')}</li>
-        <li className="mb-2">{t('terms.section5.items.4')}</li>
-        <li className="mb-2">{t('terms.section5.items.5')}</li>
-        <li>{t('terms.section5.items.6')}</li>
-      </ul>
-      <p className="mb-6">
-        {t('terms.section5.note')}
-      </p>
-
-      <h2 className="text-2xl font-semibold mb-3">{t('terms.section6.title')}</h2>
-      <p className="mb-6">
-        {t('terms.section6.description')}
-      </p>
-
-      <h2 className="text-2xl font-semibold mb-3">{t('terms.section7.title')}</h2>
-      <p className="mb-6">
-        {t('terms.section7.description')}
-      </p>
-
-      <h2 className="text-2xl font-semibold mb-3">{t('terms.section8.title')}</h2>
-      <p className="mb-4">
-        {t('terms.section8.description')}
-      </p>
-      <p className="mb-6">
-        {t('terms.section8.notAdvice')}
-      </p>
-
-      <h2 className="text-2xl font-semibold mb-3">{t('terms.section9.title')}</h2>
-      <p className="mb-6">
-        {t('terms.section9.description')}
-      </p>
-
-      <h2 className="text-2xl font-semibold mb-3">{t('terms.section10.title')}</h2>
-      <p className="mb-6">
-        {t('terms.section10.description')}
-      </p>
-
-      <h2 className="text-2xl font-semibold mb-3">{t('terms.section11.title')}</h2>
-      <p className="mb-2">{t('terms.section11.intro')}</p>
-      <ul className="mb-6">
-        <li className="mb-1">📧 {t('terms.section11.contact.email')}</li>
-        <li className="mb-1">📞 {t('terms.section11.contact.phone')}</li>
-        <li>🏢 {t('terms.section11.contact.office')}</li>
-      </ul>
-    </div>
-  )
+      <Section id="eligibility" title={k('section1.title')}>
+        <P>{k('section1.description')}</P>
+      </Section>
+      <Section id="account" title={k('section2.title')}>
+        <P>{k('section2.description')}</P>
+      </Section>
+      <Section id="use" title={k('section3.title')}>
+        <P>{k('section3.intro')}</P>
+        <List items={range(4).map((n) => k(`section3.services.${n}`))} />
+        <P>{k('section3.agreement')}</P>
+      </Section>
+      <Section id="data" title={k('section4.title')}>
+        <P>{k('section4.description')}</P>
+        <P>
+          <Link href="/privacy-policy" className="font-semibold text-primary underline underline-offset-4">
+            {k('section4.link')}
+          </Link>
+        </P>
+      </Section>
+      <Section id="payments" title={k('section5.title')}>
+        <P>{k('section5.description')}</P>
+        <List items={range(6).map((n) => k(`section5.items.${n}`))} />
+        <P>{k('section5.note')}</P>
+      </Section>
+      <Section id="ip" title={k('section6.title')}>
+        <P>{k('section6.description')}</P>
+      </Section>
+      <Section id="termination" title={k('section7.title')}>
+        <P>{k('section7.description')}</P>
+      </Section>
+      <Section id="disclaimer" title={k('section8.title')}>
+        <P>{k('section8.description')}</P>
+        <P>{k('section8.notAdvice')}</P>
+      </Section>
+      <Section id="liability" title={k('section9.title')}>
+        <P>{k('section9.description')}</P>
+      </Section>
+      <Section id="changes" title={k('section10.title')}>
+        <P>{k('section10.description')}</P>
+      </Section>
+      <Section id="contact" title={k('section11.title')}>
+        <P>{k('section11.intro')}</P>
+        <List items={[k('section11.contact.email'), k('section11.contact.phone'), k('section11.contact.office')]} />
+      </Section>
+    </LegalLayout>
+  );
 }
