@@ -77,8 +77,8 @@ export default function Page() {
           <p>{p('section9.company')}</p>
           <p>
             {p('section9.email')}:{' '}
-            <a href="mailto:dpo@receipter.com" className="font-semibold text-primary underline underline-offset-4">
-              dpo@receipter.com
+            <a href="mailto:info@receipters.com" className="font-semibold text-primary underline underline-offset-4">
+              info@receipters.com
             </a>
           </p>
           <p>{p('section9.phone')}: +254 700 031512</p>
