@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import { LEARN_MORE_HREF } from "@/lib/siteLinks";
 import { Check } from "lucide-react";
 
 const steps = ["step1", "step2", "step3", "step4"];
@@ -25,7 +26,8 @@ export function Steps() {
           </h2>
           <ol className="mt-12 grid list-none border-l border-t border-line p-0 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
-              <li key={step} className="border-b border-r border-line p-7 transition-colors hover:bg-mist/60 lg:min-h-[19rem]">
+              <li key={step} className="border-b border-r border-line">
+                <Link href={LEARN_MORE_HREF} className="group flex h-full flex-col p-7 transition-colors hover:bg-mist/60 lg:min-h-[13rem]">
                 <div className="font-mono text-sm font-medium text-primary">
                   {String(index + 1).padStart(2, "0")}
                 </div>
@@ -33,9 +35,10 @@ export function Steps() {
                 <h3 className="mt-6 text-lg font-semibold text-ink">
                   {t(`landing.howItWorks.${step}.title`)}
                 </h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-muted">
-                  {t(`landing.howItWorks.${step}.description`)}
-                </p>
+                <span className="mt-auto pt-6 text-sm font-semibold text-primary underline-offset-4 group-hover:underline">
+                  {t("learn More")}
+                </span>
+                </Link>
               </li>
             ))}
           </ol>
