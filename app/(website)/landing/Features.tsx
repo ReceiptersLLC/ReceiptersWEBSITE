@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import { LEARN_MORE_HREF } from "@/lib/siteLinks";
 import {
   ReceiptText,
   Database,
@@ -14,10 +15,10 @@ import {
 } from "lucide-react";
 
 const modules = [
-  { key: "digitalReceipting", Icon: ReceiptText, href: "/features/digital-receipt-issuance" },
-  { key: "receiptStorage", Icon: Database, href: "/features/receipt-storage" },
-  { key: "receiptersApp", Icon: Smartphone, href: "/features/multi-device" },
-  { key: "dataAnalysis", Icon: ChartLine, href: "/features/data-analysis" },
+  { key: "digitalReceipting", Icon: ReceiptText },
+  { key: "receiptStorage", Icon: Database },
+  { key: "receiptersApp", Icon: Smartphone },
+  { key: "dataAnalysis", Icon: ChartLine },
 ];
 
 const reasons = [
@@ -38,40 +39,20 @@ export function Modules() {
               <h2 className="font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">
                 {t("landing.features.newTitle")}
               </h2>
-              <p className="mt-4 text-lg leading-relaxed text-muted">
-                {t("landing.features.newDescription")}
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/product"
-                className="inline-flex items-center justify-center bg-primary px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-ink"
-              >
-                {t("landing.features.comparePlans")}
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center border border-ink px-6 py-3 text-sm font-semibold text-ink transition-all hover:-translate-y-0.5 hover:bg-ink hover:text-white"
-              >
-                {t("landing.features.talkToTeam")}
-              </Link>
             </div>
           </div>
 
           <div className="mt-12 grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
-            {modules.map(({ key, Icon, href }) => (
+            {modules.map(({ key, Icon }) => (
               <Link
                 key={key}
-                href={href}
-                className="group relative flex min-h-[15rem] flex-col border-b border-r border-line bg-white p-7 transition-all hover:z-10 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]"
+                href={LEARN_MORE_HREF}
+                className="group relative flex min-h-[11rem] flex-col border-b border-r border-line bg-white p-7 transition-all hover:z-10 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]"
               >
                 <Icon className="size-7 text-primary" strokeWidth={1.5} aria-hidden="true" />
                 <h3 className="mt-8 text-lg font-semibold text-ink">
                   {t(`landing.features.${key}.title`)}
                 </h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-muted">
-                  {t(`landing.features.${key}.description`)}
-                </p>
                 <span className="mt-auto pt-6 text-sm font-semibold text-primary underline-offset-4 group-hover:underline">
                   {t("learn More")}
                 </span>

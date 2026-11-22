@@ -38,6 +38,9 @@ export const demoHref = (slug?: string) => (slug ? `/request-demo?product=${slug
 /** Service links lead to the same request form, with the service chosen. */
 export const serviceRequestHref = (slug: string) => `/request-demo?service=${slug}`;
 
+/** Home page "Learn more" links lead to the sign-in page; details are for signed-in users. */
+export const LEARN_MORE_HREF = "/login";
+
 export const services = [
   { slug: "integration", titleKey: "services.integration.title" },
   { slug: "onboarding", titleKey: "services.onboarding.title" },
