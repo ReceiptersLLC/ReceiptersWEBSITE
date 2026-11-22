@@ -7,7 +7,7 @@ import { FaXTwitter, FaSquareFacebook, FaLinkedin } from "react-icons/fa6";
 import FooterLinksSection from "@/components/footer/FooterLinksSection";
 import { useTranslation } from "react-i18next";
 import { openCookieSettings } from "@/lib/consent";
-import { products, services } from "@/lib/siteLinks";
+import { demoHref, products, services } from "@/lib/siteLinks";
 
 const SUPPORT_EMAIL = "support@receipters.com";
 const GENERAL_EMAIL = "info@receipters.com";
@@ -42,7 +42,7 @@ export default function Footer() {
     ...products.map((product, i) => ({
       id: i + 1,
       name: product.name,
-      url: product.href ?? `/product#${product.slug}`,
+      url: demoHref(product.slug),
     })),
   ];
   const serviceLinks = [

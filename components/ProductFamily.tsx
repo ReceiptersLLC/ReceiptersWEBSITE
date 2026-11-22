@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { products } from "@/lib/siteLinks";
+import { demoHref, products } from "@/lib/siteLinks";
 
 export default function ProductFamily() {
   const { t } = useTranslation("common");
@@ -30,24 +30,14 @@ export default function ProductFamily() {
                 <p className="mt-3 text-[15px] leading-relaxed text-muted">{t(product.descriptionKey)}</p>
               )}
               <div className="mt-auto pt-6">
-                {product.href ? (
-                  <a
-                    href={product.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary underline-offset-4 hover:underline"
-                  >
-                    {product.href.replace("https://", "").replace("www.", "")}
-                    <ArrowUpRight size={14} aria-hidden="true" />
-                  </a>
-                ) : (
-                  <Link
-                    href="/contact"
-                    className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
-                  >
-                    {t("landing.features.talkToTeam")}
-                  </Link>
-                )}
+                <Link
+                  href={demoHref(product.slug)}
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-primary underline-offset-4 after:absolute after:inset-0 hover:underline"
+                  aria-label={`${t("demo.cta")}: ${product.name}`}
+                >
+                  {t("demo.cta")}
+                  <ArrowRight size={14} aria-hidden="true" />
+                </Link>
               </div>
             </div>
           ))}

@@ -83,7 +83,7 @@ export const sessionMaxAge = SESSION_SECONDS;
 export const secretConfigured = () => secret() !== null;
 
 /** Sends an email through the Resend HTTP API. Returns false when email is not configured. */
-export async function sendEmail(opts: { to: string; subject: string; html: string; text: string }): Promise<boolean> {
+export async function sendEmail(opts: { to: string; subject: string; html: string; text: string; replyTo?: string }): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return false;
   // CONSOLE_FROM_EMAIL may hold a bare address or "Name <address>". Build a valid sender either way,
@@ -94,7 +94,7 @@ export async function sendEmail(opts: { to: string; subject: string; html: strin
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from, to: [opts.to], subject: opts.subject, html: opts.html, text: opts.text }),
+    body: JSON.stringify({ from, to: [opts.to], subject: opts.subject, html: opts.html, text: opts.text, ...(opts.replyTo ? { reply_to: opts.replyTo } : {}) }),
   });
   if (!res.ok) console.error('Resend error:', res.status, await res.text().catch(() => ''));
   return res.ok;
