@@ -7,7 +7,7 @@ import { FaXTwitter, FaSquareFacebook, FaLinkedin } from "react-icons/fa6";
 import FooterLinksSection from "@/components/footer/FooterLinksSection";
 import { useTranslation } from "react-i18next";
 import { openCookieSettings } from "@/lib/consent";
-import { demoHref, products, services } from "@/lib/siteLinks";
+import { demoHref, products, serviceRequestHref, services } from "@/lib/siteLinks";
 
 const SUPPORT_EMAIL = "support@receipters.com";
 const GENERAL_EMAIL = "info@receipters.com";
@@ -47,7 +47,7 @@ export default function Footer() {
   ];
   const serviceLinks = [
     { id: 0, name: t("navbar.allServices"), url: "/services" },
-    ...services.map((service, i) => ({ id: i + 1, name: t(service.titleKey), url: `/services#${service.slug}` })),
+    ...services.map((service, i) => ({ id: i + 1, name: t(service.titleKey), url: serviceRequestHref(service.slug) })),
   ];
   const platformLinks = platformItems.map((link) => ({ ...link, name: t(link.name) }));
   const companyLinks = companyItems.map((link) => ({ ...link, name: t(link.name) }));

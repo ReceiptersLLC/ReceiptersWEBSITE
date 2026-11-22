@@ -843,5 +843,12 @@
   "demo.sending": "Sending…",
   "demo.sent": "Thank you. Your request has been sent and our team will contact you within one working day.",
   "demo.failed": "Your request could not be sent. Please email us at",
-  "demo.privacy": "We use these details only to arrange your demo. See our privacy policy for how we handle personal data."
+  "demo.privacy": "We use these details only to arrange your demo. See our privacy policy for how we handle personal data.",
+  "service.cta": "Request this service",
+  "demo.titleService": "Talk to us about {{service}}",
+  "demo.introService": "Tell us about your business and what you need, and our team will get back to you with how we can help and what it involves.",
+  "demo.interest": "Product or service",
+  "demo.groupProducts": "Products",
+  "demo.groupServices": "Services",
+  "demo.sendService": "Send request"
 }

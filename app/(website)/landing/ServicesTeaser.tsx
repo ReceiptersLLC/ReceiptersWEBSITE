@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { serviceRequestHref } from "@/lib/siteLinks";
 import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
 
@@ -36,9 +37,11 @@ export default function ServicesTeaser() {
         </div>
         <ul className="m-0 list-none border-t border-line p-0 lg:col-span-5">
           {services.map((key) => (
-            <li key={key} className="flex items-center gap-3 border-b border-line py-4 text-[17px] font-medium text-ink">
-              <Check className="size-4 shrink-0 text-signal" strokeWidth={2.5} aria-hidden="true" />
-              {t(`services.${key}.title`)}
+            <li key={key} className="border-b border-line">
+              <Link href={serviceRequestHref(key)} className="flex items-center gap-3 py-4 text-[17px] font-medium text-ink hover:text-primary">
+                <Check className="size-4 shrink-0 text-signal" strokeWidth={2.5} aria-hidden="true" />
+                {t(`services.${key}.title`)}
+              </Link>
             </li>
           ))}
         </ul>

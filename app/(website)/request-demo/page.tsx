@@ -4,7 +4,7 @@ import { Suspense, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { CalendarCheck, Send } from 'lucide-react';
-import { products } from '@/lib/siteLinks';
+import { products, services } from '@/lib/siteLinks';
 
 const SALES_EMAIL = 'receipters@receipters.com';
 const MESSAGE_LIMIT = 2000;
@@ -24,9 +24,14 @@ export default function RequestDemoPage() {
 function RequestDemo() {
   const { t } = useTranslation('common');
   const params = useSearchParams();
-  const initial = products.some((p) => p.slug === params.get('product')) ? (params.get('product') as string) : '';
+  // The choice is stored as "product:<slug>" or "service:<slug>"; empty means not sure yet.
+  const initial = products.some((p) => p.slug === params.get('product'))
+    ? `product:${params.get('product')}`
+    : services.some((s) => s.slug === params.get('service'))
+      ? `service:${params.get('service')}`
+      : '';
 
-  const [product, setProduct] = useState(initial);
+  const [interest, setInterest] = useState(initial);
   const [fullName, setFullName] = useState('');
   const [businessName, setBusinessName] = useState('');
   const [email, setEmail] = useState('');
@@ -36,7 +41,10 @@ function RequestDemo() {
   const [website, setWebsite] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'failed'>('idle');
 
-  const chosen = products.find((p) => p.slug === product);
+  const [kind, slug] = interest.split(':');
+  const chosenProduct = kind === 'product' ? products.find((p) => p.slug === slug) : undefined;
+  const chosenService = kind === 'service' ? services.find((s) => s.slug === slug) : undefined;
+  const isService = Boolean(chosenService);
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -45,7 +53,11 @@ function RequestDemo() {
       const res = await fetch('/api/demo-request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ product, fullName, businessName, email, phone, outlets, message, website }),
+        body: JSON.stringify({
+          product: chosenProduct?.slug ?? '',
+          service: chosenService?.slug ?? '',
+          fullName, businessName, email, phone, outlets, message, website,
+        }),
       });
       if (!res.ok) throw new Error('Request failed');
       setStatus('sent');
@@ -59,9 +71,13 @@ function RequestDemo() {
       <section className="bg-primary-hero text-white">
         <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-20">
           <h1 className="font-serif text-4xl font-medium tracking-tight sm:text-5xl">
-            {chosen ? t('demo.titleProduct', { product: chosen.name }) : t('demo.title')}
+            {chosenProduct
+              ? t('demo.titleProduct', { product: chosenProduct.name })
+              : chosenService
+                ? t('demo.titleService', { service: t(chosenService.titleKey) })
+                : t('demo.title')}
           </h1>
-          <p className="mt-5 max-w-2xl text-[1.05rem] leading-[1.7] text-white/75">{t('demo.intro')}</p>
+          <p className="mt-5 max-w-2xl text-[1.05rem] leading-[1.7] text-white/75">{t(isService ? 'demo.introService' : 'demo.intro')}</p>
         </div>
       </section>
 
@@ -83,14 +99,23 @@ function RequestDemo() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="grid gap-4 p-5 sm:grid-cols-2 sm:p-6">
-              <Field label={t('demo.product')} wide>
-                <select value={product} onChange={(e) => setProduct(e.target.value)} className={inputClass}>
+              <Field label={t('demo.interest')} wide>
+                <select value={interest} onChange={(e) => setInterest(e.target.value)} className={inputClass}>
                   <option value="">{t('demo.productUnsure')}</option>
-                  {products.map((p) => (
-                    <option key={p.slug} value={p.slug}>
-                      {p.name}
-                    </option>
-                  ))}
+                  <optgroup label={t('demo.groupProducts')}>
+                    {products.map((p) => (
+                      <option key={p.slug} value={`product:${p.slug}`}>
+                        {p.name}
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label={t('demo.groupServices')}>
+                    {services.map((s) => (
+                      <option key={s.slug} value={`service:${s.slug}`}>
+                        {t(s.titleKey)}
+                      </option>
+                    ))}
+                  </optgroup>
                 </select>
               </Field>
               <Field label={t('demo.fullName')}>
@@ -140,7 +165,7 @@ function RequestDemo() {
                   className="flex w-full items-center justify-center gap-2 bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-ink disabled:opacity-60"
                 >
                   <Send className="size-4" aria-hidden="true" />
-                  {status === 'sending' ? t('demo.sending') : t('demo.send')}
+                  {status === 'sending' ? t('demo.sending') : t(isService ? 'demo.sendService' : 'demo.send')}
                 </button>
                 <p className="mt-3 text-xs leading-relaxed text-muted">{t('demo.privacy')}</p>
                 <div aria-live="polite">

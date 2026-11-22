@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { Cable, Rocket, Code2, ChartLine, UserRound, ArchiveRestore, Check } from "lucide-react";
+import { Cable, Rocket, Code2, ChartLine, UserRound, ArchiveRestore, Check, ArrowRight } from "lucide-react";
+import { serviceRequestHref } from "@/lib/siteLinks";
 
 const services = [
   { key: "integration", Icon: Cable },
@@ -51,6 +52,14 @@ export default function ServicesContent() {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  href={serviceRequestHref(key)}
+                  className="mt-7 inline-flex items-center gap-1 text-sm font-semibold text-primary underline-offset-4 after:absolute after:inset-0 hover:underline"
+                  aria-label={`${t("service.cta")}: ${t(`services.${key}.title`)}`}
+                >
+                  {t("service.cta")}
+                  <ArrowRight size={14} aria-hidden="true" />
+                </Link>
               </div>
             ))}
           </div>
@@ -92,7 +101,7 @@ export default function ServicesContent() {
             </p>
           </div>
           <Link
-            href="/contact"
+            href="/request-demo"
             className="inline-flex shrink-0 items-center justify-center bg-white px-7 py-3.5 text-sm font-semibold text-primary transition-all hover:-translate-y-0.5 hover:bg-mist"
           >
             {t("landing.features.talkToTeam")}
