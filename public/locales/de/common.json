@@ -711,5 +711,12 @@
   "demo.sending": "Wird gesendet…",
   "demo.sent": "Vielen Dank. Ihre Anfrage wurde gesendet, und unser Team meldet sich innerhalb eines Werktags.",
   "demo.failed": "Ihre Anfrage konnte nicht gesendet werden. Bitte schreiben Sie uns an",
-  "demo.privacy": "Wir verwenden diese Angaben nur, um Ihre Demo zu vereinbaren. Wie wir personenbezogene Daten verarbeiten, steht in unserer Datenschutzerklärung."
+  "demo.privacy": "Wir verwenden diese Angaben nur, um Ihre Demo zu vereinbaren. Wie wir personenbezogene Daten verarbeiten, steht in unserer Datenschutzerklärung.",
+  "service.cta": "Diesen Service anfragen",
+  "demo.titleService": "Sprechen Sie mit uns über {{service}}",
+  "demo.introService": "Erzählen Sie uns von Ihrem Unternehmen und Ihrem Bedarf. Unser Team meldet sich mit einem Vorschlag und den Einzelheiten.",
+  "demo.interest": "Produkt oder Service",
+  "demo.groupProducts": "Produkte",
+  "demo.groupServices": "Services",
+  "demo.sendService": "Anfrage senden"
 }

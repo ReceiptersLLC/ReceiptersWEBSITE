@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { demoHref, products, services } from "@/lib/siteLinks";
+import { demoHref, products, serviceRequestHref, services } from "@/lib/siteLinks";
 import { useAuth } from "@/context/AuthContext";
 
 const languages = [
@@ -78,7 +78,7 @@ export default function Navigator() {
         {t("navbar.allServices")}
       </MenuItem>
       {services.map((service) => (
-        <MenuItem key={service.slug} href={`/services#${service.slug}`} onClick={close}>
+        <MenuItem key={service.slug} href={serviceRequestHref(service.slug)} onClick={close}>
           {t(service.titleKey)}
         </MenuItem>
       ))}

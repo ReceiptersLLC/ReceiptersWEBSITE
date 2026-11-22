@@ -711,5 +711,12 @@
   "demo.sending": "Inatuma…",
   "demo.sent": "Asante. Ombi lako limetumwa na timu yetu itawasiliana nawe ndani ya siku moja ya kazi.",
   "demo.failed": "Ombi lako halikuweza kutumwa. Tafadhali tutumie barua pepe kwa",
-  "demo.privacy": "Tunatumia maelezo haya kupanga onyesho lako tu. Angalia sera yetu ya faragha kuhusu jinsi tunavyoshughulikia data binafsi."
+  "demo.privacy": "Tunatumia maelezo haya kupanga onyesho lako tu. Angalia sera yetu ya faragha kuhusu jinsi tunavyoshughulikia data binafsi.",
+  "service.cta": "Omba huduma hii",
+  "demo.titleService": "Zungumza nasi kuhusu {{service}}",
+  "demo.introService": "Tueleze kuhusu biashara yako na unachohitaji, na timu yetu itawasiliana nawe kueleza jinsi tunavyoweza kusaidia na kinachohusika.",
+  "demo.interest": "Bidhaa au huduma",
+  "demo.groupProducts": "Bidhaa",
+  "demo.groupServices": "Huduma",
+  "demo.sendService": "Tuma ombi"
 }

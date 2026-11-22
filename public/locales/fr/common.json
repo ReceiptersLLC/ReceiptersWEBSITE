@@ -711,5 +711,12 @@
   "demo.sending": "Envoi…",
   "demo.sent": "Merci. Votre demande a été envoyée et notre équipe vous contactera sous un jour ouvré.",
   "demo.failed": "Votre demande n'a pas pu être envoyée. Écrivez-nous à",
-  "demo.privacy": "Nous utilisons ces informations uniquement pour organiser votre démo. Consultez notre politique de confidentialité pour savoir comment nous traitons les données personnelles."
+  "demo.privacy": "Nous utilisons ces informations uniquement pour organiser votre démo. Consultez notre politique de confidentialité pour savoir comment nous traitons les données personnelles.",
+  "service.cta": "Demander ce service",
+  "demo.titleService": "Parlons de {{service}}",
+  "demo.introService": "Parlez-nous de votre entreprise et de vos besoins. Notre équipe reviendra vers vous avec une proposition et les détails.",
+  "demo.interest": "Produit ou service",
+  "demo.groupProducts": "Produits",
+  "demo.groupServices": "Services",
+  "demo.sendService": "Envoyer la demande"
 }
