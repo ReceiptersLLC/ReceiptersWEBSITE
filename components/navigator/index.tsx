@@ -3,9 +3,9 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Menu, X, ArrowUpRight } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { products, services } from "@/lib/siteLinks";
+import { demoHref, products, services } from "@/lib/siteLinks";
 import { useAuth } from "@/context/AuthContext";
 
 const languages = [
@@ -64,25 +64,11 @@ export default function Navigator() {
       <MenuItem href="/product" onClick={close} strong>
         {t("navbar.allProducts")}
       </MenuItem>
-      {products.map((product) =>
-        product.href ? (
-          <a
-            key={product.slug}
-            href={product.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={close}
-            className="flex items-center justify-between gap-3 px-4 py-3 text-base text-ink hover:bg-sky"
-          >
-            <span>{product.name}</span>
-            <ArrowUpRight size={14} className="text-muted" aria-hidden="true" />
-          </a>
-        ) : (
-          <MenuItem key={product.slug} href={`/product#${product.slug}`} onClick={close}>
-            {product.name}
-          </MenuItem>
-        )
-      )}
+      {products.map((product) => (
+        <MenuItem key={product.slug} href={demoHref(product.slug)} onClick={close}>
+          {product.name}
+        </MenuItem>
+      ))}
     </>
   );
 
