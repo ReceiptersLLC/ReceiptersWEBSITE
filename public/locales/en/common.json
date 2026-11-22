@@ -850,5 +850,6 @@
   "demo.interest": "Product or service",
   "demo.groupProducts": "Products",
   "demo.groupServices": "Services",
-  "demo.sendService": "Send request"
+  "demo.sendService": "Send request",
+  "login.back": "Go back"
 }
