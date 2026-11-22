@@ -35,6 +35,9 @@ export const products: ProductLink[] = [
 /** Product links lead to the demo request form, not to the product's own website. */
 export const demoHref = (slug?: string) => (slug ? `/request-demo?product=${slug}` : "/request-demo");
 
+/** Home page "Learn more" links lead to the sign-in page; details are for signed-in users. */
+export const LEARN_MORE_HREF = "/login";
+
 export const services = [
   { slug: "integration", titleKey: "services.integration.title" },
   { slug: "onboarding", titleKey: "services.onboarding.title" },
