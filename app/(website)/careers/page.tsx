@@ -5,6 +5,8 @@ import { Globe, Zap, Heart, Code2, Megaphone, Headset, Calculator, Check, Mail, 
 import Link from 'next/link';
 
 const APPLY_EMAIL = 'info@receipters.com';
+/** Applying starts by signing in. */
+const APPLY_HREF = '/login';
 
 const roles = [
   { key: 'developer', Icon: Code2 },
@@ -42,9 +44,6 @@ const workPoints = ['point1', 'point2', 'point3'];
 
 export default function CareersPage() {
   const { t } = useTranslation('common');
-
-  const applyHref = (key: string) =>
-    `mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(`${t('careers.roles.applyPrefix')}: ${t(`careers.roles.${key}.title`)}`)}`;
 
   return (
     <div className="bg-white text-ink">
@@ -121,13 +120,12 @@ export default function CareersPage() {
                   ))}
                 </ul>
 
-                <a
-                  href={applyHref(key)}
+                <Link
+                  href={APPLY_HREF}
                   className="mt-8 inline-flex w-full items-center justify-center gap-2 bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-ink sm:w-auto sm:self-start"
                 >
-                  <Mail className="size-4" aria-hidden="true" />
                   {t('careers.roles.apply')}
-                </a>
+                </Link>
               </article>
             ))}
           </div>
