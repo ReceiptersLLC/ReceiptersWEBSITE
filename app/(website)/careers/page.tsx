@@ -1,10 +1,11 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import { Globe, Zap, Heart, Code2, Megaphone, Headset, Calculator, Check, Mail, ArrowDown, MapPin, Building2, Laptop, Shuffle, Clock, CalendarClock } from 'lucide-react';
+import { Globe, Zap, Heart, Code2, Megaphone, Headset, Calculator, Check, ArrowDown, MapPin, Building2, Laptop, Shuffle, Clock, CalendarClock } from 'lucide-react';
 import Link from 'next/link';
 
-const APPLY_EMAIL = 'info@receipters.com';
+/** Applying starts by signing in. */
+const APPLY_HREF = '/login';
 
 const roles = [
   { key: 'developer', Icon: Code2 },
@@ -27,8 +28,6 @@ const offices = [
   { title: 'footer.zambiaOffice', address: 'footer.zambiaOfficeAddress' },
 ];
 
-const steps = ['step1', 'step2', 'step3'];
-
 const modes = [
   { key: 'onsite', Icon: Building2 },
   { key: 'remote', Icon: Laptop },
@@ -43,9 +42,6 @@ const workPoints = ['point1', 'point2', 'point3'];
 export default function CareersPage() {
   const { t } = useTranslation('common');
 
-  const applyHref = (key: string) =>
-    `mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(`${t('careers.roles.applyPrefix')}: ${t(`careers.roles.${key}.title`)}`)}`;
-
   return (
     <div className="bg-white text-ink">
       {/* Hero with an index of the open roles */}
@@ -56,7 +52,6 @@ export default function CareersPage() {
               {t('careers.hero.title')}
             </h1>
             <p className="mt-6 max-w-xl text-[1.1rem] leading-[1.7] text-white/75">{t('careers.hero.description')}</p>
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/75">{t('careers.hero.detail')}</p>
           </div>
           <nav aria-label={t('careers.index.title')} className="lg:col-span-5">
             <div className="border border-white/20 bg-white/[0.04]">
@@ -84,7 +79,6 @@ export default function CareersPage() {
       <section id="roles" className="scroll-mt-28 bg-mist">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
           <h2 className="max-w-2xl font-serif text-3xl font-medium tracking-tight sm:text-4xl">{t('careers.roles.title')}</h2>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{t('careers.roles.subtitle')}</p>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             {roles.map(({ key, Icon }) => (
@@ -121,39 +115,15 @@ export default function CareersPage() {
                   ))}
                 </ul>
 
-                <a
-                  href={applyHref(key)}
+                <Link
+                  href={APPLY_HREF}
                   className="mt-8 inline-flex w-full items-center justify-center gap-2 bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-ink sm:w-auto sm:self-start"
                 >
-                  <Mail className="size-4" aria-hidden="true" />
                   {t('careers.roles.apply')}
-                </a>
+                </Link>
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* How applying works: a real sequence */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-          <h2 className="max-w-2xl font-serif text-3xl font-medium tracking-tight sm:text-4xl">{t('careers.process.title')}</h2>
-          <ol className="mt-12 grid list-none border-l border-t border-line p-0 md:grid-cols-3">
-            {steps.map((step, index) => (
-              <li key={step} className="border-b border-r border-line p-7 transition-colors hover:bg-mist/60 md:min-h-[14rem]">
-                <div className="font-mono text-sm font-medium text-primary">{String(index + 1).padStart(2, '0')}</div>
-                <div className="mt-3 h-px w-10 bg-primary" aria-hidden="true" />
-                <h3 className="mt-6 text-lg font-semibold">{t(`careers.process.${step}.title`)}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-muted">{t(`careers.process.${step}.description`)}</p>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted">
-            {t('careers.roles.howToApply')}{' '}
-            <a href={`mailto:${APPLY_EMAIL}`} className="font-semibold text-primary underline underline-offset-4">
-              {APPLY_EMAIL}
-            </a>
-          </p>
         </div>
       </section>
 
