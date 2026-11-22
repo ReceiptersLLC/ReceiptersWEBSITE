@@ -718,5 +718,6 @@
   "demo.interest": "Bidhaa au huduma",
   "demo.groupProducts": "Bidhaa",
   "demo.groupServices": "Huduma",
-  "demo.sendService": "Tuma ombi"
+  "demo.sendService": "Tuma ombi",
+  "login.back": "Rudi nyuma"
 }

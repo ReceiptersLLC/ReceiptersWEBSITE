@@ -718,5 +718,6 @@
   "demo.interest": "Produit ou service",
   "demo.groupProducts": "Produits",
   "demo.groupServices": "Services",
-  "demo.sendService": "Envoyer la demande"
+  "demo.sendService": "Envoyer la demande",
+  "login.back": "Retour"
 }

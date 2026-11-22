@@ -7,6 +7,7 @@ import Button from '@/components/Button';
 import { useTranslation } from 'react-i18next';
 import TextInput from '@/components/TextInput';
 import { toast } from 'sonner';
+import { ArrowLeft } from 'lucide-react';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -71,9 +72,33 @@ export default function LoginPage() {
   };
 
 
+  // Return to the page the visitor came from on this site; otherwise go home.
+  const handleBack = () => {
+    let cameFromThisSite = false;
+    try {
+      // Reached by an in-app link: the page first loaded was a different one.
+      const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+      if (nav && new URL(nav.name).pathname !== window.location.pathname) cameFromThisSite = true;
+      // Reached by a full page load from another page on this site.
+      if (document.referrer && new URL(document.referrer).origin === window.location.origin) cameFromThisSite = true;
+    } catch {
+      cameFromThisSite = false;
+    }
+    if (cameFromThisSite && window.history.length > 1) router.back();
+    else router.push('/');
+  };
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
+        <button
+          type="button"
+          onClick={handleBack}
+          className="inline-flex items-center gap-2 border-2 border-primary bg-white px-5 py-3 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        >
+          <ArrowLeft className="size-5" strokeWidth={2.25} aria-hidden="true" />
+          {t('login.back')}
+        </button>
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">{t('login.title')}</h2>
         </div>
