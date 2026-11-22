@@ -39,6 +39,9 @@ const nextConfig: NextConfig = {
       { source: '/terms', destination: '/terms-and-conditions', permanent: true },
       { source: '/eula', destination: '/terms-and-conditions', permanent: true },
       { source: '/privacy', destination: '/privacy-policy', permanent: true },
+      // Feature detail pages are for signed-in users: send visitors to sign-in.
+      { source: '/features', destination: '/login', permanent: false },
+      { source: '/features/:path*', destination: '/login', permanent: false },
     ];
   },
 

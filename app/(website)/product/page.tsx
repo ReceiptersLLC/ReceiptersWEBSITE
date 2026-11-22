@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import Link from 'next/link';
+import { LEARN_MORE_HREF } from '@/lib/siteLinks';
 import {
   ReceiptText,
   Database,
@@ -101,7 +102,7 @@ export default function Page() {
             {features.map(({ title, slug, Icon, description }) => (
               <Link
                 key={slug}
-                href={`/features/${slug}`}
+                href={LEARN_MORE_HREF}
                 className="group relative flex min-h-[15rem] flex-col border-b border-r border-line bg-white p-7 transition-all hover:z-10 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_20px_32px_-16px_rgba(14,20,51,0.18)]"
               >
                 <Icon className="size-7 text-primary" strokeWidth={1.5} aria-hidden="true" />

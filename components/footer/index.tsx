@@ -7,7 +7,7 @@ import { FaXTwitter, FaSquareFacebook, FaLinkedin } from "react-icons/fa6";
 import FooterLinksSection from "@/components/footer/FooterLinksSection";
 import { useTranslation } from "react-i18next";
 import { openCookieSettings } from "@/lib/consent";
-import { demoHref, products, serviceRequestHref, services } from "@/lib/siteLinks";
+import { demoHref, products, serviceRequestHref, services, LEARN_MORE_HREF } from "@/lib/siteLinks";
 
 const SUPPORT_EMAIL = "support@receipters.com";
 const GENERAL_EMAIL = "info@receipters.com";
@@ -176,10 +176,10 @@ const legalLinks = [
 ];
 
 const platformItems = [
-  { id: 1, name: "landing.features.digitalReceipting.title", url: "/features/digital-receipt-issuance" },
-  { id: 2, name: "landing.features.receiptStorage.title", url: "/features/receipt-storage" },
-  { id: 3, name: "landing.features.receiptersApp.title", url: "/features/multi-device" },
-  { id: 4, name: "landing.features.dataAnalysis.title", url: "/features/data-analysis" },
+  { id: 1, name: "landing.features.digitalReceipting.title", url: LEARN_MORE_HREF },
+  { id: 2, name: "landing.features.receiptStorage.title", url: LEARN_MORE_HREF },
+  { id: 3, name: "landing.features.receiptersApp.title", url: LEARN_MORE_HREF },
+  { id: 4, name: "landing.features.dataAnalysis.title", url: LEARN_MORE_HREF },
   { id: 5, name: "landing.howItWorks.newTitle", url: "/#how-it-works" },
   { id: 6, name: "landing.whoWeServe.title", url: "/#sectors" },
   { id: 7, name: "landing.features.builtForCompliance.title", url: "/#compliance" },
