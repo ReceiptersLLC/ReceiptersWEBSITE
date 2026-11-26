@@ -1,0 +1,211 @@
+// Page text for the StateProof landing page, in English and Spanish.
+
+export type Lang = "en" | "es";
+
+export const CHANNELS = ["shopify", "amazon", "etsy", "website", "other"] as const;
+export const SALES_BANDS = ["under50", "50to100", "100to500", "500to1m", "over1m"] as const;
+
+const en = {
+  langSwitch: "Español",
+  langSwitchLabel: "Ver en español",
+  navJoin: "Join the waitlist",
+  heroKicker: "For US online sellers",
+  heroTitle: "Know every state you owe sales tax in, before it becomes a debt.",
+  heroBody:
+    "StateProof adds up your sales from Shopify, Amazon and your own store, state by state, and tells you before you cross a state's limit. It also keeps the receipts that prove your expenses to the IRS.",
+  heroCta: "Join the waitlist",
+  heroNote: "Launching in 2027. Early sellers get a free check of their store.",
+  boardTitle: "Example store, last 12 months",
+  boardYourStore: "Your store",
+  boardMarketplace: "Amazon",
+  boardOf: "of",
+  boardSafe: "Under the limit",
+  boardNear: "Getting close",
+  boardOver: "Limit crossed",
+  boardNote:
+    "Illustration. Amounts shown against each state's dollar limit. Washington, New Jersey, Texas and California count Amazon sales toward your limit, even though Amazon collects the tax on them.",
+  problemTitle: "Why careful sellers still get caught",
+  problems: [
+    {
+      title: "Every state has its own line",
+      body: "Most states require you to register once your sales into the state pass a limit, often $100,000 a year, even if you have no office there.",
+    },
+    {
+      title: "Marketplace sales still count",
+      body: "Amazon and Etsy collect tax on their own orders, but many states still add those sales to your total. That can push your own store over the line.",
+    },
+    {
+      title: "The IRS asks for proof",
+      body: "To deduct an expense you need the receipt, usually for three years and sometimes longer. Receipts scattered across email, paper and phones get lost.",
+    },
+  ],
+  doesTitle: "What StateProof does",
+  doesThresholdTitle: "Watches every state line",
+  doesThreshold: [
+    "Combines Shopify, Amazon, Etsy and your own store into one total per state",
+    "Alerts you as you approach a limit and when you cross it",
+    "Gives the next steps and a link to the state's official registration page",
+    "Explains each result in plain English",
+  ],
+  doesReceiptTitle: "Keeps your receipts ready for the IRS",
+  doesReceipt: [
+    "Forward receipt emails, snap paper receipts, or connect your till",
+    "Keeps each receipt for as long as the IRS can ask for it",
+    "Shows if a stored receipt was ever changed",
+    "Builds an audit pack for your accountant in one click",
+  ],
+  stepsTitle: "How it works",
+  steps: [
+    { title: "Connect", body: "Link your stores with read-only access, or upload a file of your orders." },
+    { title: "Watch", body: "StateProof checks your totals against each state's current limit every day." },
+    { title: "Act", body: "You get an alert with what to do next, well before a penalty does." },
+  ],
+  formTitle: "Join the waitlist",
+  formBody: "Tell us a little about your store. We will invite you to the pilot and send you a free check of where you stand.",
+  formName: "Your name",
+  formEmail: "Email",
+  formChannels: "Where do you sell?",
+  channels: { shopify: "Shopify", amazon: "Amazon", etsy: "Etsy", website: "Own website", other: "Somewhere else" },
+  formSales: "Roughly how much do you sell a year?",
+  formSalesChoose: "Choose a range",
+  salesBands: {
+    under50: "Under $50,000",
+    "50to100": "$50,000 to $100,000",
+    "100to500": "$100,000 to $500,000",
+    "500to1m": "$500,000 to $1 million",
+    over1m: "Over $1 million",
+  },
+  formSubmit: "Join the waitlist",
+  formSending: "Sending…",
+  formSent: "You're on the list. We will email you before the pilot opens.",
+  formFailed: "That didn't go through. Please email us at",
+  formPrivacy:
+    "We use these details only to contact you about StateProof. We don't sell them, and you can ask us to delete them at any time.",
+  faqTitle: "Questions",
+  faqs: [
+    {
+      q: "Is StateProof tax advice?",
+      a: "No. StateProof monitors your sales and records and tells you what the rules say. For decisions about your own taxes, talk to a tax professional.",
+    },
+    {
+      q: "Does it file my sales tax returns?",
+      a: "Not at launch. StateProof tells you where you need to register and keeps your records ready. Filing may come later.",
+    },
+    {
+      q: "Which stores can I connect?",
+      a: "Shopify first, then Amazon and Etsy. You can upload a file of orders from anywhere else.",
+    },
+    {
+      q: "Who is behind StateProof?",
+      a: "Receipters LLC, a receipts and transaction-data company based in Newark, New Jersey.",
+    },
+  ],
+  footerBy: "StateProof by Receipters LLC",
+  footerAddress: "355 Ridgewood Ave, Suite 1, Newark, NJ 07112",
+  footerContact: "Contact",
+  footerDisclaimer: "StateProof provides monitoring and record-keeping, not tax or legal advice.",
+};
+
+const es: typeof en = {
+  langSwitch: "English",
+  langSwitchLabel: "View in English",
+  navJoin: "Únete a la lista",
+  heroKicker: "Para vendedores en línea en EE. UU.",
+  heroTitle: "Descubre en qué estados debes impuesto sobre las ventas antes de que se convierta en una deuda.",
+  heroBody:
+    "StateProof suma tus ventas de Shopify, Amazon y tu propia tienda, estado por estado, y te avisa antes de que superes el límite de un estado. También guarda los recibos que prueban tus gastos ante el IRS.",
+  heroCta: "Únete a la lista de espera",
+  heroNote: "Lanzamiento en 2027. Los primeros vendedores reciben una revisión gratuita de su tienda.",
+  boardTitle: "Tienda de ejemplo, últimos 12 meses",
+  boardYourStore: "Tu tienda",
+  boardMarketplace: "Amazon",
+  boardOf: "de",
+  boardSafe: "Por debajo del límite",
+  boardNear: "Cerca del límite",
+  boardOver: "Límite superado",
+  boardNote:
+    "Ilustración. Importes comparados con el límite en dólares de cada estado. Washington, Nueva Jersey, Texas y California cuentan las ventas en Amazon para tu límite, aunque Amazon cobre el impuesto de esas ventas.",
+  problemTitle: "Por qué incluso los vendedores cuidadosos caen",
+  problems: [
+    {
+      title: "Cada estado tiene su propia línea",
+      body: "La mayoría de los estados te exigen registrarte cuando tus ventas en el estado superan un límite, a menudo $100,000 al año, aunque no tengas oficina allí.",
+    },
+    {
+      title: "Las ventas en marketplaces también cuentan",
+      body: "Amazon y Etsy cobran el impuesto de sus propios pedidos, pero muchos estados suman esas ventas a tu total. Eso puede hacer que tu propia tienda supere la línea.",
+    },
+    {
+      title: "El IRS pide pruebas",
+      body: "Para deducir un gasto necesitas el recibo, normalmente durante tres años y a veces más. Los recibos dispersos entre correos, papel y teléfonos se pierden.",
+    },
+  ],
+  doesTitle: "Lo que hace StateProof",
+  doesThresholdTitle: "Vigila cada línea estatal",
+  doesThreshold: [
+    "Combina Shopify, Amazon, Etsy y tu propia tienda en un total por estado",
+    "Te avisa cuando te acercas a un límite y cuando lo superas",
+    "Te da los siguientes pasos y un enlace a la página oficial de registro del estado",
+    "Explica cada resultado con palabras sencillas",
+  ],
+  doesReceiptTitle: "Guarda tus recibos listos para el IRS",
+  doesReceipt: [
+    "Reenvía correos con recibos, fotografía recibos en papel o conecta tu caja",
+    "Guarda cada recibo durante el tiempo que el IRS puede pedirlo",
+    "Muestra si un recibo guardado se modificó alguna vez",
+    "Prepara con un clic un paquete de auditoría para tu contador",
+  ],
+  stepsTitle: "Cómo funciona",
+  steps: [
+    { title: "Conecta", body: "Vincula tus tiendas con acceso de solo lectura o sube un archivo con tus pedidos." },
+    { title: "Vigila", body: "StateProof compara cada día tus totales con el límite vigente de cada estado." },
+    { title: "Actúa", body: "Recibes una alerta con lo que debes hacer, mucho antes que una multa." },
+  ],
+  formTitle: "Únete a la lista de espera",
+  formBody: "Cuéntanos un poco sobre tu tienda. Te invitaremos al piloto y te enviaremos una revisión gratuita de tu situación.",
+  formName: "Tu nombre",
+  formEmail: "Correo electrónico",
+  formChannels: "¿Dónde vendes?",
+  channels: { shopify: "Shopify", amazon: "Amazon", etsy: "Etsy", website: "Sitio web propio", other: "En otro lugar" },
+  formSales: "¿Cuánto vendes aproximadamente al año?",
+  formSalesChoose: "Elige un rango",
+  salesBands: {
+    under50: "Menos de $50,000",
+    "50to100": "De $50,000 a $100,000",
+    "100to500": "De $100,000 a $500,000",
+    "500to1m": "De $500,000 a $1 millón",
+    over1m: "Más de $1 millón",
+  },
+  formSubmit: "Únete a la lista de espera",
+  formSending: "Enviando…",
+  formSent: "Ya estás en la lista. Te escribiremos antes de que abra el piloto.",
+  formFailed: "No se pudo enviar. Escríbenos a",
+  formPrivacy:
+    "Usamos estos datos solo para contactarte sobre StateProof. No los vendemos y puedes pedirnos que los eliminemos en cualquier momento.",
+  faqTitle: "Preguntas",
+  faqs: [
+    {
+      q: "¿StateProof es asesoría fiscal?",
+      a: "No. StateProof supervisa tus ventas y registros y te dice lo que dicen las normas. Para decisiones sobre tus propios impuestos, consulta a un profesional fiscal.",
+    },
+    {
+      q: "¿Presenta mis declaraciones del impuesto sobre las ventas?",
+      a: "No en el lanzamiento. StateProof te dice dónde debes registrarte y mantiene tus registros listos. La presentación podría llegar más adelante.",
+    },
+    {
+      q: "¿Qué tiendas puedo conectar?",
+      a: "Primero Shopify, luego Amazon y Etsy. Puedes subir un archivo de pedidos de cualquier otro lugar.",
+    },
+    {
+      q: "¿Quién está detrás de StateProof?",
+      a: "Receipters LLC, una empresa de recibos y datos de transacciones con sede en Newark, Nueva Jersey.",
+    },
+  ],
+  footerBy: "StateProof de Receipters LLC",
+  footerAddress: "355 Ridgewood Ave, Suite 1, Newark, NJ 07112",
+  footerContact: "Contacto",
+  footerDisclaimer: "StateProof ofrece supervisión y gestión de registros, no asesoría fiscal ni legal.",
+};
+
+export const copy = { en, es };
+export type Copy = typeof en;

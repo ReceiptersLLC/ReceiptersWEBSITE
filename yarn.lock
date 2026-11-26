@@ -518,6 +518,11 @@
   resolved "https://registry.npmjs.org/@fontsource-variable/hanken-grotesk/-/hanken-grotesk-5.3.0.tgz"
   integrity sha512-DOd0FqL+3cH2dfNy0JtSq9tUfxBz5mLmHMjTU0DOr3E9Zo6wxuatCl53DIPNrSPgCsnuKyM739BTIG5glCLirw==
 
+"@fontsource-variable/public-sans@5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/public-sans/-/public-sans-5.1.1.tgz#8e6314d98c5e7063e9655ba2447d59414183d410"
+  integrity sha512-tqIED9ZiEyX8AQp/4AoVVWy7O05IxVqEWdk8Epw3Cp1np/mmwMGp1JWyzLeJq8ZE4HqdF9e5FSuB3rnyDLpTiA==
+
 "@fontsource/ibm-plex-mono@^5.3.0":
   version "5.3.0"
   resolved "https://registry.npmjs.org/@fontsource/ibm-plex-mono/-/ibm-plex-mono-5.3.0.tgz"

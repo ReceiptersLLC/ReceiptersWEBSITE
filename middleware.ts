@@ -2,6 +2,11 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { REGION_COOKIE, REGION_HEADER, isRegion, regionFromCountry } from '@/lib/region'
 
+const STATEPROOF_HOST = 'getstateproof.com'
+const STATEPROOF_HOSTS = ['getstateproof.com', 'www.getstateproof.com']
+/** Other StateProof domains that send visitors to getstateproof.com. */
+const STATEPROOF_REDIRECT_HOSTS = ['stateproof.app', 'www.stateproof.app']
+
 export async function middleware(request: NextRequest) {
   // Determine request path early and allow common assets/endpoints to bypass middleware
   const pathname = request.nextUrl.pathname
@@ -15,6 +20,19 @@ export async function middleware(request: NextRequest) {
     pathname === '/favicon.ico'
   ) {
     return NextResponse.next()
+  }
+
+  // StateProof (Receipters LLC's US product) is served from this same app on its own domains.
+  const host = (request.headers.get('x-forwarded-host') || request.headers.get('host') || '')
+    .split(',')[0].trim().toLowerCase().replace(/:\d+$/, '')
+  if (STATEPROOF_REDIRECT_HOSTS.includes(host)) {
+    return NextResponse.redirect(`https://${STATEPROOF_HOST}${pathname}${request.nextUrl.search}`, 308)
+  }
+  if (STATEPROOF_HOSTS.includes(host)) {
+    if (pathname === '/') return NextResponse.rewrite(new URL('/stateproof', request.url))
+    // Static files for the page (icon) are allowed; every other address goes to the landing page.
+    if (pathname.startsWith('/stateproof/') && /\.[a-z0-9]+$/i.test(pathname)) return NextResponse.next()
+    return NextResponse.redirect(`https://${host}/`, 308)
   }
 
   // Maintenance mode toggle. Off by default; set the MAINTENANCE_MODE environment
