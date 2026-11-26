@@ -7,15 +7,9 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { demoHref, productsFor, serviceRequestHref, services } from "@/lib/siteLinks";
 import { useRegion } from "@/components/RegionProvider";
-import { REGIONS, regionContent, type Region } from "@/lib/region";
+import { LANGUAGE_LABELS, REGIONS, regionContent, regionLanguages, type Region } from "@/lib/region";
 import { useAuth } from "@/context/AuthContext";
 
-const languages = [
-  { code: "en", label: "English" },
-  { code: "sw", label: "Kiswahili" },
-  { code: "fr", label: "Français" },
-  { code: "de", label: "Deutsch" },
-];
 
 type MenuKey = "product" | "services" | "blogs" | null;
 
@@ -58,6 +52,15 @@ export default function Navigator() {
   };
 
   const { region, setRegion } = useRegion();
+  const languages = regionLanguages[region].map((code) => ({ code, label: LANGUAGE_LABELS[code] }));
+  const currentLanguage = i18nInstance.resolvedLanguage || i18nInstance.language;
+
+  // A language from the other country version (Swahili or Spanish) switches back to English.
+  useEffect(() => {
+    if (currentLanguage && !regionLanguages[region].includes(currentLanguage)) {
+      i18nInstance.changeLanguage("en");
+    }
+  }, [region, currentLanguage, i18nInstance]);
 
   const isActive = (href: string) => pathname === href;
   const toggle = (key: MenuKey) => setOpenMenu(openMenu === key ? null : key);
@@ -137,7 +140,7 @@ export default function Navigator() {
               aria-label="Language"
               className="border border-white/25 bg-ink px-1.5 py-1 text-xs text-white"
               onChange={(e) => handleLanguageChange(e.target.value)}
-              value={i18nInstance.language}
+              value={currentLanguage}
             >
               {languages.map(({ code, label }) => (
                 <option key={code} value={code}>

@@ -16,7 +16,7 @@ i18n
     lng: "en", // Set default language explicitly
     ns: ["common"], // Available namespaces
     defaultNS: "common", // Default namespace for translations
-    supportedLngs: ["en", "fr", "sw", "de"], // Add your supported languages
+    supportedLngs: ["en", "fr", "sw", "de", "es"], // Add your supported languages
     debug: false, // Disable debug to reduce console noise
     resources: {
       en: {

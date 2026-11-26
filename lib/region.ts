@@ -17,6 +17,19 @@ export const isRegion = (value: unknown): value is Region => value === "ke" || v
 export const regionFromCountry = (country?: string | null): Region =>
   country?.toUpperCase() === "US" ? "us" : DEFAULT_REGION;
 
+/** Languages offered in each country version: Swahili in Africa, Spanish in the United States. */
+export const LANGUAGE_LABELS: Record<string, string> = {
+  en: "English",
+  sw: "Kiswahili",
+  es: "Español",
+  fr: "Français",
+  de: "Deutsch",
+};
+export const regionLanguages: Record<Region, string[]> = {
+  ke: ["en", "sw", "fr", "de"],
+  us: ["en", "es", "fr", "de"],
+};
+
 export type Contact = { key: string; value: string; href: string };
 export type Office = { title: string; address: string };
 
