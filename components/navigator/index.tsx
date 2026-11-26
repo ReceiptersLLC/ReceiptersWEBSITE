@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { demoHref, productsFor, serviceRequestHref, services } from "@/lib/siteLinks";
+import { productHref, productsFor, serviceRequestHref, services } from "@/lib/siteLinks";
 import { useRegion } from "@/components/RegionProvider";
 import { LANGUAGE_LABELS, REGIONS, regionContent, regionLanguages, type Region } from "@/lib/region";
 import { useAuth } from "@/context/AuthContext";
@@ -72,7 +72,7 @@ export default function Navigator() {
         {t("navbar.allProducts")}
       </MenuItem>
       {productsFor(region).map((product) => (
-        <MenuItem key={product.slug} href={demoHref(product.slug)} onClick={close}>
+        <MenuItem key={product.slug} href={productHref(product)} onClick={close}>
           {product.name}
         </MenuItem>
       ))}

@@ -7,7 +7,7 @@ import { FaXTwitter, FaSquareFacebook, FaLinkedin } from "react-icons/fa6";
 import FooterLinksSection from "@/components/footer/FooterLinksSection";
 import { useTranslation } from "react-i18next";
 import { openCookieSettings } from "@/lib/consent";
-import { demoHref, productsFor, serviceRequestHref, services, LEARN_MORE_HREF } from "@/lib/siteLinks";
+import { productHref, productsFor, serviceRequestHref, services, LEARN_MORE_HREF } from "@/lib/siteLinks";
 import { useRegion } from "@/components/RegionProvider";
 import { regionContent } from "@/lib/region";
 
@@ -40,7 +40,7 @@ export default function Footer() {
     ...productsFor(region).map((product, i) => ({
       id: i + 1,
       name: product.name,
-      url: demoHref(product.slug),
+      url: productHref(product),
     })),
   ];
   const serviceLinks = [

@@ -10,6 +10,8 @@ export type ProductLink = {
   href?: string;
   /** Translation key for a one-line description, where one is available. */
   descriptionKey?: string;
+  /** Product links open the product's own website instead of the demo request form. */
+  openSite?: boolean;
   /** Country versions that show this product. Leave out to show it in both. */
   regions?: Region[];
 };
@@ -39,12 +41,18 @@ export const products: ProductLink[] = [
     name: "StateProof",
     categoryKey: "productFamily.category.salesTax",
     descriptionKey: "productFamily.stateproof.description",
+    href: "https://getstateproof.com",
+    openSite: true,
     regions: ["us"],
   },
 ];
 
 /** Products shown in a country version of the site. */
 export const productsFor = (region: Region) => products.filter((p) => !p.regions || p.regions.includes(region));
+
+/** Where a product link goes: its own website when it has one to show, otherwise the demo request form. */
+export const productHref = (product: ProductLink) =>
+  product.openSite && product.href ? product.href : demoHref(product.slug);
 
 /** Product links lead to the demo request form, not to the product's own website. */
 export const demoHref = (slug?: string) => (slug ? `/request-demo?product=${slug}` : "/request-demo");
