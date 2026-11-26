@@ -53,21 +53,38 @@ export default function StateProofLanding() {
 
   return (
     <div className="sp">
-      <header className="sp-top">
-        <div className="sp-wrap sp-top-row">
-          <a href="#top" className="sp-brand" aria-label="StateProof">
-            <Mark />
-            <span>StateProof</span>
-          </a>
-          <nav className="sp-top-nav">
-            <button type="button" className="sp-lang" onClick={switchLang} aria-label={t.langSwitchLabel}>
-              {t.langSwitch}
-            </button>
-            <a href="#waitlist" className="sp-btn sp-btn-small">
-              {t.navJoin}
-            </a>
-          </nav>
+      <header className="sp-header">
+        <div className="sp-strip">
+          <div className="sp-wrap sp-strip-row">
+            <span className="sp-strip-tag">
+              <i aria-hidden="true" />
+              {t.stripTag}
+            </span>
+            <span className="sp-strip-right">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="sp-strip-mail">
+                {CONTACT_EMAIL}
+              </a>
+              <button type="button" className="sp-lang" onClick={switchLang} aria-label={t.langSwitchLabel}>
+                {t.langSwitch}
+              </button>
+            </span>
+          </div>
         </div>
+        <nav className="sp-navbar" aria-label="StateProof">
+          <div className="sp-wrap sp-nav-row">
+            <a href="#top" className="sp-brand" aria-label="StateProof">
+              <Mark size="small" />
+              <span>StateProof</span>
+            </a>
+            <div className="sp-nav-links">
+              <a href="#how">{t.navHow}</a>
+              <a href="#faq">{t.navFaq}</a>
+              <a href="#waitlist" className="sp-nav-cta">
+                {t.navJoin}
+              </a>
+            </div>
+          </div>
+        </nav>
       </header>
 
       <main id="top">
@@ -126,7 +143,7 @@ export default function StateProofLanding() {
           </div>
         </section>
 
-        <section className="sp-section sp-section-tight">
+        <section id="how" className="sp-section sp-section-tight">
           <div className="sp-wrap">
             <h2 className="sp-h2">{t.stepsTitle}</h2>
             <ol className="sp-steps">
@@ -145,7 +162,7 @@ export default function StateProofLanding() {
 
         <Waitlist t={t} lang={lang} />
 
-        <section className="sp-section">
+        <section id="faq" className="sp-section">
           <div className="sp-wrap sp-faq">
             <h2 className="sp-h2">{t.faqTitle}</h2>
             <dl>
@@ -168,6 +185,16 @@ export default function StateProofLanding() {
               <span>{t.footerBy}</span>
             </div>
             <p>{t.footerAddress}</p>
+            <div className="sp-seal-note">
+              <svg className="sp-seal-big" viewBox="0 0 32 32" aria-hidden="true">
+                <circle cx="16" cy="16" r="15" fill="var(--sp-field)" />
+                {SEAL_DOTS.map((d, i) => (
+                  <circle key={i} cx={d.cx} cy={d.cy} r="0.46" fill="var(--sp-paper)" />
+                ))}
+                <path d="M10.5 16.3l3.6 3.6 7.4-7.4" fill="none" stroke="var(--sp-paper)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <p>{t.sealNote}</p>
+            </div>
           </div>
           <div>
             <p>
@@ -182,13 +209,22 @@ export default function StateProofLanding() {
   );
 }
 
-function Mark() {
-  // A boundary line with a check: a state line you can see coming.
+// The seal: 54 dots (the 50 states, Washington DC, Puerto Rico, Guam and the US Virgin Islands) around a check.
+const SEAL_DOTS = Array.from({ length: 54 }, (_, i) => {
+  const a = -Math.PI / 2 + (2 * Math.PI * i) / 54;
+  return { cx: +(16 + 11.6 * Math.cos(a)).toFixed(2), cy: +(16 + 11.6 * Math.sin(a)).toFixed(2) };
+});
+
+function Mark({ size }: { size?: "small" }) {
   return (
     <svg className="sp-mark" viewBox="0 0 32 32" aria-hidden="true">
-      <rect x="1" y="1" width="30" height="30" rx="7" fill="currentColor" />
-      <path d="M21 5v22" stroke="var(--sp-paper)" strokeWidth="2.4" strokeDasharray="3 3" />
-      <path d="M7 16.5l3.6 3.6L17 13" fill="none" stroke="var(--sp-paper)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="16" cy="16" r="15" fill="currentColor" />
+      {size === "small" ? (
+        <circle cx="16" cy="16" r="11.6" fill="none" stroke="var(--sp-paper)" strokeWidth="1.1" />
+      ) : (
+        SEAL_DOTS.map((d, i) => <circle key={i} cx={d.cx} cy={d.cy} r="0.46" fill="var(--sp-paper)" />)
+      )}
+      <path d="M10.5 16.3l3.6 3.6 7.4-7.4" fill="none" stroke="var(--sp-paper)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
