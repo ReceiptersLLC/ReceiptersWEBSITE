@@ -25,9 +25,18 @@ const WHATSAPP_US: Contact = { key: "whatsappUsa", value: "+1 (720) 930-2570", h
 
 export const regionContent: Record<
   Region,
-  { whatsapp: Contact; whatsappNumber: string; phoneHref: string; offices: Office[]; officeCities: string }
+  {
+    /** The company that trades in this country version. */
+    companyName: string;
+    whatsapp: Contact;
+    whatsappNumber: string;
+    phoneHref: string;
+    offices: Office[];
+    officeCities: string;
+  }
 > = {
   ke: {
+    companyName: "Receipters Technologies Limited",
     whatsapp: WHATSAPP_KE,
     whatsappNumber: "254722752755",
     phoneHref: "tel:+254722752755",
@@ -38,6 +47,7 @@ export const regionContent: Record<
     officeCities: "Nairobi, Lusaka",
   },
   us: {
+    companyName: "Receipters LLC",
     whatsapp: WHATSAPP_US,
     whatsappNumber: "17209302570",
     phoneHref: "tel:+17209302570",

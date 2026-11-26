@@ -265,7 +265,7 @@
   "footer.quickLinks.title": "Viungo vya Haraka",
   "footer.locations": "Maeneo",
   "footer.usOffice": "Ofisi ya Marekani",
-  "footer.usOfficeAddress": "355 Ridgewood Ave, Suite 1\nNewark, NJ 07112",
+  "footer.usOfficeAddress": "Receipters LLC\n355 Ridgewood Ave, Suite 1\nNewark, NJ 07112",
   "footer.primaryOffice": "Ofisi ya Kenya",
   "footer.primaryOfficeAddress": "Receipters Technologies Limited\nCove Court, Watermark Business Park\nNdege Road, Karen, Nairobi 00800 Kenya",
   "footer.zambiaOffice": "Ofisi ya Zambia",
@@ -722,5 +722,6 @@
   "login.back": "Rudi nyuma",
   "region.label": "Toleo la nchi",
   "region.ke": "Afrika",
-  "region.us": "Marekani"
+  "region.us": "Marekani",
+  "footer.allRightsReserved": "Haki zote zimehifadhiwa."
 }
