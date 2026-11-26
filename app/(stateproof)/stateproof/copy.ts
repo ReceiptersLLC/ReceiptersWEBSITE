@@ -9,6 +9,9 @@ const en = {
   langSwitch: "Español",
   langSwitchLabel: "Ver en español",
   navJoin: "Join the waitlist",
+  navHow: "How it works",
+  navFaq: "Questions",
+  stripTag: "Sales tax limits and IRS-ready receipts for US online sellers",
   heroKicker: "For US online sellers",
   heroTitle: "Know every state you owe sales tax in, before it becomes a debt.",
   heroBody:
@@ -104,12 +107,16 @@ const en = {
   footerAddress: "355 Ridgewood Ave, Suite 1, Newark, NJ 07112",
   footerContact: "Contact",
   footerDisclaimer: "StateProof provides monitoring and record-keeping, not tax or legal advice.",
+  sealNote: "The 54 dots in our seal stand for the 50 states, Washington, DC, Puerto Rico, Guam and the US Virgin Islands.",
 };
 
 const es: typeof en = {
   langSwitch: "English",
   langSwitchLabel: "View in English",
   navJoin: "Únete a la lista",
+  navHow: "Cómo funciona",
+  navFaq: "Preguntas",
+  stripTag: "Límites del impuesto sobre las ventas y recibos listos para el IRS",
   heroKicker: "Para vendedores en línea en EE. UU.",
   heroTitle: "Descubre en qué estados debes impuesto sobre las ventas antes de que se convierta en una deuda.",
   heroBody:
@@ -205,6 +212,7 @@ const es: typeof en = {
   footerAddress: "355 Ridgewood Ave, Suite 1, Newark, NJ 07112",
   footerContact: "Contacto",
   footerDisclaimer: "StateProof ofrece supervisión y gestión de registros, no asesoría fiscal ni legal.",
+  sealNote: "Los 54 puntos de nuestro sello representan los 50 estados, Washington D. C., Puerto Rico, Guam y las Islas Vírgenes de EE. UU.",
 };
 
 export const copy = { en, es };
