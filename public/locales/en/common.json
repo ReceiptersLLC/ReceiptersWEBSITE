@@ -851,5 +851,8 @@
   "demo.groupProducts": "Products",
   "demo.groupServices": "Services",
   "demo.sendService": "Send request",
-  "login.back": "Go back"
+  "login.back": "Go back",
+  "region.label": "Country version",
+  "region.ke": "Kenya",
+  "region.us": "United States"
 }

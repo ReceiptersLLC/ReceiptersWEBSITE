@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { REGION_COOKIE, REGION_HEADER, isRegion, regionFromCountry } from '@/lib/region'
 
 export async function middleware(request: NextRequest) {
   // Determine request path early and allow common assets/endpoints to bypass middleware
@@ -51,7 +52,12 @@ export async function middleware(request: NextRequest) {
     })
   }
 
-  return NextResponse.next()
+  // Country version: the visitor's own choice if they made one, otherwise their country.
+  const chosen = request.cookies.get(REGION_COOKIE)?.value
+  const region = isRegion(chosen) ? chosen : regionFromCountry(request.headers.get('cloudfront-viewer-country'))
+  const headers = new Headers(request.headers)
+  headers.set(REGION_HEADER, region)
+  return NextResponse.next({ request: { headers } })
 }
 
 export const config = {

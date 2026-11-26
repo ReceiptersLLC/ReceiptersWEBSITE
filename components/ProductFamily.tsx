@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { demoHref, products } from "@/lib/siteLinks";
+import { demoHref, productsFor } from "@/lib/siteLinks";
+import { useRegion } from "@/components/RegionProvider";
 
 export default function ProductFamily() {
   const { t } = useTranslation("common");
+  const { region } = useRegion();
 
   return (
     <section className="border-y border-line bg-mist">
@@ -18,7 +20,7 @@ export default function ProductFamily() {
           {t("productFamily.description")}
         </p>
         <div className="mt-10 grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
+          {productsFor(region).map((product) => (
             <div
               key={product.slug}
               id={product.slug}

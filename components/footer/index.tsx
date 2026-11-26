@@ -7,7 +7,9 @@ import { FaXTwitter, FaSquareFacebook, FaLinkedin } from "react-icons/fa6";
 import FooterLinksSection from "@/components/footer/FooterLinksSection";
 import { useTranslation } from "react-i18next";
 import { openCookieSettings } from "@/lib/consent";
-import { demoHref, products, serviceRequestHref, services, LEARN_MORE_HREF } from "@/lib/siteLinks";
+import { demoHref, productsFor, serviceRequestHref, services, LEARN_MORE_HREF } from "@/lib/siteLinks";
+import { useRegion } from "@/components/RegionProvider";
+import { regionContent } from "@/lib/region";
 
 const SUPPORT_EMAIL = "support@receipters.com";
 const GENERAL_EMAIL = "info@receipters.com";
@@ -21,25 +23,21 @@ const socials = [
   { label: "YouTube", href: "https://www.youtube.com/@Receipters_llc", Icon: Youtube },
 ];
 
-const contacts = [
-  { key: "footer.supportEmail", value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}`, Icon: Mail },
-  { key: "footer.generalEmail", value: GENERAL_EMAIL, href: `mailto:${GENERAL_EMAIL}`, Icon: Mail },
-  { key: "footer.whatsappKenya", value: "+254 722 752 755", href: "https://wa.me/254722752755", Icon: MessageCircle },
-  { key: "footer.whatsappUsa", value: "+1 (720) 930-2570", href: "https://wa.me/17209302570", Icon: MessageCircle },
-];
-
-const offices = [
-  { title: "footer.primaryOffice", address: "footer.primaryOfficeAddress" },
-  { title: "footer.usOffice", address: "footer.usOfficeAddress" },
-  { title: "footer.zambiaOffice", address: "footer.zambiaOfficeAddress" },
-];
 
 export default function Footer() {
   const { t } = useTranslation("common");
+  const { region } = useRegion();
+  const local = regionContent[region];
+  const contacts = [
+    { key: "footer.supportEmail", value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}`, Icon: Mail },
+    { key: "footer.generalEmail", value: GENERAL_EMAIL, href: `mailto:${GENERAL_EMAIL}`, Icon: Mail },
+    { key: `footer.${local.whatsapp.key}`, value: local.whatsapp.value, href: local.whatsapp.href, Icon: MessageCircle },
+  ];
+  const offices = local.offices;
 
   const productLinks = [
     { id: 0, name: t("navbar.allProducts"), url: "/product" },
-    ...products.map((product, i) => ({
+    ...productsFor(region).map((product, i) => ({
       id: i + 1,
       name: product.name,
       url: demoHref(product.slug),
