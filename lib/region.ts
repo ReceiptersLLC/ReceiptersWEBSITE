@@ -1,5 +1,6 @@
 // Which country version of the site a visitor sees.
-// US visitors get the United States version; everyone else gets the Kenya version.
+// US visitors get the United States version; everyone else gets the Africa version
+// (code "ke", kept so visitors' saved choices stay valid).
 // Visitors can switch with the selector in the top bar; their choice is kept in a cookie.
 
 export type Region = "ke" | "us";
