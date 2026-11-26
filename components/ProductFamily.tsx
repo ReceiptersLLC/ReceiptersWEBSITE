@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { demoHref, productsFor } from "@/lib/siteLinks";
+import { productHref, productsFor } from "@/lib/siteLinks";
 import { useRegion } from "@/components/RegionProvider";
 
 export default function ProductFamily() {
@@ -35,11 +35,11 @@ export default function ProductFamily() {
               )}
               <div className="mt-auto pt-6">
                 <Link
-                  href={demoHref(product.slug)}
+                  href={productHref(product)}
                   className="inline-flex items-center gap-1 text-sm font-semibold text-primary underline-offset-4 after:absolute after:inset-0 hover:underline"
-                  aria-label={`${t("demo.cta")}: ${product.name}`}
+                  aria-label={`${t(product.openSite ? "productFamily.visit" : "demo.cta")}: ${product.name}`}
                 >
-                  {t("demo.cta")}
+                  {t(product.openSite ? "productFamily.visit" : "demo.cta")}
                   <ArrowRight size={14} aria-hidden="true" />
                 </Link>
               </div>

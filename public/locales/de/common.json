@@ -727,5 +727,6 @@
   "productFamily.category.salesTax": "Umsatzsteuer und Belege",
   "productFamily.stateproof.description": "Warnt Online-Händler, bevor sie die Umsatzsteuergrenze eines Bundesstaats überschreiten – über Shopify, Amazon und den eigenen Shop – und hält Belege für das IRS bereit.",
   "productFamily.descriptionUs": "Die Umsatzsteuer- und Belegprodukte von Receipters LLC.",
-  "demo.messagePlaceholderUs": "Zum Beispiel: Verkäufe über Shopify und Amazon, Umsatzsteuergrenzen der Bundesstaaten, Belege für das IRS"
+  "demo.messagePlaceholderUs": "Zum Beispiel: Verkäufe über Shopify und Amazon, Umsatzsteuergrenzen der Bundesstaaten, Belege für das IRS",
+  "productFamily.visit": "Website besuchen"
 }
