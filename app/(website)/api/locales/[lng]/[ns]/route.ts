@@ -10,7 +10,7 @@ export async function GET(
     const { lng, ns } = await params;
     
     // Validate language and namespace
-    const supportedLanguages = ['en', 'fr', 'sw', 'de'];
+    const supportedLanguages = ['en', 'fr', 'sw', 'de', 'es'];
     const supportedNamespaces = ['common'];
     
     if (!supportedLanguages.includes(lng) || !supportedNamespaces.includes(ns)) {
