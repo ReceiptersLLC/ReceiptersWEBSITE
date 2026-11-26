@@ -723,5 +723,9 @@
   "region.label": "Toleo la nchi",
   "region.ke": "Afrika",
   "region.us": "Marekani",
-  "footer.allRightsReserved": "Haki zote zimehifadhiwa."
+  "footer.allRightsReserved": "Haki zote zimehifadhiwa.",
+  "productFamily.category.salesTax": "Kodi ya mauzo na risiti",
+  "productFamily.stateproof.description": "Huwaonya wauzaji wa mtandaoni kabla ya kuvuka kikomo cha kodi ya mauzo cha jimbo, kupitia Shopify, Amazon na duka lao, na huhifadhi risiti tayari kwa IRS.",
+  "productFamily.descriptionUs": "Bidhaa za kodi ya mauzo na risiti zilizoundwa na Receipters LLC.",
+  "demo.messagePlaceholderUs": "Kwa mfano: mauzo ya Shopify na Amazon, vikomo vya kodi ya mauzo vya majimbo, risiti tayari kwa IRS"
 }

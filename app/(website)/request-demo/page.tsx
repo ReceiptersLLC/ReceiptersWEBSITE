@@ -150,7 +150,7 @@ function RequestDemo() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value.slice(0, MESSAGE_LIMIT))}
                   rows={5}
-                  placeholder={t('demo.messagePlaceholder')}
+                  placeholder={t(region === 'us' ? 'demo.messagePlaceholderUs' : 'demo.messagePlaceholder')}
                   className={inputClass}
                 />
               </Field>

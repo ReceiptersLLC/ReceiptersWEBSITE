@@ -723,5 +723,9 @@
   "region.label": "Version du pays",
   "region.ke": "Afrique",
   "region.us": "États-Unis",
-  "footer.allRightsReserved": "Tous droits réservés."
+  "footer.allRightsReserved": "Tous droits réservés.",
+  "productFamily.category.salesTax": "Taxe de vente et reçus",
+  "productFamily.stateproof.description": "Prévient les vendeurs en ligne avant qu'ils ne dépassent le seuil de taxe de vente d'un État, sur Shopify, Amazon et leur propre boutique, et conserve des reçus prêts pour l'IRS.",
+  "productFamily.descriptionUs": "Les produits de taxe de vente et de reçus conçus par Receipters LLC.",
+  "demo.messagePlaceholderUs": "Par exemple : ventes Shopify et Amazon, seuils de taxe de vente des États, reçus prêts pour l'IRS"
 }

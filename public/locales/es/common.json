@@ -855,5 +855,9 @@
   "region.label": "Versión del país",
   "region.ke": "África",
   "region.us": "Estados Unidos",
-  "footer.allRightsReserved": "Todos los derechos reservados."
+  "footer.allRightsReserved": "Todos los derechos reservados.",
+  "productFamily.category.salesTax": "Impuesto sobre las ventas y recibos",
+  "productFamily.stateproof.description": "Avisa a los vendedores en línea antes de que superen el límite del impuesto sobre las ventas de un estado, en Shopify, Amazon y su propia tienda, y guarda los recibos listos para el IRS.",
+  "productFamily.descriptionUs": "Los productos de impuesto sobre las ventas y recibos creados por Receipters LLC.",
+  "demo.messagePlaceholderUs": "Por ejemplo: ventas en Shopify y Amazon, límites estatales del impuesto sobre las ventas, recibos listos para el IRS"
 }
