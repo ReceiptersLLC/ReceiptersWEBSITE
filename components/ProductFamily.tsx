@@ -9,6 +9,8 @@ import { useRegion } from "@/components/RegionProvider";
 export default function ProductFamily() {
   const { t } = useTranslation("common");
   const { region } = useRegion();
+  const shown = productsFor(region);
+  if (shown.length === 0) return null;
 
   return (
     <section className="border-y border-line bg-mist">
@@ -20,7 +22,7 @@ export default function ProductFamily() {
           {t("productFamily.description")}
         </p>
         <div className="mt-10 grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
-          {productsFor(region).map((product) => (
+          {shown.map((product) => (
             <div
               key={product.slug}
               id={product.slug}
