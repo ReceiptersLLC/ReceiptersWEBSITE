@@ -265,7 +265,7 @@
   "footer.quickLinks.title": "Quick Links",
   "footer.locations": "Locations",
   "footer.usOffice": "US Office",
-  "footer.usOfficeAddress": "355 Ridgewood Ave, Suite 1\nNewark, NJ 07112",
+  "footer.usOfficeAddress": "Receipters LLC\n355 Ridgewood Ave, Suite 1\nNewark, NJ 07112",
   "footer.primaryOffice": "Kenya Office",
   "footer.primaryOfficeAddress": "Receipters Technologies Limited\nCove Court, Watermark Business Park\nNdege Road, Karen, Nairobi 00800 Kenya",
   "footer.zambiaOffice": "Zambia Office",
@@ -854,5 +854,6 @@
   "login.back": "Go back",
   "region.label": "Country version",
   "region.ke": "Africa",
-  "region.us": "United States"
+  "region.us": "United States",
+  "footer.allRightsReserved": "All rights reserved."
 }

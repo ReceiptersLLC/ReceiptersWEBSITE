@@ -147,7 +147,7 @@ export default function Footer() {
 
         {/* Legal bar */}
         <div className="flex flex-col gap-5 py-8 text-sm text-white/75 lg:flex-row lg:items-center lg:justify-between">
-          <div>© {new Date().getFullYear()} Receipters Technology. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} {local.companyName}. {t("footer.allRightsReserved")}</div>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {legalLinks.map((link) => (
               <Link key={link.url} href={link.url} className="transition-colors hover:text-white">

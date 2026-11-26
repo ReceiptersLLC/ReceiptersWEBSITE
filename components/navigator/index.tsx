@@ -7,7 +7,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { demoHref, productsFor, serviceRequestHref, services } from "@/lib/siteLinks";
 import { useRegion } from "@/components/RegionProvider";
-import { REGIONS, type Region } from "@/lib/region";
+import { REGIONS, regionContent, type Region } from "@/lib/region";
 import { useAuth } from "@/context/AuthContext";
 
 const languages = [
@@ -108,7 +108,7 @@ export default function Navigator() {
           <div className="flex items-center gap-2.5 font-medium text-white/85">
             <span className="inline-block size-[7px] shrink-0 bg-skyDeep" aria-hidden="true" />
             <span className="hidden sm:inline">{t("footer.tagline")}</span>
-            <span className="sm:hidden">Receipters Technologies Limited</span>
+            <span className="sm:hidden">{regionContent[region].companyName}</span>
           </div>
           <div className="flex items-center gap-4">
             <a href="mailto:info@receipters.com" className="hidden text-white/75 hover:text-white md:inline">
