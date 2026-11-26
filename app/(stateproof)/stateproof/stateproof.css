@@ -36,24 +36,24 @@
   padding: 0 20px;
 }
 
-/* Header: the same three bands as the Receipters site (ink strip, primary rule, sky bar) */
+/* Header: three bands (dark strip, accent rule, light bar) in StateProof's greens */
 .sp-header { position: sticky; top: 0; z-index: 10; }
-.sp-strip { background: #0e1433; color: #fff; }
+.sp-strip { background: var(--sp-field-2); color: #fff; }
 .sp-strip-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 38px; font-size: 12.5px; }
 .sp-strip-tag { display: inline-flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, 0.85); font-weight: 500; }
-.sp-strip-tag i { display: inline-block; width: 7px; height: 7px; background: #7cc0ee; flex: none; }
+.sp-strip-tag i { display: inline-block; width: 7px; height: 7px; background: var(--sp-market); flex: none; }
 .sp-strip-right { display: inline-flex; align-items: center; gap: 16px; }
 .sp-strip-mail { color: rgba(255, 255, 255, 0.75); text-decoration: none; }
 .sp-strip-mail:hover { color: #fff; }
 .sp-strip .sp-lang { color: #fff; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 0; padding: 3px 8px; text-decoration: none; font-size: 12.5px; }
 .sp-strip .sp-lang:hover { background: rgba(255, 255, 255, 0.1); }
-.sp-navbar { background: #cde7fa; border-top: 3px solid #2e388f; border-bottom: 1px solid rgba(124, 192, 238, 0.6); }
+.sp-navbar { background: #dcebe4; border-top: 3px solid var(--sp-safe); border-bottom: 1px solid rgba(143, 181, 164, 0.6); }
 .sp-nav-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 80px; }
 .sp-nav-links { display: flex; align-items: stretch; height: 100%; }
-.sp-nav-links a { display: inline-flex; align-items: center; padding: 0 18px; font-weight: 600; font-size: 16px; color: #0e1433; text-decoration: none; }
+.sp-nav-links a { display: inline-flex; align-items: center; padding: 0 18px; font-weight: 600; font-size: 16px; color: var(--sp-ink); text-decoration: none; }
 .sp-nav-links a:hover { background: rgba(255, 255, 255, 0.45); }
-.sp-nav-links a.sp-nav-cta { background: #2e388f; color: #fff; }
-.sp-nav-links a.sp-nav-cta:hover { background: #0e1433; }
+.sp-nav-links a.sp-nav-cta { background: var(--sp-field); color: #fff; }
+.sp-nav-links a.sp-nav-cta:hover { background: var(--sp-field-2); }
 @media (max-width: 720px) {
   .sp-strip-tag, .sp-strip-mail { display: none; }
   .sp-strip-row { justify-content: flex-end; }
