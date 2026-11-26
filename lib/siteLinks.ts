@@ -1,4 +1,5 @@
 // Menu data shared by the navigation, the product page and the services page.
+import type { Region } from "@/lib/region";
 
 export type ProductLink = {
   slug: string;
@@ -9,6 +10,8 @@ export type ProductLink = {
   href?: string;
   /** Translation key for a one-line description, where one is available. */
   descriptionKey?: string;
+  /** Country versions that show this product. Leave out to show it in both. */
+  regions?: Region[];
 };
 
 export const products: ProductLink[] = [
@@ -31,6 +34,9 @@ export const products: ProductLink[] = [
     descriptionKey: "productFamily.shahidibox.description",
   },
 ];
+
+/** Products shown in a country version of the site. */
+export const productsFor = (region: Region) => products.filter((p) => !p.regions || p.regions.includes(region));
 
 /** Product links lead to the demo request form, not to the product's own website. */
 export const demoHref = (slug?: string) => (slug ? `/request-demo?product=${slug}` : "/request-demo");

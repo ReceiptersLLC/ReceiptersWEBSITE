@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 import { useConsent } from '@/lib/consent';
+import { useRegion } from '@/components/RegionProvider';
+import { regionContent } from '@/lib/region';
 
 declare global {
   interface Window {
@@ -16,6 +18,7 @@ const SCRIPT_ID = 'wa-widget-script';
 export default function WhatsAppWidget() {
   const consent = useConsent();
   const allowed = consent?.chat === true;
+  const { region } = useRegion();
 
   useEffect(() => {
     if (!allowed || document.getElementById(SCRIPT_ID)) return;
@@ -33,7 +36,7 @@ export default function WhatsAppWidget() {
         marginLeft: 20,
         marginRight: 20,
         btnPosition: 'right',
-        whatsAppNumber: '17209302570',
+        whatsAppNumber: regionContent[region].whatsappNumber,
         welcomeMessage: 'Hello, how can we help you?',
         zIndex: 999,
         btnColorScheme: 'light',

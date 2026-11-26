@@ -20,17 +20,16 @@ import {
   ChevronDown,
   Send,
 } from 'lucide-react';
+import { useRegion } from '@/components/RegionProvider';
+import { regionContent } from '@/lib/region';
 
 const SUPPORT_EMAIL = 'support@receipters.com';
 const GENERAL_EMAIL = 'info@receipters.com';
 const MESSAGE_LIMIT = 4000;
 
-const channels = [
+const baseChannels = [
   { key: 'email', Icon: Mail, value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}`, external: true },
   { key: 'emailGeneral', Icon: Mail, value: GENERAL_EMAIL, href: `mailto:${GENERAL_EMAIL}`, external: true },
-  { key: 'whatsappKenya', Icon: MessageCircle, value: '+254 722 752 755', href: 'https://wa.me/254722752755', external: true },
-  { key: 'whatsappUsa', Icon: MessageCircle, value: '+1 (720) 930-2570', href: 'https://wa.me/17209302570', external: true },
-  { key: 'offices', Icon: MapPin, value: 'Nairobi, Newark, Lusaka', href: '#locations', external: false },
 ];
 
 const guides = [
@@ -48,6 +47,13 @@ const inputClass =
 
 export default function Page() {
   const { t } = useTranslation('common');
+  const { region } = useRegion();
+  const local = regionContent[region];
+  const channels = [
+    ...baseChannels,
+    { key: local.whatsapp.key, Icon: MessageCircle, value: local.whatsapp.value, href: local.whatsapp.href, external: true },
+    { key: 'offices', Icon: MapPin, value: local.officeCities, href: '#locations', external: false },
+  ];
   const [query, setQuery] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

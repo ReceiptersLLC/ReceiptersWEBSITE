@@ -5,7 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { demoHref, products, serviceRequestHref, services } from "@/lib/siteLinks";
+import { demoHref, productsFor, serviceRequestHref, services } from "@/lib/siteLinks";
+import { useRegion } from "@/components/RegionProvider";
+import { REGIONS, type Region } from "@/lib/region";
 import { useAuth } from "@/context/AuthContext";
 
 const languages = [
@@ -55,6 +57,8 @@ export default function Navigator() {
     }
   };
 
+  const { region, setRegion } = useRegion();
+
   const isActive = (href: string) => pathname === href;
   const toggle = (key: MenuKey) => setOpenMenu(openMenu === key ? null : key);
   const close = () => setOpenMenu(null);
@@ -64,7 +68,7 @@ export default function Navigator() {
       <MenuItem href="/product" onClick={close} strong>
         {t("navbar.allProducts")}
       </MenuItem>
-      {products.map((product) => (
+      {productsFor(region).map((product) => (
         <MenuItem key={product.slug} href={demoHref(product.slug)} onClick={close}>
           {product.name}
         </MenuItem>
@@ -116,6 +120,19 @@ export default function Navigator() {
             >
               support@receipters.com
             </a>
+            <select
+              aria-label={t("region.label")}
+              title={t("region.label")}
+              className="border border-white/25 bg-ink px-1.5 py-1 text-xs text-white"
+              onChange={(e) => setRegion(e.target.value as Region)}
+              value={region}
+            >
+              {REGIONS.map((code) => (
+                <option key={code} value={code}>
+                  {t(`region.${code}`)}
+                </option>
+              ))}
+            </select>
             <select
               aria-label="Language"
               className="border border-white/25 bg-ink px-1.5 py-1 text-xs text-white"

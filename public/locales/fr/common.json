@@ -719,5 +719,8 @@
   "demo.groupProducts": "Produits",
   "demo.groupServices": "Services",
   "demo.sendService": "Envoyer la demande",
-  "login.back": "Retour"
+  "login.back": "Retour",
+  "region.label": "Version du pays",
+  "region.ke": "Kenya",
+  "region.us": "États-Unis"
 }
