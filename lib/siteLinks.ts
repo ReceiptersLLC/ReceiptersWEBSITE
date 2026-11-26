@@ -14,7 +14,7 @@ export type ProductLink = {
   regions?: Region[];
 };
 
-// All products are sold in Kenya only; the United States version lists none.
+// All products are sold in Africa only; the United States version lists none.
 export const products: ProductLink[] = [
   {
     slug: "bodapos",
