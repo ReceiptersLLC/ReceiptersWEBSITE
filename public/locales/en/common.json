@@ -855,5 +855,9 @@
   "region.label": "Country version",
   "region.ke": "Africa",
   "region.us": "United States",
-  "footer.allRightsReserved": "All rights reserved."
+  "footer.allRightsReserved": "All rights reserved.",
+  "productFamily.category.salesTax": "Sales tax and receipts",
+  "productFamily.stateproof.description": "Warns online sellers before they cross a state's sales tax limit, across Shopify, Amazon and their own store, and keeps receipts ready for the IRS.",
+  "productFamily.descriptionUs": "The sales tax and receipt products built by Receipters LLC.",
+  "demo.messagePlaceholderUs": "For example: Shopify and Amazon sales, state sales tax limits, IRS-ready receipts"
 }

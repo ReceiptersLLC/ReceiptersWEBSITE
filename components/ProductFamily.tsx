@@ -19,7 +19,7 @@ export default function ProductFamily() {
           {t("productFamily.title")}
         </h2>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
-          {t("productFamily.description")}
+          {t(region === "us" ? "productFamily.descriptionUs" : "productFamily.description")}
         </p>
         <div className="mt-10 grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
           {shown.map((product) => (

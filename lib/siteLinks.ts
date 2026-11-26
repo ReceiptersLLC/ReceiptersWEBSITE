@@ -14,7 +14,7 @@ export type ProductLink = {
   regions?: Region[];
 };
 
-// All products are sold in Africa only; the United States version lists none.
+// The POS, payments and vault products are sold in Africa; StateProof in the United States.
 export const products: ProductLink[] = [
   {
     slug: "bodapos",
@@ -33,6 +33,13 @@ export const products: ProductLink[] = [
     categoryKey: "productFamily.category.vault", regions: ["ke"],
     href: "https://www.shahidibox.com",
     descriptionKey: "productFamily.shahidibox.description",
+  },
+  {
+    slug: "stateproof",
+    name: "StateProof",
+    categoryKey: "productFamily.category.salesTax",
+    descriptionKey: "productFamily.stateproof.description",
+    regions: ["us"],
   },
 ];
 
