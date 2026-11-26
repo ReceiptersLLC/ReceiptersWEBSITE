@@ -14,22 +14,23 @@ export type ProductLink = {
   regions?: Region[];
 };
 
+// All products are sold in Kenya only; the United States version lists none.
 export const products: ProductLink[] = [
   {
     slug: "bodapos",
     name: "BodaPOS",
-    categoryKey: "productFamily.category.pos",
+    categoryKey: "productFamily.category.pos", regions: ["ke"],
     href: "https://www.bodapos.com",
     descriptionKey: "productFamily.bodapos.description",
   },
-  { slug: "linearpos", name: "LinearPOS", categoryKey: "productFamily.category.pos", href: "https://www.linearpos.com" },
-  { slug: "chomapos", name: "ChomaPOS", categoryKey: "productFamily.category.pos", href: "https://www.chomapos.com" },
-  { slug: "nairopos", name: "NairoPOS", categoryKey: "productFamily.category.pos", href: "https://www.nairopos.com" },
-  { slug: "fursapay", name: "FursaPay", categoryKey: "productFamily.category.payments", href: "https://fursapay.com" },
+  { slug: "linearpos", name: "LinearPOS", categoryKey: "productFamily.category.pos", regions: ["ke"], href: "https://www.linearpos.com" },
+  { slug: "chomapos", name: "ChomaPOS", categoryKey: "productFamily.category.pos", regions: ["ke"], href: "https://www.chomapos.com" },
+  { slug: "nairopos", name: "NairoPOS", categoryKey: "productFamily.category.pos", regions: ["ke"], href: "https://www.nairopos.com" },
+  { slug: "fursapay", name: "FursaPay", categoryKey: "productFamily.category.payments", regions: ["ke"], href: "https://fursapay.com" },
   {
     slug: "shahidibox",
     name: "ShahidiBox",
-    categoryKey: "productFamily.category.vault",
+    categoryKey: "productFamily.category.vault", regions: ["ke"],
     href: "https://www.shahidibox.com",
     descriptionKey: "productFamily.shahidibox.description",
   },

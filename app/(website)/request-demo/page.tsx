@@ -4,7 +4,8 @@ import { Suspense, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { CalendarCheck, Send } from 'lucide-react';
-import { products, services } from '@/lib/siteLinks';
+import { productsFor, services } from '@/lib/siteLinks';
+import { useRegion } from '@/components/RegionProvider';
 
 const SALES_EMAIL = 'receipters@receipters.com';
 const MESSAGE_LIMIT = 2000;
@@ -24,6 +25,8 @@ export default function RequestDemoPage() {
 function RequestDemo() {
   const { t } = useTranslation('common');
   const params = useSearchParams();
+  const { region } = useRegion();
+  const products = productsFor(region);
   // The choice is stored as "product:<slug>" or "service:<slug>"; empty means not sure yet.
   const initial = products.some((p) => p.slug === params.get('product'))
     ? `product:${params.get('product')}`
@@ -102,13 +105,15 @@ function RequestDemo() {
               <Field label={t('demo.interest')} wide>
                 <select value={interest} onChange={(e) => setInterest(e.target.value)} className={inputClass}>
                   <option value="">{t('demo.productUnsure')}</option>
-                  <optgroup label={t('demo.groupProducts')}>
-                    {products.map((p) => (
-                      <option key={p.slug} value={`product:${p.slug}`}>
-                        {p.name}
-                      </option>
-                    ))}
-                  </optgroup>
+                  {products.length > 0 && (
+                    <optgroup label={t('demo.groupProducts')}>
+                      {products.map((p) => (
+                        <option key={p.slug} value={`product:${p.slug}`}>
+                          {p.name}
+                        </option>
+                      ))}
+                    </optgroup>
+                  )}
                   <optgroup label={t('demo.groupServices')}>
                     {services.map((s) => (
                       <option key={s.slug} value={`service:${s.slug}`}>
