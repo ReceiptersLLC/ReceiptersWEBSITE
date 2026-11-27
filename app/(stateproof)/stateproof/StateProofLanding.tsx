@@ -5,6 +5,8 @@ import { CHANNELS, SALES_BANDS, copy, type Lang } from "./copy";
 import { legal } from "./legal";
 import { aboutCopy } from "./about";
 import { StatePage, StatePicker, StatesIndex } from "./StatePages";
+import CookieConsent from "./CookieConsent";
+import { openCookieSettings, rememberLang, savedLang } from "./consent";
 
 const CONTACT_EMAIL = "info@receipters.com";
 
@@ -33,12 +35,8 @@ export default function StateProofLanding({ view = "home", slug }: { view?: View
   const t = copy[lang];
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem("sp_lang");
-      if (saved === "en" || saved === "es") return setLang(saved);
-    } catch {
-      /* storage can be unavailable */
-    }
+    const saved = savedLang();
+    if (saved === "en" || saved === "es") return setLang(saved);
     if (navigator.language?.toLowerCase().startsWith("es")) setLang("es");
   }, []);
 
@@ -51,15 +49,12 @@ export default function StateProofLanding({ view = "home", slug }: { view?: View
 
   const chooseLang = (next: Lang) => {
     setLang(next);
-    try {
-      localStorage.setItem("sp_lang", next);
-    } catch {
-      /* ignore */
-    }
+    rememberLang(next);
   };
 
   return (
     <div className="sp">
+      <CookieConsent lang={lang} />
       <header className="sp-header">
         <div className="sp-strip">
           <div className="sp-wrap sp-strip-row">
@@ -268,6 +263,10 @@ export default function StateProofLanding({ view = "home", slug }: { view?: View
               <a href="/privacy-notice" aria-current={view === "privacy" ? "page" : undefined}>{t.footerPrivacy}</a>
               <a href="/terms-of-service" aria-current={view === "terms" ? "page" : undefined}>{t.footerTerms}</a>
               <a href="/cookies" aria-current={view === "cookies" ? "page" : undefined}>{t.footerCookies}</a>
+              <button type="button" className="sp-footer-linkbtn" onClick={openCookieSettings}>
+                {lang === "es" ? "Configuración de cookies" : "Cookie settings"}
+              </button>
+              <span className="sp-footer-note">{lang === "es" ? "No vendemos ni compartimos tu información" : "We don't sell or share your information"}</span>
             </nav>
             <div className="sp-footer-col">
               <h2>{t.footerContact}</h2>
@@ -559,6 +558,26 @@ function LegalPage({ view, lang }: { view: "privacy" | "terms" | "cookies"; lang
             {sec.p.map((para) => (
               <p key={para}>{para}</p>
             ))}
+            {sec.table && (
+              <div className="sp-legal-scroll">
+                <table className="sp-legal-table">
+                  <thead>
+                    <tr>
+                      {sec.table.head.map((h) => (
+                        <th key={h} scope="col">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {sec.table.rows.map((row) => (
+                      <tr key={row[0]}>
+                        {row.map((cell, i) => (i === 0 ? <th key={i} scope="row"><code>{cell}</code></th> : <td key={i}>{cell}</td>))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </section>
         ))}
       </article>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import StateProofLanding from "../StateProofLanding";
 
 export const metadata: Metadata = {
-  title: { absolute: "Cookies – StateProof" },
+  title: { absolute: "Cookie notice – StateProof" },
   alternates: { canonical: "https://getstateproof.com/cookies" },
 };
 

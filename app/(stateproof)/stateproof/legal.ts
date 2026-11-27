@@ -1,8 +1,9 @@
 // Privacy notice and cookie notice for getstateproof.com, in English and Spanish.
-// Keep these in step with what the site actually does: today it sets no cookies,
-// runs no analytics, and stores only the visitor's language choice in their browser.
+// Keep these in step with what the site actually does (see consent.ts): it sets no cookies,
+// runs no analytics, and stores only the visitor's consent record and, with their OK, their language.
 
-type Doc = { title: string; updated: string; intro: string; sections: { h: string; p: string[] }[] };
+type Table = { head: string[]; rows: string[][] };
+type Doc = { title: string; updated: string; intro: string; sections: { h: string; p: string[]; table?: Table }[] };
 
 const CONTACT = "info@receipters.com";
 const ADDRESS = "Receipters LLC, 355 Ridgewood Ave, Suite 1, Newark, NJ 07112";
@@ -130,30 +131,54 @@ const en: { privacy: Doc; cookies: Doc; terms: Doc } = {
     ],
   },
   cookies: {
-    title: "Cookies",
+    title: "Cookie notice",
     updated: "Last updated: 27 November 2026",
-    intro: "getstateproof.com does not use cookies, analytics or advertising trackers.",
+    intro:
+      "This notice lists everything getstateproof.com keeps in your browser, why, and for how long. The short version: no advertising, no tracking, no analytics, and nothing optional until you say yes.",
     sections: [
       {
-        h: "What the site stores in your browser",
+        h: "Everything the site stores",
+        p: ["The site sets no cookies. It keeps at most two small items in your browser's local storage. Neither is sent to us or to anyone else."],
+        table: {
+          head: ["Name", "Category", "What it does", "Kept for"],
+          rows: [
+            ["sp_consent", "Strictly necessary", "Records your cookie choice, the date you made it and a reference number, so we respect it on every page.", "12 months, then we ask again"],
+            ["sp_lang", "Preferences (only with your OK)", "Remembers whether you read the site in English or Spanish.", "Until you clear it or turn preferences off"],
+          ],
+        },
+      },
+      {
+        h: "What we never use",
         p: [
-          "One item only: your language choice (English or Spanish), saved in your browser's local storage under the name \"sp_lang\", so the page opens in the same language next time. It never leaves your device, and nothing else is stored.",
-          "You can remove it at any time by clearing this site's data in your browser settings. The site works the same without it.",
+          "No analytics or visit counting, no advertising networks, no tracking pixels, no social media scripts, no fingerprinting and no third-party cookies. Fonts and images come from our own site.",
+          "We do not sell or share your personal information, as \"sell\" and \"share\" are defined in the California Consumer Privacy Act and similar state laws.",
         ],
       },
       {
-        h: "What we do not use",
-        p: ["No analytics tools, no advertising or social media pixels, and no third-party scripts. Fonts and images are served from our own site."],
+        h: "Your choices",
+        p: [
+          "On your first visit we ask before storing anything optional. \"Reject all\" is as easy as \"Accept all\", and the site works the same either way.",
+          "You can change your mind at any time with \"Cookie settings\" at the bottom of every page. Turning preferences off deletes your saved language straight away.",
+          "If your browser sends Global Privacy Control (GPC), we treat it as \"no\" to everything optional, even if you said yes before.",
+          "You can also delete both items by clearing this site's data in your browser settings.",
+        ],
+      },
+      {
+        h: "Security",
+        p: [
+          "The site is served only over HTTPS, and browsers are told never to load it without encryption. It cannot be placed inside another website's frame, and it does not ask for your camera, microphone or location.",
+          "When you join the waitlist, your details go straight to us over that encrypted connection. Nothing from the form is stored in your browser.",
+        ],
       },
       {
         h: "If this changes",
         p: [
-          "If we add cookies or analytics in the future, for example when the StateProof app launches, we will list them here first and ask for your consent where the law requires it.",
+          "If we ever add an item, for example when the StateProof app launches, we will list it here first, change the date at the top, and ask everyone for their choice again.",
         ],
       },
       {
         h: "Questions",
-        p: [`Email ${CONTACT}.`],
+        p: [`Email ${CONTACT}. Your choice and its reference number stay in your browser; we don't keep a copy.`],
       },
     ],
   },
@@ -282,30 +307,54 @@ const es: typeof en = {
     ],
   },
   cookies: {
-    title: "Cookies",
+    title: "Aviso de cookies",
     updated: "Última actualización: 27 de noviembre de 2026",
-    intro: "getstateproof.com no usa cookies, herramientas de análisis ni rastreadores publicitarios.",
+    intro:
+      "Este aviso enumera todo lo que getstateproof.com guarda en tu navegador, para qué y durante cuánto tiempo. En resumen: sin publicidad, sin seguimiento, sin análisis y nada opcional hasta que digas que sí.",
     sections: [
       {
-        h: "Lo que el sitio guarda en tu navegador",
+        h: "Todo lo que guarda el sitio",
+        p: ["El sitio no usa cookies. Guarda como máximo dos datos pequeños en el almacenamiento local de tu navegador. Ninguno se nos envía a nosotros ni a nadie más."],
+        table: {
+          head: ["Nombre", "Categoría", "Para qué sirve", "Se guarda"],
+          rows: [
+            ["sp_consent", "Estrictamente necesaria", "Registra tu elección de cookies, la fecha en que la hiciste y un número de referencia, para respetarla en cada página.", "12 meses; luego te preguntamos de nuevo"],
+            ["sp_lang", "Preferencias (solo con tu permiso)", "Recuerda si lees el sitio en inglés o en español.", "Hasta que lo borres o desactives las preferencias"],
+          ],
+        },
+      },
+      {
+        h: "Lo que nunca usamos",
         p: [
-          "Solo un dato: tu elección de idioma (inglés o español), guardada en el almacenamiento local de tu navegador con el nombre \"sp_lang\", para que la página se abra en el mismo idioma la próxima vez. Nunca sale de tu dispositivo y no se guarda nada más.",
-          "Puedes eliminarlo en cualquier momento borrando los datos de este sitio en la configuración de tu navegador. El sitio funciona igual sin él.",
+          "Ni análisis ni conteo de visitas, ni redes publicitarias, ni píxeles de seguimiento, ni scripts de redes sociales, ni huellas digitales del navegador, ni cookies de terceros. Las fuentes y las imágenes vienen de nuestro propio sitio.",
+          "No vendemos ni compartimos tu información personal, según cómo definen \"vender\" y \"compartir\" la Ley de Privacidad del Consumidor de California y leyes estatales similares.",
         ],
       },
       {
-        h: "Lo que no usamos",
-        p: ["Ninguna herramienta de análisis, ningún píxel de publicidad o redes sociales y ningún script de terceros. Las fuentes y las imágenes se sirven desde nuestro propio sitio."],
+        h: "Tus opciones",
+        p: [
+          "En tu primera visita te preguntamos antes de guardar algo opcional. \"Rechazar todo\" es tan fácil como \"Aceptar todo\", y el sitio funciona igual en ambos casos.",
+          "Puedes cambiar de opinión cuando quieras con \"Configuración de cookies\" al pie de cada página. Al desactivar las preferencias se borra tu idioma guardado al instante.",
+          "Si tu navegador envía Global Privacy Control (GPC), lo tomamos como un \"no\" a todo lo opcional, aunque antes hayas dicho que sí.",
+          "También puedes borrar ambos datos eliminando los datos de este sitio en la configuración de tu navegador.",
+        ],
+      },
+      {
+        h: "Seguridad",
+        p: [
+          "El sitio se sirve solo por HTTPS y los navegadores saben que nunca deben cargarlo sin cifrado. No se puede insertar dentro del marco de otro sitio web y no pide acceso a tu cámara, micrófono ni ubicación.",
+          "Cuando te unes a la lista de espera, tus datos nos llegan directamente por esa conexión cifrada. Nada del formulario se guarda en tu navegador.",
+        ],
       },
       {
         h: "Si esto cambia",
         p: [
-          "Si en el futuro añadimos cookies o herramientas de análisis, por ejemplo cuando se lance la app de StateProof, las enumeraremos aquí primero y pediremos tu consentimiento cuando la ley lo exija.",
+          "Si alguna vez añadimos un dato, por ejemplo cuando se lance la app de StateProof, lo enumeraremos aquí primero, cambiaremos la fecha de arriba y volveremos a pedir tu elección a todos.",
         ],
       },
       {
         h: "Preguntas",
-        p: [`Escribe a ${CONTACT}.`],
+        p: [`Escribe a ${CONTACT}. Tu elección y su número de referencia se quedan en tu navegador; no guardamos ninguna copia.`],
       },
     ],
   },
