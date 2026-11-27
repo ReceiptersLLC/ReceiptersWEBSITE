@@ -169,17 +169,19 @@ export const stateUi = (lang: Lang) => T[lang];
 const sorted = (lang: Lang) => [...PLACES].sort((a, b) => placeName(a, lang).localeCompare(placeName(b, lang), lang));
 
 /** The States dropdown in the top strip. */
-export function StatePicker({ lang, current }: { lang: Lang; current?: string }) {
+export function StatePicker({ lang }: { lang: Lang; current?: string }) {
   const t = T[lang];
   return (
     <label className="sp-state-pick">
       <span className="sp-visually-hidden">{t.choose}</span>
       <select
         aria-label={t.choose}
-        value={current ?? ""}
+        value=""
         onChange={(e) => {
           const v = e.target.value;
-          if (v) window.location.href = v === "__all" ? "/states" : `/states/${v}`;
+          // Open the state in a new tab; this page stays where it is and the menu goes back to "States".
+          if (v) window.open(v === "__all" ? "/states" : `/states/${v}`, "_blank", "noopener");
+          e.target.value = "";
         }}
       >
         <option value="">{t.statesLabel}</option>
@@ -218,7 +220,7 @@ export function StatesIndex({ lang }: { lang: Lang }) {
               <ul className="sp-states-grid">
                 {g.items.map((p) => (
                   <li key={p.slug}>
-                    <a href={`/states/${p.slug}`}>
+                    <a href={`/states/${p.slug}`} target="_blank" rel="noopener">
                       <span className="sp-state-abbr">{p.abbr}</span>
                       <span className="sp-state-name">{placeName(p, lang)}</span>
                       <span className="sp-state-limit">{summary(p, lang)}</span>
