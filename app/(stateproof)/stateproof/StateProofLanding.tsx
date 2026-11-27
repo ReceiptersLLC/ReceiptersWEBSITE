@@ -4,6 +4,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { CHANNELS, SALES_BANDS, copy, type Lang } from "./copy";
 import { legal } from "./legal";
 import { aboutCopy } from "./about";
+import { StatePage, StatePicker, StatesIndex } from "./StatePages";
 
 const CONTACT_EMAIL = "info@receipters.com";
 
@@ -25,9 +26,9 @@ function status(total: number, limit: number) {
   return "safe" as const;
 }
 
-export type View = "home" | "about" | "privacy" | "terms" | "cookies";
+export type View = "home" | "about" | "privacy" | "terms" | "cookies" | "states" | "state";
 
-export default function StateProofLanding({ view = "home" }: { view?: View }) {
+export default function StateProofLanding({ view = "home", slug }: { view?: View; slug?: string }) {
   const [lang, setLang] = useState<Lang>("en");
   const t = copy[lang];
 
@@ -78,6 +79,7 @@ export default function StateProofLanding({ view = "home" }: { view?: View }) {
                   Español
                 </button>
               </span>
+              <StatePicker lang={lang} current={view === "state" ? slug : undefined} />
             </span>
           </div>
         </div>
@@ -104,7 +106,11 @@ export default function StateProofLanding({ view = "home" }: { view?: View }) {
         </nav>
       </header>
 
-      {view === "about" ? (
+      {view === "states" ? (
+        <StatesIndex lang={lang} />
+      ) : view === "state" && slug ? (
+        <StatePage slug={slug} lang={lang} />
+      ) : view === "about" ? (
         <AboutPage lang={lang} />
       ) : view === "privacy" || view === "terms" || view === "cookies" ? (
         <LegalPage view={view} lang={lang} />
@@ -232,6 +238,7 @@ export default function StateProofLanding({ view = "home" }: { view?: View }) {
               <a href={`${home}#why`}>{t.footerWhy}</a>
               <a href={`${home}#who`}>{t.footerWho}</a>
               <a href={`${home}#faq`}>{t.navFaq}</a>
+              <a href="/states">{lang === "es" ? "Reglas por estado" : "Rules by state"}</a>
               <a href={`${home}#waitlist`}>{t.navJoin}</a>
             </nav>
             <nav className="sp-footer-col" aria-label={t.footerCompany}>
