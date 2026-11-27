@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 import { CHANNELS, SALES_BANDS, copy, type Lang } from "./copy";
+import { legal } from "./legal";
 
 const CONTACT_EMAIL = "info@receipters.com";
 
@@ -23,7 +24,9 @@ function status(total: number, limit: number) {
   return "safe" as const;
 }
 
-export default function StateProofLanding() {
+export type View = "home" | "privacy" | "cookies";
+
+export default function StateProofLanding({ view = "home" }: { view?: View }) {
   const [lang, setLang] = useState<Lang>("en");
   const t = copy[lang];
 
@@ -41,8 +44,10 @@ export default function StateProofLanding() {
     document.documentElement.lang = lang;
   }, [lang]);
 
-  const switchLang = () => {
-    const next: Lang = lang === "en" ? "es" : "en";
+  // On the legal pages, section links go back to the landing page.
+  const home = view === "home" ? "" : "/";
+
+  const chooseLang = (next: Lang) => {
     setLang(next);
     try {
       localStorage.setItem("sp_lang", next);
@@ -64,22 +69,27 @@ export default function StateProofLanding() {
               <a href={`mailto:${CONTACT_EMAIL}`} className="sp-strip-mail">
                 {CONTACT_EMAIL}
               </a>
-              <button type="button" className="sp-lang" onClick={switchLang} aria-label={t.langSwitchLabel}>
-                {t.langSwitch}
-              </button>
+              <span className="sp-langs" role="group" aria-label={t.langGroup}>
+                <button type="button" aria-pressed={lang === "en"} onClick={() => chooseLang("en")} lang="en">
+                  English
+                </button>
+                <button type="button" aria-pressed={lang === "es"} onClick={() => chooseLang("es")} lang="es">
+                  Español
+                </button>
+              </span>
             </span>
           </div>
         </div>
         <nav className="sp-navbar" aria-label="StateProof">
           <div className="sp-wrap sp-nav-row">
-            <a href="#top" className="sp-brand" aria-label="StateProof">
+            <a href={view === "home" ? "#top" : "/"} className="sp-brand" aria-label="StateProof">
               <Mark size="small" />
               <span>StateProof</span>
             </a>
             <div className="sp-nav-links">
-              <a href="#how">{t.navHow}</a>
-              <a href="#faq">{t.navFaq}</a>
-              <a href="#waitlist" className="sp-nav-cta">
+              <a href={`${home}#how`}>{t.navHow}</a>
+              <a href={`${home}#faq`}>{t.navFaq}</a>
+              <a href={`${home}#waitlist`} className="sp-nav-cta">
                 {t.navJoin}
               </a>
             </div>
@@ -87,6 +97,9 @@ export default function StateProofLanding() {
         </nav>
       </header>
 
+      {view !== "home" ? (
+        <LegalPage view={view} lang={lang} />
+      ) : (
       <main id="top">
         <section className="sp-hero">
           <div className="sp-wrap sp-hero-grid">
@@ -176,32 +189,52 @@ export default function StateProofLanding() {
           </div>
         </section>
       </main>
+      )}
 
       <footer className="sp-footer">
-        <div className="sp-wrap sp-footer-row">
-          <div>
-            <div className="sp-brand sp-brand-footer">
-              <Mark />
-              <span>{t.footerBy}</span>
+        <div className="sp-wrap">
+          <div className="sp-footer-grid">
+            <div className="sp-footer-brand">
+              <div className="sp-brand sp-brand-footer">
+                <Mark size="small" />
+                <span>StateProof</span>
+              </div>
+              <p className="sp-footer-lead">{t.footerTagline}</p>
+              <div className="sp-seal-note">
+                <svg className="sp-seal-big" viewBox="0 0 32 32" aria-hidden="true">
+                  <circle cx="16" cy="16" r="15" fill="var(--sp-field)" />
+                  {SEAL_DOTS.map((d, i) => (
+                    <circle key={i} cx={d.cx} cy={d.cy} r="0.46" fill="var(--sp-paper)" />
+                  ))}
+                  <path d="M10.5 16.3l3.6 3.6 7.4-7.4" fill="none" stroke="var(--sp-paper)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <p>{t.sealNote}</p>
+              </div>
             </div>
-            <p>{t.footerAddress}</p>
-            <div className="sp-seal-note">
-              <svg className="sp-seal-big" viewBox="0 0 32 32" aria-hidden="true">
-                <circle cx="16" cy="16" r="15" fill="var(--sp-field)" />
-                {SEAL_DOTS.map((d, i) => (
-                  <circle key={i} cx={d.cx} cy={d.cy} r="0.46" fill="var(--sp-paper)" />
-                ))}
-                <path d="M10.5 16.3l3.6 3.6 7.4-7.4" fill="none" stroke="var(--sp-paper)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <p>{t.sealNote}</p>
+            <nav className="sp-footer-col" aria-label={t.footerProduct}>
+              <h2>{t.footerProduct}</h2>
+              <a href={`${home}#how`}>{t.navHow}</a>
+              <a href={`${home}#faq`}>{t.navFaq}</a>
+              <a href={`${home}#waitlist`}>{t.navJoin}</a>
+            </nav>
+            <div className="sp-footer-col">
+              <h2>{t.footerCompany}</h2>
+              <p>Receipters LLC</p>
+              <p>{t.footerAddress}</p>
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              <a href="https://www.receipters.com">receipters.com</a>
             </div>
+            <nav className="sp-footer-col" aria-label={t.footerLegal}>
+              <h2>{t.footerLegal}</h2>
+              <a href="/privacy-notice">{t.footerPrivacy}</a>
+              <a href="/cookies">{t.footerCookies}</a>
+            </nav>
           </div>
-          <div>
+          <div className="sp-footer-bottom">
             <p>
-              {t.footerContact}: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              © {new Date().getFullYear()} Receipters LLC. {t.footerRights}
             </p>
-            <p className="sp-footer-small">{t.footerDisclaimer}</p>
-            <p className="sp-footer-small">© {new Date().getFullYear()} Receipters LLC</p>
+            <p>{t.footerDisclaimer}</p>
           </div>
         </div>
       </footer>
@@ -351,5 +384,26 @@ function Waitlist({ t, lang }: { t: (typeof copy)["en"]; lang: Lang }) {
         )}
       </div>
     </section>
+  );
+}
+
+function LegalPage({ view, lang }: { view: Exclude<View, "home">; lang: Lang }) {
+  const doc = legal[lang][view];
+  return (
+    <main id="top" className="sp-section">
+      <article className="sp-wrap sp-legal">
+        <h1 className="sp-h2">{doc.title}</h1>
+        <p className="sp-legal-date">{doc.updated}</p>
+        <p className="sp-lead sp-legal-intro">{doc.intro}</p>
+        {doc.sections.map((sec) => (
+          <section key={sec.h}>
+            <h2 className="sp-h3">{sec.h}</h2>
+            {sec.p.map((para) => (
+              <p key={para}>{para}</p>
+            ))}
+          </section>
+        ))}
+      </article>
+    </main>
   );
 }
