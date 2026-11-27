@@ -35,9 +35,9 @@ const en = {
     lead: "We built StateProof because small online sellers deserve the same early warning that big companies pay tax teams for.",
     storyTitle: "Our story",
     story: [
-      "StateProof comes from Receipters, a company that turns receipts into clean, structured records. Receipters started in Nairobi, where businesses must issue electronic tax invoices through the Kenya Revenue Authority. Our point-of-sale and receipt systems keep those records correct from the moment a sale happens.",
+      "StateProof comes from Receipters, a company that turns receipts into clean, structured records. Our point-of-sale and receipt systems keep tax records correct from the moment a sale happens.",
       "When we looked at the United States, we saw the same problem in a different form. Since 2018, states can require online sellers with no office in the state to collect sales tax once their sales pass a limit. Each state sets its own limit, its own rules on what counts, and its own deadlines. Large companies have software and tax teams for this. Small sellers usually find out from a letter.",
-      "StateProof applies what we built in Kenya, receipts turned into records and records checked against the rules, to US sales tax limits and IRS record-keeping. It is run by Receipters LLC from Newark, New Jersey.",
+      "StateProof applies what we have built, receipts turned into records and records checked against the rules, to US sales tax limits and IRS record-keeping. It is run by Receipters LLC from Newark, New Jersey.",
     ],
     beliefsTitle: "What we stand by",
     beliefs: [
@@ -50,7 +50,7 @@ const en = {
     founderName: "Gordon Odira",
     founderRole: "Founder, Receipters",
     founderBio: "A senior integration engineer with more than 8 years on federal, state and private technology deployments. BSc and Master's in Electrical and Computer Engineering from Rutgers University and NJIT.",
-    teamBody: "StateProof is built by the Receipters team, with offices in Newark, Nairobi and Lusaka, and the same engineers who run Receipters' receipt and point-of-sale systems.",
+    teamBody: "StateProof is built by the Receipters team in Newark, New Jersey, the same engineers who run Receipters' receipt and point-of-sale systems.",
     securityTitle: "Security from day one",
     securityBody: "Receipters is preparing for ISO/IEC 27001 certification, the international standard for information security. StateProof is being built under the same controls: read-only connections, encryption, access logging and regular reviews.",
     ctaTitle: "Be one of our first sellers",
@@ -93,9 +93,9 @@ const es: typeof en = {
     lead: "Creamos StateProof porque los pequeños vendedores en línea merecen el mismo aviso anticipado por el que las grandes empresas pagan equipos fiscales.",
     storyTitle: "Nuestra historia",
     story: [
-      "StateProof nace de Receipters, una empresa que convierte recibos en registros limpios y estructurados. Receipters comenzó en Nairobi, donde las empresas deben emitir facturas fiscales electrónicas a través de la Autoridad Tributaria de Kenia. Nuestros sistemas de punto de venta y recibos mantienen esos registros correctos desde el momento de la venta.",
+      "StateProof nace de Receipters, una empresa que convierte recibos en registros limpios y estructurados. Nuestros sistemas de punto de venta y recibos mantienen los registros fiscales correctos desde el momento de la venta.",
       "Al mirar a Estados Unidos, vimos el mismo problema con otra forma. Desde 2018, los estados pueden exigir a los vendedores en línea sin oficina en el estado que cobren el impuesto sobre las ventas cuando sus ventas superan un límite. Cada estado fija su propio límite, sus propias reglas sobre qué cuenta y sus propios plazos. Las grandes empresas tienen software y equipos fiscales para esto. Los pequeños vendedores suelen enterarse por una carta.",
-      "StateProof aplica lo que construimos en Kenia, recibos convertidos en registros y registros comprobados con las normas, a los límites del impuesto sobre las ventas de EE. UU. y a los registros para el IRS. Lo gestiona Receipters LLC desde Newark, Nueva Jersey.",
+      "StateProof aplica lo que hemos construido, recibos convertidos en registros y registros comprobados con las normas, a los límites del impuesto sobre las ventas de EE. UU. y a los registros para el IRS. Lo gestiona Receipters LLC desde Newark, Nueva Jersey.",
     ],
     beliefsTitle: "Lo que defendemos",
     beliefs: [
@@ -108,7 +108,7 @@ const es: typeof en = {
     founderName: "Gordon Odira",
     founderRole: "Fundador, Receipters",
     founderBio: "Ingeniero de integración sénior con más de 8 años en implementaciones tecnológicas federales, estatales y privadas. Licenciatura y maestría en Ingeniería Eléctrica e Informática por la Universidad Rutgers y NJIT.",
-    teamBody: "StateProof lo construye el equipo de Receipters, con oficinas en Newark, Nairobi y Lusaka, y los mismos ingenieros que gestionan los sistemas de recibos y punto de venta de Receipters.",
+    teamBody: "StateProof lo construye el equipo de Receipters en Newark, Nueva Jersey, los mismos ingenieros que gestionan los sistemas de recibos y punto de venta de Receipters.",
     securityTitle: "Seguridad desde el primer día",
     securityBody: "Receipters se está preparando para la certificación ISO/IEC 27001, la norma internacional de seguridad de la información. StateProof se construye con los mismos controles: conexiones de solo lectura, cifrado, registro de accesos y revisiones periódicas.",
     ctaTitle: "Sé uno de nuestros primeros vendedores",
