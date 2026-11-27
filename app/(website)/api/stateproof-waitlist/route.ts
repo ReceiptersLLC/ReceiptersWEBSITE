@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { escapeHtml, sendEmail } from '@/lib/console/auth';
+import { welcomeEmail } from './welcome';
 
 // StateProof waitlist sign-ups from getstateproof.com are emailed to the Receipters inbox.
 const INBOX = process.env.STATEPROOF_WAITLIST_EMAIL || process.env.DEMO_REQUEST_EMAIL || 'receipters@receipters.com';
@@ -18,6 +19,18 @@ const SALES: Record<string, string> = {
   '500to1m': '$500,000 to $1 million',
   over1m: 'Over $1 million',
 };
+
+// Light limit on sign-ups per address, so the form can't be used to flood someone's inbox.
+// Kept in memory, so it resets when the server restarts; that is enough for a waitlist.
+const recent = new Map<string, number[]>();
+function tooMany(key: string, max: number, windowMs: number) {
+  const now = Date.now();
+  const hits = (recent.get(key) ?? []).filter((t) => now - t < windowMs);
+  hits.push(now);
+  recent.set(key, hits);
+  if (recent.size > 5000) recent.clear();
+  return hits.length > max;
+}
 
 const clean = (value: unknown, max: number) => String(value ?? '').trim().slice(0, max);
 const oneLine = (value: string) => value.replace(/[\r\n]+/g, ' ');
@@ -39,7 +52,8 @@ export async function POST(request: Request) {
     ? body.channels.map(String).filter((c) => c in CHANNELS).map((c) => CHANNELS[c])
     : [];
   const sales = SALES[String(body.sales)] ?? 'Not given';
-  const lang = body.lang === 'es' ? 'Spanish' : 'English';
+  const langCode = body.lang === 'es' ? 'es' : 'en';
+  const lang = langCode === 'es' ? 'Spanish' : 'English';
 
   if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json({ message: 'Please give your name and a valid email.' }, { status: 400 });
@@ -65,5 +79,14 @@ export async function POST(request: Request) {
     replyTo: email,
   });
   if (!ok) return NextResponse.json({ message: 'Email is not available right now.' }, { status: 503 });
+
+  // Welcome email to the person who signed up, in English and Spanish. A failure here doesn't undo the sign-up.
+  const ip = (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'unknown';
+  if (!tooMany(`email:${email.toLowerCase()}`, 2, 24 * 60 * 60 * 1000) && !tooMany(`ip:${ip}`, 10, 60 * 60 * 1000)) {
+    const welcome = welcomeEmail(name, langCode);
+    await sendEmail({ to: email, subject: welcome.subject, html: welcome.html, text: welcome.text, replyTo: 'info@receipters.com', fromName: 'StateProof' }).catch(
+      (err) => console.error('StateProof welcome email failed:', err),
+    );
+  }
   return NextResponse.json({ message: 'Received.' }, { status: 200 });
 }
