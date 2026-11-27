@@ -5,7 +5,7 @@ import { REGION_COOKIE, REGION_HEADER, isRegion, regionFromCountry } from '@/lib
 const STATEPROOF_HOST = 'getstateproof.com'
 const STATEPROOF_HOSTS = ['getstateproof.com', 'www.getstateproof.com']
 /** Pages of the StateProof site besides the landing page. */
-const STATEPROOF_PAGES = ['/about', '/privacy-notice', '/cookies']
+const STATEPROOF_PAGES = ['/about', '/privacy-notice', '/terms-of-service', '/cookies']
 /** Other StateProof domains that send visitors to getstateproof.com. */
 const STATEPROOF_REDIRECT_HOSTS = ['stateproof.app', 'www.stateproof.app']
 

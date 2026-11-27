@@ -7,7 +7,7 @@ type Doc = { title: string; updated: string; intro: string; sections: { h: strin
 const CONTACT = "info@receipters.com";
 const ADDRESS = "Receipters LLC, 355 Ridgewood Ave, Suite 1, Newark, NJ 07112";
 
-const en: { privacy: Doc; cookies: Doc } = {
+const en: { privacy: Doc; cookies: Doc; terms: Doc } = {
   privacy: {
     title: "Privacy notice",
     updated: "Last updated: 27 November 2026",
@@ -58,6 +58,74 @@ const en: { privacy: Doc; cookies: Doc } = {
       {
         h: "Changes",
         p: ["If we change how we use your information, we will update this page and the date at the top, and tell waitlist members by email about any significant change."],
+      },
+    ],
+  },
+  terms: {
+    title: "Terms of use",
+    updated: "Last updated: 27 November 2026",
+    intro:
+      "These terms apply to your use of getstateproof.com and to joining the StateProof waitlist. By using the site, you agree to them. StateProof is a product of Receipters LLC.",
+    sections: [
+      {
+        h: "Who we are",
+        p: [`${ADDRESS}. Email: ${CONTACT}.`],
+      },
+      {
+        h: "What this site is",
+        p: [
+          "StateProof is not yet launched. This site describes the product we are building and lets you join a waitlist. Features, pricing and launch dates may change before launch.",
+          "Separate terms will apply when you sign up for the StateProof service. We will show you those terms before you sign up.",
+        ],
+      },
+      {
+        h: "The waitlist and the free check",
+        p: [
+          "Joining the waitlist is free and does not commit you or us to anything. You can ask to leave it at any time by emailing us.",
+          "If we send you a free check of where your store stands, it is an estimate based on the information you give us and the state rules we have at that time. It is for your information only.",
+        ],
+      },
+      {
+        h: "Not tax or legal advice",
+        p: [
+          "StateProof monitors sales and keeps records. Nothing on this site, in the free check or in our emails is tax, legal or accounting advice. Talk to a qualified tax professional before you register, collect or file in any state.",
+          "The state figures and examples on this site are illustrations. State rules change, and you should check them with the state or a tax professional before you rely on them.",
+        ],
+      },
+      {
+        h: "Using the site",
+        p: [
+          "Please do not misuse the site: for example, do not try to break or overload it, get into parts of it you are not meant to reach, submit someone else's details to the waitlist, or copy the site's content to pass it off as your own.",
+        ],
+      },
+      {
+        h: "Our name and content",
+        p: [
+          "The StateProof name, the seal logo, and the text and design of this site belong to Receipters LLC. You may link to the site and quote short parts with credit, but you may not use our name or logo in a way that suggests we endorse you.",
+        ],
+      },
+      {
+        h: "Links to other sites",
+        p: ["We link to other sites, such as state tax agencies. We do not control them and are not responsible for their content."],
+      },
+      {
+        h: "No guarantee",
+        p: [
+          "We work to keep the site accurate and available, but we provide it as it is, without warranties of any kind, to the extent the law allows.",
+          "To the extent the law allows, Receipters LLC is not liable for any loss that comes from using or relying on this site, including tax, interest or penalties owed to any state.",
+        ],
+      },
+      {
+        h: "Governing law",
+        p: ["These terms are governed by the laws of the State of New Jersey, USA. Any dispute will be handled by the courts of New Jersey, unless the law where you live says otherwise."],
+      },
+      {
+        h: "Changes",
+        p: ["We may update these terms. We will change the date at the top when we do. The version on this page is the one that applies."],
+      },
+      {
+        h: "Questions",
+        p: [`Email ${CONTACT}.`],
       },
     ],
   },
@@ -142,6 +210,74 @@ const es: typeof en = {
       {
         h: "Cambios",
         p: ["Si cambiamos el uso de tu información, actualizaremos esta página y la fecha de arriba, y avisaremos por correo a los miembros de la lista de espera de cualquier cambio importante."],
+      },
+    ],
+  },
+  terms: {
+    title: "Términos de uso",
+    updated: "Última actualización: 27 de noviembre de 2026",
+    intro:
+      "Estos términos se aplican al uso de getstateproof.com y a la inscripción en la lista de espera de StateProof. Al usar el sitio, los aceptas. StateProof es un producto de Receipters LLC.",
+    sections: [
+      {
+        h: "Quiénes somos",
+        p: [`${ADDRESS}. Correo: ${CONTACT}.`],
+      },
+      {
+        h: "Qué es este sitio",
+        p: [
+          "StateProof aún no se ha lanzado. Este sitio describe el producto que estamos creando y te permite unirte a una lista de espera. Las funciones, los precios y las fechas de lanzamiento pueden cambiar antes del lanzamiento.",
+          "Cuando te registres en el servicio StateProof se aplicarán términos distintos. Te los mostraremos antes de que te registres.",
+        ],
+      },
+      {
+        h: "La lista de espera y la revisión gratuita",
+        p: [
+          "Unirte a la lista de espera es gratis y no te compromete a nada, ni a nosotros. Puedes pedir salir de ella en cualquier momento escribiéndonos.",
+          "Si te enviamos una revisión gratuita de la situación de tu tienda, es una estimación basada en la información que nos das y en las normas estatales que tenemos en ese momento. Es solo informativa.",
+        ],
+      },
+      {
+        h: "No es asesoría fiscal ni legal",
+        p: [
+          "StateProof supervisa las ventas y guarda registros. Nada de este sitio, de la revisión gratuita ni de nuestros correos es asesoría fiscal, legal o contable. Consulta a un profesional fiscal cualificado antes de registrarte, cobrar o declarar en cualquier estado.",
+          "Las cifras estatales y los ejemplos de este sitio son ilustrativos. Las normas estatales cambian y debes comprobarlas con el estado o con un profesional fiscal antes de basarte en ellas.",
+        ],
+      },
+      {
+        h: "Uso del sitio",
+        p: [
+          "No hagas un mal uso del sitio: por ejemplo, no intentes dañarlo o sobrecargarlo, acceder a partes a las que no debes llegar, inscribir datos de otra persona en la lista de espera ni copiar el contenido del sitio para presentarlo como tuyo.",
+        ],
+      },
+      {
+        h: "Nuestro nombre y contenido",
+        p: [
+          "El nombre StateProof, el logotipo del sello y el texto y diseño de este sitio pertenecen a Receipters LLC. Puedes enlazar al sitio y citar partes breves mencionando la fuente, pero no puedes usar nuestro nombre o logotipo de forma que sugiera que te respaldamos.",
+        ],
+      },
+      {
+        h: "Enlaces a otros sitios",
+        p: ["Enlazamos a otros sitios, como las agencias tributarias estatales. No los controlamos y no somos responsables de su contenido."],
+      },
+      {
+        h: "Sin garantía",
+        p: [
+          "Trabajamos para que el sitio sea preciso y esté disponible, pero lo ofrecemos tal cual, sin garantías de ningún tipo, en la medida en que la ley lo permita.",
+          "En la medida en que la ley lo permita, Receipters LLC no es responsable de ninguna pérdida derivada del uso del sitio o de confiar en él, incluidos impuestos, intereses o sanciones adeudados a cualquier estado.",
+        ],
+      },
+      {
+        h: "Ley aplicable",
+        p: ["Estos términos se rigen por las leyes del estado de Nueva Jersey, EE. UU. Cualquier disputa la resolverán los tribunales de Nueva Jersey, salvo que la ley de donde vives disponga otra cosa."],
+      },
+      {
+        h: "Cambios",
+        p: ["Podemos actualizar estos términos. Cuando lo hagamos, cambiaremos la fecha de arriba. Se aplica la versión publicada en esta página."],
+      },
+      {
+        h: "Preguntas",
+        p: [`Escribe a ${CONTACT}.`],
       },
     ],
   },
