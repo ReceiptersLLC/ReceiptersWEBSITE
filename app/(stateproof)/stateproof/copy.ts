@@ -8,7 +8,10 @@ export const SALES_BANDS = ["under50", "50to100", "100to500", "500to1m", "over1m
 const en = {
   langSwitch: "Español",
   langSwitchLabel: "Ver en español",
+  langGroup: "Language",
   navJoin: "Join the waitlist",
+  navHome: "Home",
+  navAbout: "About us",
   navHow: "How it works",
   navFaq: "Questions",
   stripTag: "Sales tax limits and IRS-ready receipts for US online sellers",
@@ -107,13 +110,23 @@ const en = {
   footerAddress: "355 Ridgewood Ave, Suite 1, Newark, NJ 07112",
   footerContact: "Contact",
   footerDisclaimer: "StateProof provides monitoring and record-keeping, not tax or legal advice.",
+  footerTagline: "Sales tax limits and IRS-ready receipts for US online sellers.",
+  footerProduct: "Product",
+  footerCompany: "Company",
+  footerLegal: "Legal",
+  footerPrivacy: "Privacy notice",
+  footerCookies: "Cookies",
+  footerRights: "All rights reserved.",
   sealNote: "The 54 dots in our seal stand for the 50 states, Washington, DC, Puerto Rico, Guam and the US Virgin Islands.",
 };
 
 const es: typeof en = {
   langSwitch: "English",
   langSwitchLabel: "View in English",
+  langGroup: "Idioma",
   navJoin: "Únete a la lista",
+  navHome: "Inicio",
+  navAbout: "Sobre nosotros",
   navHow: "Cómo funciona",
   navFaq: "Preguntas",
   stripTag: "Límites del impuesto sobre las ventas y recibos listos para el IRS",
@@ -212,6 +225,13 @@ const es: typeof en = {
   footerAddress: "355 Ridgewood Ave, Suite 1, Newark, NJ 07112",
   footerContact: "Contacto",
   footerDisclaimer: "StateProof ofrece supervisión y gestión de registros, no asesoría fiscal ni legal.",
+  footerTagline: "Límites del impuesto sobre las ventas y recibos listos para el IRS para vendedores en línea en EE. UU.",
+  footerProduct: "Producto",
+  footerCompany: "Empresa",
+  footerLegal: "Legal",
+  footerPrivacy: "Aviso de privacidad",
+  footerCookies: "Cookies",
+  footerRights: "Todos los derechos reservados.",
   sealNote: "Los 54 puntos de nuestro sello representan los 50 estados, Washington D. C., Puerto Rico, Guam y las Islas Vírgenes de EE. UU.",
 };
 

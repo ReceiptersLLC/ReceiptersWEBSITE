@@ -2,6 +2,8 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 import { CHANNELS, SALES_BANDS, copy, type Lang } from "./copy";
+import { legal } from "./legal";
+import { aboutCopy } from "./about";
 
 const CONTACT_EMAIL = "info@receipters.com";
 
@@ -23,7 +25,9 @@ function status(total: number, limit: number) {
   return "safe" as const;
 }
 
-export default function StateProofLanding() {
+export type View = "home" | "about" | "privacy" | "cookies";
+
+export default function StateProofLanding({ view = "home" }: { view?: View }) {
   const [lang, setLang] = useState<Lang>("en");
   const t = copy[lang];
 
@@ -41,8 +45,10 @@ export default function StateProofLanding() {
     document.documentElement.lang = lang;
   }, [lang]);
 
-  const switchLang = () => {
-    const next: Lang = lang === "en" ? "es" : "en";
+  // On the legal pages, section links go back to the landing page.
+  const home = view === "home" ? "" : "/";
+
+  const chooseLang = (next: Lang) => {
     setLang(next);
     try {
       localStorage.setItem("sp_lang", next);
@@ -64,22 +70,33 @@ export default function StateProofLanding() {
               <a href={`mailto:${CONTACT_EMAIL}`} className="sp-strip-mail">
                 {CONTACT_EMAIL}
               </a>
-              <button type="button" className="sp-lang" onClick={switchLang} aria-label={t.langSwitchLabel}>
-                {t.langSwitch}
-              </button>
+              <span className="sp-langs" role="group" aria-label={t.langGroup}>
+                <button type="button" aria-pressed={lang === "en"} onClick={() => chooseLang("en")} lang="en">
+                  English
+                </button>
+                <button type="button" aria-pressed={lang === "es"} onClick={() => chooseLang("es")} lang="es">
+                  Español
+                </button>
+              </span>
             </span>
           </div>
         </div>
         <nav className="sp-navbar" aria-label="StateProof">
           <div className="sp-wrap sp-nav-row">
-            <a href="#top" className="sp-brand" aria-label="StateProof">
+            <a href={view === "home" ? "#top" : "/"} className="sp-brand" aria-label="StateProof">
               <Mark size="small" />
               <span>StateProof</span>
             </a>
             <div className="sp-nav-links">
-              <a href="#how">{t.navHow}</a>
-              <a href="#faq">{t.navFaq}</a>
-              <a href="#waitlist" className="sp-nav-cta">
+              <a href="/" aria-current={view === "home" ? "page" : undefined}>
+                {t.navHome}
+              </a>
+              <a href="/about" aria-current={view === "about" ? "page" : undefined}>
+                {t.navAbout}
+              </a>
+              <a href={`${home}#how`}>{t.navHow}</a>
+              <a href={`${home}#faq`}>{t.navFaq}</a>
+              <a href={`${home}#waitlist`} className="sp-nav-cta">
                 {t.navJoin}
               </a>
             </div>
@@ -87,6 +104,11 @@ export default function StateProofLanding() {
         </nav>
       </header>
 
+      {view === "about" ? (
+        <AboutPage lang={lang} />
+      ) : view === "privacy" || view === "cookies" ? (
+        <LegalPage view={view} lang={lang} />
+      ) : (
       <main id="top">
         <section className="sp-hero">
           <div className="sp-wrap sp-hero-grid">
@@ -143,7 +165,9 @@ export default function StateProofLanding() {
           </div>
         </section>
 
-        <section id="how" className="sp-section sp-section-tight">
+        <WhySection lang={lang} />
+
+        <section id="how" className="sp-section">
           <div className="sp-wrap">
             <h2 className="sp-h2">{t.stepsTitle}</h2>
             <ol className="sp-steps">
@@ -176,32 +200,53 @@ export default function StateProofLanding() {
           </div>
         </section>
       </main>
+      )}
 
       <footer className="sp-footer">
-        <div className="sp-wrap sp-footer-row">
-          <div>
-            <div className="sp-brand sp-brand-footer">
-              <Mark />
-              <span>{t.footerBy}</span>
+        <div className="sp-wrap">
+          <div className="sp-footer-grid">
+            <div className="sp-footer-brand">
+              <div className="sp-brand sp-brand-footer">
+                <Mark size="small" />
+                <span>StateProof</span>
+              </div>
+              <p className="sp-footer-lead">{t.footerTagline}</p>
+              <div className="sp-seal-note">
+                <svg className="sp-seal-big" viewBox="0 0 32 32" aria-hidden="true">
+                  <circle cx="16" cy="16" r="15" fill="var(--sp-field)" />
+                  {SEAL_DOTS.map((d, i) => (
+                    <circle key={i} cx={d.cx} cy={d.cy} r="0.46" fill="var(--sp-paper)" />
+                  ))}
+                  <path d="M10.5 16.3l3.6 3.6 7.4-7.4" fill="none" stroke="var(--sp-paper)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <p>{t.sealNote}</p>
+              </div>
             </div>
-            <p>{t.footerAddress}</p>
-            <div className="sp-seal-note">
-              <svg className="sp-seal-big" viewBox="0 0 32 32" aria-hidden="true">
-                <circle cx="16" cy="16" r="15" fill="var(--sp-field)" />
-                {SEAL_DOTS.map((d, i) => (
-                  <circle key={i} cx={d.cx} cy={d.cy} r="0.46" fill="var(--sp-paper)" />
-                ))}
-                <path d="M10.5 16.3l3.6 3.6 7.4-7.4" fill="none" stroke="var(--sp-paper)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <p>{t.sealNote}</p>
+            <nav className="sp-footer-col" aria-label={t.footerProduct}>
+              <h2>{t.footerProduct}</h2>
+              <a href={`${home}#how`}>{t.navHow}</a>
+              <a href={`${home}#faq`}>{t.navFaq}</a>
+              <a href={`${home}#waitlist`}>{t.navJoin}</a>
+            </nav>
+            <div className="sp-footer-col">
+              <h2>{t.footerCompany}</h2>
+              <a href="/about">{t.navAbout}</a>
+              <p>Receipters LLC</p>
+              <p>{t.footerAddress}</p>
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              <a href="https://www.receipters.com">receipters.com</a>
             </div>
+            <nav className="sp-footer-col" aria-label={t.footerLegal}>
+              <h2>{t.footerLegal}</h2>
+              <a href="/privacy-notice">{t.footerPrivacy}</a>
+              <a href="/cookies">{t.footerCookies}</a>
+            </nav>
           </div>
-          <div>
+          <div className="sp-footer-bottom">
             <p>
-              {t.footerContact}: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              © {new Date().getFullYear()} Receipters LLC. {t.footerRights}
             </p>
-            <p className="sp-footer-small">{t.footerDisclaimer}</p>
-            <p className="sp-footer-small">© {new Date().getFullYear()} Receipters LLC</p>
+            <p>{t.footerDisclaimer}</p>
           </div>
         </div>
       </footer>
@@ -351,5 +396,121 @@ function Waitlist({ t, lang }: { t: (typeof copy)["en"]; lang: Lang }) {
         )}
       </div>
     </section>
+  );
+}
+
+function WhySection({ lang }: { lang: Lang }) {
+  const w = aboutCopy[lang].why;
+  return (
+    <section className="sp-band">
+      <div className="sp-wrap">
+        <h2 className="sp-h2">{w.title}</h2>
+        <p className="sp-section-intro">{w.intro}</p>
+        <div className="sp-compare">
+          {w.options.map((o) => (
+            <div key={o.name} className={`sp-option${"ours" in o && o.ours ? " is-ours" : ""}`}>
+              <p className="sp-option-verdict">{o.verdict}</p>
+              <h3 className="sp-h3">{o.name}</h3>
+              <p>{o.body}</p>
+            </div>
+          ))}
+        </div>
+        <h3 className="sp-h3 sp-for-title">{w.forTitle}</h3>
+        <div className="sp-three">
+          {w.segments.map((s) => (
+            <div key={s.title} className="sp-problem">
+              <h4 className="sp-h4">{s.title}</h4>
+              <p>{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AboutPage({ lang }: { lang: Lang }) {
+  const a = aboutCopy[lang].about;
+  return (
+    <main id="top">
+      <section className="sp-hero sp-about-hero">
+        <div className="sp-wrap">
+          <h1 className="sp-h1 sp-about-h1">{a.title}</h1>
+          <p className="sp-lead">{a.lead}</p>
+        </div>
+      </section>
+      <section className="sp-band">
+        <div className="sp-wrap sp-about-story">
+          <h2 className="sp-h2">{a.storyTitle}</h2>
+          <div>
+            {a.story.map((para) => (
+              <p key={para}>{para}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="sp-section">
+        <div className="sp-wrap">
+          <h2 className="sp-h2">{a.beliefsTitle}</h2>
+          <div className="sp-two">
+            {a.beliefs.map((b) => (
+              <div key={b.title} className="sp-panel">
+                <h3 className="sp-h3">{b.title}</h3>
+                <p className="sp-panel-body">{b.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="sp-section sp-section-tight">
+        <div className="sp-wrap sp-two">
+          <div className="sp-panel">
+            <h2 className="sp-h3">{a.teamTitle}</h2>
+            <p className="sp-founder">
+              <strong>{a.founderName}</strong>
+              <span>{a.founderRole}</span>
+            </p>
+            <p className="sp-panel-body">{a.founderBio}</p>
+            <p className="sp-panel-body">{a.teamBody}</p>
+          </div>
+          <div className="sp-panel">
+            <h2 className="sp-h3">{a.securityTitle}</h2>
+            <p className="sp-panel-body">{a.securityBody}</p>
+          </div>
+        </div>
+      </section>
+      <section className="sp-waitlist">
+        <div className="sp-wrap sp-about-cta">
+          <div>
+            <h2 className="sp-h2 sp-on-dark">{a.ctaTitle}</h2>
+            <p className="sp-on-dark-muted">{a.ctaBody}</p>
+          </div>
+          <a href="/#waitlist" className="sp-btn sp-btn-light">
+            {a.ctaButton}
+          </a>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function LegalPage({ view, lang }: { view: "privacy" | "cookies"; lang: Lang }) {
+  const doc = legal[lang][view];
+  return (
+    <main id="top" className="sp-section">
+      <article className="sp-wrap sp-legal">
+        <h1 className="sp-h2">{doc.title}</h1>
+        <p className="sp-legal-date">{doc.updated}</p>
+        <p className="sp-lead sp-legal-intro">{doc.intro}</p>
+        {doc.sections.map((sec) => (
+          <section key={sec.h}>
+            <h2 className="sp-h3">{sec.h}</h2>
+            {sec.p.map((para) => (
+              <p key={para}>{para}</p>
+            ))}
+          </section>
+        ))}
+      </article>
+    </main>
   );
 }

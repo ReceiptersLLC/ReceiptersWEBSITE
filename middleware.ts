@@ -4,12 +4,19 @@ import { REGION_COOKIE, REGION_HEADER, isRegion, regionFromCountry } from '@/lib
 
 const STATEPROOF_HOST = 'getstateproof.com'
 const STATEPROOF_HOSTS = ['getstateproof.com', 'www.getstateproof.com']
+/** Pages of the StateProof site besides the landing page. */
+const STATEPROOF_PAGES = ['/about', '/privacy-notice', '/cookies']
 /** Other StateProof domains that send visitors to getstateproof.com. */
 const STATEPROOF_REDIRECT_HOSTS = ['stateproof.app', 'www.stateproof.app']
 
 export async function middleware(request: NextRequest) {
   // Determine request path early and allow common assets/endpoints to bypass middleware
   const pathname = request.nextUrl.pathname
+  // StateProof domains get their own browser-tab icon instead of the Receipters one.
+  if (pathname === '/favicon.ico') {
+    const h = (request.headers.get('x-forwarded-host') || request.headers.get('host') || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '')
+    if (STATEPROOF_HOSTS.includes(h)) return NextResponse.rewrite(new URL('/stateproof/favicon.ico', request.url))
+  }
   if (
     pathname === '/maintenance' ||
     pathname === '/maintenance.html' ||
@@ -30,6 +37,7 @@ export async function middleware(request: NextRequest) {
   }
   if (STATEPROOF_HOSTS.includes(host)) {
     if (pathname === '/') return NextResponse.rewrite(new URL('/stateproof', request.url))
+    if (STATEPROOF_PAGES.includes(pathname)) return NextResponse.rewrite(new URL(`/stateproof${pathname}`, request.url))
     // Static files for the page (icon) are allowed; every other address goes to the landing page.
     if (pathname.startsWith('/stateproof/') && /\.[a-z0-9]+$/i.test(pathname)) return NextResponse.next()
     return NextResponse.redirect(`https://${host}/`, 308)
@@ -80,6 +88,6 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    '/((?!api|_next/static|_next/image).*)',
   ],
 }
