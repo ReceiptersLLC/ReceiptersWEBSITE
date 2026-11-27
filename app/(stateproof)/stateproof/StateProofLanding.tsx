@@ -286,19 +286,18 @@ export default function StateProofLanding({ view = "home" }: { view?: View }) {
 // The seal: 54 dots (the 50 states, Washington DC, Puerto Rico, Guam and the US Virgin Islands) around a check.
 const SEAL_DOTS = Array.from({ length: 54 }, (_, i) => {
   const a = -Math.PI / 2 + (2 * Math.PI * i) / 54;
-  return { cx: +(16 + 11.6 * Math.cos(a)).toFixed(2), cy: +(16 + 11.6 * Math.sin(a)).toFixed(2) };
+  return { cx: +(16 + 12.7 * Math.cos(a)).toFixed(2), cy: +(16 + 12.7 * Math.sin(a)).toFixed(2) };
 });
 
 function Mark({ size }: { size?: "small" }) {
+  // Always the full seal: 54 dots for the 50 states, DC, Puerto Rico, Guam and the US Virgin Islands.
   return (
-    <svg className="sp-mark" viewBox="0 0 32 32" aria-hidden="true">
-      <circle cx="16" cy="16" r="15" fill="currentColor" />
-      {size === "small" ? (
-        <circle cx="16" cy="16" r="11.6" fill="none" stroke="var(--sp-paper)" strokeWidth="1.1" />
-      ) : (
-        SEAL_DOTS.map((d, i) => <circle key={i} cx={d.cx} cy={d.cy} r="0.46" fill="var(--sp-paper)" />)
-      )}
-      <path d="M10.5 16.3l3.6 3.6 7.4-7.4" fill="none" stroke="var(--sp-paper)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+    <svg className={`sp-mark${size === "small" ? " sp-mark-small" : ""}`} viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="16" r="15.5" fill="currentColor" />
+      {SEAL_DOTS.map((d, i) => (
+        <circle key={i} cx={d.cx} cy={d.cy} r="0.47" fill="var(--sp-paper)" />
+      ))}
+      <path d="M10.6 16.3l3.6 3.6 7.2-7.2" fill="none" stroke="var(--sp-paper)" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
