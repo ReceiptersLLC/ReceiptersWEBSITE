@@ -203,19 +203,7 @@ export default function StateProofLanding({ view = "home", slug }: { view?: View
 
         <Waitlist t={t} lang={lang} />
 
-        <section id="faq" className="sp-section">
-          <div className="sp-wrap sp-faq">
-            <h2 className="sp-h2">{t.faqTitle}</h2>
-            <dl>
-              {t.faqs.map((f) => (
-                <div key={f.q} className="sp-faq-item">
-                  <dt>{f.q}</dt>
-                  <dd>{f.a}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
+        <Faq t={t} />
       </main>
       )}
 
@@ -582,6 +570,47 @@ function LegalPage({ view, lang }: { view: "privacy" | "terms" | "cookies"; lang
         ))}
       </article>
     </main>
+  );
+}
+
+// Questions: each one opens and closes on its own, and one button opens or closes them all.
+function Faq({ t }: { t: (typeof copy)["en"] }) {
+  const [open, setOpen] = useState<boolean[]>(() => t.faqs.map(() => false));
+  const allOpen = open.length > 0 && open.every(Boolean);
+  const setAll = (value: boolean) => setOpen(t.faqs.map(() => value));
+  const toggle = (i: number, value: boolean) =>
+    setOpen((prev) => (prev[i] === value ? prev : prev.map((v, j) => (j === i ? value : v))));
+
+  return (
+    <section id="faq" className="sp-section">
+      <div className="sp-wrap sp-faq">
+        <div className="sp-faq-head">
+          <h2 className="sp-h2">{t.faqTitle}</h2>
+          <button type="button" className="sp-faq-all" aria-expanded={allOpen} onClick={() => setAll(!allOpen)}>
+            {allOpen ? t.faqCollapse : t.faqExpand}
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" className={allOpen ? "is-up" : undefined}>
+              <path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="2" />
+            </svg>
+          </button>
+        </div>
+        <div className="sp-faq-list">
+          {t.faqs.map((f, i) => (
+            <details
+              key={f.q}
+              className="sp-faq-item"
+              open={open[i] ?? false}
+              onToggle={(e) => toggle(i, (e.currentTarget as HTMLDetailsElement).open)}
+            >
+              <summary>
+                <span>{f.q}</span>
+                <i aria-hidden="true" />
+              </summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 

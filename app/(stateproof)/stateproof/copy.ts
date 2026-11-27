@@ -105,6 +105,8 @@ const en = {
   formPrivacy:
     "We use these details only to contact you about StateProof. We don't sell them, and you can ask us to delete them at any time.",
   faqTitle: "Questions",
+  faqExpand: "Expand all",
+  faqCollapse: "Collapse all",
   faqs: [
     {
       q: "What does the AI in StateProof do?",
@@ -125,6 +127,50 @@ const en = {
     {
       q: "Which stores can I connect?",
       a: "Shopify first, then Amazon and Etsy. You can upload a file of orders from anywhere else.",
+    },
+    {
+      q: "What is a sales tax limit, or economic nexus?",
+      a: "Each state sets a yearly amount of sales into that state, and in some states a number of orders, above which an out-of-state seller has to register and collect that state's sales tax. This is called economic nexus. Most states set it at $100,000 a year; a few, such as California and Texas, set it at $500,000.",
+    },
+    {
+      q: "Do my Amazon and other marketplace sales count?",
+      a: "It depends on the state. Many states count marketplace sales toward your limit even though the marketplace collects the tax for you; others leave them out. StateProof applies each state's own rule, so your totals match what that state counts.",
+    },
+    {
+      q: "What happens when I cross a state's limit?",
+      a: "Usually you must register with that state and start collecting its sales tax by a date the state sets. StateProof warns you when you reach 80% of a limit, forecasts the month you'll cross it, and lists the steps for that state.",
+    },
+    {
+      q: "Does it track order-count limits too?",
+      a: "Yes. Where a state still uses a limit on the number of orders, such as 200 a year, StateProof counts your orders into that state as well as your dollar total.",
+    },
+    {
+      q: "How does StateProof keep my receipts IRS-ready?",
+      a: "Snap a receipt or attach a PDF, and StateProof keeps the file with its date, amount, vendor and tax category. It flags large expenses that have no proof, so you can fix gaps before tax time. You can export everything for your accountant at any time.",
+    },
+    {
+      q: "Can I use it without connecting my store?",
+      a: "Yes. You can upload a file of orders from any platform, and add receipts by photo or PDF. Connecting your store keeps the numbers up to date without any work.",
+    },
+    {
+      q: "Can my accountant see my records?",
+      a: "Yes. You can export your sales and receipts, with their attached files listed, as a spreadsheet to send to your accountant.",
+    },
+    {
+      q: "Is my data safe?",
+      a: "Your data travels over an encrypted connection, and StateProof reads only the order details it needs to add up your sales. You can export your data or delete your account, and everything in it, at any time.",
+    },
+    {
+      q: "Is StateProof available in Spanish?",
+      a: "Yes. The website and the app work in English and Spanish, and you can switch at any time.",
+    },
+    {
+      q: "Is there a phone app?",
+      a: "Yes. iPhone and Android apps are coming at launch. Until then you can add StateProof to your phone's home screen from this website.",
+    },
+    {
+      q: "How much will it cost, and when does it launch?",
+      a: "We'll announce prices before launch. We're starting with a pilot for early sellers; people on the waitlist hear first and get a free check of where they may already owe sales tax.",
     },
     {
       q: "Who is behind StateProof?",
@@ -264,6 +310,8 @@ const es: typeof en = {
   formPrivacy:
     "Usamos estos datos solo para contactarte sobre StateProof. No los vendemos y puedes pedirnos que los eliminemos en cualquier momento.",
   faqTitle: "Preguntas",
+  faqExpand: "Abrir todas",
+  faqCollapse: "Cerrar todas",
   faqs: [
     {
       q: "¿Qué hace la IA de StateProof?",
@@ -284,6 +332,50 @@ const es: typeof en = {
     {
       q: "¿Qué tiendas puedo conectar?",
       a: "Primero Shopify, luego Amazon y Etsy. Puedes subir un archivo de pedidos de cualquier otro lugar.",
+    },
+    {
+      q: "¿Qué es un límite del impuesto sobre las ventas o nexo económico?",
+      a: "Cada estado fija un monto anual de ventas hacia ese estado, y en algunos estados un número de pedidos, a partir del cual un vendedor de fuera del estado debe registrarse y cobrar el impuesto sobre las ventas de ese estado. Esto se llama nexo económico. La mayoría de los estados lo fija en $100,000 al año; algunos, como California y Texas, en $500,000.",
+    },
+    {
+      q: "¿Cuentan mis ventas en Amazon y otros marketplaces?",
+      a: "Depende del estado. Muchos estados cuentan las ventas en marketplaces para tu límite aunque el marketplace cobre el impuesto por ti; otros no las cuentan. StateProof aplica la norma de cada estado, así tus totales coinciden con lo que ese estado cuenta.",
+    },
+    {
+      q: "¿Qué pasa cuando supero el límite de un estado?",
+      a: "Por lo general debes registrarte en ese estado y empezar a cobrar su impuesto sobre las ventas antes de la fecha que el estado fije. StateProof te avisa cuando llegas al 80% de un límite, prevé el mes en que lo superarás y enumera los pasos para ese estado.",
+    },
+    {
+      q: "¿También controla los límites por número de pedidos?",
+      a: "Sí. Donde un estado todavía usa un límite de número de pedidos, como 200 al año, StateProof cuenta tus pedidos hacia ese estado además de tu total en dólares.",
+    },
+    {
+      q: "¿Cómo mantiene StateProof mis recibos listos para el IRS?",
+      a: "Toma una foto del recibo o adjunta un PDF, y StateProof guarda el archivo con su fecha, monto, proveedor y categoría fiscal. Señala los gastos grandes sin comprobante para que corrijas los huecos antes de la temporada de impuestos. Puedes exportar todo para tu contador cuando quieras.",
+    },
+    {
+      q: "¿Puedo usarlo sin conectar mi tienda?",
+      a: "Sí. Puedes subir un archivo de pedidos de cualquier plataforma y agregar recibos con foto o PDF. Conectar tu tienda mantiene las cifras al día sin trabajo.",
+    },
+    {
+      q: "¿Puede mi contador ver mis registros?",
+      a: "Sí. Puedes exportar tus ventas y recibos, con sus archivos adjuntos enumerados, como hoja de cálculo para enviársela a tu contador.",
+    },
+    {
+      q: "¿Están seguros mis datos?",
+      a: "Tus datos viajan por una conexión cifrada y StateProof lee solo los datos de pedidos que necesita para sumar tus ventas. Puedes exportar tus datos o eliminar tu cuenta, con todo lo que contiene, cuando quieras.",
+    },
+    {
+      q: "¿StateProof está disponible en español?",
+      a: "Sí. El sitio web y la app funcionan en inglés y en español, y puedes cambiar cuando quieras.",
+    },
+    {
+      q: "¿Hay una app para el teléfono?",
+      a: "Sí. Las apps para iPhone y Android llegarán con el lanzamiento. Mientras tanto puedes añadir StateProof a la pantalla de inicio de tu teléfono desde este sitio.",
+    },
+    {
+      q: "¿Cuánto costará y cuándo se lanza?",
+      a: "Anunciaremos los precios antes del lanzamiento. Empezamos con un piloto para los primeros vendedores; quienes estén en la lista de espera se enteran primero y reciben una revisión gratuita de dónde podrían deber ya el impuesto sobre las ventas.",
     },
     {
       q: "¿Quién está detrás de StateProof?",
