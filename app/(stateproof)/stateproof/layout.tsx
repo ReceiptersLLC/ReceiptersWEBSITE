@@ -3,10 +3,10 @@ import "./stateproof.css";
 import type { Metadata, Viewport } from "next";
 
 const DESCRIPTION =
-  "StateProof adds up your Shopify, Amazon and own-store sales state by state, warns you before you cross a state's sales tax limit, and keeps your receipts ready for the IRS.";
+  "StateProof AI adds up your Shopify, Amazon and own-store sales state by state, forecasts when you'll cross each state's sales tax limit, sorts your receipts and gets your books ready for tax time and audits.";
 
 export const metadata: Metadata = {
-  title: { absolute: "StateProof – Sales tax limits and IRS-ready receipts for online sellers" },
+  title: { absolute: "StateProof – AI for sales tax limits and IRS-ready books" },
   description: DESCRIPTION,
   metadataBase: new URL("https://getstateproof.com"),
   alternates: { canonical: "https://getstateproof.com/" },
