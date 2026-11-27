@@ -1,0 +1,40 @@
+{
+  "name": "StateProof",
+  "short_name": "StateProof",
+  "description": "Sales tax limits and IRS-ready receipts for US online sellers. By Receipters LLC.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f6f5",
+  "theme_color": "#0c2a20",
+  "lang": "en-US",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    { "src": "/stateproof/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/stateproof/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/stateproof/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/stateproof/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/stateproof/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Join the waitlist",
+      "short_name": "Waitlist",
+      "url": "/#waitlist",
+      "icons": [{ "src": "/stateproof/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "How it works",
+      "short_name": "How it works",
+      "url": "/#how",
+      "icons": [{ "src": "/stateproof/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Questions",
+      "short_name": "Questions",
+      "url": "/#faq",
+      "icons": [{ "src": "/stateproof/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

@@ -12,6 +12,11 @@ const STATEPROOF_REDIRECT_HOSTS = ['stateproof.app', 'www.stateproof.app']
 export async function middleware(request: NextRequest) {
   // Determine request path early and allow common assets/endpoints to bypass middleware
   const pathname = request.nextUrl.pathname
+  // StateProof domains get their own browser-tab icon instead of the Receipters one.
+  if (pathname === '/favicon.ico') {
+    const h = (request.headers.get('x-forwarded-host') || request.headers.get('host') || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '')
+    if (STATEPROOF_HOSTS.includes(h)) return NextResponse.rewrite(new URL('/stateproof/favicon.ico', request.url))
+  }
   if (
     pathname === '/maintenance' ||
     pathname === '/maintenance.html' ||
@@ -83,6 +88,6 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    '/((?!api|_next/static|_next/image).*)',
   ],
 }
