@@ -51,7 +51,7 @@
 .sp-langs button:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
 .sp-langs button[aria-pressed="true"] { background: #fff; color: var(--sp-field-2); font-weight: 600; }
 .sp-navbar { background: #dcebe4; border-top: 3px solid var(--sp-safe); border-bottom: 1px solid rgba(143, 181, 164, 0.6); }
-.sp-nav-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 80px; }
+.sp-nav-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 90px; }
 .sp-nav-links { display: flex; align-items: stretch; height: 100%; }
 .sp-nav-links a { display: inline-flex; align-items: center; padding: 0 14px; font-weight: 600; font-size: 16px; color: var(--sp-ink); text-decoration: none; }
 .sp-nav-links a:hover { background: rgba(255, 255, 255, 0.45); }
@@ -74,6 +74,10 @@
   color: var(--sp-field);
 }
 .sp-mark { width: 34px; height: 34px; color: var(--sp-field); flex: none; }
+.sp-navbar .sp-mark { width: 66px; height: 66px; }
+.sp-navbar .sp-brand { font-size: 24px; gap: 12px; }
+@media (max-width: 600px) { .sp-navbar .sp-mark { width: 52px; height: 52px; } .sp-navbar .sp-brand { font-size: 20px; } }
+.sp-footer .sp-mark { width: 48px; height: 48px; }
 .sp-lang {
   background: none;
   border: 0;
