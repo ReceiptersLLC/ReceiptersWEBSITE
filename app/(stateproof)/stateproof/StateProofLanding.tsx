@@ -25,7 +25,7 @@ function status(total: number, limit: number) {
   return "safe" as const;
 }
 
-export type View = "home" | "about" | "privacy" | "cookies";
+export type View = "home" | "about" | "privacy" | "terms" | "cookies";
 
 export default function StateProofLanding({ view = "home" }: { view?: View }) {
   const [lang, setLang] = useState<Lang>("en");
@@ -106,7 +106,7 @@ export default function StateProofLanding({ view = "home" }: { view?: View }) {
 
       {view === "about" ? (
         <AboutPage lang={lang} />
-      ) : view === "privacy" || view === "cookies" ? (
+      ) : view === "privacy" || view === "terms" || view === "cookies" ? (
         <LegalPage view={view} lang={lang} />
       ) : (
       <main id="top">
@@ -204,13 +204,17 @@ export default function StateProofLanding({ view = "home" }: { view?: View }) {
 
       <footer className="sp-footer">
         <div className="sp-wrap">
+          <AppBand t={t} />
           <div className="sp-footer-grid">
             <div className="sp-footer-brand">
-              <div className="sp-brand sp-brand-footer">
+              <a href={view === "home" ? "#top" : "/"} className="sp-brand sp-brand-footer" aria-label="StateProof">
                 <Mark size="small" />
                 <span>StateProof</span>
-              </div>
+              </a>
               <p className="sp-footer-lead">{t.footerTagline}</p>
+              <a href={`${home}#waitlist`} className="sp-btn sp-btn-light sp-footer-cta">
+                {t.navJoin}
+              </a>
               <div className="sp-seal-note">
                 <svg className="sp-seal-big" viewBox="0 0 32 32" aria-hidden="true">
                   <circle cx="16" cy="16" r="15" fill="var(--sp-field)" />
@@ -225,29 +229,54 @@ export default function StateProofLanding({ view = "home" }: { view?: View }) {
             <nav className="sp-footer-col" aria-label={t.footerProduct}>
               <h2>{t.footerProduct}</h2>
               <a href={`${home}#how`}>{t.navHow}</a>
+              <a href={`${home}#why`}>{t.footerWhy}</a>
+              <a href={`${home}#who`}>{t.footerWho}</a>
               <a href={`${home}#faq`}>{t.navFaq}</a>
               <a href={`${home}#waitlist`}>{t.navJoin}</a>
             </nav>
-            <div className="sp-footer-col">
+            <nav className="sp-footer-col" aria-label={t.footerCompany}>
               <h2>{t.footerCompany}</h2>
               <a href="/about">{t.navAbout}</a>
-              <p>Receipters LLC</p>
-              <p>{t.footerAddress}</p>
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-              <a href="https://www.receipters.com">receipters.com</a>
-            </div>
+              <a href={`mailto:${CONTACT_EMAIL}`}>{t.footerContactUs}</a>
+              <a href="https://www.receipters.com">{t.footerParent}</a>
+            </nav>
             <nav className="sp-footer-col" aria-label={t.footerLegal}>
               <h2>{t.footerLegal}</h2>
-              <a href="/privacy-notice">{t.footerPrivacy}</a>
-              <a href="/cookies">{t.footerCookies}</a>
+              <a href="/privacy-notice" aria-current={view === "privacy" ? "page" : undefined}>{t.footerPrivacy}</a>
+              <a href="/terms-of-service" aria-current={view === "terms" ? "page" : undefined}>{t.footerTerms}</a>
+              <a href="/cookies" aria-current={view === "cookies" ? "page" : undefined}>{t.footerCookies}</a>
             </nav>
+            <div className="sp-footer-col">
+              <h2>{t.footerContact}</h2>
+              <p className="sp-footer-label">{t.footerWrite}</p>
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              <p className="sp-footer-label">{t.footerVisit}</p>
+              <address>
+                Receipters LLC
+                <br />
+                355 Ridgewood Ave, Suite 1
+                <br />
+                Newark, NJ 07112
+              </address>
+            </div>
           </div>
           <div className="sp-footer-bottom">
             <p>
-              © {new Date().getFullYear()} Receipters LLC. {t.footerRights}
+              © {new Date().getFullYear()} Receipters LLC. {t.footerRights} {t.footerMade}
             </p>
-            <p>{t.footerDisclaimer}</p>
+            <div className="sp-footer-tools">
+              <span className="sp-langs" role="group" aria-label={t.footerLanguage}>
+                <button type="button" aria-pressed={lang === "en"} onClick={() => chooseLang("en")} lang="en">
+                  English
+                </button>
+                <button type="button" aria-pressed={lang === "es"} onClick={() => chooseLang("es")} lang="es">
+                  Español
+                </button>
+              </span>
+              <a href="#top" className="sp-footer-top">{t.footerTop} ↑</a>
+            </div>
           </div>
+          <p className="sp-footer-disclaimer">{t.footerDisclaimer}</p>
         </div>
       </footer>
     </div>
@@ -402,7 +431,7 @@ function Waitlist({ t, lang }: { t: (typeof copy)["en"]; lang: Lang }) {
 function WhySection({ lang }: { lang: Lang }) {
   const w = aboutCopy[lang].why;
   return (
-    <section className="sp-band">
+    <section id="why" className="sp-band">
       <div className="sp-wrap">
         <h2 className="sp-h2">{w.title}</h2>
         <p className="sp-section-intro">{w.intro}</p>
@@ -415,7 +444,7 @@ function WhySection({ lang }: { lang: Lang }) {
             </div>
           ))}
         </div>
-        <h3 className="sp-h3 sp-for-title">{w.forTitle}</h3>
+        <h3 id="who" className="sp-h3 sp-for-title">{w.forTitle}</h3>
         <div className="sp-three">
           {w.segments.map((s) => (
             <div key={s.title} className="sp-problem">
@@ -494,7 +523,7 @@ function AboutPage({ lang }: { lang: Lang }) {
   );
 }
 
-function LegalPage({ view, lang }: { view: "privacy" | "cookies"; lang: Lang }) {
+function LegalPage({ view, lang }: { view: "privacy" | "terms" | "cookies"; lang: Lang }) {
   const doc = legal[lang][view];
   return (
     <main id="top" className="sp-section">
@@ -512,5 +541,72 @@ function LegalPage({ view, lang }: { view: "privacy" | "cookies"; lang: Lang }) 
         ))}
       </article>
     </main>
+  );
+}
+
+type InstallEvent = Event & { prompt: () => Promise<void>; userChoice: Promise<{ outcome: string }> };
+
+// "Get the app" band: installs the StateProof web app where the browser allows it,
+// and explains Add to Home Screen where it doesn't (iPhone and iPad).
+function AppBand({ t }: { t: (typeof copy)["en"] }) {
+  const [deferred, setDeferred] = useState<InstallEvent | null>(null);
+  const [installed, setInstalled] = useState(false);
+  const [ios, setIos] = useState(false);
+
+  useEffect(() => {
+    setIos(/iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1));
+    if (window.matchMedia?.("(display-mode: standalone)").matches) setInstalled(true);
+    const onPrompt = (e: Event) => {
+      e.preventDefault();
+      setDeferred(e as InstallEvent);
+    };
+    const onInstalled = () => {
+      setInstalled(true);
+      setDeferred(null);
+    };
+    window.addEventListener("beforeinstallprompt", onPrompt);
+    window.addEventListener("appinstalled", onInstalled);
+    return () => {
+      window.removeEventListener("beforeinstallprompt", onPrompt);
+      window.removeEventListener("appinstalled", onInstalled);
+    };
+  }, []);
+
+  const install = async () => {
+    if (!deferred) return;
+    await deferred.prompt();
+    const choice = await deferred.userChoice;
+    if (choice.outcome === "accepted") setInstalled(true);
+    setDeferred(null);
+  };
+
+  return (
+    <div className="sp-appband">
+      <div className="sp-appband-text">
+        <h2>{t.footerAppTitle}</h2>
+        <p>{t.footerAppBody}</p>
+      </div>
+      <div className="sp-appband-actions">
+        {installed ? (
+          <p className="sp-app-done">{t.footerInstalled}</p>
+        ) : deferred ? (
+          <button type="button" className="sp-btn sp-btn-light" onClick={install}>
+            {t.footerInstall}
+          </button>
+        ) : (
+          <p className="sp-app-help">{ios ? t.footerIosHelp : t.footerOtherHelp}</p>
+        )}
+        <ul className="sp-stores">
+          <li>
+            <span className="sp-store-name">{t.footerIos}</span>
+            <span className="sp-store-soon">{t.footerSoon}</span>
+          </li>
+          <li>
+            <span className="sp-store-name">{t.footerAndroid}</span>
+            <span className="sp-store-soon">{t.footerSoon}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 }
