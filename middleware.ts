@@ -38,6 +38,7 @@ export async function middleware(request: NextRequest) {
   if (STATEPROOF_HOSTS.includes(host)) {
     if (pathname === '/') return NextResponse.rewrite(new URL('/stateproof', request.url))
     if (STATEPROOF_PAGES.includes(pathname)) return NextResponse.rewrite(new URL(`/stateproof${pathname}`, request.url))
+    if (pathname === '/states' || /^\/states\/[a-z-]+$/.test(pathname)) return NextResponse.rewrite(new URL(`/stateproof${pathname}`, request.url))
     // Static files for the page (icon) are allowed; every other address goes to the landing page.
     if (pathname.startsWith('/stateproof/') && /\.[a-z0-9]+$/i.test(pathname)) return NextResponse.next()
     return NextResponse.redirect(`https://${host}/`, 308)
