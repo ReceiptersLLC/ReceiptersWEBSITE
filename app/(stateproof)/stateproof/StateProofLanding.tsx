@@ -3,6 +3,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { CHANNELS, SALES_BANDS, copy, type Lang } from "./copy";
 import { legal } from "./legal";
+import { aboutCopy } from "./about";
 
 const CONTACT_EMAIL = "info@receipters.com";
 
@@ -24,7 +25,7 @@ function status(total: number, limit: number) {
   return "safe" as const;
 }
 
-export type View = "home" | "privacy" | "cookies";
+export type View = "home" | "about" | "privacy" | "cookies";
 
 export default function StateProofLanding({ view = "home" }: { view?: View }) {
   const [lang, setLang] = useState<Lang>("en");
@@ -87,6 +88,12 @@ export default function StateProofLanding({ view = "home" }: { view?: View }) {
               <span>StateProof</span>
             </a>
             <div className="sp-nav-links">
+              <a href="/" aria-current={view === "home" ? "page" : undefined}>
+                {t.navHome}
+              </a>
+              <a href="/about" aria-current={view === "about" ? "page" : undefined}>
+                {t.navAbout}
+              </a>
               <a href={`${home}#how`}>{t.navHow}</a>
               <a href={`${home}#faq`}>{t.navFaq}</a>
               <a href={`${home}#waitlist`} className="sp-nav-cta">
@@ -97,7 +104,9 @@ export default function StateProofLanding({ view = "home" }: { view?: View }) {
         </nav>
       </header>
 
-      {view !== "home" ? (
+      {view === "about" ? (
+        <AboutPage lang={lang} />
+      ) : view === "privacy" || view === "cookies" ? (
         <LegalPage view={view} lang={lang} />
       ) : (
       <main id="top">
@@ -156,7 +165,9 @@ export default function StateProofLanding({ view = "home" }: { view?: View }) {
           </div>
         </section>
 
-        <section id="how" className="sp-section sp-section-tight">
+        <WhySection lang={lang} />
+
+        <section id="how" className="sp-section">
           <div className="sp-wrap">
             <h2 className="sp-h2">{t.stepsTitle}</h2>
             <ol className="sp-steps">
@@ -219,6 +230,7 @@ export default function StateProofLanding({ view = "home" }: { view?: View }) {
             </nav>
             <div className="sp-footer-col">
               <h2>{t.footerCompany}</h2>
+              <a href="/about">{t.navAbout}</a>
               <p>Receipters LLC</p>
               <p>{t.footerAddress}</p>
               <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
@@ -387,7 +399,102 @@ function Waitlist({ t, lang }: { t: (typeof copy)["en"]; lang: Lang }) {
   );
 }
 
-function LegalPage({ view, lang }: { view: Exclude<View, "home">; lang: Lang }) {
+function WhySection({ lang }: { lang: Lang }) {
+  const w = aboutCopy[lang].why;
+  return (
+    <section className="sp-band">
+      <div className="sp-wrap">
+        <h2 className="sp-h2">{w.title}</h2>
+        <p className="sp-section-intro">{w.intro}</p>
+        <div className="sp-compare">
+          {w.options.map((o) => (
+            <div key={o.name} className={`sp-option${"ours" in o && o.ours ? " is-ours" : ""}`}>
+              <p className="sp-option-verdict">{o.verdict}</p>
+              <h3 className="sp-h3">{o.name}</h3>
+              <p>{o.body}</p>
+            </div>
+          ))}
+        </div>
+        <h3 className="sp-h3 sp-for-title">{w.forTitle}</h3>
+        <div className="sp-three">
+          {w.segments.map((s) => (
+            <div key={s.title} className="sp-problem">
+              <h4 className="sp-h4">{s.title}</h4>
+              <p>{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AboutPage({ lang }: { lang: Lang }) {
+  const a = aboutCopy[lang].about;
+  return (
+    <main id="top">
+      <section className="sp-hero sp-about-hero">
+        <div className="sp-wrap">
+          <h1 className="sp-h1 sp-about-h1">{a.title}</h1>
+          <p className="sp-lead">{a.lead}</p>
+        </div>
+      </section>
+      <section className="sp-band">
+        <div className="sp-wrap sp-about-story">
+          <h2 className="sp-h2">{a.storyTitle}</h2>
+          <div>
+            {a.story.map((para) => (
+              <p key={para}>{para}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="sp-section">
+        <div className="sp-wrap">
+          <h2 className="sp-h2">{a.beliefsTitle}</h2>
+          <div className="sp-two">
+            {a.beliefs.map((b) => (
+              <div key={b.title} className="sp-panel">
+                <h3 className="sp-h3">{b.title}</h3>
+                <p className="sp-panel-body">{b.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="sp-section sp-section-tight">
+        <div className="sp-wrap sp-two">
+          <div className="sp-panel">
+            <h2 className="sp-h3">{a.teamTitle}</h2>
+            <p className="sp-founder">
+              <strong>{a.founderName}</strong>
+              <span>{a.founderRole}</span>
+            </p>
+            <p className="sp-panel-body">{a.founderBio}</p>
+            <p className="sp-panel-body">{a.teamBody}</p>
+          </div>
+          <div className="sp-panel">
+            <h2 className="sp-h3">{a.securityTitle}</h2>
+            <p className="sp-panel-body">{a.securityBody}</p>
+          </div>
+        </div>
+      </section>
+      <section className="sp-waitlist">
+        <div className="sp-wrap sp-about-cta">
+          <div>
+            <h2 className="sp-h2 sp-on-dark">{a.ctaTitle}</h2>
+            <p className="sp-on-dark-muted">{a.ctaBody}</p>
+          </div>
+          <a href="/#waitlist" className="sp-btn sp-btn-light">
+            {a.ctaButton}
+          </a>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function LegalPage({ view, lang }: { view: "privacy" | "cookies"; lang: Lang }) {
   const doc = legal[lang][view];
   return (
     <main id="top" className="sp-section">
