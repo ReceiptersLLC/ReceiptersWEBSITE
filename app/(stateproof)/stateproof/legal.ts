@@ -30,7 +30,7 @@ const en: { privacy: Doc; cookies: Doc; terms: Doc } = {
       {
         h: "Why we use it",
         p: [
-          "To contact you about StateProof's pilot and launch, to send you the free check we offer early sellers, and to understand which sellers need StateProof most.",
+          "To send you one welcome email right after you join, in English and Spanish, to contact you about StateProof's pilot and launch, to send you the free check we offer early sellers, and to understand which sellers need StateProof most.",
           "We do not sell your information or share it for advertising.",
         ],
       },
@@ -206,7 +206,7 @@ const es: typeof en = {
       {
         h: "Para qué los usamos",
         p: [
-          "Para contactarte sobre el piloto y el lanzamiento de StateProof, enviarte la revisión gratuita que ofrecemos a los primeros vendedores y entender qué vendedores necesitan más StateProof.",
+          "Para enviarte un correo de bienvenida justo después de unirte, en español e inglés, para contactarte sobre el piloto y el lanzamiento de StateProof, enviarte la revisión gratuita que ofrecemos a los primeros vendedores y entender qué vendedores necesitan más StateProof.",
           "No vendemos tu información ni la compartimos con fines publicitarios.",
         ],
       },

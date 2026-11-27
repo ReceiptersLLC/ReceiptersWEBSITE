@@ -100,7 +100,7 @@ const en = {
   },
   formSubmit: "Join the waitlist",
   formSending: "Sending…",
-  formSent: "You're on the list. We will email you before the pilot opens.",
+  formSent: "You're on the list. We've sent a welcome email in English and Spanish, and we'll email you before the pilot opens.",
   formFailed: "That didn't go through. Please email us at",
   formPrivacy:
     "We use these details only to contact you about StateProof. We don't sell them, and you can ask us to delete them at any time.",
@@ -305,7 +305,7 @@ const es: typeof en = {
   },
   formSubmit: "Únete a la lista de espera",
   formSending: "Enviando…",
-  formSent: "Ya estás en la lista. Te escribiremos antes de que abra el piloto.",
+  formSent: "Ya estás en la lista. Te enviamos un correo de bienvenida en español e inglés, y te escribiremos antes de que abra el piloto.",
   formFailed: "No se pudo enviar. Escríbenos a",
   formPrivacy:
     "Usamos estos datos solo para contactarte sobre StateProof. No los vendemos y puedes pedirnos que los eliminemos en cualquier momento.",
