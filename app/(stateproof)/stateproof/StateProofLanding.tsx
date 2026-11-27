@@ -167,6 +167,22 @@ export default function StateProofLanding({ view = "home", slug }: { view?: View
                   ))}
                 </ul>
               </div>
+              <div className="sp-panel sp-panel-ai">
+                <h3 className="sp-h3">{t.doesAiTitle}</h3>
+                <ul className="sp-list">
+                  {t.doesAi.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="sp-panel">
+                <h3 className="sp-h3">{t.doesBooksTitle}</h3>
+                <ul className="sp-list">
+                  {t.doesBooks.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </section>

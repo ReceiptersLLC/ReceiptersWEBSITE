@@ -437,3 +437,11 @@
 .sp-state-steps li::marker { color: var(--sp-safe); font-weight: 700; }
 .sp-state-hero { padding-bottom: 32px; }
 .sp-state-hero + .sp-section { padding-top: 24px; }
+
+/* The AI panel on the home page */
+.sp-panel-ai { background: var(--sp-field); border-color: var(--sp-field); color: rgba(255, 255, 255, 0.9); }
+.sp-panel-ai .sp-h3 { color: #fff; }
+.sp-panel-ai .sp-list li { color: rgba(255, 255, 255, 0.9); }
+.sp-panel-ai .sp-list li { border-top-color: rgba(255, 255, 255, 0.18); }
+.sp-panel-ai .sp-list li:first-child { border-top: 0; }
+.sp-panel-ai .sp-list li::before { border-color: var(--sp-market); }

@@ -14,11 +14,11 @@ const en = {
   navAbout: "About us",
   navHow: "How it works",
   navFaq: "Questions",
-  stripTag: "Sales tax limits and IRS-ready receipts for US online sellers",
-  heroKicker: "For US online sellers",
+  stripTag: "AI for sales tax limits and IRS-ready books, for US online sellers",
+  heroKicker: "AI for US online sellers",
   heroTitle: "Know every state you owe sales tax in, before it becomes a debt.",
   heroBody:
-    "StateProof adds up your sales from Shopify, Amazon and your own store, state by state, and tells you before you cross a state's limit. It also keeps the receipts that prove your expenses to the IRS.",
+    "StateProof AI adds up your sales from Shopify, Amazon and your own store, state by state, and forecasts when you'll cross each state's limit. It sorts your receipts, organizes your books the way you like them, and gets you ready for tax time and audits.",
   heroCta: "Join the waitlist",
   heroNote: "Launching in 2027. Early sellers get a free check of their store.",
   boardTitle: "Example store, last 12 months",
@@ -45,7 +45,21 @@ const en = {
       body: "To deduct an expense you need the receipt, usually for three years and sometimes longer. Receipts scattered across email, paper and phones get lost.",
     },
   ],
-  doesTitle: "What StateProof does",
+  doesTitle: "What StateProof AI does",
+  doesAiTitle: "Thinks ahead for you",
+  doesAi: [
+    "Forecasts the month you'll cross each state's limit, from your sales pace",
+    "Answers questions like \"Do I need to register in Texas?\" from your own numbers",
+    "Sorts receipts into tax categories and learns how you file them",
+    "Scores how ready you are for tax time and an audit, and lists what's missing",
+  ],
+  doesBooksTitle: "Organizes your books your way",
+  doesBooks: [
+    "A workbook grouped by month, category or vendor: you choose",
+    "Expenses summarized the way a Schedule C return lists them",
+    "One export for your accountant, with totals by category",
+    "Snap a receipt and StateProof AI suggests where it goes",
+  ],
   doesThresholdTitle: "Watches every state line",
   doesThreshold: [
     "Combines Shopify, Amazon, Etsy and your own store into one total per state",
@@ -90,6 +104,14 @@ const en = {
   faqTitle: "Questions",
   faqs: [
     {
+      q: "What does the AI in StateProof do?",
+      a: "StateProof AI forecasts when you'll cross each state's limit, answers questions about your sales and the state rules, sorts your receipts into tax categories and checks how ready your books are for tax time. Its answers come from your own numbers and the state rules we check, and it shows where each answer comes from.",
+    },
+    {
+      q: "Is my data used to train AI?",
+      a: "We don't sell your data or give it to other AI companies to train their models. StateProof AI runs on Receipters systems.",
+    },
+    {
       q: "Is StateProof tax advice?",
       a: "No. StateProof monitors your sales and records and tells you what the rules say. For decisions about your own taxes, talk to a tax professional.",
     },
@@ -110,7 +132,7 @@ const en = {
   footerAddress: "355 Ridgewood Ave, Suite 1, Newark, NJ 07112",
   footerContact: "Contact",
   footerDisclaimer: "StateProof provides monitoring and record-keeping, not tax or legal advice.",
-  footerTagline: "Sales tax limits and IRS-ready receipts for US online sellers.",
+  footerTagline: "AI for sales tax limits and IRS-ready books, for US online sellers.",
   footerProduct: "Product",
   footerCompany: "Company",
   footerLegal: "Legal",
@@ -148,11 +170,11 @@ const es: typeof en = {
   navAbout: "Sobre nosotros",
   navHow: "Cómo funciona",
   navFaq: "Preguntas",
-  stripTag: "Límites del impuesto sobre las ventas y recibos listos para el IRS",
-  heroKicker: "Para vendedores en línea en EE. UU.",
+  stripTag: "IA para los límites del impuesto sobre las ventas y libros listos para el IRS",
+  heroKicker: "IA para vendedores en línea en EE. UU.",
   heroTitle: "Descubre en qué estados debes impuesto sobre las ventas antes de que se convierta en una deuda.",
   heroBody:
-    "StateProof suma tus ventas de Shopify, Amazon y tu propia tienda, estado por estado, y te avisa antes de que superes el límite de un estado. También guarda los recibos que prueban tus gastos ante el IRS.",
+    "StateProof AI suma tus ventas de Shopify, Amazon y tu propia tienda, estado por estado, y prevé cuándo superarás el límite de cada estado. Clasifica tus recibos, organiza tus libros como prefieras y te prepara para la temporada de impuestos y las auditorías.",
   heroCta: "Únete a la lista de espera",
   heroNote: "Lanzamiento en 2027. Los primeros vendedores reciben una revisión gratuita de su tienda.",
   boardTitle: "Tienda de ejemplo, últimos 12 meses",
@@ -179,7 +201,21 @@ const es: typeof en = {
       body: "Para deducir un gasto necesitas el recibo, normalmente durante tres años y a veces más. Los recibos dispersos entre correos, papel y teléfonos se pierden.",
     },
   ],
-  doesTitle: "Lo que hace StateProof",
+  doesTitle: "Lo que hace StateProof AI",
+  doesAiTitle: "Piensa por adelantado",
+  doesAi: [
+    "Prevé el mes en que superarás el límite de cada estado, según tu ritmo de ventas",
+    "Responde preguntas como \"¿Debo registrarme en Texas?\" con tus propias cifras",
+    "Clasifica los recibos en categorías fiscales y aprende cómo los archivas",
+    "Mide qué tan preparado estás para los impuestos y una auditoría, y te dice qué falta",
+  ],
+  doesBooksTitle: "Organiza tus libros a tu manera",
+  doesBooks: [
+    "Un libro de trabajo agrupado por mes, categoría o proveedor: tú eliges",
+    "Gastos resumidos como los presenta el anexo Schedule C",
+    "Una sola exportación para tu contador, con totales por categoría",
+    "Fotografía un recibo y StateProof AI sugiere dónde va",
+  ],
   doesThresholdTitle: "Vigila cada línea estatal",
   doesThreshold: [
     "Combina Shopify, Amazon, Etsy y tu propia tienda en un total por estado",
@@ -224,6 +260,14 @@ const es: typeof en = {
   faqTitle: "Preguntas",
   faqs: [
     {
+      q: "¿Qué hace la IA de StateProof?",
+      a: "StateProof AI prevé cuándo superarás el límite de cada estado, responde preguntas sobre tus ventas y las normas estatales, clasifica tus recibos en categorías fiscales y revisa qué tan listos están tus libros para la temporada de impuestos. Sus respuestas salen de tus propias cifras y de las normas estatales que revisamos, y muestra de dónde sale cada respuesta.",
+    },
+    {
+      q: "¿Se usan mis datos para entrenar IA?",
+      a: "No vendemos tus datos ni se los damos a otras empresas de IA para entrenar sus modelos. StateProof AI funciona en los sistemas de Receipters.",
+    },
+    {
       q: "¿StateProof es asesoría fiscal?",
       a: "No. StateProof supervisa tus ventas y registros y te dice lo que dicen las normas. Para decisiones sobre tus propios impuestos, consulta a un profesional fiscal.",
     },
@@ -244,7 +288,7 @@ const es: typeof en = {
   footerAddress: "355 Ridgewood Ave, Suite 1, Newark, NJ 07112",
   footerContact: "Contacto",
   footerDisclaimer: "StateProof ofrece supervisión y gestión de registros, no asesoría fiscal ni legal.",
-  footerTagline: "Límites del impuesto sobre las ventas y recibos listos para el IRS para vendedores en línea en EE. UU.",
+  footerTagline: "IA para los límites del impuesto sobre las ventas y libros listos para el IRS, para vendedores en línea en EE. UU.",
   footerProduct: "Producto",
   footerCompany: "Empresa",
   footerLegal: "Legal",
